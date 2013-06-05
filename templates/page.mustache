@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width" />
   <meta name="description" content="The bin-packing layout library. Packery makes your crazy and clever layout a real thing. Be clever. Get crazy." />
 
-  <title>Packery{{#unless page.is_homepage}} {{page.title}}{{/unless}}</title>
+  <title>Masonry{{#unless page.is_homepage}} {{page.title}}{{/unless}}</title>
 
-  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,700,400italic' rel='stylesheet'>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet'>
 
   {{#if isDev}}
     <!-- DEV MODE - including each .css file -->
@@ -23,22 +23,20 @@
 
   {{! Twitter Cards }}
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content="@metafizzyco" />
-  <meta name="twitter:url" content="http://packery.metafizzy.co/{{basename}}.html" />
-  <meta name="twitter:title" content="Packery{{#unless page.is_homepage}} {{page.title}}{{/unless}}" />
-  <meta name="twitter:description" content="The bin-packing layout library. Packery makes your crazy and clever layout a real thing. Be clever. Get crazy." />
+  <meta name="twitter:site" content="@desandro" />
+  <meta name="twitter:url" content="http://masonry.desandro.com/{{basename}}.html" />
+  <meta name="twitter:title" content="Masonry{{#unless page.is_homepage}} {{page.title}}{{/unless}}" />
+  <meta name="twitter:description" content="Cascading grid layout library" />
 
 </head>
 <body class="{{basename}}-page" data-page="{{basename}}">
 
   <div id="site-nav">
-    <h1><a href=".">Packery</a></h1>
+    <h1><a href=".">Masonry</a></h1>
     <ol class="primary-content">
       <li class="nav-options"><a href="options.html">Options</a></li>
       <li class="nav-methods"><a href="methods.html">Methods</a></li>
       <li class="nav-events"><a href="events.html">Events</a></li>
-      <li class="nav-draggable"><a href="draggable.html">Draggable</a></li>
-      <li class="nav-license"><a href="license.html">License</a></li>
       <li class="nav-appendix"><a href="appendix.html">Appendix</a></li>
       <li class="nav-faq"><a href="faq.html">FAQ</a></li>
     </ol>
@@ -74,15 +72,14 @@
   <div id="footer">
     <div class="footer-content">
       {{! logo is broken up so font renders just the logo in M }}
-      <a class="metafizzy-logo" href="http://metafizzy.co">M<span class="etafizzy">etafizzy</span></a>
+      <a href="http://desandro.com">David DeSandro</a>
       <span class="copyright">&copy; 2013</span>
     </div>
   </div>
 
-<!-- Packery does NOT require jQuery.
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-     jQuery is only used for jQuery UI Draggable
-     and to demonstrate Packery as a jQuery plugin -->
+<!-- Masonry does NOT require jQuery.
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+     jQuery is only used to demonstrate Masonry as a jQuery plugin -->
 <script>window.jQuery || document.write('<script src="components/jquery/jquery.min.js"><\/script>')</script>
 
 {{#if isDev}}
@@ -92,9 +89,7 @@
   {{/each}}
 {{else}}
   {{! in production, just include concat/minified js }}
-  <script src="js/packery-docs.min.js"></script>
-  {{! embedded purchase forms }}
-  <script src="https://www.simplegoods.co/assets/embed.js"></script>
+  <script src="js/masonry-docs.min.js"></script>
 {{/if}}
 
 

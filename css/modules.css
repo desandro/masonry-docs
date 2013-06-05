@@ -29,8 +29,8 @@
 
 /* ---- #content ---- */
 
-#content > .primary-content:nth-child(2n+1) {
-  background: hsla(0, 60%, 50%, 0.1);
+#content > .primary-content {
+  border-top: 2px solid #EFEDEB;
 }
 
 #content li {

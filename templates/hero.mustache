@@ -1,38 +1,29 @@
 <div id="hero">
   <div class="primary-content">
 
-    <div class="packery">
-      <div class="stamp stamp-p-top"></div>
-      <div class="stamp stamp-p-bottom"></div>
-      <div class="stamp stamp-ackery"></div>
-      <div class="stamp stamp-k"></div>
-      <div class="stamp stamp-y"></div>
-      <div class="stamp stamp-tagline"></div>
-    </div>
-
-    <h1>Packery</h1>
-    <p class="tagline">The bin-packing layout library</p>
+    <h1>Masonry</h1>
+    <p class="tagline">Cascading grid layout library</p>
 
     <ul class="big-ol-buttons row row3">
       <li class="cell download-js">
-        <a class="button" href="packery.pkgd.min.js">
+        <a class="button" href="masonry.pkgd.min.js">
           <i class="icon icon-file-download"></i>
-          Download packery.&#8203;pkgd.&#8203;min.js
+          Download masonry.&#8203;pkgd.&#8203;min.js
         </a>
       </li>
 
       {{! show download docs only in production }}
-      {{#unless isDev}}
+      {{!unless isDev}}
         <li class="cell download-docs">
-          <a class="button" href="packery-docs.zip">
+          <a class="button" href="masonry-docs.zip">
             <i class="icon icon-folder-download"></i>
             Download these docs
           </a>
         </li>
-      {{/unless}}
+      {{!unless}}
 
       <li class="cell github">
-        <a class="button" href="https://github.com/metafizzy/packery">
+        <a class="button" href="https://github.com/desandro/masonry">
           <i class="icon icon-github"></i>
           Packery on GitHub
         </a>
@@ -42,69 +33,3 @@
   </div> {{! .primary-content }}
 
 </div> {{! #hero }}
-
-<div id="hero-demos">
-  <div class="primary-content">
-
-    <p class="big-tagline tagline">Packery makes your crazy &amp; clever layout a real&nbsp;thing.
-      <strong>Be&nbsp;clever. Get&nbsp;crazy.</strong></p>
-
-    <div class="row row4">
-      <div class="cell masonry">
-        <div class="packery">
-          <div class="grid-sizer"></div>
-          <div class="item item1"></div>
-          <div class="item item2 w2"></div>
-          <div class="item item3 h2"></div>
-          <div class="item item4 w4"></div>
-          <div class="item item5 "></div>
-          <div class="item item6 h2"></div>
-          <div class="item item7 w2"></div>
-          <div class="item item8 w4"></div>
-        </div>
-      </div>
-      <div class="cell meticulous">
-        <div class="packery">
-          <div class="grid-sizer"></div>
-          <div class="item"></div>
-          <div class="item h2"></div>
-          <div class="item w2"></div>
-          <div class="item h2"></div>
-          <div class="item"></div>
-          <div class="item w2 h2"></div>
-          <div class="item w2 h2"></div>
-          <div class="item"></div>
-          <div class="item"></div>
-          <div class="item w2"></div>
-        </div>
-      </div>
-      <div class="cell basically">
-        <div class="packery">
-          <div class="item item1"></div>
-          <div class="item item2 w2"></div>
-          <div class="item item3 h2"></div>
-          <div class="item item4 w4"></div>
-          <div class="item item5 "></div>
-          <div class="item item6 h2"></div>
-          <div class="item item7"></div>
-          <div class="item item8 w2"></div>
-          <div class="item item9 w4"></div>
-          <div class="item item10"></div>
-        </div>
-      </div>
-      <div class="cell ridiculous">
-        <div class="packery">
-        </div>
-      </div>
-    </div> {{! .row }}
-
-    <div class="row row4">
-      <p class="cell tagline">Masonry,</p>
-      <p class="cell tagline">meticulous,</p>
-      <p class="cell tagline">basically</p>
-      <p class="cell tagline">ridiculous.</p>
-    </div>
-
-  </div> {{! .primary-content }}
-
-</div>  {{! #hero-demos }}

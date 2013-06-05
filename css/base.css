@@ -5,11 +5,11 @@
 }
 
 body {
-  font-family: 'Open Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
-  font-size: 15px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
+  font-size: 14px;
   line-height: 1.5;
-  color: #555;
-  background: #FAF3F5;
+  color: #333;
+  background: #D8D5D2;
 }
 
 /* margins */
@@ -23,16 +23,6 @@ pre {
 
 /* Fonts
 ------------------------- */
-
-@font-face {
-  font-family: 'Metafizzy Logo';
-  src: url('../fonts/metafizzylogo-regular.eot');
-  src: url('../fonts/metafizzylogo-regular.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/metafizzylogo-regular.woff') format('woff'),
-       url('../fonts/metafizzylogo-regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
 
 /* Montserrat */
 h1, h2, h3, h4, h5,
@@ -52,14 +42,14 @@ h1, h2, h3, h4, h5,
 
 a,
 a code {
-  color: #A80;
+  color: #A2C;
   text-decoration: none;
   background: hsla(30, 90%, 50%, 0.03);
 }
 
 a:hover,
 a:hover code {
-  color: #90C;
+  color: #D26;
 }
 
 
@@ -70,7 +60,6 @@ h1, h2, h3, h4 {
 }
 
 h1, h2 {
-  color: #C09;
 }
 
 h1 {

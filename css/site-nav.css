@@ -1,7 +1,6 @@
 /* ---- site nav ---- */
 
 #site-nav {
-  background: #C09;
 }
 
 #site-nav,
@@ -21,14 +20,13 @@
   float: left;
   text-align: center;
   font-size: 1.5em;
-  background: #C90;
   margin: 0;
 }
 
 #site-nav h1 a {
   padding: 0 0.8em;
   display: block;
-  color: white;
+  color: #D26;
 }
 
 #site-nav h1 a:hover {
@@ -60,7 +58,6 @@
 }
 
 #site-nav ol a {
-  color: white;
   display: block;
   padding: 0 1.0em;
 }
@@ -77,7 +74,7 @@
 .license-page #site-nav .nav-license a,
 .appendix-page #site-nav .nav-appendix a,
 .faq-page #site-nav .nav-faq a {
-  background: #90C;
+  color: white;
 }
 
 
