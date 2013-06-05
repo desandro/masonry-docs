@@ -4,18 +4,15 @@
   "nav": [
     "addItems",
     "appended",
-    "bindDraggabillyEvents",
     "bindResize",
-    "bindUIDraggableEvents",
     "destroy",
-    "fit",
     "getItemElements",
     "getItem",
     "layout",
     "layoutItems",
+    "Masonry.data",
     "off",
     "on",
-    "Packery.data",
     "prepended",
     "reloadItems",
     "remove",
@@ -154,27 +151,6 @@ eventie.bind( button, 'click', function() {
 
 </div><div class="primary-content">
 
-<h2 id="binddraggabillyevents">bindDraggabillyEvents</h2>
-
-``` js
-pckry.bindDraggabillyEvents( draggie )
-// or with jQuery
-$container.packery( 'bindDraggabillyEvents', draggie )
-```
-
-<ul class="params">
-  <li class="param">
-    <h5 class="param-name param-bit"><code>draggie</code></h5>
-    <p class="type param-bit">
-      <b>Type:</b> <span class="value"><i>Draggabilly</i></span>
-    </p>
-  </li>
-</ul>
-
-<p>Bind <a href="http://draggabilly.desandro.com">Draggabilly</a> events, so that the Packery instance will layout around the dragged element.</p>
-
-<p>See <a href="draggable.html#draggabilly">Draggable: Draggabilly</a> for more.</p>
-
 </div><div class="primary-content">
 
 <h2 id="bindresize">bindResize</h2>
@@ -186,29 +162,6 @@ $container.packery('bindResize')
 ```
 
 <p>Binds event listener to window <code>resize</code>, so layout is triggered when the browser window is resized.</p>
-
-</div><div class="primary-content">
-
-<h2 id="binduidraggableevents">bindUIDraggableEvents</h2>
-
-``` js
-pckry.bindUIDraggableEvents( $elements )
-// or with jQuery
-$container.packery( 'bindDraggabillyEvents', $elements )
-```
-
-<ul class="params">
-  <li class="param">
-    <h5 class="param-name param-bit"><code>$element</code></h5>
-    <p class="type param-bit">
-      <b>Type:</b> <span class="value"><i>jQuery</i></span>
-    </p>
-  </li>
-</ul>
-
-<p>Bind <a href="http://jqueryui.com/draggable/">jQuery UI Draggable</a> events, so that the Packery instance will layout around the dragged element.</p>
-
-<p>See <a href="draggable.html#jquery-ui-draggable">Draggable: jQuery UI Draggable</a> for more.</p>
 
 </div><div class="primary-content">
 
@@ -247,114 +200,6 @@ eventie.bind( button, 'click', function() {
       {{>demo-items}}
     </div>
     <p class="edit"><a href="http://codepen.io/desandro/pen/scKGf">Edit this example on CodePen</a></p>
-  </div>
-</div>
-
-</div><div class="primary-content">
-
-<h2 id="fit">fit</h2>
-
-``` js
-pckry.fit( element, x, y )
-// or with jQuery
-$container.packery( 'fit', element, x, y )
-```
-
-<ul class="params">
-  <li class="param">
-    <h5 class="param-name param-bit"><code>element</code></h5>
-    <p class="type param-bit">
-      <b>Type:</b>
-      <span class="value"><i>Element</i></span>
-    </p>
-  </li>
-  <li class="param">
-    <h5 class="param-name param-bit"><code>x</code></h5>
-    <p class="type param-bit">
-      <b>Type:</b>
-      <span class="value"><i>Number</i></span>
-    </p>
-    <p class="description param-bit">Horizontal position of element, optional</p>
-  </li>
-  <li class="param">
-    <h5 class="param-name param-bit"><code>y</code></h5>
-    <p class="type param-bit">
-      <b>Type:</b>
-      <span class="value"><i>Number</i></span>
-    </p>
-    <p class="description param-bit">Vertical position of element, optional</p>
-  </li>
-</ul>
-
-<p>Fit an item element within the layout, and have other item elements laid out around it. This method is useful when expanding an element, and keeping it in its same position.</p>
-
-<div class="row example">
-  <div class="cell example-code">
-``` js
-var container = document.querySelector('#fit-demo .packery');
-var pckry = new Packery( container );
-
-eventie.bind( container, 'click', function( event ) {
-  // don't proceed if item was not clicked on
-  var target = event.target;
-  if ( !classie.has( target, 'item' ) ) {
-    return;
-  }
-
-  var isGigante = classie.has( target, 'gigante' );
-  classie.toggleClass( target, 'gigante' );
-
-  if ( isGigante ) {
-    // if shrinking, just layout
-    pckry.layout();
-  } else {
-    // if expanding, fit it
-    pckry.fit( target );
-  }
-});
-```
-  </div>
-  <div id="fit-demo" class="cell demo">
-    <p class="instruction">Click item to toggle size</p>
-    <div class="packery clickable">
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/rwhjq">Edit example on CodePen</a></p>
-  </div>
-</div>
-
-<p>You can optionally set a new position of the element. <code>x</code> and <code>y</code> values are relative to the container.</p>
-
-<div class="row example">
-  <div class="cell example-code">
-``` js
-var container = document.querySelector('#fit-position-demo .packery');
-var pckry = new Packery( container );
-
-eventie.bind( container, 'click', function( event ) {
-  // don't proceed if item was not clicked on
-  var target = event.target;
-  if ( !classie.has( target, 'item' ) ) {
-    return;
-  }
-  // position item at 40, 40
-  pckry.fit( target, 40, 40 );
-});
-
-```
-  </div>
-  <div id="fit-position-demo" class="cell demo">
-    <p class="instruction">Click item to fit it at 40, 40</p>
-    <div class="packery clickable">
-      {{>demo-items}}
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/uspgI">Edit this example on CodePen</a></p>
   </div>
 </div>
 

@@ -2,8 +2,8 @@
 
 .demo .packery,
 .demo.packery {
-  background: #FDD;
-  background: hsla(45, 100%, 40%, 0.2);
+  background: white;
+  border-radius: 5px;
 }
 
 .demo .button {
@@ -56,38 +56,6 @@
 }
 
 #stamp-demo .item { opacity: 0.8; }
-
-/* ---- draggable ---- */
-
-.draggable .item {
-  cursor: move;
-}
-
-.draggable .item:hover {
-  border-color: white;
-}
-
-.packery.draggable .item.is-dragging,
-.packery.draggable .item.is-positioning-post-drag,
-.packery.draggable .item.ui-draggable-dragging {
-  border-color: white;
-  background: #09F;
-  z-index: 10;
-  box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.4);
-}
-
-/* ---- fit ---- */
-
-#fit-demo .item {
-  width: 25%;
-  height: 60px;
-}
-
-#fit-demo .item.gigante {
-  width: 100%;
-  background: #C90;
-  height: 90px;
-}
 
 /* ---- layout ---- */
 
@@ -184,10 +152,3 @@
   background: #C90;
 }
 
-/* ---- order after drag ---- */
-
-#order-after-drag-demo .item {
-  padding: 10px;
-  font-size: 20px;
-  color: white;
-}
