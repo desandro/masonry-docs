@@ -5,10 +5,10 @@ module.exports = function( grunt ) {
 
   // get banner comment from draggabilly.js
   var banner = ( function() {
-    var src = grunt.file.read('components/packery/js/packery.js');
+    var src = grunt.file.read('components/masonry/masonry.js');
     var re = new RegExp('^\\s*(?:\\/\\*[\\s\\S]*?\\*\\/)\\s*');
     var matches = src.match( re );
-    return matches[0].replace( 'Packery', 'Packery PACKAGED' );
+    return matches[0].replace( 'Masonry', 'Masonry PACKAGED' );
   })();
 
   grunt.initConfig({
@@ -21,25 +21,25 @@ module.exports = function( grunt ) {
     concat: {
       js: {
         src: [ 'js/controller.js', 'js/pages/*.js' ],
-        dest: 'build/js/packery-docs.js'
+        dest: 'build/js/masonry-docs.js'
       },
       pkgd: {
         // src will be set in package-sources task
-        dest: 'build/packery.pkgd.js',
+        dest: 'build/masonry.pkgd.js',
         options: {
           banner: banner
         }
       },
       css: {
         src: [ 'components/normalize-css/normalize.css', 'css/*.css' ],
-        dest: 'build/css/packery-docs.css'
+        dest: 'build/css/masonry-docs.css'
       }
     },
 
     uglify: {
       pkgd: {
         files: {
-          'build/packery.pkgd.min.js': [ 'build/packery.pkgd.js' ]
+          'build/masonry.pkgd.min.js': [ 'build/masonry.pkgd.js' ]
         },
         options: {
           banner: banner
@@ -47,7 +47,7 @@ module.exports = function( grunt ) {
       },
       js: {
         files: {
-          // 'build/js/packery-site.min.js' will be set in bower-list-map
+          // 'build/js/masonry-site.min.js' will be set in bower-list-map
         }
       }
     },

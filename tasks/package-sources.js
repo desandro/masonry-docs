@@ -1,24 +1,24 @@
 /**
  * package sources
- * creates packery.pkgd.js
- * concats and minifies all .js for Packery 
+ * creates masonry.pkgd.js
+ * concats and minifies all .js for Masonry
  */
 
 var organizeSources = require('./utils/organize-sources');
 
 module.exports = function( grunt ) {
 
-  // create packery.pkgd.js
+  // create masonry.pkgd.js
   grunt.registerTask( 'package-sources', function() {
-    // copy over just the packery obj
+    // copy over just the masonry obj
     var bowerMap = grunt.config.get('bowerMap');
-    var packeryMap = {
-      packery: bowerMap.packery
+    var masonryMap = {
+      masonry: bowerMap.masonry
     };
 
-    var packerySources = organizeSources( packeryMap );
-    // console.log( packerySources );
-    var srcs = packerySources['.js'];
+    var masonrySources = organizeSources( masonryMap );
+    // console.log( masonrySources );
+    var srcs = masonrySources['.js'];
     // filter out minified files, like EventEmitter.min.js
     srcs = srcs.filter( function( src ) {
       return src.indexOf('.min.js') === -1;

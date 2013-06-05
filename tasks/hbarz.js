@@ -36,8 +36,8 @@ module.exports = function( grunt ) {
       handlebars.registerPartial( name, src );
     });
 
-    // read packery's contributing file, convert to HTML
-    var submittingIssuesContent = marked( grunt.file.read('components/packery/contributing.md') );
+    // read masonry's contributing file, convert to HTML
+    var submittingIssuesContent = marked( grunt.file.read('components/masonry/CONTRIBUTING.mdown') );
     handlebars.registerPartial( 'submitting-issues', submittingIssuesContent );
 
     // properties made available for templating

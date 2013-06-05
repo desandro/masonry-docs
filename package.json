@@ -1,6 +1,6 @@
 {
-  "name": "packery-docs",
-  "version": "0.0.1",
+  "name": "masonry-docs",
+  "version": "3.0.0",
   "dependencies": {
     "grunt": "~0.4.0",
     "grunt-contrib-concat": "~0.1.3",
