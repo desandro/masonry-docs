@@ -1,0 +1,138 @@
+---
+{
+  "is_homepage": true,
+  "nav": [
+    "What is Packery?",
+    "Install",
+    "Commercial licensing",
+    "Getting started",
+    "jQuery"
+  ]
+}
+---
+
+<div id="what" class="primary-content">
+
+  <h2 id="what-is-packery">What is Packery?</h2>
+
+  <p>Packery is a JavaScript layout library that uses a bin-packing algorithm. This is a fancy way of saying &ldquo;it fills empty gaps.&rdquo; Packery layouts can be intelligently ordered or organically wild. Elements can be <a href="options.html#stamped">stamped</a> in place, <a href="methods.html#fit">fit</a> in an ideal spot, or <a href="draggable.html">dragged around</a>.</p>
+
+</div><div class="primary-content">
+
+<h2 id="install">Install</h2>
+
+<p>A packaged source file includes everything you need to use Packery.</p>
+
+<ul>
+  <li>
+    <a href="packery.pkgd.min.js">packery.pkgd.min.js</a> for production
+  </li>
+  <li>
+    <a href="packery.pkgd.js">packery.pkgd.js</a> for development
+  </li>
+</ul>
+
+<h3 id="bower">Bower</h3>
+
+<p>If you are familiar with the command line and build processes, Packery can be installed with <a href="http://twitter.github.com/bower">Bower</a>. Packery is built on dependencies. Bower takes care of these.</p>
+
+```
+bower install packery
+```
+
+</div><div class="primary-content">
+
+<h2 id="commercial-licensing">Commercial licensing</h2>
+
+<p>Packery may be used in commercial projects and applications with the one-time purchase of a commercial license. <a href="license.html">Read more about Packery commercial licensing.</a></p>
+
+<p>
+  {{>developer-buy-button}}
+
+  {{>org-buy-button}}
+</p>
+
+<p>Purchasing accepts most credit cards and takes seconds. Once purchased, you&rsquo;ll receive a commercial license PDF and you will be all set to use Packery in your commercial applications.</p>
+
+<p>For non-commercial, personal, or open source projects and applications, you may use Packery under the terms of the MIT License. You may use Packery for free.</p>
+
+</div><div class="primary-content">
+
+<h2 id="getting-started">Getting started</h2>
+
+<h3 id="html">HTML</h3>
+
+<p>Packery works on a container element with a group of similar child items.</p>
+
+``` html
+<div id="container">
+  <div class="item">...</div>
+  <div class="item w2">...</div>
+  <div class="item">...</div>
+  ...
+</div>
+```
+
+<p>Include the Packery script in your site.</p>
+
+``` html
+<script src="/path/to/packery.pkgd.min.js"></script>
+```
+
+<h3 id="css">CSS</h3>
+
+<p>All sizing of items is handled by your CSS.</p>
+
+``` css
+.item { width: 25%; }
+.item.w2 { width: 50%; }
+```
+
+<h3 id="javascript">Initialize with JavaScript</h3>
+
+<p>Initialize a Packery instance with <code><span class="keyword">new</span> Packery( element, options )</code>. The <code>Packery</code> constructor accepts two arguments: the container element and an <a href="options.html">options</a> object.</p>
+
+``` js
+var container = document.querySelector('#container');
+var pckry = new Packery( container, {
+  // options
+  itemSelector: '.item',
+  gutter: 10
+});
+```
+
+<h3 id="init-with-html">Initialize in HTML</h3>
+
+<p>You can initialize Packery in HTML, without writing any JavaScript. Simply add <code>js-packery</code> to the class of the container element. <a href="options.html">Options</a> can be set with a <code>data-packery-options</code> attribute.</p>
+
+``` html
+<div id="container" class="js-packery"
+  data-packery-options='{ "itemSelector": ".item", "gutter": 10 }'>
+```
+
+<p><strong>Options set in HTML must be valid JSON.</strong> Keys need to be quoted, for example <code><span class="string">"itemSelector"</span>:</code>. Note that the attribute value uses single quotes <code>'</code>, but the JSON entities use double-quotes <code>"</code>.</p>
+
+<p>That&rsquo;s it! Now let&rsquo;s do some fun stuff with <a href="options.html">options</a> and <a href="methods.html">methods</a>.</p>
+
+</div><div class="primary-content">
+
+<h2 id="jquery">jQuery</h2>
+
+<p>jQuery is <strong>not</strong> required to use Packery. But if you do enjoy jQuery, Packery works with it as a jQuery plugin.</p>
+
+``` js
+var $container = $('#container');
+// initialize
+$container.packery({
+  itemSelector: '.item',
+  gutter: 10
+});
+```
+
+<p>Get the Packery instance with <code>.data(<span class="string">'packery'</span>)</code>.</p>
+
+``` js
+var pckry = $container.data('packery');
+```
+
+</div>

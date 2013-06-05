@@ -1,0 +1,16 @@
+{
+  "browser": true,
+  "devel": true,
+  "strict": true,
+  "undef": true,
+  "unused": true,
+  "predef": {
+    "classie": false,
+    "docReady": false,
+    "Draggabilly": false,
+    "eventie": false,
+    "getSize": false,
+    "getStyleProperty": false,
+    "Packery": false
+  }
+}

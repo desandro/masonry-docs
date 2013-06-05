@@ -1,0 +1,142 @@
+---
+{
+  "title": "FAQ",
+  "nav": [
+    "Overlapping",
+    "Browser support",
+    "Difference between Isotope and Packery",
+    "Animate item width or height",
+    "Order after drag"
+  ]
+}
+---
+
+
+<div class="primary-content">
+
+  <h2 id="overlapping">How do I fix overlapping item elements?</h2>
+
+  <p>You need to initialize or <a href="methods.html#layout">trigger `.layout()`</a> after all the items have their proper size. If your elements have images, use <a href="appendix.html#imagesloaded">imagesLoaded</a>. See also <a href="appendix.html#web-fonts">Appendix - Web fonts</a>.</p>
+
+</div><div class="primary-content">
+
+  <h2 id="browser-support">What is Packery&rsquo;s browser support?</h2>
+
+  <p>Packery works in IE8+ and modern browsers, including mobile browsers on iOS and Android.</p>
+
+</div><div class="primary-content">
+
+  <h2 id="difference-between-isotope-and-packery">What is the difference between Isotope and Packery?</h2>
+
+  <p>Packery has a unique bin-packing layout algorithm and draggable interactions. <a href="http://isotope.metafizzy.co">Isotope</a> has filtering, sorting, and multiple layout algorithms (like Masonry).</p>
+
+  <p>Eventually, Packery will be added as a layout mode to Isotope, so you will be able to filter and sort Packery layouts with Isotope.</p>
+
+</div><div class="primary-content">
+
+  <h2 id="animate-item-width-or-height">How do I animate the width or height of item elements?</h2>
+
+  <p>You cannot transition or animate the size of an item element <em>and</em> properly lay out. But there is a trick &mdash; you can animate a child element of the item element.</p>
+
+  <div class="row example">
+    <div class="cell example-code">
+``` html
+<div class="packery">
+  <!-- items have item-content children element -->
+  <div class="item">
+    <div class="item-content"></div>
+  </div>
+  ...
+```
+``` css
+/* item is invisible, but used for layout
+item-content is visible, and transitions size */
+#animate-item-size .item,
+#animate-item-size .item-content {
+  width: 60px;
+  height: 60px;
+}
+#animate-item-size .item-content {
+  background: #09D;
+  transition: width 0.4s, height 0.4s;
+  /* -webkit-transition -moz, etc, too */
+}
+/* both item and item content change size */
+#animate-item-size .item.is-expanded,
+#animate-item-size .item.is-expanded .item-content {
+  width: 180px;
+  height: 120px;
+}
+```
+    </div>
+    <div id="animate-item-size" class="cell demo">
+      {{>animate-item-size-demo}}
+      <p class="edit"><a href="http://codepen.io/desandro/pen/rIfop">Edit this example</a> or <a href="http://codepen.io/desandro/pen/tfugk">example with jQuery</a>  on CodePen</p>
+    </div>
+  </div>
+
+  <p>This technique works on items with responsive, percentage widths. Although, it does require a bit more JS. <a href="http://codepen.io/desandro/pen/jGJKL">Check out the example on CodePen</a> to see how it&rsquo;s done.</p>
+
+  <div class="row example">
+    <div class="cell example-code">
+``` css
+#animate-item-size-responsive .item {
+  width: 20%;
+  height: 60px;
+}
+
+#animate-item-size-responsive .item-content {
+  width:  100%;
+  height: 100%;
+  background: #09D;
+  -webkit-transition: width 0.4s, height 0.4s;
+     -moz-transition: width 0.4s, height 0.4s;
+       -o-transition: width 0.4s, height 0.4s;
+          transition: width 0.4s, height 0.4s;
+}
+/* item has expanded size */
+#animate-item-size-responsive .item.is-expanded {
+  width: 60%;
+  height: 120px;
+}
+```
+    </div>
+    <div id="animate-item-size-responsive" class="cell demo">
+      {{>animate-item-size-demo}}
+      <p class="edit"><a href="http://codepen.io/desandro/pen/jGJKL">Edit this example on CodePen</a></p>
+    </div>
+
+  </div>
+
+
+</div><div class="primary-content">
+
+  <h2 id="order-after-drag">How do I get the order of item elements after dragging?</h2>
+
+  <p>Use <a href="methods.html#getitemelements"><code>.getItemElements()</code></a>.</p>
+
+  <div class="row example">
+    <div class="cell example-code">
+``` js
+// show item order after layout
+function orderItems() {
+  // items are in order within the layout
+  var itemElems = pckry.getItemElements();
+  // for this demo, let's set text based on their order
+  for ( var i=0, len = itemElems.length; i < len; i++ ) {
+    var elem = itemElems[i];
+    setText( elem, i + 1 );
+  }
+}
+// bind it to layoutComplete and dragItemPositioned
+pckry.on( 'layoutComplete', orderItems );
+pckry.on( 'dragItemPositioned', orderItems );
+```
+    </div>
+    <div id="order-after-drag-demo" class="cell demo">
+      {{>draggable-packery}}
+      <p class="edit"><a href="http://codepen.io/desandro/pen/mdJnF">Edit this example on CodePen</a></p>
+    </div>
+  </div>
+
+</div>

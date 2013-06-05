@@ -1,0 +1,200 @@
+.tagline {
+  font-size: 1.5em;
+  line-height: 1.35;
+  margin-bottom: 0.4em;
+}
+
+/* ---- button ---- */
+
+.button {
+  display: inline-block;
+  background: #C0E;
+  border: none;
+  padding: 0.8em 1.0em;
+  color: white;
+  text-shadow: 0 -1px hsla(0, 0%, 0%, 0.3);
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.button:hover {
+  background: #D3F;
+  color: white;
+}
+
+.button:active {
+  background: #B0D;
+  box-shadow: inset 0 1px 10px hsla(0, 0%, 0%, 0.6);
+}
+
+/* ---- #content ---- */
+
+#content > .primary-content:nth-child(2n+1) {
+  background: hsla(0, 60%, 50%, 0.1);
+}
+
+#content li {
+  margin-bottom: 0.2em;
+}
+
+/* ---- parameters ---- */
+
+.params {
+  padding: 0;
+  list-style: none;
+}
+
+.param {
+  background: hsla(145, 100%, 40%, 0.05);
+  border-top: 2px solid hsla(145, 100%, 40%, 0.4);
+  padding: 0.4em 0.8em;;
+  margin: 0;
+}
+
+.param,
+.param code {
+  font-size: 14px;
+}
+
+/* just one param */
+div.param {
+  margin-bottom: 0.4em;
+}
+
+.param-bit {
+  display: inline;
+  display: inline-block;
+  margin-bottom: 0;
+  margin-right: 1.0em;
+}
+
+.param-bit:last-child { margin-right: 0}
+
+.param-name {
+  font-size: 15px;
+  font-weight: normal;
+  color: #333;
+}
+
+.param-bit b {
+  font-weight: normal;
+}
+
+.param-bit.type .value {
+  color: #46A;
+}
+
+/* ---- packery ---- */
+
+.packery {
+}
+
+/* clearfix */
+.packery:before,
+.packery:after {
+  content: " ";
+  display: table;
+}
+
+.packery:after {
+  clear: both;
+}
+
+/* ---- packery items ---- */
+
+.packery .item {
+  width:  40px;
+  height: 40px;
+  float: left;
+  background: #C09;
+  border: 4px solid #333;
+  border-color: hsla(0, 0%, 0%, 0.3);
+}
+
+.packery .item.w2 { width:   80px; background: #9C0; }
+.packery .item.h2 { height:  80px; background: #0C9; }
+.packery .item.h4 { height: 160px; background: #C90; }
+.packery .item.w4 { width:  160px; background: #90C; }
+
+.packery .item.gigante {
+  width: 120px;
+  height: 160px;
+  z-index: 10; /* keep it above other items */
+}
+
+/* ---- examples ---- */
+
+/*
+.example pre {
+  margin-bottom: 0;
+}
+
+.example pre:nth-child(2n) {
+  background: hsla(0, 0%, 0%, 0.12);
+}
+*/
+
+
+/* ---- instruction ---- */
+
+.instruction {
+  font-size: 18px;
+  margin-bottom: 0.2em;
+  color: #AAA;
+}
+
+/* ---- notification ---- */
+
+#notification {
+  display: none; /* hide by default */
+  position: fixed;
+  z-index: 20; /* above most stuff */
+  bottom: 0px;
+  right: 0px;
+  background: #90C;
+  padding: 0.5em;
+  color: white;
+  font-size: 20px;
+  pointer-events: none;
+}
+
+/* ---- buy-button ---- */
+
+.buy-button {
+  padding: 0;
+  font-size: 17px;
+}
+
+.buy-button > * {
+  padding: 0.5em 0.8em;
+  display: inline-block;
+}
+
+.buy-button .price {
+  background: #C90;
+  text-align: center;
+  border-radius: 0 5px 5px 0;
+}
+
+.buy-button:hover .price { background: #EA0; }
+.buy-button:active .price {
+  background: #B80;
+  box-shadow: inset 0 1px 8px hsla(0, 0%, 0%, 0.4);
+}
+
+.buy-button .dollar {
+  font-size: 16px;
+  margin-right: 2px;
+}
+
+.buy-button .amount {
+  font-size: 20px;
+}
+
+/* ---- desktop media query ---- */
+
+@media screen and ( min-width: 960px ) {
+  .tagline {
+    font-size: 1.8em;
+  }
+}

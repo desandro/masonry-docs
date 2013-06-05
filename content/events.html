@@ -1,0 +1,219 @@
+---
+{
+  "title": "Events",
+  "nav": [
+    "dragItemPositioned",
+    "fitComplete",
+    "layoutComplete",
+    "removeComplete"
+  ]
+}
+---
+
+<div id="notification"></div>
+
+<div class="primary-content">
+
+<p>Packery is an Event Emitter. You can bind listeners to events with the <a href="methods.html#on">on</a> and <a href="methods.html#off">off</a> methods.</p>
+
+```js
+var pckry = new Packery( elem );
+
+function onLayout() {
+  console.log('layout done');
+}
+// bind event listener
+pckry.on( 'layoutComplete', onLayout );
+// un-bind event listener
+pckry.off( 'layoutComplete', onLayout );
+// return true to trigger an event listener just once
+pckry.on( 'layoutComplete', function() {
+  console.log('layout done, just this one time');
+  return true;
+});
+```
+
+</div><div class="primary-content">
+
+<h2 id="dragitempositioned">dragItemPositioned</h2>
+
+``` js
+pckry.on( 'dragItemPositioned', function( pckryInstance, draggedItem ) { //...
+// or with jQuery
+$container.packery( 'on', 'dragItemPositioned', function( pckryInstance, draggedItem ) {} )
+```
+
+<ul class="params">
+  <li class="param">
+    <h5 class="param-name param-bit"><code>pckryInstance</code></h5>
+    <p class="type param-bit">
+      <b>Type:</b> <span class="value"><i>Packery</i></span>
+    </p>
+    <p class="description param-bit">the Packery instance</p>
+  </li>
+  <li class="param">
+    <h5 class="param-name param-bit"><code>draggedItem</code></h5>
+    <p class="type param-bit">
+      <b>Type:</b> <span class="value"><i>Packery.Item</i></span>
+    </p>
+    <p class="description param-bit">the dragged item that was positioned</p>
+  </li>
+</ul>
+
+<p>Triggered after a drag end, only when an item is positioned, either into a row or column, or into its container element. This event is triggered after the positioning transition has ended.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+// set up Packery and Draggabillies
+// like the bindDraggabillyEvents demo, then...
+pckry.on( 'dragItemPositioned', function( pckryInstance, draggedItem ) {
+  console.log( 'Packery positioned dragged ' + draggedItem.element.nodeName );
+});
+```
+  </div>
+  <div id="drag-item-positioned-demo" class="cell demo">
+    {{>draggable-packery}}
+    <p class="edit"><a href="http://codepen.io/desandro/pen/zacdn">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+</div><div class="primary-content">
+
+<h2 id="fitcomplete">fitComplete</h2>
+
+``` js
+pckry.on( 'fitComplete', function( pckryInstance, item ) { //...
+// or with jQuery
+$container.packery( 'on', 'fitComplete', function( pckryInstance, item ) {} )
+```
+
+<ul class="params">
+  <li class="param">
+    <h5 class="param-name param-bit"><code>pckryInstance</code></h5>
+    <p class="type param-bit">
+      <b>Type:</b> <span class="value"><i>Packery</i></span>
+    </p>
+    <p class="description param-bit">the Packery instance</p>
+  </li>
+  <li class="param">
+    <h5 class="param-name param-bit"><code>item</code></h5>
+    <p class="type param-bit">
+      <b>Type:</b> <span class="value"><i>Packery.Item</i></span>
+    </p>
+    <p class="description param-bit">items that was fit</p>
+  </li>
+</ul>
+
+<p>Triggered after an item element is <a href="methods.html#fit">fit</a>.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+pckry.on( 'fitComplete', function( pckryInstance, item ) {
+  notify( 'fit ' + item.element.className );
+});
+```
+  </div>
+  <div id="fit-complete-demo" class="cell demo">
+    <p class="instruction">Click item to fit it at 40, 40</p>
+    <div class="packery clickable">
+      {{>demo-items}}
+    </div>
+  <p class="edit"><a href="http://codepen.io/desandro/pen/pqtvB">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+</div><div class="primary-content">
+
+<h2 id="layoutcomplete">layoutComplete</h2>
+
+``` js
+pckry.on( 'layoutComplete', function( pckryInstance, laidOutItems ) { //...
+// or with jQuery
+$container.packery( 'on', 'layoutComplete', function( pckryInstance, laidOutItems ) {} )
+```
+
+<ul class="params">
+  <li class="param">
+    <h5 class="param-name param-bit"><code>pckryInstance</code></h5>
+    <p class="type param-bit">
+      <b>Type:</b> <span class="value"><i>Packery</i></span>
+    </p>
+    <p class="description param-bit">the Packery instance</p>
+  </li>
+  <li class="param">
+    <h5 class="param-name param-bit"><code>laidOutItems</code></h5>
+    <p class="type param-bit">
+      <b>Type:</b> <span class="value"><i>Array</i> of <i>Packery.Item</i>s</span>
+    </p>
+    <p class="description param-bit">items that were laid out</p>
+  </li>
+</ul>
+
+<p>Triggered after a layout and all positioning transitions have been completed.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+pckry.on( 'layoutComplete', function( pckryInstance, laidOutItems ) {
+  console.log('Packery layout completed on ' + laidOutItems.length + ' items');
+});
+```
+  </div>
+  <div id="layout-complete-demo" class="cell demo">
+    <p class="instruction">Resize browser or click item to toggle size</p>
+    <div class="packery clickable">
+      {{>demo-items}}
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/hdxge">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+</div><div class="primary-content">
+
+<h2 id="removecomplete">removeComplete</h2>
+
+``` js
+pckry.on( 'removeComplete', function( pckryInstance, removedItems ) { //...
+// or with jQuery
+$container.packery( 'on', 'removeComplete', function( pckryInstance, removedItems ) {} )
+```
+
+<p>Triggered after an item element has been removed.</p>
+
+<ul class="params">
+  <li class="param">
+    <h5 class="param-name param-bit"><code>pckryInstance</code></h5>
+    <p class="type param-bit">
+      <b>Type:</b> <span class="value"><i>Packery</i></span>
+    </p>
+    <p class="description param-bit">the Packery instance</p>
+  </li>
+  <li class="param">
+    <h5 class="param-name param-bit"><code>removedItems</code></h5>
+    <p class="type param-bit">
+      <b>Type:</b> <span class="value"><i>Array</i> of <i>Packery.Item</i>s</span>
+    </p>
+    <p class="description param-bit">items that were removed</p>
+  </li>
+</ul>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+pckry.on( 'removeComplete', function( pckryInstance, removedItems ) {
+  console.log( 'Removed ' + removedItems.length + ' items' );
+});
+```
+  </div>
+  <div id="remove-complete-demo" class="cell demo">
+    <p class="instruction">Click items to remove them</p>
+    <div class="packery clickable">
+      {{>demo-items}}
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/JFCfb">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+</div>

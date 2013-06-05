@@ -1,0 +1,47 @@
+/* ---- page nav ---- */
+
+.index-page #page-nav a {
+  -webkit-transition: color 0.4s;
+     -moz-transition: color 0.4s;
+       -o-transition: color 0.4s;
+          transition: color 0.4s;
+}
+
+#page-nav.is-at-top a {
+  color: white;
+}
+
+/* ---- what is packery ---- */
+
+#what {
+  background: #0C9;
+}
+
+#what,
+#what h2 {
+  color: white;
+}
+
+#what p {
+  font-size: 1.15em;
+}
+
+#what a { color: #90C; }
+
+#what a:hover { color: #333; }
+
+/* ---- buy buttons ---- */
+
+.index-page .buy-button:first-child {
+  margin-right: 2.0em;
+}
+
+/* ---- desktop  ---- */
+
+@media screen and ( min-width: 960px ) {
+
+  .index-page #content > .primary-content:first-child {
+    padding: 0;
+  }
+
+}

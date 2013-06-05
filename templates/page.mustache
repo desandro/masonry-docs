@@ -1,0 +1,102 @@
+<!doctype html>
+<!--[if lte IE 8]>     <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class=""> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="description" content="The bin-packing layout library. Packery makes your crazy and clever layout a real thing. Be clever. Get crazy." />
+
+  <title>Packery{{#unless page.is_homepage}} {{page.title}}{{/unless}}</title>
+
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,700,400italic' rel='stylesheet'>
+
+  {{#if isDev}}
+    <!-- DEV MODE - including each .css file -->
+    {{#each site.css}}
+      <link rel="stylesheet" href="{{this}}" />
+    {{/each}}
+  {{else}}
+    {{! in production, just include concat CSS }}
+    <link rel="stylesheet" href="css/packery-docs.css" />
+  {{/if}}
+
+  {{! Twitter Cards }}
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@metafizzyco" />
+  <meta name="twitter:url" content="http://packery.metafizzy.co/{{basename}}.html" />
+  <meta name="twitter:title" content="Packery{{#unless page.is_homepage}} {{page.title}}{{/unless}}" />
+  <meta name="twitter:description" content="The bin-packing layout library. Packery makes your crazy and clever layout a real thing. Be clever. Get crazy." />
+
+</head>
+<body class="{{basename}}-page" data-page="{{basename}}">
+
+  <div id="site-nav">
+    <h1><a href=".">Packery</a></h1>
+    <ol class="primary-content">
+      <li class="nav-options"><a href="options.html">Options</a></li>
+      <li class="nav-methods"><a href="methods.html">Methods</a></li>
+      <li class="nav-events"><a href="events.html">Events</a></li>
+      <li class="nav-draggable"><a href="draggable.html">Draggable</a></li>
+      <li class="nav-license"><a href="license.html">License</a></li>
+      <li class="nav-appendix"><a href="appendix.html">Appendix</a></li>
+      <li class="nav-faq"><a href="faq.html">FAQ</a></li>
+    </ol>
+  </div>
+
+  {{! display hero only on index page }}
+  {{#if page.is_homepage}}
+    {{>hero}}
+  {{/if}}
+
+  <div id="content">
+
+    <div class="primary-content">
+      {{#unless page.is_homepage}}
+        <h1>{{page.title}}</h1>
+        {{/unless}}
+
+      {{! page nav }}
+      {{#if page.nav}}
+        <ul id="page-nav">
+          {{#each page.nav}}
+            <li><a href="#{{slug this}}">{{this}}</a></li>
+          {{/each}}
+        </ul>
+      {{/if}}
+    </div>
+
+    {{! all page content goes here }}
+    {{{ content }}}
+
+  </div>
+
+  <div id="footer">
+    <div class="footer-content">
+      {{! logo is broken up so font renders just the logo in M }}
+      <a class="metafizzy-logo" href="http://metafizzy.co">M<span class="etafizzy">etafizzy</span></a>
+      <span class="copyright">&copy; 2013</span>
+    </div>
+  </div>
+
+<!-- Packery does NOT require jQuery.
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+     jQuery is only used for jQuery UI Draggable
+     and to demonstrate Packery as a jQuery plugin -->
+<script>window.jQuery || document.write('<script src="components/jquery/jquery.min.js"><\/script>')</script>
+
+{{#if isDev}}
+  <!-- DEV MODE - including each .js file -->
+  {{#each site.js}}
+    <script src="{{this}}"></script>
+  {{/each}}
+{{else}}
+  {{! in production, just include concat/minified js }}
+  <script src="js/packery-docs.min.js"></script>
+  {{! embedded purchase forms }}
+  <script src="https://www.simplegoods.co/assets/embed.js"></script>
+{{/if}}
+
+
+</body>
+</html>

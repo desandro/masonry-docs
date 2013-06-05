@@ -1,0 +1,16 @@
+{
+  "name": "packery-docs",
+  "version": "1.0.0",
+  "author": "David DeSandro / Metafizzy",
+  "dependencies": {
+    "classie": "desandro/classie#>=0.0.4",
+    "doc-ready": "desandro/doc-ready#>=0.0.3",
+    "draggabilly": "desandro/draggabilly#>=0.0.3",
+    "eventie": "desandro/eventie",
+    "get-style-property": "desandro/get-style-property",
+    "jquery": "~1",
+    "jquery-ui-draggable": "git://gist.github.com/4985610.git",
+    "normalize-css": "~2",
+    "packery": "latest"
+  }
+}

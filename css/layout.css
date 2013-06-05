@@ -1,0 +1,167 @@
+/* ---- primary-content ---- */
+
+/* stuff that isn't in the gutter */
+.primary-content {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#content .primary-content > * {
+  max-width: 700px;
+}
+
+#content #notification,
+#content #hero-demos {
+  max-width: none;
+}
+
+/* ---- #content ---- */
+
+#content h2,
+#content .horiz-rule {
+  font-size: 1.7em;
+  font-weight: 400;
+  padding: 0.4em 0;
+}
+
+#content h2:target {
+  padding-left: 0.5em;
+  background: #C09;
+  color: white;
+  border-top-color: #C90;
+}
+
+/* ---- #page-nav ---- */
+
+#page-nav {
+  padding: 1.0em 0;
+  font-size: 13px;
+  z-index: 2; /* above packeries */
+}
+
+#page-nav li {
+  display: inline-block;
+}
+
+#page-nav li:after {
+  content: ' •';
+  margin: 0 0.3em;
+  opacity: 0.5;
+}
+
+#page-nav li:last-child:after {
+  content: none;
+}
+
+/* ---- row ---- */
+
+.row .cell {
+  margin-bottom: 0.8em;
+}
+
+/* clearfix */
+.row:after {
+  content: ' ';
+  display: block;
+  clear: both;
+}
+
+.row4 .cell {
+  float: left;
+  width: 48%;
+  margin-right: 2%;
+}
+
+/* tablet-ish */
+@media screen and ( min-width: 800px ) {
+
+  #content .primary-content {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  #content .primary-content > * {
+    max-width: 700px;
+  }
+
+  /* stuff that can go extra wide */
+  #content .primary-content .row,
+  #content #notification,
+  #content #hero-demos {
+    max-width: 1200px;
+  }
+
+  .row {
+    margin-bottom: 0.8em;
+  }
+
+  /* two column by default*/
+  .row .cell {
+    float: left;
+    width: 48.75%;
+    margin-right: 2.5%;
+    margin-bottom: 0;
+  }
+  /* IE8 doesn't support :last-child */
+  .lt-ie9 .row .cell { margin-right: 1.5%; }
+
+  /* no margin */
+/*  .example.row .cell {
+    width: 50%;
+    margin-right: 0;
+  }*/
+
+  /* three column */
+  .row3 .cell {
+    width: 31.6%;
+  }
+
+  /* four column */
+  .row4 .cell {
+    width: 23.1%;
+  }
+
+  .row .cell:last-child {
+    margin-right: 0;
+  }
+
+}
+
+
+
+/* desktop */
+@media screen and ( min-width: 960px ) {
+
+  .primary-content {
+    padding-left: 200px;
+    padding-right: 20px;
+  }
+
+  #page-nav {
+    position: absolute;
+    left: 0;
+    top: 60px;
+    list-style: none;
+    padding: 0;
+    width: 200px;
+    padding: 20px;
+  }
+
+  #page-nav li {
+    display: block;
+    margin-bottom: 4px;
+    margin-left: 0;
+  }
+
+  #page-nav li:after {
+    content: none;
+  }
+
+}
+
+/* fix #page-nav only if we have enough height */
+@media screen and ( min-width: 960px ) and ( min-height: 540px ) {
+  #page-nav {
+    position: fixed;
+  }
+}

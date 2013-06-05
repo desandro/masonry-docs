@@ -1,0 +1,106 @@
+---
+{
+  "title": "Appendix"
+}
+---
+
+<div class="primary-content">
+
+<h2>imagesLoaded</h2>
+
+<p>Unloaded images can throw off Packery layouts and cause item elements to overlap. <a href="http://desandro.github.io/imagesloaded/">imagesLoaded</a> resolves this issue. imagesLoaded works by triggering a callback after all child images have been loaded.</p>
+
+``` js
+var container = document.querySelector('#container');
+var pckry;
+// initialize Packery after all images have loaded
+imagesLoaded( container, function() {
+  pckry = new Packery( container );
+});
+```
+
+<p>Or initialize Packery first, then trigger <a href="methods.html#layout"><code>layout</code></a> after images have loaded.</p>
+
+``` js
+// initialize Packery
+var pckry = new Packery( container );
+// layout Packery after all images have loaded
+imagesLoaded( container, function() {
+  pckry.layout();
+});
+```
+
+</div><div class="primary-content">
+
+<h2>Component libraries</h2>
+
+<p>Packery includes several component libraries. You might have seen these used in the example code. You can use these libraries in your own code.</p>
+
+<h3 id="docready">docReady</h3>
+
+<p><a href="https://github.com/desandro/doc-ready">docReady triggers initialization logic when the document is ready,</a> just like jQuery's <code>$(document).ready()</code>. <code>docReady</code> is used to initialize all the demos in these docs.</p>
+
+``` js
+docReady( function() {
+  // document is ready, let's do some fun stuff!
+  var container = document.querySelector('#container');
+  var pckry = new Packery( container );
+});
+```
+
+<h3 id="classie">classie</h3>
+
+<p><a href="https://github.com/desandro/classie">classie has class helper functions.</a></p>
+
+``` js
+classie.has( element, 'my-class' ) // returns true/false
+classie.add( element, 'my-new-class' ) // add new class
+classie.remove( element, 'my-unwanted-class' ) // remove class
+classie.toggle( element, 'my-class' ) // toggle class
+```
+
+<h3 id="eventie">eventie</h3>
+
+<p><a href="https://github.com/desandro/eventie">Eventie makes event binding in IE8 legit.</a></p>
+
+``` js
+var elem = document.querySelector('#my-elem');
+function onElemClick( event ) {
+  console.log( event.type + ' just happened on #' + event.target.id );
+  // -> click just happened on #my-elem
+}
+// bind it
+eventie.bind( elem, 'click', onElemClick );
+// unbind it
+eventie.unbind( elem, 'click', onElemClick );
+```
+
+</div><div class="primary-content">
+
+<h2>Web fonts</h2>
+
+<p>Like images, unloaded web fonts can throw off Packery. To resolve this, trigger <a href="methods.html#layout"><code>layout</code></a> after fonts have been loaded. Both Typekit and Google WebFont Loader provide font events to control scripts based on how fonts are loaded.</p>
+
+<ul>
+  <li><a href="http://blog.typekit.com/2010/10/18/more-control-with-typekits-font-events/">Typekit font events</a></li>
+  <li><a href="https://developers.google.com/webfonts/docs/webfont_loader#Events">Google WebFont Loader: Events</a></li>
+</ul>
+
+</div><div id="submitting-issues" class="primary-content">
+
+{{>submitting-issues}}
+
+</div><div class="primary-content">
+
+  <h2 id="extra-examples">Extra examples</h2>
+
+  <ul>
+    <li><a href="http://codepen.io/desandro/pen/pBlIw">Fluid grid with gutter</a></li>
+    <li><a href="http://codepen.io/desandro/pen/tjFKl">Ignore item element</a></li>
+    <li><a href="http://codepen.io/desandro/pen/chisC">Centered container</a> See <a href="https://github.com/metafizzy/packery/issues/8#issuecomment-16780631">Issue #8</a></li>
+    <li><a href="http://codepen.io/desandro/pen/mjcGq">Appending items, making them draggable</a> (for infinite scroll). See <a href="https://github.com/metafizzy/packery/issues/50">Issue #50</a></li>
+  </ul>
+
+</div>
+
+<!-- <h2>Additional resources</h2> -->

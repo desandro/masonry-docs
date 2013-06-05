@@ -1,0 +1,97 @@
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #555;
+  background: #FAF3F5;
+}
+
+/* margins */
+h1, h2, h3, h4, h5, h6,
+p,
+ol, ul,
+pre {
+  margin-top: 0;
+  margin-bottom: 1.0em;
+}
+
+/* Fonts
+------------------------- */
+
+@font-face {
+  font-family: 'Metafizzy Logo';
+  src: url('../fonts/metafizzylogo-regular.eot');
+  src: url('../fonts/metafizzylogo-regular.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/metafizzylogo-regular.woff') format('woff'),
+       url('../fonts/metafizzylogo-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Montserrat */
+h1, h2, h3, h4, h5,
+#site-nav,
+#page-nav,
+.tagline,
+#what,
+.param-bit b,
+.button,
+.instruction,
+#notification,
+#footer .copyright {
+  font-family: 'Montserrat', Gotham, 'Proxima Nova', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
+}
+
+/* ---- links ---- */
+
+a,
+a code {
+  color: #A80;
+  text-decoration: none;
+  background: hsla(30, 90%, 50%, 0.03);
+}
+
+a:hover,
+a:hover code {
+  color: #90C;
+}
+
+
+/* ---- headers ---- */
+
+h1, h2, h3, h4 {
+  line-height: 1.25;
+}
+
+h1, h2 {
+  color: #C09;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 2.65em;
+  margin-bottom: 0.2em;
+}
+
+h3 {
+  font-size: 1.4em;
+  margin-bottom: 0.5em;
+}
+
+h4 {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 1.1em;
+}
+
+/* ---- lists ---- */
+
+ul, ol {
+  padding-left: 1.8em;
+}
