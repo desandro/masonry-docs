@@ -27,7 +27,7 @@ code .string,
 code .tag .value { color: #0C4; }
 code .number, /* integer */
 code .cp, /* doctype */
-code .literal { color: #07D; } /*boolean*/
+code .literal { color: #38F; } /*boolean*/
 code .keyword { color: #F73; } /* keyword */
 code .kd, /* storage */
 code .attribute { color: #DC8; } /* markup attribute */
@@ -40,7 +40,7 @@ code .comment { color: #999; font-style: italic; }
 
 code .tag { color: #6CF; } /* Markup open tag */
 
-code .id { color: #567; } /* css id */
+code .id { color: #ABC; } /* css id */
 code .class { color: #A63; }  /* CSS class */
 code .rules { color: #FED; }
 code .m  { color: #DE8E50; } /* CSS value */

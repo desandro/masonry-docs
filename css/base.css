@@ -5,8 +5,8 @@
 }
 
 body {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
-  font-size: 14px;
+  font-family: 'Noto Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
+  font-size: 15px;
   line-height: 1.5;
   color: #333;
   background: #D8D5D2;
@@ -44,7 +44,6 @@ a,
 a code {
   color: #A2C;
   text-decoration: none;
-  background: hsla(30, 90%, 50%, 0.03);
 }
 
 a:hover,

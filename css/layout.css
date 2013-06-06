@@ -133,18 +133,18 @@
 @media screen and ( min-width: 960px ) {
 
   .primary-content {
-    padding-left: 200px;
-    padding-right: 20px;
+    padding-left: 6%;
+    padding-right: 200px;
   }
 
   #page-nav {
     position: absolute;
-    left: 0;
+    right: 0;
     top: 60px;
     list-style: none;
     padding: 0;
     width: 200px;
-    padding: 20px;
+    padding: 10px;
   }
 
   #page-nav li {
