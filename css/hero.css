@@ -1,14 +1,4 @@
 #hero {
-  background: #C09;
-  color: #FAF3F5;
-  position: relative;
-  overflow: hidden;
-}
-
-/* keep above packery demo */
-#hero .primary-content > * {
-  position: relative;
-  z-index: 2;
 }
 
 #hero .primary-content {
@@ -20,8 +10,6 @@
   font-size: 70px;
   line-height: 1.2;
   letter-spacing: -0.01em;
-  margin-bottom: 0.6em;
-  padding-top: 0.6em;
   color: white;
 }
 
@@ -32,29 +20,9 @@
 }
 
 
-#hero .packery {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  padding: 0px 2px;
-  border: none;
-}
-
-#hero .item {
-  border: none;
-  background: hsla(0, 0%, 0%, 0.3);
-}
-
 /* ---- big ol buttons ---- */
 
-.big-ol-buttons {
-  list-style: none;
-  padding: 0;
-}
-
-.big-ol-buttons .button {
+#hero .button {
   display: block;
   font-size: 1.3em;
   line-height: 1.2em;
@@ -62,7 +30,7 @@
   padding-left: 50px;
 }
 
-.big-ol-buttons .icon {
+#hero .button .icon {
   font-size: 32px;
   position: absolute;
   left: 10px;
@@ -197,9 +165,6 @@
 /* ---- desktop ---- */
 
 @media screen and ( min-width: 960px ) {
-  #hero .packery {
-    padding-left: 200px;
-  }
 
   #hero h1 {
     font-size: 140px;
@@ -209,55 +174,6 @@
 
   #hero .tagline {
     font-size: 32px;
-  }
-
-  /* stamp elements, shape around titles */
-  #hero .stamp {
-    position: absolute;
-  /*  background: hsla(0, 0%, 100%, 0.4); */
-    z-index: 2;
-  }
-
-  #hero .stamp-ackery {
-    width: 476px;
-    height: 90px;
-    left: 294px;
-    top: 92px;
-  }
-
-  #hero .stamp-p-top {
-    width: 95px;
-    height: 82px;
-    left: 200px;
-    top: 70px;
-  }
-
-  #hero .stamp-p-bottom {
-    width: 40px;
-    height: 90px;
-    left: 200px;
-    top: 92px;
-  }
-
-  #hero .stamp-k {
-    width: 34px;
-    height: 90px;
-    left: 459px;
-    top: 65px;
-  }
-
-  #hero .stamp-y {
-    width: 70px;
-    height: 88px;
-    left: 675px;
-    top: 120px;
-  }
-
-  #hero .stamp-tagline {
-    width: 494px;
-    height: 40px;
-    left: 200px;
-    top: 239px;
   }
 
   /* buttons */

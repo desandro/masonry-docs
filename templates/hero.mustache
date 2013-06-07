@@ -1,34 +1,44 @@
 <div id="hero">
   <div class="primary-content">
 
-    <h1>Masonry</h1>
-    <p class="tagline">Cascading grid layout library</p>
+    <div class="hero-packery">
+      <div class="hero-item w2">
+        <h1>Masonry</h1>
+      </div>
 
-    <ul class="big-ol-buttons row row3">
-      <li class="cell download-js">
-        <a class="button" href="masonry.pkgd.min.js">
+      <div class="hero-item">
+        <p class="tagline">Cascading grid layout library</p>
+      </div>
+      <div class="hero-item">
+        <a class="button download-js" href="masonry.pkgd.min.js">
           <i class="icon icon-file-download"></i>
           Download masonry.&#8203;pkgd.&#8203;min.js
         </a>
-      </li>
+      </div>
 
       {{! show download docs only in production }}
       {{!unless isDev}}
-        <li class="cell download-docs">
-          <a class="button" href="masonry-docs.zip">
+        <div class="hero-item">
+          <a class="button download-docs" href="masonry-docs.zip">
             <i class="icon icon-folder-download"></i>
             Download these docs
           </a>
-        </li>
+        </div>
       {{!unless}}
 
-      <li class="cell github">
-        <a class="button" href="https://github.com/desandro/masonry">
+      <div class="hero-item">
+        <a class="button github" href="https://github.com/desandro/masonry">
           <i class="icon icon-github"></i>
-          Packery on GitHub
+          Masonry on GitHub
         </a>
-      </li>
-    </ul>
+      </div>
+
+      <div class="hero-item what-is">
+        <h2>What is Masonry?</h2>
+        <p>Masonry is a JavaScript grid layout library. It works by placing elements in optimal position based on available vertical space, sort of like a mason fitting stones in a wall. You&rsquo;ve probably seen it in use all over the Internet.</p>
+      </div>
+
+    </div> {{! .hero-packery}}
 
   </div> {{! .primary-content }}
 
