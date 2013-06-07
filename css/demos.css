@@ -82,10 +82,11 @@
 
 #stamp-demo .item { opacity: 0.8; }
 
-/* ---- layout ---- */
+/* ---- clickable ---- */
 
 .clickable .item:hover {
   border-color: white;
+  background: #C3E;
   cursor: pointer;
 }
 

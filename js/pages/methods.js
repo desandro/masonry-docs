@@ -12,8 +12,8 @@ function getItemElement() {
   var elem = document.createElement('div');
   var wRand = Math.random();
   var hRand = Math.random();
-  var widthClass = wRand > 0.85 ? 'w4' : wRand > 0.7 ? 'w2' : '';
-  var heightClass = hRand > 0.85 ? 'h4' : hRand > 0.7 ? 'h2' : '';
+  var widthClass = wRand > 0.92 ? 'w4' : wRand > 0.7 ? 'w2' : '';
+  var heightClass = hRand > 0.85 ? 'h4' : hRand > 0.6 ? 'h3' : hRand > 0.35 ? 'h2' : '';
   elem.className = 'item ' + widthClass + ' ' + heightClass;
   return elem;
 }
@@ -24,9 +24,11 @@ PS.methods = function() {
 
   ( function() {
     var demo = document.querySelector('#appended-demo');
-    var container = demo.querySelector('.packery');
+    var container = demo.querySelector('.masonry');
     var button = demo.querySelector('button');
-    var pckry = new Packery( container );
+    var msnry = new Masonry( container, {
+      columnWidth: 60
+    });
 
     eventie.bind( button, 'click', function() {
       // create new item elements
@@ -40,7 +42,7 @@ PS.methods = function() {
       // append elements to container
       container.appendChild( fragment );
       // add and lay out newly appended elements
-      pckry.appended( elems );
+      msnry.appended( elems );
     });
   })();
 
@@ -48,70 +50,28 @@ PS.methods = function() {
 
   ( function() {
     var demo = document.querySelector('#destroy-demo');
-    var container = demo.querySelector('.packery');
+    var container = demo.querySelector('.masonry');
     var button = demo.querySelector('button');
-    var pckry = new Packery( container );
+    var msnry = new Masonry( container );
     var isActive = true;
 
     eventie.bind( button, 'click', function() {
       if ( isActive ) {
-        pckry.destroy();
+        msnry.destroy();
       } else {
-        pckry = new Packery( container );
+        msnry = new Masonry( container );
       }
       isActive = !isActive;
-    });
-  })();
-
-  // ----- fit demo ----- //
-
-  ( function() {
-    var container = document.querySelector('#fit-demo .packery');
-    var pckry = new Packery( container );
-
-    eventie.bind( container, 'click', function( event ) {
-      // don't proceed if item was not clicked on
-      var target = event.target;
-      if ( !classie.has( target, 'item' ) ) {
-        return;
-      }
-
-      var isGigante = classie.has( target, 'gigante' );
-      classie.toggleClass( target, 'gigante' );
-
-      if ( isGigante ) {
-        // if shrinking, just layout
-        pckry.layout();
-      } else {
-        // if expanding, fit it
-        pckry.fit( target );
-      }
-    });
-  })();
-
-
-  // ----- fit position ----- //
-
-  ( function() {
-    var container = document.querySelector('#fit-position-demo .packery');
-    var pckry = new Packery( container );
-
-    eventie.bind( container, 'click', function( event ) {
-      // don't proceed if item was not clicked on
-      var target = event.target;
-      if ( !classie.has( target, 'item' ) ) {
-        return;
-      }
-
-      pckry.fit( target, 40, 40 );
     });
   })();
 
   // ----- layout demo ----- //
 
   ( function() {
-    var container = document.querySelector('#layout-demo .packery');
-    var pckry = new Packery( container );
+    var container = document.querySelector('#layout-demo .masonry');
+    var msnry = new Masonry( container, {
+      columnWidth: 60
+    });
 
     eventie.bind( container, 'click', function( event ) {
       // don't proceed if item was not clicked on
@@ -121,7 +81,7 @@ PS.methods = function() {
       // change size of item via class
       classie.toggle( event.target, 'gigante' );
       // trigger layout
-      pckry.layout();
+      msnry.layout();
     });
   })();
 
@@ -129,9 +89,9 @@ PS.methods = function() {
 
   ( function() {
     var demo = document.querySelector('#prepended-demo');
-    var container = demo.querySelector('.packery');
+    var container = demo.querySelector('.masonry');
     var button = demo.querySelector('button');
-    var pckry = new Packery( container );
+    var msnry = new Masonry( container );
 
     eventie.bind( button, 'click', function() {
       // create new item elements
@@ -145,7 +105,7 @@ PS.methods = function() {
       // prepend elements to container
       container.insertBefore( fragment, container.firstChild );
       // add and lay out newly prepended elements
-      pckry.prepended( elems );
+      msnry.prepended( elems );
     });
   })();
 
@@ -156,7 +116,7 @@ PS.methods = function() {
     var demo = document.querySelector('#stamp-demo');
     var stampElem = demo.querySelector('.stamp');
     var button = demo.querySelector('button');
-    var pckry = new Packery( demo.querySelector('.packery'), {
+    var msnry = new Masonry( demo.querySelector('.masonry'), {
       itemSelector: '.item'
     });
     var isStamped = false;
@@ -164,12 +124,12 @@ PS.methods = function() {
     eventie.bind( button, 'click', function() {
       // stamp or unstamp element
       if ( isStamped ) {
-        pckry.unstamp( stampElem );
+        msnry.unstamp( stampElem );
       } else {
-        pckry.stamp( stampElem );
+        msnry.stamp( stampElem );
       }
       // trigger layout
-      pckry.layout();
+      msnry.layout();
       isStamped = !isStamped;
     });
   })();
@@ -177,8 +137,8 @@ PS.methods = function() {
   // ----- remove demo ----- //
 
   ( function() {
-    var container = document.querySelector('#remove-demo .packery');
-    var pckry = new Packery( container );
+    var container = document.querySelector('#remove-demo .masonry');
+    var msnry = new Masonry( container );
 
     eventie.bind( container, 'click', function( event ) {
       // don't proceed if item was not clicked on
@@ -186,9 +146,9 @@ PS.methods = function() {
         return;
       }
       // remove clicked element
-      pckry.remove( event.target );
+      msnry.remove( event.target );
       // layout remaining item elements
-      pckry.layout();
+      msnry.layout();
     });
   })();
 

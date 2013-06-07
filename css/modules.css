@@ -8,7 +8,7 @@
 
 .button {
   display: inline-block;
-  background: #C0E;
+  background: #A2C;
   border: none;
   padding: 0.8em 1.0em;
   color: white;
@@ -18,12 +18,12 @@
 }
 
 .button:hover {
-  background: #D3F;
+  background: #C3E;
   color: white;
 }
 
 .button:active {
-  background: #B0D;
+  background: #91B;
   box-shadow: inset 0 1px 10px hsla(0, 0%, 0%, 0.6);
 }
 
@@ -123,30 +123,17 @@ div.param {
 
 
 .masonry .item.gigante {
-  width: 120px;
-  height: 160px;
+  width: 180px;
+  height: 180px;
   z-index: 10; /* keep it above other items */
 }
-
-/* ---- examples ---- */
-
-/*
-.example pre {
-  margin-bottom: 0;
-}
-
-.example pre:nth-child(2n) {
-  background: hsla(0, 0%, 0%, 0.12);
-}
-*/
-
 
 /* ---- instruction ---- */
 
 .instruction {
   font-size: 18px;
   margin-bottom: 0.2em;
-  color: #AAA;
+  color: #888;
 }
 
 /* ---- notification ---- */
