@@ -30,15 +30,12 @@
 }
 
 #site-nav h1 a:hover {
-  background: #90C;
+  background: #A2C;
+  color: white;
 }
 
 #site-nav a {
   background: none;
-}
-
-#site-nav .primary-content {
-  padding: 0;
 }
 
 #site-nav ol {
@@ -63,7 +60,8 @@
 }
 
 #site-nav ol a:hover {
-  background: #C90;
+  background: #D26;
+  color: white;
 }
 
 /* selected */
@@ -88,10 +86,10 @@
   #site-nav,
   #site-nav h1 {
     line-height: 60px;
+    margin-left: -0.5em;
   }
 
   #site-nav h1 {
-    width: 200px;
     height: 60px;
     font-size: 2.0em;
   }

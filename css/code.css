@@ -14,13 +14,24 @@ pre {
 }
 
 code {
-  padding: 0.1em 0.3em;
+  padding: 0.2em 0.3em;
   line-height: 1.2;
+  border-radius: 3px;
 }
 pre code {
   padding: 0;
   line-height: 1.5;
   background: none;
+}
+
+a code {
+  background: #A2C;
+  color: white;
+}
+
+a:hover code {
+  color: white;
+  background: #D26;
 }
 
 code .string,
