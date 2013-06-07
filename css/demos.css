@@ -32,9 +32,10 @@
   margin-bottom: 10px;
 }
 
-#column-width-demo2 .grid-sizer {
-  width: 20%;
-}
+/* responive column width */
+#column-width-demo2 .grid-sizer { width: 20%; }
+#column-width-demo2 .item { width: 20%; }
+#column-width-demo2 .item.w2 { width: 40%; }
 
 #row-height-demo2 .grid-sizer {
   height: 60px;

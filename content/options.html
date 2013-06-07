@@ -78,6 +78,8 @@
 ```
 ``` css
 #column-width-demo2 .grid-sizer { width: 20%; }
+#column-width-demo2 .item { width: 20%; }
+#column-width-demo2 .item.w2 { width: 40%; }
 ```
 ``` js
 "columnWidth": ".grid-sizer",
@@ -87,21 +89,7 @@
   <div class="cell demo">
     <div id="column-width-demo2" class="masonry js-masonry" data-masonry-options='{ "columnWidth": ".grid-sizer", "itemSelector": ".item" }'>
       <div class="grid-sizer"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item h2"></div>
-      <div class="item"></div>
-      <div class="item w2"></div>
-      <div class="item h2"></div>
-      <div class="item"></div>
-      <div class="item h2"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item h2"></div>
-      <div class="item"></div>
-      <div class="item"></div>
+      {{>basic-demo-items}}
     </div>
     <p class="edit"><a href="http://codepen.io/desandro/pen/tonpx">Edit this example on CodePen</a></p>
   </div>
@@ -183,6 +171,23 @@
     <p class="edit"><a href="http://codepen.io/desandro/pen/buyLF">Edit this example on CodePen</a></p>
   </div>
 </div>
+
+</div><div class="primary-content">
+
+<h2 id="hiddenstyle">hiddenStyle</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Object</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code>{ opacity: <span class="literal">0</span>, transform: <span class="string">'scale(0.001)'</span> }</code></span>
+  </p>
+</div>
+
+<p>The style applied to hide items.</p>
 
 </div><div class="primary-content">
 
@@ -296,23 +301,6 @@ msnry.layout();
 
 </div><div class="primary-content">
 
-<h2 id="itemoptions">itemOptions</h2>
-
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Object</i></span>
-  </p>
-</div>
-
-<p>Some </p>
-
-<h3>transitionDuration</h3>
-
-<p>The duration of CSS transitions when</p>
-
-</div><div class="primary-content">
-
 <h2 id="itemselector">itemSelector</h2>
 
 <div class="param">
@@ -409,6 +397,23 @@ msnry.layout();
     <p class="edit"><a href="http://codepen.io/desandro/pen/Hqwib">Edit this example on CodePen</a></p>
   </div>
 </div>
+
+</div><div class="primary-content">
+
+<h2 id="visiblestyle">visibleStyle</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Object</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code>{ opacity: <span class="literal">1</span>, transform: <span class="string">'scale(1)'</span> }</code></span>
+  </p>
+</div>
+
+<p>The style applied to reveal hidden items.</p>
 
 </div><div class="primary-content">
 

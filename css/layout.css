@@ -26,9 +26,8 @@
 
 #content h2:target {
   padding-left: 0.5em;
-  background: #C09;
+  background: #D26;
   color: white;
-  border-top-color: #C90;
 }
 
 /* ---- #page-nav ---- */
