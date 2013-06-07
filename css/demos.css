@@ -1,7 +1,7 @@
 /* ---- demos ---- */
 
-.demo .packery,
-.demo.packery {
+.demo .masonry,
+.demo.masonry {
   background: white;
   border-radius: 5px;
 }
@@ -10,7 +10,27 @@
   margin-bottom: 0.8em;
 }
 
+/* ---- counting ---- */
+
+.masonry.counting {
+  counter-reset: item;
+}
+
+.masonry.counting .item:before {
+  counter-increment: item;
+  content: counter(item);
+  display: block;
+  color: white;
+  padding-top: 0.2em;
+  text-align: center;
+  font-size: 18px;
+}
+
 /* ---- measurement demos ---- */
+
+#gutter-opt-demo2 .item {
+  margin-bottom: 10px;
+}
 
 #column-width-demo2 .grid-sizer {
   width: 20%;
@@ -20,7 +40,7 @@
   height: 60px;
 }
 
-#gutter-demo2 .gutter-sizer {
+#gutter-opt-demo3 .gutter-sizer {
   width: 3%;
 }
 
@@ -34,18 +54,22 @@
   position: absolute;
   width: 30%;
   height: 60px;
-  background: red;
-  border: 4px dotted white;
+  background: orange;
+  border: 4px dotted black;
 }
 
-#stamped-demo .stamp1 {
-  left: 20%;
+#stamp-opt-demo .stamp1 {
+  left: 30%;
   top: 10px;
+  width: 20%;
+  height: 100px;
 }
 
-#stamped-demo .stamp2 {
+#stamp-opt-demo .stamp2 {
   right: 10%;
-  top: 80px;
+  top: 20px;
+  width: 70%;
+  height: 30px;
 }
 
 #stamp-demo .stamp {

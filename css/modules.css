@@ -86,23 +86,23 @@ div.param {
 
 /* ---- packery ---- */
 
-.packery {
+.masonry {
 }
 
 /* clearfix */
-.packery:before,
-.packery:after {
+.masonry:before,
+.masonry:after {
   content: " ";
   display: table;
 }
 
-.packery:after {
+.masonry:after {
   clear: both;
 }
 
 /* ---- packery items ---- */
 
-.packery .item {
+.masonry .item {
   width:  60px;
   height: 40px;
   float: left;
@@ -112,14 +112,17 @@ div.param {
   border-radius: 5px;
 }
 
-.packery .item.w2 { width:  120px; }
-.packery .item.w4 { width:  240px; }
-
-.packery .item.h2 { height:  70px; }
-.packery .item.h4 { height: 150px; }
+.masonry .item.w2 { width:  120px; }
+.masonry .item.w4 { width:  240px; }
 
 
-.packery .item.gigante {
+
+.masonry .item.h2 { height:  70px; }
+.masonry .item.h3 { height: 100px; }
+.masonry .item.h4 { height: 150px; }
+
+
+.masonry .item.gigante {
   width: 120px;
   height: 160px;
   z-index: 10; /* keep it above other items */

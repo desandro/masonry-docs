@@ -5,12 +5,15 @@
     "containerStyle",
     "columnWidth",
     "gutter",
+    "hiddenStyle",
     "isInitLayout",
+    "isOriginLeft",
+    "isOriginTop",
     "isResizeBound",
     "itemSelector",
-    "rowHeight",
-    "stamped",
+    "stamp",
     "transitionDuration",
+    "visibleStyle",
     "Element sizing"
   ]
 }
@@ -32,7 +35,7 @@
   </p>
 </div>
 
-<p>CSS styles that are applied to the container element. To disable Packery from setting any CSS to the container element, set <code>containerStyle: <span class="literal">null</span></code>.</p>
+<p>CSS styles that are applied to the container element. To disable Masonry from setting any CSS to the container element, set <code>containerStyle: <span class="literal">null</span></code>.</p>
 
 </div><div class="primary-content">
 
@@ -45,7 +48,7 @@
   </p>
 </div>
 
-<p>The width of a column of a horizontal grid. When set, Packery will align item elements horizontally to this grid.</p>
+<p>The width of a column of a horizontal grid. When set, Masonry will align item elements horizontally to this grid.</p>
 
 <div class="row example">
   <div class="cell example-code">
@@ -54,28 +57,14 @@
 ```
   </div>
   <div class="cell demo">
-    <div class="packery js-packery"  data-packery-options='{ "columnWidth": 60 }'>
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item h2"></div>
-      <div class="item"></div>
-      <div class="item w2"></div>
-      <div class="item h2"></div>
-      <div class="item"></div>
-      <div class="item h2"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
-      <div class="item h2"></div>
-      <div class="item"></div>
-      <div class="item"></div>
+    <div class="masonry js-masonry"  data-masonry-options='{ "columnWidth": 60 }'>
+      {{>basic-demo-items}}
     </div>
     <p class="edit"><a href="http://codepen.io/desandro/pen/eouHb">Edit this example on CodePen</a></p>
   </div>
 </div>
 
-<p>If set to an <i>Element</i> or Selector <i>String</i>, Packery will use the width of that element. See <a href="#element-sizing">Element sizing</a>. Setting <code>columnWidth</code> with element sizing is recommended if you are using percentage widths.</p>
+<p>If set to an <i>Element</i> or Selector <i>String</i>, Masonry will use the width of that element. See <a href="#element-sizing">Element sizing</a>. Setting <code>columnWidth</code> with element sizing is recommended if you are using percentage widths.</p>
 
 <div class="row example">
   <div class="cell example-code">
@@ -96,7 +85,7 @@
 ```
   </div>
   <div class="cell demo">
-    <div id="column-width-demo2" class="packery js-packery" data-packery-options='{ "columnWidth": ".grid-sizer", "itemSelector": ".item" }'>
+    <div id="column-width-demo2" class="masonry js-masonry" data-masonry-options='{ "columnWidth": ".grid-sizer", "itemSelector": ".item" }'>
       <div class="grid-sizer"></div>
       <div class="item"></div>
       <div class="item"></div>
@@ -129,7 +118,7 @@
   </p>
 </div>
 
-<p>The space between item elements, both vertically and horizontally.</p>
+<p>The horizontal space between item elements.</p>
 
 <div class="row example">
   <div class="cell example-code">
@@ -138,33 +127,40 @@
 ```
   </div>
   <div class="cell demo">
-    <div class="packery js-packery" data-packery-options='{ "gutter": 10 }'>
-      <div class="item"></div>
-      <div class="item w2"></div>
-      <div class="item"></div>
-      <div class="item h2"></div>
-      <div class="item w2"></div>
-      <div class="item"></div>
-      <div class="item w2 h2"></div>
-      <div class="item"></div>
-      <div class="item h2"></div>
-      <div class="item w2"></div>
-      <div class="item"></div>
-      <div class="item w2"></div>
-      <div class="item h2"></div>
-      <div class="item"></div>
-      <div class="item"></div>
+    <div class="masonry js-masonry" data-masonry-options='{ "gutter": 10 }'>
+      {{>basic-demo-items}}
     </div>
     <p class="edit"><a href="http://codepen.io/desandro/pen/fIbHB">Edit this example on CodePen</a></p>
   </div>
 </div>
 
-<p>If set to an <i>Element</i> or Selector <i>String</i>, Packery will use the width of that element. See <a href="#element-sizing">Element sizing</a>.</p>
+<p>To set vertical space between elements, use <code>margin</code> CSS.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+"gutter": 10
+```
+``` css
+#gutter-opt-demo2 .item {
+  margin-bottom: 10px;
+}
+```
+  </div>
+  <div id="gutter-opt-demo2" class="cell demo">
+    <div class="masonry js-masonry" data-masonry-options='{ "gutter": 10 }'>
+      {{>basic-demo-items}}
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/fIbHB">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+<p>If set to an <i>Element</i> or Selector <i>String</i>, Masonry will use the width of that element. See <a href="#element-sizing">Element sizing</a>.</p>
 
 <div class="row example">
   <div class="cell example-code">
 ``` html
-<div id="gutter-demo2">
+<div id="gutter-opt-demo3">
   <div class="gutter-sizer"></div>
   <div class="item"></div>
   <div class="item"></div>
@@ -172,7 +168,7 @@
 </div>
 ```
 ``` css
-#gutter-demo2 .gutter-sizer { width: 3%; }
+#gutter-opt-demo3 .gutter-sizer { width: 3%; }
 ```
 ``` js
 "columnWidth": ".gutter-sizer",
@@ -180,23 +176,9 @@
 ```
   </div>
   <div class="cell demo" >
-    <div id="gutter-demo2" class="packery js-packery" data-packery-options='{ "gutter": ".gutter-sizer", "itemSelector": ".item" }'>
+    <div id="gutter-opt-demo3" class="masonry js-masonry" data-masonry-options='{ "gutter": ".gutter-sizer", "itemSelector": ".item" }'>
       <div class="gutter-sizer"></div>
-      <div class="item"></div>
-      <div class="item w2"></div>
-      <div class="item"></div>
-      <div class="item h2"></div>
-      <div class="item w2"></div>
-      <div class="item"></div>
-      <div class="item w2 h2"></div>
-      <div class="item"></div>
-      <div class="item h2"></div>
-      <div class="item w2"></div>
-      <div class="item"></div>
-      <div class="item w2"></div>
-      <div class="item h2"></div>
-      <div class="item"></div>
-      <div class="item"></div>
+      {{>basic-demo-items}}
     </div>
     <p class="edit"><a href="http://codepen.io/desandro/pen/buyLF">Edit this example on CodePen</a></p>
   </div>
@@ -220,24 +202,78 @@
 <p>Enables layout on initialization. Set this to <code><span class="literal">false</span></code> to disable layout on initialization, so you can use <a href="methods.html">methods</a> or add <a href="events.html">events</a> before the initial layout.</p>
 
 ``` js
-var pckry = new Packery( container, {
+var msnry = new Masonry( container, {
   // disables initial layout
   isInitLayout: false
 });
-pckry.on( 'layoutComplete', function() {
+msnry.on( 'layoutComplete', function() {
   console.log('layout is complete');
 });
 // manually trigger initial layout
-pckry.layout();
+msnry.layout();
 ```
 
 </div><div class="primary-content">
 
 <h2 id="isoriginleft">isOriginLeft</h2>
 
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Boolean</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code><span class="literal">true</span></code></span>
+  </p>
+</div>
+
+<p>Controls the horizontal flow of the layout. By default, item elements start positioning at the left. Set to <code><span class="literal">false</span></code> for right-to-left layouts.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+"isOriginLeft": false
+```
+  </div>
+  <div class="cell demo">
+    <div class="masonry js-masonry counting" data-masonry-options='{ "isOriginLeft": false }'>
+      {{>basic-demo-items}}
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/fIbHB">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
 </div><div class="primary-content">
 
 <h2 id="isorigintop">isOriginTop</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Boolean</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code><span class="literal">true</span></code></span>
+  </p>
+</div>
+
+<p>Controls the vertical flow of the layout. By default, item elements start positioning at the top. Set to <code><span class="literal">false</span></code> for bottom-up layouts.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+"isOriginTop": false
+```
+  </div>
+  <div class="cell demo">
+    <div class="masonry js-masonry counting" data-masonry-options='{ "isOriginTop": false }'>
+      {{>basic-demo-items}}
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/fIbHB">Edit this example on CodePen</a></p>
+  </div>
+</div>
 
 </div><div class="primary-content">
 
@@ -256,13 +292,24 @@ pckry.layout();
 
 <p>Binds layout to window resizing.</p>
 
-<p><code>isResizeBound</code> binds layout only when the Packery instance is first initialized. You can bind and unbind resize layout afterwards with the <a href="methods.html#bindresize"><code>bindResize</code></a> and <a href="methods.html#unbindresize"><code>unbindResize</code></a> methods.</p>
+<p><code>isResizeBound</code> binds layout only when the Masonry instance is first initialized. You can bind and unbind resize layout afterwards with the <a href="methods.html#bindresize"><code>bindResize</code></a> and <a href="methods.html#unbindresize"><code>unbindResize</code></a> methods.</p>
 
 </div><div class="primary-content">
 
 <h2 id="itemoptions">itemOptions</h2>
 
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Object</i></span>
+  </p>
+</div>
+
+<p>Some </p>
+
 <h3>transitionDuration</h3>
+
+<p>The duration of CSS transitions when</p>
 
 </div><div class="primary-content">
 
@@ -292,14 +339,14 @@ pckry.layout();
   </p>
 </div>
 
-<p>Specifies which elements are <a href="methods.html#stamp">stamped</a> within the layout. These are special layout elements which will not be laid out by Packery. Rather, Packery will layout item elements <em>around</em> stamped elements.</p>
+<p>Specifies which elements are <a href="methods.html#stamp">stamped</a> within the layout. These are special layout elements which will not be laid out by Masonry. Rather, Masonry will layout item elements <em>below</em> stamped elements.</p>
 
-<p><code>stamped</code> stamps elements only when the Packery instance is first initialized. You can stamp additional elements afterwards with the <a href="methods.html#stamp"><code>stamp</code> method</a>.</p>
+<p>The <code>stamp</code> option stamps elements only when the Masonry instance is first initialized. You can stamp additional elements afterwards with the <a href="methods.html#stamp"><code>stamp</code> method</a>.</p>
 
 <div class="row example">
   <div class="cell example-code">
 ``` html
-<div id="stamped-demo">
+<div id="stamp-opt-demo">
   <div class="stamp stamp1"></div>
   <div class="stamp stamp2"></div>
   <div class="item"></div>
@@ -309,32 +356,34 @@ pckry.layout();
 ```
 ``` js
 "itemSelector": ".item",
-"stamped": ".stamp"
+"stamp": ".stamp"
 ```
 ``` css
-/* position stamped elements with CSS */
-#stamped-demo {
+/* position stamp elements with CSS */
+#stamp-opt-demo {
   position: relative;
 }
-#stamped-demo .stamp {
+#stamp-opt-demo .stamp {
   position: absolute;
-  width: 30%;
-  height: 60px;
-  background: red;
-  border: 4px dotted white;
+  background: orange;
+  border: 4px dotted black;
 }
-#stamped-demo .stamp1 {
-  left: 20%;
+#stamp-opt-demo .stamp1 {
+  left: 30%;
   top: 10px;
+  width: 20%;
+  height: 100px;
 }
-#stamped-demo .stamp2 {
+#stamp-opt-demo .stamp2 {
   right: 10%;
-  top: 80px;
+  top: 20px;
+  width: 70%;
+  height: 30px;
 }
 ```
   </div>
   <div class="cell demo">
-    <div id="stamped-demo" class="packery has-stamp js-packery" data-packery-options='{ "itemSelector": ".item", "stamped": ".stamp" }'>
+    <div id="stamp-opt-demo" class="masonry has-stamp js-masonry" data-masonry-options='{ "itemSelector": ".item", "stamp": ".stamp" }'>
       <div class="stamp stamp1"></div>
       <div class="stamp stamp2"></div>
       <div class="item"></div>
@@ -365,9 +414,9 @@ pckry.layout();
 
 <h2 id="element-sizing">Element sizing</h2>
 
-<p>For the sizing options <a href="#columnwidth"><code>columnWidth</code></a>, <a href="#rowheight"><code>rowHeight</code></a>, and <a href="#gutter"><code>gutter</code></a>, you may set these options to an <i>Element</i> or <i>String</i>, in addition to a <i>Number</i>.</p>
+<p>For the sizing options <a href="#columnwidth"><code>columnWidth</code></a> and <a href="#gutter"><code>gutter</code></a>, you may set these options to an <i>Element</i> or <i>String</i>, in addition to a <i>Number</i>.</p>
 
-<p>With an <i>Element</i>, Packery will use its width or height to set the value of the related property.</p>
+<p>With an <i>Element</i>, Masonry will use its outer width to set the value of the related property.</p>
 
 ``` html
 <div id="container">
@@ -380,19 +429,19 @@ pckry.layout();
 
 ``` js
 var container = document.querySelector('#container');
-var pckry = new Packery( container, {
+var msnry = new Masonry( container, {
   itemSelector: '.item',
   columnWidth: container.querySelector('.grid-sizer')
 });
 ```
 
-<p>With a <i>String</i>, Packery will use the string as a selector to get the first matching element within the container element. The size of that element is then used.</p>
+<p>With a <i>String</i>, Masonry will use the string as a selector to get the first matching element within the container element. The size of that element is then used.</p>
 
 ``` js
 "columnWidth": ".grid-sizer"
 ```
 
-<p>This allows you to control the size of the Packery layout just with your CSS. This is useful for responsive layouts, keeping control within CSS so you can rely on media queries.</p>
+<p>This allows you to control the size of the Masonry layout just with your CSS. This is useful for responsive layouts, keeping control within CSS so you can rely on media queries.</p>
 
 ``` css
 /* 5 columns by default */
