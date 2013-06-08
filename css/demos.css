@@ -74,10 +74,10 @@
 }
 
 #stamp-demo .stamp {
-  left: 20%;
-  top: 50px;
-  width: 50%;
-  height: 100px;
+  right: 10%;
+  top: 10px;
+  width: 35%;
+  height: 70px;
 }
 
 #stamp-demo .item { opacity: 0.8; }

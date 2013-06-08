@@ -12,7 +12,7 @@ function getItemElement() {
   var elem = document.createElement('div');
   var wRand = Math.random();
   var hRand = Math.random();
-  var widthClass = wRand > 0.92 ? 'w4' : wRand > 0.7 ? 'w2' : '';
+  var widthClass = wRand > 0.92 ? 'w4' : wRand > 0.8 ? 'w3' : wRand > 0.6 ? 'w2' : '';
   var heightClass = hRand > 0.85 ? 'h4' : hRand > 0.6 ? 'h3' : hRand > 0.35 ? 'h2' : '';
   elem.className = 'item ' + widthClass + ' ' + heightClass;
   return elem;
@@ -119,6 +119,7 @@ PS.methods = function() {
     var stampElem = demo.querySelector('.stamp');
     var button = demo.querySelector('button');
     var msnry = new Masonry( demo.querySelector('.masonry'), {
+      columnWidth: 60,
       itemSelector: '.item'
     });
     var isStamped = false;
@@ -140,7 +141,9 @@ PS.methods = function() {
 
   ( function() {
     var container = document.querySelector('#remove-demo .masonry');
-    var msnry = new Masonry( container );
+    var msnry = new Masonry( container, {
+      columnWidth: 60
+    });
 
     eventie.bind( container, 'click', function( event ) {
       // don't proceed if item was not clicked on

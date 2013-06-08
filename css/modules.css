@@ -113,14 +113,12 @@ div.param {
 }
 
 .masonry .item.w2 { width:  120px; }
+.masonry .item.w3 { width:  180px; }
 .masonry .item.w4 { width:  240px; }
-
-
 
 .masonry .item.h2 { height:  70px; }
 .masonry .item.h3 { height: 100px; }
 .masonry .item.h4 { height: 150px; }
-
 
 .masonry .item.gigante {
   width: 180px;

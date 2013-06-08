@@ -349,6 +349,48 @@ $container.masonry( 'layoutItems', items, isStill )
 
 </div><div class="primary-content">
 
+<h2 id="masonry-data">Masonry.data</h2>
+
+``` js
+var msnry = Masonry.data( element )
+```
+
+<ul class="params">
+  <li class="param">
+    <h5 class="param-name param-bit"><code>elements</code></h5>
+    <p class="type param-bit">
+      <b>Type:</b> <span class="value"><i>Element</i></span>
+    </p>
+  </li>
+  <li class="param">
+    <h5 class="param-name param-bit">returns</h5>
+    <p class="param-name param-bit"><code>msnry</code></p>
+    <p class="type param-bit">
+      <b>Type:</b> <span class="value"><i>Masonry</i></span>
+    </p>
+  </li>
+</ul>
+
+<p>Get the Masonry instance from an element. Note this method is of <code>Masonry</code>, rather than of a Masonry instance.</p>
+
+<p>This method is useful to access the Masonry instance after it was initialized via HTML.</p>
+
+``` html
+<div id="container" class="js-masonry" data-masonry-options='{...}'>
+  <div class="item"></div>
+  <div class="item"></div>
+  ...
+</div>
+```
+``` js
+var container = document.querySelector('#container');
+var msnry = Masonry.data( container );
+// do stuff with Masonry instance
+msnry.layout();
+```
+
+</div><div class="primary-content">
+
 <h2 id="off">off</h2>
 
 ``` js
@@ -430,48 +472,6 @@ msnry.on( 'layoutComplete', function() {
 
 </div><div class="primary-content">
 
-<h2 id="masonry-data">Masonry.data</h2>
-
-``` js
-var msnry = Masonry.data( element )
-```
-
-<ul class="params">
-  <li class="param">
-    <h5 class="param-name param-bit"><code>elements</code></h5>
-    <p class="type param-bit">
-      <b>Type:</b> <span class="value"><i>Element</i></span>
-    </p>
-  </li>
-  <li class="param">
-    <h5 class="param-name param-bit">returns</h5>
-    <p class="param-name param-bit"><code>msnry</code></p>
-    <p class="type param-bit">
-      <b>Type:</b> <span class="value"><i>Masonry</i></span>
-    </p>
-  </li>
-</ul>
-
-<p>Get the Masonry instance from an element. Note this method is of <code>Masonry</code>, rather than of a Masonry instance.</p>
-
-<p>This method is useful to access the Masonry instance after it was initialized via HTML.</p>
-
-``` html
-<div id="container" class="js-masonry" data-masonry-options='{...}'>
-  <div class="item"></div>
-  <div class="item"></div>
-  ...
-</div>
-```
-``` js
-var container = document.querySelector('#container');
-var msnry = Masonry.data( container );
-// do stuff with Masonry instance
-msnry.layout();
-```
-
-</div><div class="primary-content">
-
 <h2 id="prepended">prepended</h2>
 
 ``` js
@@ -502,7 +502,9 @@ $container.masonry( 'prepended', elements )
 var demo = document.querySelector('#prepended-demo');
 var container = demo.querySelector('.masonry');
 var button = demo.querySelector('button');
-var msnry = new Masonry( container );
+var msnry = new Masonry( container, {
+  columnWidth: 60
+});
 
 eventie.bind( button, 'click', function() {
   // create new item elements
@@ -524,7 +526,7 @@ eventie.bind( button, 'click', function() {
   <div id="prepended-demo" class="cell demo">
     <button class="button">Prepend items</button>
     <div class="masonry">
-      <div class="item w4"></div>
+      <div class="item w3"></div>
       <div class="item h4"></div>
       <div class="item w2"></div>
       <div class="item"></div>
@@ -576,7 +578,9 @@ $container.masonry( 'remove', elements )
   <div class="cell example-code">
 ``` js
 var container = document.querySelector('#remove-demo .masonry');
-var msnry = new Masonry( container );
+var msnry = new Masonry( container, {
+  columnWidth: 60
+});
 
 eventie.bind( container, 'click', function( event ) {
   // don't proceed if item was not clicked on
@@ -593,7 +597,7 @@ eventie.bind( container, 'click', function( event ) {
   <div id="remove-demo" class="cell demo">
     <p class="instruction">Click items to remove them</p>
     <div class="masonry clickable">
-      {{>demo-items}}
+      {{>basic-demo-items}}
     </div>
     <p class="edit"><a href="http://codepen.io/desandro/pen/akrvC">Edit this example on CodePen</a></p>
   </div>
@@ -677,7 +681,7 @@ eventie.bind( button, 'click', function() {
     <button class="button">Toggle stamped</button>
     <div class="masonry has-stamp">
       <div class="stamp"></div>
-      {{>demo-items}}
+      {{>basic-demo-items}}
     </div>
     <p class="edit"><a href="http://codepen.io/desandro/pen/pstDE">Edit this example on CodePen</a></p>
   </div>
