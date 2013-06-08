@@ -6,6 +6,7 @@
     "classie": "desandro/classie#>=0.0.4",
     "doc-ready": "desandro/doc-ready#>=0.0.3",
     "eventie": "desandro/eventie",
+    "imagesloaded": "latest",
     "get-style-property": "desandro/get-style-property",
     "jquery": "~1",
     "normalize-css": "~2",

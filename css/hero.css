@@ -23,7 +23,7 @@
 
 /* ---- big ol buttons ---- */
 
-#hero .button {
+.hero-masonry .button {
   display: block;
   font-size: 1.3em;
   line-height: 1.2em;
@@ -32,9 +32,9 @@
   background: #D26;
 }
 
-#hero .button:hover { background: #A2C; }
+.hero-masonry .button:hover { background: #A2C; }
 
-#hero .button .icon {
+.hero-masonry .button .icon {
   font-size: 32px;
   position: absolute;
   left: 10px;
@@ -97,6 +97,34 @@
 .hero-item.has-title,
 .hero-item.w2 {
   width: 46.9%;
+}
+
+.hero-item.has-example {
+}
+
+.hero-item.has-example a {
+  font-size: 13px;
+  font-weight: bold;
+  background: #D26;
+  color: white;
+  display: block;
+  border-radius: 10px 10px 8px 8px;
+}
+
+.hero-item.has-example a:hover {
+  background: #A2C;
+  color: white;
+}
+
+.hero-item.has-example img {
+  display: block;
+  max-width: 100%;
+  border-radius: 8px 8px 0 0;
+}
+
+.hero-item.has-example .example-title {
+  padding: 5px 10px;
+  margin: 0;
 }
 
 /* ---- desktop ---- */
