@@ -71,59 +71,13 @@ PS.events = function() {
 
   notifElem = document.querySelector('#notification');
 
-  // ----- dragItemPositioned ----- //
-
-  ( function() {
-    var container = document.querySelector('#drag-item-positioned-demo .masonry');
-    var itemElems = container.querySelectorAll('.item');
-    var msnry = new Masonry( container, {
-      columnWidth: 80,
-      rowHeight: 80
-    });
-    // for each item element
-    for ( var i=0, len = itemElems.length; i < len; i++ ) {
-      var elem = itemElems[i];
-      // make element draggable with Draggabilly
-      var draggie = new Draggabilly( elem );
-      // bind Draggabilly events to Masonry
-      msnry.bindDraggabillyEvents( draggie );
-    }
-
-    msnry.on( 'dragItemPositioned', function( msnryInstance, draggedItem ) {
-      var classes = getClassString( msnryInstance.element );
-      notify( 'Masonry ' + classes +
-        ' positioned dragged ' + draggedItem.element.nodeName );
-    });
-
-  })();
-
-  // ----- fitComplete demo ----- //
-
-  ( function() {
-    var container = document.querySelector('#fit-complete-demo .masonry');
-    var msnry = new Masonry( container );
-
-    msnry.on( 'fitComplete', function( msnryInstance, item ) {
-      var classes = getClassString( item.element );
-      notify( 'Fit ' + classes );
-    });
-
-    eventie.bind( container, 'click', function( event ) {
-      // don't proceed if item was not clicked on
-      var target = event.target;
-      if ( !classie.has( target, 'item' ) ) {
-        return;
-      }
-
-      msnry.fit( target, 40, 40 );
-    });
-  })();
-
   // ----- layoutComplete demo ----- //
 
   ( function() {
     var container = document.querySelector('#layout-complete-demo .masonry');
-    var msnry = new Masonry( container );
+    var msnry = new Masonry( container, {
+      columnWidth: 60
+    });
     msnry.on( 'layoutComplete', function( msnryInstance, laidOutItems ) {
       var classes = getClassString( msnryInstance.element );
       notify( 'Masonry ' + classes + ' layout completed on ' + laidOutItems.length + ' items' );
@@ -145,7 +99,9 @@ PS.events = function() {
 
   ( function() {
     var container = document.querySelector('#remove-complete-demo .masonry');
-    var msnry = new Masonry( container );
+    var msnry = new Masonry( container, {
+      columnWidth: 60
+    });
 
     msnry.on( 'removeComplete', function( msnryInstance, items ) {
       var classes = getClassString( msnryInstance.element );

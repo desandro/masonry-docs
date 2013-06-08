@@ -12,20 +12,20 @@
 
 <div class="primary-content">
 
-<p>Packery is an Event Emitter. You can bind listeners to events with the <a href="methods.html#on">on</a> and <a href="methods.html#off">off</a> methods.</p>
+<p>Masonry is an Event Emitter. You can bind listeners to events with the <a href="methods.html#on">on</a> and <a href="methods.html#off">off</a> methods.</p>
 
 ```js
-var pckry = new Packery( elem );
+var msnry = new Masonry( elem );
 
 function onLayout() {
   console.log('layout done');
 }
 // bind event listener
-pckry.on( 'layoutComplete', onLayout );
+msnry.on( 'layoutComplete', onLayout );
 // un-bind event listener
-pckry.off( 'layoutComplete', onLayout );
+msnry.off( 'layoutComplete', onLayout );
 // return true to trigger an event listener just once
-pckry.on( 'layoutComplete', function() {
+msnry.on( 'layoutComplete', function() {
   console.log('layout done, just this one time');
   return true;
 });
@@ -36,23 +36,23 @@ pckry.on( 'layoutComplete', function() {
 <h2 id="layoutcomplete">layoutComplete</h2>
 
 ``` js
-pckry.on( 'layoutComplete', function( pckryInstance, laidOutItems ) { //...
+msnry.on( 'layoutComplete', function( msnryInstance, laidOutItems ) { //...
 // or with jQuery
-$container.packery( 'on', 'layoutComplete', function( pckryInstance, laidOutItems ) {} )
+$container.masonry( 'on', 'layoutComplete', function( msnryInstance, laidOutItems ) {} )
 ```
 
 <ul class="params">
   <li class="param">
-    <h5 class="param-name param-bit"><code>pckryInstance</code></h5>
+    <h5 class="param-name param-bit"><code>msnryInstance</code></h5>
     <p class="type param-bit">
-      <b>Type:</b> <span class="value"><i>Packery</i></span>
+      <b>Type:</b> <span class="value"><i>Masonry</i></span>
     </p>
-    <p class="description param-bit">the Packery instance</p>
+    <p class="description param-bit">the Masonry instance</p>
   </li>
   <li class="param">
     <h5 class="param-name param-bit"><code>laidOutItems</code></h5>
     <p class="type param-bit">
-      <b>Type:</b> <span class="value"><i>Array</i> of <i>Packery.Item</i>s</span>
+      <b>Type:</b> <span class="value"><i>Array</i> of <i>Masonry.Item</i>s</span>
     </p>
     <p class="description param-bit">items that were laid out</p>
   </li>
@@ -63,14 +63,14 @@ $container.packery( 'on', 'layoutComplete', function( pckryInstance, laidOutItem
 <div class="row example">
   <div class="cell example-code">
 ``` js
-pckry.on( 'layoutComplete', function( pckryInstance, laidOutItems ) {
-  console.log('Packery layout completed on ' + laidOutItems.length + ' items');
+msnry.on( 'layoutComplete', function( msnryInstance, laidOutItems ) {
+  console.log('Masonry layout completed on ' + laidOutItems.length + ' items');
 });
 ```
   </div>
   <div id="layout-complete-demo" class="cell demo">
     <p class="instruction">Resize browser or click item to toggle size</p>
-    <div class="packery clickable">
+    <div class="masonry clickable">
       {{>demo-items}}
     </div>
     <p class="edit"><a href="http://codepen.io/desandro/pen/hdxge">Edit this example on CodePen</a></p>
@@ -82,25 +82,25 @@ pckry.on( 'layoutComplete', function( pckryInstance, laidOutItems ) {
 <h2 id="removecomplete">removeComplete</h2>
 
 ``` js
-pckry.on( 'removeComplete', function( pckryInstance, removedItems ) { //...
+msnry.on( 'removeComplete', function( msnryInstance, removedItems ) { //...
 // or with jQuery
-$container.packery( 'on', 'removeComplete', function( pckryInstance, removedItems ) {} )
+$container.masonry( 'on', 'removeComplete', function( msnryInstance, removedItems ) {} )
 ```
 
 <p>Triggered after an item element has been removed.</p>
 
 <ul class="params">
   <li class="param">
-    <h5 class="param-name param-bit"><code>pckryInstance</code></h5>
+    <h5 class="param-name param-bit"><code>msnryInstance</code></h5>
     <p class="type param-bit">
-      <b>Type:</b> <span class="value"><i>Packery</i></span>
+      <b>Type:</b> <span class="value"><i>Masonry</i></span>
     </p>
-    <p class="description param-bit">the Packery instance</p>
+    <p class="description param-bit">the Masonry instance</p>
   </li>
   <li class="param">
     <h5 class="param-name param-bit"><code>removedItems</code></h5>
     <p class="type param-bit">
-      <b>Type:</b> <span class="value"><i>Array</i> of <i>Packery.Item</i>s</span>
+      <b>Type:</b> <span class="value"><i>Array</i> of <i>Masonry.Item</i>s</span>
     </p>
     <p class="description param-bit">items that were removed</p>
   </li>
@@ -109,14 +109,14 @@ $container.packery( 'on', 'removeComplete', function( pckryInstance, removedItem
 <div class="row example">
   <div class="cell example-code">
 ``` js
-pckry.on( 'removeComplete', function( pckryInstance, removedItems ) {
+msnry.on( 'removeComplete', function( msnryInstance, removedItems ) {
   console.log( 'Removed ' + removedItems.length + ' items' );
 });
 ```
   </div>
   <div id="remove-complete-demo" class="cell demo">
     <p class="instruction">Click items to remove them</p>
-    <div class="packery clickable">
+    <div class="masonry clickable">
       {{>demo-items}}
     </div>
     <p class="edit"><a href="http://codepen.io/desandro/pen/JFCfb">Edit this example on CodePen</a></p>
