@@ -32,8 +32,8 @@ PS.faq = function() {
   // ----- animate item size ----- //
 
   ( function() {
-    var container = document.querySelector('#animate-item-size .packery');
-    var pckry = new Packery( container );
+    var container = document.querySelector('#animate-item-size .masonry');
+    var msnry = new Masonry( container );
 
     eventie.bind( container, 'click', function( event ) {
       // don't proceed if item content was not clicked on
@@ -47,10 +47,10 @@ PS.faq = function() {
 
       if ( isExpanded ) {
         // if shrinking, just layout
-        pckry.layout();
+        msnry.layout();
       } else {
         // if expanding, fit it
-        pckry.fit( itemElem );
+        msnry.fit( itemElem );
       }
     });
   })();
@@ -58,8 +58,8 @@ PS.faq = function() {
   // ----- animate item size responsive ----- //
 
   ( function() {
-    var container = document.querySelector('#animate-item-size-responsive .packery');
-    var pckry = new Packery( container );
+    var container = document.querySelector('#animate-item-size-responsive .masonry');
+    var msnry = new Masonry( container );
 
     eventie.bind( container, 'click', function( event ) {
       // don't proceed if item content was not clicked on
@@ -102,42 +102,42 @@ PS.faq = function() {
 
       if ( isExpanded ) {
         // if shrinking, just layout
-        pckry.layout();
+        msnry.layout();
       } else {
         // if expanding, fit it
-        pckry.fit( itemElem );
+        msnry.fit( itemElem );
       }
     });
   })();
 
   ( function() {
-    var container = document.querySelector('#order-after-drag-demo .packery');
-    var pckry = new Packery( container, {
+    var container = document.querySelector('#order-after-drag-demo .masonry');
+    var msnry = new Masonry( container, {
       columnWidth: 80,
       rowHeight: 80
     });
-    var itemElems = pckry.getItemElements();
+    var itemElems = msnry.getItemElements();
     // for each item element
     for ( var i=0, len = itemElems.length; i < len; i++ ) {
       var elem = itemElems[i];
       // make element draggable with Draggabilly
       var draggie = new Draggabilly( elem );
-      // bind Draggabilly events to Packery
-      pckry.bindDraggabillyEvents( draggie );
+      // bind Draggabilly events to Masonry
+      msnry.bindDraggabillyEvents( draggie );
     }
 
 
     // show item order after layout
     function orderItems() {
-      var itemElems = pckry.getItemElements();
+      var itemElems = msnry.getItemElements();
       for ( var i=0, len = itemElems.length; i < len; i++ ) {
         var elem = itemElems[i];
         setText( elem, i + 1 );
       }
     }
 
-    pckry.on( 'layoutComplete', orderItems );
-    pckry.on( 'dragItemPositioned', orderItems );
+    msnry.on( 'layoutComplete', orderItems );
+    msnry.on( 'dragItemPositioned', orderItems );
   })();
 
 };

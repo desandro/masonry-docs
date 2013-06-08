@@ -74,9 +74,9 @@ PS.events = function() {
   // ----- dragItemPositioned ----- //
 
   ( function() {
-    var container = document.querySelector('#drag-item-positioned-demo .packery');
+    var container = document.querySelector('#drag-item-positioned-demo .masonry');
     var itemElems = container.querySelectorAll('.item');
-    var pckry = new Packery( container, {
+    var msnry = new Masonry( container, {
       columnWidth: 80,
       rowHeight: 80
     });
@@ -85,13 +85,13 @@ PS.events = function() {
       var elem = itemElems[i];
       // make element draggable with Draggabilly
       var draggie = new Draggabilly( elem );
-      // bind Draggabilly events to Packery
-      pckry.bindDraggabillyEvents( draggie );
+      // bind Draggabilly events to Masonry
+      msnry.bindDraggabillyEvents( draggie );
     }
 
-    pckry.on( 'dragItemPositioned', function( pckryInstance, draggedItem ) {
-      var classes = getClassString( pckryInstance.element );
-      notify( 'Packery ' + classes +
+    msnry.on( 'dragItemPositioned', function( msnryInstance, draggedItem ) {
+      var classes = getClassString( msnryInstance.element );
+      notify( 'Masonry ' + classes +
         ' positioned dragged ' + draggedItem.element.nodeName );
     });
 
@@ -100,10 +100,10 @@ PS.events = function() {
   // ----- fitComplete demo ----- //
 
   ( function() {
-    var container = document.querySelector('#fit-complete-demo .packery');
-    var pckry = new Packery( container );
+    var container = document.querySelector('#fit-complete-demo .masonry');
+    var msnry = new Masonry( container );
 
-    pckry.on( 'fitComplete', function( pckryInstance, item ) {
+    msnry.on( 'fitComplete', function( msnryInstance, item ) {
       var classes = getClassString( item.element );
       notify( 'Fit ' + classes );
     });
@@ -115,18 +115,18 @@ PS.events = function() {
         return;
       }
 
-      pckry.fit( target, 40, 40 );
+      msnry.fit( target, 40, 40 );
     });
   })();
 
   // ----- layoutComplete demo ----- //
 
   ( function() {
-    var container = document.querySelector('#layout-complete-demo .packery');
-    var pckry = new Packery( container );
-    pckry.on( 'layoutComplete', function( pckryInstance, laidOutItems ) {
-      var classes = getClassString( pckryInstance.element );
-      notify( 'Packery ' + classes + ' layout completed on ' + laidOutItems.length + ' items' );
+    var container = document.querySelector('#layout-complete-demo .masonry');
+    var msnry = new Masonry( container );
+    msnry.on( 'layoutComplete', function( msnryInstance, laidOutItems ) {
+      var classes = getClassString( msnryInstance.element );
+      notify( 'Masonry ' + classes + ' layout completed on ' + laidOutItems.length + ' items' );
     });
 
     eventie.bind( container, 'click', function( event ) {
@@ -137,18 +137,18 @@ PS.events = function() {
       // change size of item via class
       classie.toggle( event.target, 'gigante' );
       // trigger layout
-      pckry.layout();
+      msnry.layout();
     });
   })();
 
   // ----- removeComplete demo ----- //
 
   ( function() {
-    var container = document.querySelector('#remove-complete-demo .packery');
-    var pckry = new Packery( container );
+    var container = document.querySelector('#remove-complete-demo .masonry');
+    var msnry = new Masonry( container );
 
-    pckry.on( 'removeComplete', function( pckryInstance, items ) {
-      var classes = getClassString( pckryInstance.element );
+    msnry.on( 'removeComplete', function( msnryInstance, items ) {
+      var classes = getClassString( msnryInstance.element );
       notify( 'Removed ' + items.length + ' items from ' + classes );
     });
 
@@ -158,7 +158,7 @@ PS.events = function() {
         return;
       }
       // remove clicked element
-      pckry.remove( event.target );
+      msnry.remove( event.target );
     });
   })();
 

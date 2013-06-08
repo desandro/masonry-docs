@@ -91,7 +91,9 @@ PS.methods = function() {
     var demo = document.querySelector('#prepended-demo');
     var container = demo.querySelector('.masonry');
     var button = demo.querySelector('button');
-    var msnry = new Masonry( container );
+    var msnry = new Masonry( container, {
+      columnWidth: 60
+    });
 
     eventie.bind( button, 'click', function() {
       // create new item elements

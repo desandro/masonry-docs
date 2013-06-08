@@ -11,6 +11,6 @@
     "eventie": false,
     "getSize": false,
     "getStyleProperty": false,
-    "Packery": false
+    "Masonry": false
   }
 }

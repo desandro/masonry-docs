@@ -46,7 +46,7 @@ function getItem( isRando ) {
 }
 
 /**
- * add items to a Packery
+ * add items to a Masonry
  * keep doing it until it's full
  */
 function addItems( pckry, maxY, isRando ) {
@@ -114,7 +114,7 @@ PS.index = function() {
   ( function() {
     var hero = document.querySelector('#hero');
     var container = hero.querySelector('.packery');
-    var pckry = new Packery( container, {
+    var pckry = new Masonry( container, {
       itemSelector: '.item',
       stamped: '.stamp',
       gutter: 2,
@@ -128,7 +128,7 @@ PS.index = function() {
   
   ( function() {
     var container = document.querySelector('#hero-demos .masonry .packery');
-    var pckry = new Packery( container, {
+    var pckry = new Masonry( container, {
       itemSelector: '.item',
       columnWidth: '.grid-sizer'
     });
@@ -145,7 +145,7 @@ PS.index = function() {
       fragment.appendChild( item );
     }
     container.appendChild( fragment );
-    var pckry = new Packery( container, {
+    var pckry = new Masonry( container, {
       gutter: 4
     });
     bindDraggies( pckry );
@@ -155,7 +155,7 @@ PS.index = function() {
 
   ( function() {
     var container = document.querySelector('.meticulous .packery');
-    var pckry = new Packery( container, {
+    var pckry = new Masonry( container, {
       itemSelector: '.item',
       columnWidth: '.grid-sizer',
       rowHeight: 44
@@ -167,7 +167,7 @@ PS.index = function() {
 
   ( function() {
     var container = document.querySelector('#hero-demos .basically .packery');
-    var pckry = new Packery( container, {
+    var pckry = new Masonry( container, {
       rowHeight: 40,
       gutter: 4
     });
