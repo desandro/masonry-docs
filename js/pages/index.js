@@ -31,6 +31,9 @@ PS.index = function() {
 
   })();
 
+  var loadMoreButton = document.querySelector('#load-more-examples');
+  eventie.bind( loadMoreButton, 'click', getExamples );
+
 };
 
 
@@ -64,7 +67,7 @@ function getExamplesFail( data ) {
 
 function getExamplesSuccess( data ) {
   console.log('success', data );
-  exampleOffset = data.length;
+  exampleOffset += data.length;
   var items = [];
   var fragment = document.createDocumentFragment();
   for ( var i=0, len = data.length; i < len; i++ ) {
