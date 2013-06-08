@@ -1,27 +1,9 @@
-<!-- breaking jQuery chainability -->
+CodePen examples
 
-<!-- add jsFiddles example links -->
+font page
 
-<!-- commercial buttons -->
+Web font code
 
-<!-- hero buttons -->
+analytics
 
-place for examples?
-
-<!-- contributing in appendix -->
-
-Twitter Card & Open Graph tags - add image?
-
-<!-- jshint page js -->
-
-page descriptions
-
-<!-- favicon -->
-
-## FAQ
-
-<!-- How do I get the order of items after dragging? -->
-
-What's the difference between Packery, Masonry, and Isotope?
-
-I work for non-profit/education, do we need a commercial license?
+deploy script
