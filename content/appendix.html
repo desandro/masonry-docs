@@ -3,8 +3,8 @@
   "title": "Appendix",
   "nav": [
     "imagesLoaded",
-    "Component libraries",
     "Web fonts",
+    "Component libraries",
     "Submitting issues"
   ]
 }
@@ -24,17 +24,45 @@ imagesLoaded( container, function() {
   msnry = new Masonry( container );
 });
 ```
+``` js
+// or with jQuery
+var $container = $('#container');
+// initialize Masonry after all images have loaded  
+$container.imagesLoaded( function() {
+  $container.masonry();
+});
+```
 
 <p>Or initialize Masonry first, then trigger <a href="methods.html#layout"><code>layout</code></a> after images have loaded.</p>
 
 ``` js
 // initialize Masonry
 var msnry = new Masonry( container );
-// layout Masonry after all images have loaded
+// layout Masonry again after all images have loaded
 imagesLoaded( container, function() {
   msnry.layout();
 });
 ```
+``` js
+// or with jQuery
+// initialize Masonry
+var $container = $('#container').masonry();
+// layout Masonry again after all images have loaded
+$container.imagesLoaded( function() {
+  $container.masonry();
+});
+```
+
+</div><div class="primary-content">
+
+<h2 id="web-fonts">Web fonts</h2>
+
+<p>Like images, unloaded web fonts can throw off Masonry. To resolve this, trigger <a href="methods.html#layout"><code>layout</code></a> after fonts have been loaded. Both Typekit and Google WebFont Loader provide font events to control scripts based on how fonts are loaded.</p>
+
+<ul>
+  <li><a href="http://blog.typekit.com/2010/10/18/more-control-with-typekits-font-events/">Typekit font events</a></li>
+  <li><a href="https://developers.google.com/webfonts/docs/webfont_loader#Events">Google WebFont Loader: Events</a></li>
+</ul>
 
 </div><div class="primary-content">
 
@@ -80,18 +108,6 @@ eventie.bind( elem, 'click', onElemClick );
 // unbind it
 eventie.unbind( elem, 'click', onElemClick );
 ```
-
-</div><div class="primary-content">
-
-<h2 id="web-fonts">Web fonts</h2>
-
-<p>Like images, unloaded web fonts can throw off Masonry. To resolve this, trigger <a href="methods.html#layout"><code>layout</code></a> after fonts have been loaded. Both Typekit and Google WebFont Loader provide font events to control scripts based on how fonts are loaded.</p>
-
-<ul>
-  <li><a href="http://blog.typekit.com/2010/10/18/more-control-with-typekits-font-events/">Typekit font events</a></li>
-  <li><a href="https://developers.google.com/webfonts/docs/webfont_loader#Events">Google WebFont Loader: Events</a></li>
-</ul>
-
 </div><div id="submitting-issues" class="primary-content">
 
 {{>submitting-issues}}

@@ -16,15 +16,6 @@ var transitionEndEvent = {
   transition: 'transitionend'
 }[ transitionProp ];
 
-// ----- text helper ----- //
-
-var docElem = document.documentElement;
-var textSetter = docElem.textContent !== undefined ? 'textContent' : 'innerText';
-
-function setText( elem, value ) {
-  elem[ textSetter ] = value;
-}
-
 // -------------------------- faq -------------------------- //
 
 PS.faq = function() {
@@ -33,7 +24,9 @@ PS.faq = function() {
 
   ( function() {
     var container = document.querySelector('#animate-item-size .masonry');
-    var msnry = new Masonry( container );
+    var msnry = new Masonry( container, {
+      columnWidth: 60
+    });
 
     eventie.bind( container, 'click', function( event ) {
       // don't proceed if item content was not clicked on
@@ -42,16 +35,9 @@ PS.faq = function() {
         return;
       }
       var itemElem = target.parentNode;
-      var isExpanded = classie.has( itemElem, 'is-expanded' );
       classie.toggleClass( itemElem, 'is-expanded' );
 
-      if ( isExpanded ) {
-        // if shrinking, just layout
-        msnry.layout();
-      } else {
-        // if expanding, fit it
-        msnry.fit( itemElem );
-      }
+      msnry.layout();
     });
   })();
 
@@ -76,7 +62,6 @@ PS.faq = function() {
       target.style.height = previousContentSize.height + 'px';
 
       var itemElem = target.parentNode;
-      var isExpanded = classie.has( itemElem, 'is-expanded' );
       classie.toggleClass( itemElem, 'is-expanded' );
 
       // force redraw
@@ -100,44 +85,8 @@ PS.faq = function() {
       target.style.height = size.height + 'px';
       redraw = null; // for JSHint
 
-      if ( isExpanded ) {
-        // if shrinking, just layout
-        msnry.layout();
-      } else {
-        // if expanding, fit it
-        msnry.fit( itemElem );
-      }
+      msnry.layout();
     });
-  })();
-
-  ( function() {
-    var container = document.querySelector('#order-after-drag-demo .masonry');
-    var msnry = new Masonry( container, {
-      columnWidth: 80,
-      rowHeight: 80
-    });
-    var itemElems = msnry.getItemElements();
-    // for each item element
-    for ( var i=0, len = itemElems.length; i < len; i++ ) {
-      var elem = itemElems[i];
-      // make element draggable with Draggabilly
-      var draggie = new Draggabilly( elem );
-      // bind Draggabilly events to Masonry
-      msnry.bindDraggabillyEvents( draggie );
-    }
-
-
-    // show item order after layout
-    function orderItems() {
-      var itemElems = msnry.getItemElements();
-      for ( var i=0, len = itemElems.length; i < len; i++ ) {
-        var elem = itemElems[i];
-        setText( elem, i + 1 );
-      }
-    }
-
-    msnry.on( 'layoutComplete', orderItems );
-    msnry.on( 'dragItemPositioned', orderItems );
   })();
 
 };
