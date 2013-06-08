@@ -1,40 +1,46 @@
 ---
 {
-  "title": "Appendix"
+  "title": "Appendix",
+  "nav": [
+    "imagesLoaded",
+    "Component libraries",
+    "Web fonts",
+    "Submitting issues"
+  ]
 }
 ---
 
 <div class="primary-content">
 
-<h2>imagesLoaded</h2>
+<h2 id="imagesloaded">imagesLoaded</h2>
 
-<p>Unloaded images can throw off Packery layouts and cause item elements to overlap. <a href="http://desandro.github.io/imagesloaded/">imagesLoaded</a> resolves this issue. imagesLoaded works by triggering a callback after all child images have been loaded.</p>
+<p>Unloaded images can throw off Masonry layouts and cause item elements to overlap. <a href="http://desandro.github.io/imagesloaded/">imagesLoaded</a> resolves this issue. imagesLoaded works by triggering a callback after all child images have been loaded.</p>
 
 ``` js
 var container = document.querySelector('#container');
-var pckry;
-// initialize Packery after all images have loaded
+var msnry;
+// initialize Masonry after all images have loaded
 imagesLoaded( container, function() {
-  pckry = new Packery( container );
+  msnry = new Masonry( container );
 });
 ```
 
-<p>Or initialize Packery first, then trigger <a href="methods.html#layout"><code>layout</code></a> after images have loaded.</p>
+<p>Or initialize Masonry first, then trigger <a href="methods.html#layout"><code>layout</code></a> after images have loaded.</p>
 
 ``` js
-// initialize Packery
-var pckry = new Packery( container );
-// layout Packery after all images have loaded
+// initialize Masonry
+var msnry = new Masonry( container );
+// layout Masonry after all images have loaded
 imagesLoaded( container, function() {
-  pckry.layout();
+  msnry.layout();
 });
 ```
 
 </div><div class="primary-content">
 
-<h2>Component libraries</h2>
+<h2 id="component-libraries">Component libraries</h2>
 
-<p>Packery includes several component libraries. You might have seen these used in the example code. You can use these libraries in your own code.</p>
+<p>Masonry includes several component libraries. You might have seen these used in the example code. You can use these libraries in your own code.</p>
 
 <h3 id="docready">docReady</h3>
 
@@ -44,7 +50,7 @@ imagesLoaded( container, function() {
 docReady( function() {
   // document is ready, let's do some fun stuff!
   var container = document.querySelector('#container');
-  var pckry = new Packery( container );
+  var msnry = new Masonry( container );
 });
 ```
 
@@ -77,9 +83,9 @@ eventie.unbind( elem, 'click', onElemClick );
 
 </div><div class="primary-content">
 
-<h2>Web fonts</h2>
+<h2 id="web-fonts">Web fonts</h2>
 
-<p>Like images, unloaded web fonts can throw off Packery. To resolve this, trigger <a href="methods.html#layout"><code>layout</code></a> after fonts have been loaded. Both Typekit and Google WebFont Loader provide font events to control scripts based on how fonts are loaded.</p>
+<p>Like images, unloaded web fonts can throw off Masonry. To resolve this, trigger <a href="methods.html#layout"><code>layout</code></a> after fonts have been loaded. Both Typekit and Google WebFont Loader provide font events to control scripts based on how fonts are loaded.</p>
 
 <ul>
   <li><a href="http://blog.typekit.com/2010/10/18/more-control-with-typekits-font-events/">Typekit font events</a></li>
