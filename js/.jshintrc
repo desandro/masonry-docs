@@ -7,10 +7,10 @@
   "predef": {
     "classie": false,
     "docReady": false,
-    "Draggabilly": false,
     "eventie": false,
     "getSize": false,
     "getStyleProperty": false,
+    "imagesLoaded": false,
     "Masonry": false
   }
 }
