@@ -66,6 +66,7 @@
   background: white;
   border-radius: 10px;
   padding: 10px 1%;
+  margin-bottom: 20px;
 }
 
 .hero-masonry:after {

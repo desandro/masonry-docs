@@ -1,7 +1,5 @@
 CodePen examples
 
-font page
-
 Web font code
 
 analytics
@@ -12,8 +10,6 @@ position: relative or absolute when using margin and stuff
 
 first item breaks grid
 
-loading indicator on homepage
-
 ## upgrading from v2
 
 smartresize no longer in use
@@ -22,5 +18,3 @@ isFitWidth removed
 isRTL removed, use `isOriginLeft: false` instead
 layout method renamed to `layoutItems`
 Corner stamp is now integrated as `stamp` option and `stamp` method
-
-
