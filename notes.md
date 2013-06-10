@@ -1,7 +1,5 @@
 CodePen examples
 
-Web font code
-
 analytics
 
 deploy script
@@ -18,3 +16,5 @@ isFitWidth removed
 isRTL removed, use `isOriginLeft: false` instead
 layout method renamed to `layoutItems`
 Corner stamp is now integrated as `stamp` option and `stamp` method
+isResizable -> isResizeBound
+jQuery animation has been removed. This means no animation for in IE8 and IE9

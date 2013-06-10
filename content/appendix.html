@@ -65,6 +65,60 @@ $container.imagesLoaded( function() {
   <li><a href="https://developers.google.com/webfonts/docs/webfont_loader#Events">Google WebFont Loader: Events</a></li>
 </ul>
 
+<h3 id="typekit">Typekit</h3>
+
+<p>Try the script below when using Masonry on a page with Typekit. This will trigger Masonry when the document is ready and again when fonts have loaded. Be sure to remove Typekit’s default script, <code>try{Typekit.load();}catch(e){}</code>.</p>
+
+``` js
+var msnry;
+
+function triggerMasonry() {
+  // don't proceed if masonry has not been initialized
+  if ( !msnry ) {
+    return;
+  }
+  msnry.layout();
+}
+// initialize masonry on document ready
+docReady( function() {
+  var container = document.querySelector('#container');
+  msnry = new Masonry( container, {
+    // options...
+  });
+});
+// trigger masonry when fonts have loaded
+Typekit.load({
+  active: triggerMasonry,
+  inactive: triggerMasonry
+});
+```
+
+``` js
+// or with jQuery
+var $container;
+
+function triggerMasonry() {
+  // don't proceed if $container has not been selected
+  if ( !$container ) {
+    return;
+  }
+  // init Masonry
+  $container.masonry({
+    // options...
+  });
+}
+// trigger masonry on document ready
+$(function(){
+  $container = $('#container');
+  triggerMasonry();
+});
+// trigger masonry when fonts have loaded
+Typekit.load({
+  active: triggerMasonry,
+  inactive: triggerMasonry
+});
+```
+
 </div><div class="primary-content">
 
 <h2 id="component-libraries">Component libraries</h2>
