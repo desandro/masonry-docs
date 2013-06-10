@@ -78,9 +78,9 @@
 
 @media screen and ( min-width: 960px ) {
 
-  /* hide text on index */
-  .index-page #site-nav h1 a {
-    display: none;
+  /* hide h1 on index */
+  .index-page #site-nav h1 {
+    visibility: hidden;
   }
 
   #site-nav,
