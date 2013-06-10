@@ -6,7 +6,7 @@
 
 'use strict';
 
-var PS = window.PS;
+var MD = window.MD;
 
 // ----- text helper ----- //
 
@@ -67,7 +67,7 @@ function getClassString( elem ) {
 }
 
 
-PS.events = function() {
+MD.events = function() {
 
   notifElem = document.querySelector('#notification');
 

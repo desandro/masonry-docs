@@ -6,7 +6,7 @@
 
 'use strict';
 
-var PS = window.PS;
+var MD = window.MD;
 
 var transitionProp = getStyleProperty('transition');
 var transitionEndEvent = {
@@ -18,7 +18,7 @@ var transitionEndEvent = {
 
 // -------------------------- faq -------------------------- //
 
-PS.faq = function() {
+MD.faq = function() {
 
   // ----- animate item size ----- //
 

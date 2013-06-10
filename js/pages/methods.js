@@ -6,7 +6,7 @@
 
 'use strict';
 
-var PS = window.PS;
+var MD = window.MD;
 
 function getItemElement() {
   var elem = document.createElement('div');
@@ -18,7 +18,7 @@ function getItemElement() {
   return elem;
 }
 
-PS.methods = function() {
+MD.methods = function() {
 
   // ----- appended ----- //
 
