@@ -8,18 +8,8 @@
 
 var MD = window.MD;
 
-// ----- text helper ----- //
-
-var docElem = document.documentElement;
-var textSetter = docElem.textContent !== undefined ? 'textContent' : 'innerText';
-
-function setText( elem, value ) {
-  elem[ textSetter ] = value;
-}
 
 // -------------------------- notify -------------------------- //
-
-var transitionProp = getStyleProperty('transition');
 
 function timeStamp() {
   var now = new Date();
@@ -30,34 +20,8 @@ function timeStamp() {
   return [ now.getHours(), min, seconds ].join(':');
 }
 
-var notifElem;
-var notifyTimeout;
-var hideTime = transitionProp ? 1000 : 1500;
-
 function notify( message ) {
-  message += ' at ' + timeStamp();
-  setText( notifElem, message );
-
-  if ( transitionProp ) {
-    notifElem.style[ transitionProp ] = 'none';
-  }
-  notifElem.style.display = 'block';
-  notifElem.style.opacity = '1';
-
-  if ( notifyTimeout ) {
-    clearTimeout( notifyTimeout );
-  }
-
-  notifyTimeout = setTimeout( hideNotify, hideTime );
-}
-
-function hideNotify() {
-  if ( transitionProp ) {
-    notifElem.style[ transitionProp ] = 'opacity 1.0s';
-    notifElem.style.opacity = '0';
-  } else {
-    notifElem.style.display = 'none';
-  }
+  MD.notify( message + ' at ' + timeStamp(), true );
 }
 
 // -----  ----- //
@@ -69,8 +33,6 @@ function getClassString( elem ) {
 
 MD.events = function() {
 
-  notifElem = document.querySelector('#notification');
-
   // ----- layoutComplete demo ----- //
 
   ( function() {
@@ -80,7 +42,7 @@ MD.events = function() {
     });
     msnry.on( 'layoutComplete', function( msnryInstance, laidOutItems ) {
       var classes = getClassString( msnryInstance.element );
-      notify( 'Masonry ' + classes + ' layout completed on ' + laidOutItems.length + ' items' );
+      notify( 'Masonry layout completed on ' + laidOutItems.length + ' items' );
     });
 
     eventie.bind( container, 'click', function( event ) {
@@ -105,7 +67,7 @@ MD.events = function() {
 
     msnry.on( 'removeComplete', function( msnryInstance, items ) {
       var classes = getClassString( msnryInstance.element );
-      notify( 'Removed ' + items.length + ' items from ' + classes );
+      notify( 'Removed ' + items.length + ' items' );
     });
 
     eventie.bind( container, 'click', function( event ) {
