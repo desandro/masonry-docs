@@ -21,6 +21,30 @@
 
 <div class="primary-content">
 
+<p>All options are optional, but <a href="#columnwidth"><code>columnWidth</code></a> and <a href="#itemselector"><code>itemSelector</code></a> are recommended.</p>
+
+``` js
+var container = document.querySelector('#container');
+var msnry = new Masonry( container, {
+  columnWidth: 200,
+  itemSelector: '.item'
+});
+```
+``` js
+// with jQuery
+$('#container').masonry({
+  columnWidth: 200,
+  itemSelector: '.item'
+});
+```
+``` html
+<!-- in HTML -->
+<div id="container" class="js-masonry"
+  data-masonry-options='{ "columnWidth": 200, "itemSelector": ".item" }'>
+```
+
+</div><div class="primary-content">
+
 <h2 id="containerstyle">containerStyle</h2>
 
 
@@ -48,7 +72,9 @@
   </p>
 </div>
 
-<p>The width of a column of a horizontal grid. When set, Masonry will align item elements horizontally to this grid.</p>
+<p>The width of a column of a horizontal grid.</p>
+
+<p>If <code>columnWidth</code> is not set, Masonry will use the outer width of the first element.</p>
 
 <div class="row example">
   <div class="cell example-code">

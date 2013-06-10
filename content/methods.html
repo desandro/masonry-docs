@@ -54,8 +54,8 @@ $('#container').masonry()
   <a href="#off"><code>off</code></a>).</p>
 
 ``` js
-// chaining works with 'fit' method
-$container.masonry( 'fit', elem ).fadeIn();
+// chaining works with 'appended' method
+$container.masonry( 'appended', elem ).fadeIn();
 // 'on' method breaks jQuery chaining
 $container.masonry( 'on', 'layoutComplete', function() {...} );
 $container.fadeIn();
@@ -182,7 +182,9 @@ $container.masonry('destroy')
 var demo = document.querySelector('#destroy-demo');
 var container = demo.querySelector('.masonry');
 var button = demo.querySelector('button');
-var msnry = new Masonry( container );
+var msnry = new Masonry( container, {
+  columnWidth: 60
+});
 var isActive = true;
 
 eventie.bind( button, 'click', function() {
@@ -198,7 +200,7 @@ eventie.bind( button, 'click', function() {
   <div id="destroy-demo" class="cell demo">
     <button class="button">Toggle Masonry</button>
     <div class="masonry">
-      {{>demo-items}}
+      {{>basic-demo-items}}
     </div>
     <p class="edit"><a href="http://codepen.io/desandro/pen/scKGf">Edit this example on CodePen</a></p>
   </div>
