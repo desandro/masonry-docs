@@ -24,13 +24,6 @@ function notify( message ) {
   MD.notify( message + ' at ' + timeStamp(), true );
 }
 
-// -----  ----- //
-
-function getClassString( elem ) {
-  return '.' + elem.className.split(' ').join('.');
-}
-
-
 MD.events = function() {
 
   // ----- layoutComplete demo ----- //
@@ -41,7 +34,6 @@ MD.events = function() {
       columnWidth: 60
     });
     msnry.on( 'layoutComplete', function( msnryInstance, laidOutItems ) {
-      var classes = getClassString( msnryInstance.element );
       notify( 'Masonry layout completed on ' + laidOutItems.length + ' items' );
     });
 
@@ -66,7 +58,6 @@ MD.events = function() {
     });
 
     msnry.on( 'removeComplete', function( msnryInstance, items ) {
-      var classes = getClassString( msnryInstance.element );
       notify( 'Removed ' + items.length + ' items' );
     });
 
