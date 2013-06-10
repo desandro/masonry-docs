@@ -2,8 +2,8 @@
 
 /* stuff that isn't in the gutter */
 .primary-content {
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 #content .primary-content > * {
@@ -132,8 +132,8 @@
 @media screen and ( min-width: 960px ) {
 
   .primary-content {
-    padding-left: 6%;
-    padding-right: 200px;
+    margin-left: 6%;
+    margin-right: 200px;
   }
 
   #page-nav {
