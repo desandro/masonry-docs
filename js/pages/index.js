@@ -11,6 +11,7 @@ var $ = window.jQuery;
 
 var heroContainer;
 var heroMasonry;
+var loadMoreButton;
 
 // --------------------------  -------------------------- //
 
@@ -31,7 +32,7 @@ MD.index = function() {
 
   })();
 
-  var loadMoreButton = document.querySelector('#load-more-examples');
+  loadMoreButton = document.querySelector('#load-more-examples');
   eventie.bind( loadMoreButton, 'click', getExamples );
 
 };
@@ -68,6 +69,13 @@ function getExamplesFail() {
 }
 
 function getExamplesSuccess( data ) {
+  // nothing more to load
+  if ( !data || !data.length ) {
+    loadMoreButton.style.display = 'none';
+    MD.notify( 'No more examples', true );
+    return;
+  }
+
   MD.hideNotify();
   exampleOffset += data.length;
   var items = [];
