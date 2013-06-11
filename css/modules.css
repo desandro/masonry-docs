@@ -29,7 +29,8 @@
 
 /* ---- #content ---- */
 
-#content > .primary-content {
+#content .primary-content,
+#footer .primary-content {
   border-top: 2px solid #F8F5F2;
 }
 
