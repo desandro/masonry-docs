@@ -85,7 +85,7 @@ div.param {
   color: #279;
 }
 
-/* ---- packery ---- */
+/* ---- masonry ---- */
 
 .masonry {
 }
@@ -101,7 +101,7 @@ div.param {
   clear: both;
 }
 
-/* ---- packery items ---- */
+/* ---- masonry items ---- */
 
 .masonry .item {
   width:  60px;

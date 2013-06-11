@@ -1,12 +1,12 @@
 /*!
- * Packery site scripts
+ * Masonry Docs site scripts
  */
 
 ( function( window ) {
 
 'use strict';
 
-// global namespace, MD = Packery Site
+// global namespace, MD = Masonry Docs
 var MD = window.MD = {};
 // hash of page controllers
 MD.pages = {};

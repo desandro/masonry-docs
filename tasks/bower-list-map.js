@@ -36,7 +36,7 @@ module.exports = function( grunt ) {
       jsSrcs = bowerJsSources.concat( jsSrcs );
       grunt.config.set( 'concat.js.src', jsSrcs );
       grunt.config.set( 'uglify.js.files', {
-        'build/js/packery-docs.min.js': jsSrcs
+        'build/js/masonry-docs.min.js': jsSrcs
       });
 
       // add CSS sources from Bower
