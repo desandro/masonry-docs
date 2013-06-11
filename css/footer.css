@@ -1,51 +1,10 @@
-/* ---- Metafizzy logo ---- */
-
-/* use custom font for logo */
-.metafizzy-logo {
-  font-family: 'Metafizzy Logo', sans-serif;
-}
-
-.metafizzy-logo .etafizzy {
-  display: none;
-}
-
-/* ---- footer ---- */
-
 #footer {
-  position: relative;
-  padding-bottom: 1.0em;
+  margin-top: 2.0em;
+  font-size: 13px;
+  font-style: italic;
+  color: #888;
 }
 
-.footer-content {
-  bottom: 20px;
-  text-align: center;
-  font-size: 12px;
-}
-
-#footer .metafizzy-logo {
-  display: block;
-  font-size: 80px;
-  line-height: 1.0;
-  background: none;
-  opacity: 0.25;
-}
-
-#footer .metafizzy-logo:hover { opacity: 1; }
-
-/* desktop */
-@media screen and ( min-width: 960px ) {
-  #footer {
-    height: 50px;
-  }
-
-  .footer-content {
-    width: 200px;
-    position: absolute;
-    left: 0;
-    bottom: 1.0em;
-  }
-  
-  #footer .metafizzy-logo {
-    font-size: 110px;
-  }
+#footer .primary-content {
+  padding: 2.0em 0;
 }
