@@ -1,8 +1,8 @@
-# Packery Docs
+# Masonry Docs
 
-Documentation for Packery, the bin-packing layout library.
+Documentation for Masonry, cascading grid layout library.
 
-This project does _not_ include the source for Packery. That's over in [github.com/desandro/packery](https://github.com/desandro/packery).
+This project does _not_ include the source for Masonry. That's over in [github.com/desandro/masonry](https://github.com/desandro/masonry).
 
 ## Build
 
