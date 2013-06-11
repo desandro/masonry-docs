@@ -40,26 +40,7 @@
   top: 10px;
 }
 
-/* ---- big tagline ---- */
-
-#big-tagline {
-  background: #0C9;
-  color: white;
-  padding: 20px 0;
-}
-
-#big-tagline .tagline {
-  line-height: 1.2;
-  margin-bottom: 0;
-  font-size: 36px;
-}
-
-#big-tagline strong {
-  color: #333;
-  color: hsla(0, 0%, 0%, 0.6);
-}
-
-/* ---- hero packery ---- */
+/* ---- hero masonry ---- */
 
 .hero-masonry {
   background: white;
@@ -76,7 +57,7 @@
 
 .hero-item,
 .hero-masonry .grid-sizer {
-  width: 22.5%;
+  width: 46.9%; /* juse a lil under  47 */
   margin: 10px 1%;
   float: left;
   border-radius: 8px;
@@ -93,10 +74,9 @@
 }
 
 
-/* juse a lil under  47 */
 .hero-item.has-title,
 .hero-item.w2 {
-  width: 46.9%;
+  width: 96%;
 }
 
 .hero-item.has-example {
@@ -125,6 +105,21 @@
 .hero-item.has-example .example-title {
   padding: 5px 10px;
   margin: 0;
+}
+
+/* enough width for 4 columns */
+@media screen and ( min-width: 720px ) {
+
+  .hero-item,
+  .hero-masonry .grid-sizer {
+    width: 22.5%;
+  }
+
+  .hero-item.has-title,
+  .hero-item.w2 {
+    width: 46.9%; /* just a lil under 47 */
+  }
+
 }
 
 /* ---- desktop ---- */
