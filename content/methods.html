@@ -148,7 +148,7 @@ eventie.bind( button, 'click', function() {
       <div class="item"></div>
       <div class="item h2"></div>
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/ndoxe">Edit example on CodePen</a></p>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/JzDis">Edit example on CodePen</a></p>
   </div>
 </div>
 
@@ -202,7 +202,7 @@ eventie.bind( button, 'click', function() {
     <div class="masonry">
       {{>basic-demo-items}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/scKGf">Edit this example on CodePen</a></p>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/EogCw">Edit this example on CodePen</a></p>
   </div>
 </div>
 
@@ -317,7 +317,7 @@ eventie.bind( container, 'click', function( event ) {
     <div class="masonry clickable">
       {{>basic-demo-items}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/dLgKw">Edit this example on CodePen</a></p>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/vdkJn">Edit this example on CodePen</a></p>
   </div>
 </div>
 
@@ -518,7 +518,7 @@ eventie.bind( button, 'click', function() {
     fragment.appendChild( elem );
     elems.push( elem );
   }
-  // append elements to container
+  // prepend elements to container
   container.insertBefore( fragment, container.firstChild );
   // add and lay out newly prepended elements
   msnry.prepended( elems );
@@ -534,7 +534,7 @@ eventie.bind( button, 'click', function() {
       <div class="item"></div>
       <div class="item h2"></div>
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/EhvLy">Edit example on CodePen</a></p>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/vilFn">Edit example on CodePen</a></p>
   </div>
 </div>
 
@@ -601,7 +601,7 @@ eventie.bind( container, 'click', function( event ) {
     <div class="masonry clickable">
       {{>basic-demo-items}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/akrvC">Edit this example on CodePen</a></p>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/IBJeq">Edit this example on CodePen</a></p>
   </div>
 </div>
 
@@ -662,6 +662,7 @@ var demo = document.querySelector('#stamp-demo');
 var stampElem = demo.querySelector('.stamp');
 var button = demo.querySelector('button');
 var msnry = new Masonry( demo.querySelector('.masonry'), {
+  columnWidth: 60,
   itemSelector: '.item'
 });
 var isStamped = false;
@@ -685,7 +686,7 @@ eventie.bind( button, 'click', function() {
       <div class="stamp"></div>
       {{>basic-demo-items}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/pstDE">Edit this example on CodePen</a></p>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/wKpjs">Edit this example on CodePen</a></p>
   </div>
 </div>
 
