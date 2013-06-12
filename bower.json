@@ -10,6 +10,6 @@
     "get-style-property": "desandro/get-style-property",
     "jquery": "~1",
     "normalize-css": "~2",
-    "masonry": "../masonry_dev"
+    "masonry": "latest"
   }
 }
