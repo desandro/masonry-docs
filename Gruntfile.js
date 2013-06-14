@@ -72,7 +72,7 @@ module.exports = function( grunt ) {
           {
             expand: true, // enable dynamic options
             cwd: 'public/', // set cwd, excludes it in build path
-            src: [ '**' ],
+            src: [ '**', '!.htaccess' ],
             dest: 'build/'
           }
         ]
