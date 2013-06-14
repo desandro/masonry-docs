@@ -42,6 +42,8 @@ code .literal { color: #38F; } /*boolean*/
 code .keyword { color: #F73; } /* keyword */
 code .kd, /* storage */
 code .attribute { color: #DC8; } /* markup attribute */
+code .title { color: #9CF; }
+code .params { color: #98D; }
 code .p  { color: #EDB; } /* punctuation */
 code .o  { color: #F63; }   /* operator */
 code .nb { color: #AA97AC;} /* support */
