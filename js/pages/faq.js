@@ -45,7 +45,10 @@ MD.faq = function() {
 
   ( function() {
     var container = document.querySelector('#animate-item-size-responsive .masonry');
-    var msnry = new Masonry( container );
+    var msnry = new Masonry( container, {
+      columnWidth: '.grid-sizer',
+      itemSelector: '.item'
+    });
 
     eventie.bind( container, 'click', function( event ) {
       // don't proceed if item content was not clicked on
