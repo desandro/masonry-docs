@@ -36,7 +36,7 @@ module.exports = function( grunt ) {
       jsSrcs = bowerJsSources.concat( jsSrcs );
       grunt.config.set( 'concat.js.src', jsSrcs );
       grunt.config.set( 'uglify.js.files', {
-        'build/js/masonry-docs.min.js': jsSrcs
+        'js/masonry-docs.min.js': jsSrcs
       });
 
       // add CSS sources from Bower
@@ -46,14 +46,6 @@ module.exports = function( grunt ) {
         // console.log( sources['.css'], cssSrcs );
         grunt.config.set( 'concat.css.src', cssSrcs );
       }
-
-      // copy over all sources for copying into build/
-      var copySources = grunt.config.get('copy.bowerSources.src');
-      for ( var ext in bowerSources ) {
-        var extSources = bowerSources[ ext ];
-        copySources.push.apply( copySources, extSources );
-      }
-      grunt.config.set( 'copy.bowerSources.src', copySources );
 
       done();
     });

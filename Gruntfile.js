@@ -21,25 +21,25 @@ module.exports = function( grunt ) {
     concat: {
       js: {
         src: [ 'js/controller.js', 'js/pages/*.js' ],
-        dest: 'build/js/masonry-docs.js'
+        dest: 'js/masonry-docs.js'
       },
       pkgd: {
         // src will be set in package-sources task
-        dest: 'build/masonry.pkgd.js',
+        dest: 'masonry.pkgd.js',
         options: {
           banner: banner
         }
       },
       css: {
         src: [ 'components/normalize-css/normalize.css', 'css/*.css' ],
-        dest: 'build/css/masonry-docs.css'
+        dest: 'css/masonry-docs.css'
       }
     },
 
     uglify: {
       pkgd: {
         files: {
-          'build/masonry.pkgd.min.js': [ 'build/masonry.pkgd.js' ]
+          'masonry.pkgd.min.js': [ 'masonry.pkgd.js' ]
         },
         options: {
           banner: banner
@@ -47,7 +47,7 @@ module.exports = function( grunt ) {
       },
       js: {
         files: {
-          // 'build/js/masonry-site.min.js' will be set in bower-list-map
+          // 'js/masonry-site.min.js' will be set in bower-list-map
         }
       }
     },
@@ -65,69 +65,16 @@ module.exports = function( grunt ) {
       }
     },
 
-    // ----- copy ----- //
-    copy: {
-      public: {
-        files: [
-          {
-            expand: true, // enable dynamic options
-            cwd: 'public/', // set cwd, excludes it in build path
-            src: [ '**', '!.htaccess' ],
-            dest: 'build/'
-          }
-        ]
-      },
-      css: {
-        files: [
-          {
-            expand: true, // enable dynamic options
-            cwd: 'css/', // set cwd, excludes it in build path
-            src: [ '*' ],
-            dest: 'build/css/'
-          }
-        ]
-      },
-      js: {
-        files: [
-          {
-            expand: true, // enable dynamic options
-            cwd: 'js/', // set cwd, excludes it in build path
-            src: [ '**' ],
-            dest: 'build/js/'
-          }
-        ]
-      },
-      bowerSources: {
-        // additional sources will be set in bower-list-map
-        // friggin Nicolas, not using main the right way :P
-        src: [ 'components/normalize-css/normalize.css', 'components/jquery/jquery.min.js' ],
-        dest: 'build/'
-      }
-    },
-
     watch: {
       content: {
         files: [ 'content/*', 'templates/*.mustache' ],
         tasks: [ 'bower-list-map', 'hbarz' ]
-      },
-      public: {
-        files: [ 'public/**' ],
-        tasks: [ 'copy:public' ]
-      },
-      css: {
-        files: [ 'css/*' ],
-        tasks: [ 'copy:css' ]
-      },
-      js: {
-        files: [ 'js/**' ],
-        tasks: [ 'copy:js' ]
       }
     }
 
   });
 
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -140,8 +87,7 @@ module.exports = function( grunt ) {
     'package-sources',
     'concat',
     'uglify',
-    'hbarz',
-    'copy'
+    'hbarz'
   ]);
 
 };
