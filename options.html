@@ -1,0 +1,686 @@
+<!doctype html>
+<!--[if lte IE 8]>     <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class=""> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="description" content="Cascading grid layout library" />
+
+  <title>Masonry Options</title>
+
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700|Noto+Sans:400,700,400italic" />
+
+  
+    
+    <link rel="stylesheet" href="css/masonry-docs.css" />
+  
+
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@desandro" />
+  <meta name="twitter:url" content="http://masonry.desandro.com/options.html" />
+  <meta name="twitter:title" content="Masonry Options" />
+  <meta name="twitter:description" content="Cascading grid layout library" />
+
+  
+    <!-- Mint Analytics - Remove this if you copy/pasted this page -->
+    <script src="http://desandro.com/mint/?js"></script>
+  
+
+</head>
+<body class="options-page" data-page="options">
+
+  <div id="site-nav">
+    <div class="primary-content">
+      <h1><a href=".">Masonry</a></h1>
+      <ol>
+        <li class="nav-options"><a href="options.html">Options</a></li>
+        <li class="nav-methods"><a href="methods.html">Methods</a></li>
+        <li class="nav-events"><a href="events.html">Events</a></li>
+        <li class="nav-appendix"><a href="appendix.html">Appendix</a></li>
+        <li class="nav-faq"><a href="faq.html">FAQ</a></li>
+      </ol>
+    </div>
+  </div>
+
+  
+  
+
+  <div id="content">
+
+    <div class="primary-content">
+      
+        <h1>Options</h1>
+        
+
+      
+      
+        <ul id="page-nav">
+          
+            <li><a href="#containerstyle">containerStyle</a></li>
+          
+            <li><a href="#columnwidth">columnWidth</a></li>
+          
+            <li><a href="#gutter">gutter</a></li>
+          
+            <li><a href="#hiddenstyle">hiddenStyle</a></li>
+          
+            <li><a href="#isinitlayout">isInitLayout</a></li>
+          
+            <li><a href="#isoriginleft">isOriginLeft</a></li>
+          
+            <li><a href="#isorigintop">isOriginTop</a></li>
+          
+            <li><a href="#isresizebound">isResizeBound</a></li>
+          
+            <li><a href="#itemselector">itemSelector</a></li>
+          
+            <li><a href="#stamp">stamp</a></li>
+          
+            <li><a href="#transitionduration">transitionDuration</a></li>
+          
+            <li><a href="#visiblestyle">visibleStyle</a></li>
+          
+            <li><a href="#element-sizing">Element sizing</a></li>
+          
+        </ul>
+      
+    </div>
+
+    
+    
+<div class="primary-content">
+
+<p>All options are optional, but <a href="#columnwidth"><code>columnWidth</code></a> and <a href="#itemselector"><code>itemSelector</code></a> are recommended.</p>
+
+<pre><code class="js"><span class="keyword">var</span> container = document.querySelector(<span class="string">'#container'</span>);
+<span class="keyword">var</span> msnry = <span class="keyword">new</span> Masonry( container, {
+  columnWidth: <span class="number">200</span>,
+  itemSelector: <span class="string">'.item'</span>
+});</code></pre>
+
+<pre><code class="js"><span class="comment">// with jQuery</span>
+$(<span class="string">'#container'</span>).masonry({
+  columnWidth: <span class="number">200</span>,
+  itemSelector: <span class="string">'.item'</span>
+});</code></pre>
+
+<pre><code class="html"><span class="comment">&lt;!-- in HTML --&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"container"</span> <span class="attribute">class</span>=<span class="value">"js-masonry"</span>
+  <span class="attribute">data-masonry-options</span>=<span class="value">'{ "columnWidth": 200, "itemSelector": ".item" }'</span>&gt;</span></code></pre>
+
+
+</div><div class="primary-content">
+
+<h2 id="containerstyle">containerStyle</h2>
+
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Object</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code>{ position: <span class="string">'relative'</span> }</code></span>
+  </p>
+</div>
+
+<p>CSS styles that are applied to the container element. To disable Masonry from setting any CSS to the container element, set <code>containerStyle: <span class="literal">null</span></code>.</p>
+
+</div><div class="primary-content">
+
+<h2 id="columnwidth">columnWidth</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
+  </p>
+</div>
+
+<p>The width of a column of a horizontal grid.</p>
+
+<p>If <code>columnWidth</code> is not set, Masonry will use the outer width of the first element.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+<pre><code class="js"><span class="string">"columnWidth"</span>: <span class="number">60</span></code></pre>
+
+  </div>
+  <div class="cell demo">
+    <div class="masonry js-masonry"  data-masonry-options='{ "columnWidth": 60 }'>
+      <div class="item"></div>
+<div class="item w2 h2"></div>
+<div class="item h3"></div>
+<div class="item h2"></div>
+<div class="item w3"></div>
+<div class="item"></div>
+<div class="item"></div>
+<div class="item h2"></div>
+<div class="item w2 h3"></div>
+<div class="item"></div>
+<div class="item h2"></div>
+<div class="item"></div>
+<div class="item w2"></div>
+<div class="item"></div>
+<div class="item h2"></div>
+<div class="item"></div>
+<div class="item"></div>
+
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/osFxj">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+<p>If set to an <i>Element</i> or Selector <i>String</i>, Masonry will use the width of that element. See <a href="#element-sizing">Element sizing</a>. Setting <code>columnWidth</code> with element sizing is recommended if you are using percentage widths.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+<pre><code class="html"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"column-width-demo2"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"grid-sizer"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"item"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"item"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  ...
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+
+<pre><code class="css"><span class="id">#column-width-demo2</span> <span class="class">.grid-sizer</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">20</span>%;</span></span> <span class="rule">}</span></span>
+<span class="id">#column-width-demo2</span> <span class="class">.item</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">20</span>%;</span></span> <span class="rule">}</span></span>
+<span class="id">#column-width-demo2</span> <span class="class">.item</span><span class="class">.w2</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">40</span>%;</span></span> <span class="rule">}</span></span></code></pre>
+
+<pre><code class="js"><span class="string">"columnWidth"</span>: <span class="string">".grid-sizer"</span>,
+<span class="string">"itemSelector"</span>: <span class="string">".item"</span></code></pre>
+
+  </div>
+  <div class="cell demo">
+    <div id="column-width-demo2" class="masonry js-masonry" data-masonry-options='{ "columnWidth": ".grid-sizer", "itemSelector": ".item" }'>
+      <div class="grid-sizer"></div>
+      <div class="item"></div>
+<div class="item w2 h2"></div>
+<div class="item h3"></div>
+<div class="item h2"></div>
+<div class="item w3"></div>
+<div class="item"></div>
+<div class="item"></div>
+<div class="item h2"></div>
+<div class="item w2 h3"></div>
+<div class="item"></div>
+<div class="item h2"></div>
+<div class="item"></div>
+<div class="item w2"></div>
+<div class="item"></div>
+<div class="item h2"></div>
+<div class="item"></div>
+<div class="item"></div>
+
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/JFpeg">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+</div><div class="primary-content">
+
+<h2 id="gutter">gutter</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
+  </p>
+</div>
+
+<p>The horizontal space between item elements.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+<pre><code class="js"><span class="string">"gutter"</span>: <span class="number">10</span></code></pre>
+
+  </div>
+  <div class="cell demo">
+    <div class="masonry js-masonry" data-masonry-options='{ "gutter": 10 }'>
+      <div class="item"></div>
+<div class="item w2 h2"></div>
+<div class="item h3"></div>
+<div class="item h2"></div>
+<div class="item w3"></div>
+<div class="item"></div>
+<div class="item"></div>
+<div class="item h2"></div>
+<div class="item w2 h3"></div>
+<div class="item"></div>
+<div class="item h2"></div>
+<div class="item"></div>
+<div class="item w2"></div>
+<div class="item"></div>
+<div class="item h2"></div>
+<div class="item"></div>
+<div class="item"></div>
+
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/iIbgC">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+<p>To set vertical space between elements, use <code>margin</code> CSS.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+<pre><code class="js"><span class="string">"gutter"</span>: <span class="number">10</span></code></pre>
+
+<pre><code class="css"><span class="id">#gutter-opt-demo2</span> <span class="class">.item</span> <span class="rules">{
+  <span class="rule"><span class="attribute">margin-bottom</span>:<span class="value"> <span class="number">10</span>px;</span></span>
+<span class="rule">}</span></span></code></pre>
+
+  </div>
+  <div id="gutter-opt-demo2" class="cell demo">
+    <div class="masonry js-masonry" data-masonry-options='{ "gutter": 10 }'>
+      <div class="item"></div>
+<div class="item w2 h2"></div>
+<div class="item h3"></div>
+<div class="item h2"></div>
+<div class="item w3"></div>
+<div class="item"></div>
+<div class="item"></div>
+<div class="item h2"></div>
+<div class="item w2 h3"></div>
+<div class="item"></div>
+<div class="item h2"></div>
+<div class="item"></div>
+<div class="item w2"></div>
+<div class="item"></div>
+<div class="item h2"></div>
+<div class="item"></div>
+<div class="item"></div>
+
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/gbnko">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+<p>If set to an <i>Element</i> or Selector <i>String</i>, Masonry will use the width of that element. See <a href="#element-sizing">Element sizing</a>.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+<pre><code class="html"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"gutter-opt-demo3"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"gutter-sizer"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"item"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"item"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  ...
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+
+<pre><code class="css"><span class="id">#gutter-opt-demo3</span> <span class="class">.gutter-sizer</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">3</span>%;</span></span> <span class="rule">}</span></span></code></pre>
+
+<pre><code class="js"><span class="string">"columnWidth"</span>: <span class="string">".gutter-sizer"</span>,
+<span class="string">"itemSelector"</span>: <span class="string">".item"</span></code></pre>
+
+  </div>
+  <div class="cell demo" >
+    <div id="gutter-opt-demo3" class="masonry js-masonry" data-masonry-options='{ "gutter": ".gutter-sizer", "itemSelector": ".item" }'>
+      <div class="gutter-sizer"></div>
+      <div class="item"></div>
+<div class="item w2 h2"></div>
+<div class="item h3"></div>
+<div class="item h2"></div>
+<div class="item w3"></div>
+<div class="item"></div>
+<div class="item"></div>
+<div class="item h2"></div>
+<div class="item w2 h3"></div>
+<div class="item"></div>
+<div class="item h2"></div>
+<div class="item"></div>
+<div class="item w2"></div>
+<div class="item"></div>
+<div class="item h2"></div>
+<div class="item"></div>
+<div class="item"></div>
+
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/BAJKn">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+</div><div class="primary-content">
+
+<h2 id="hiddenstyle">hiddenStyle</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Object</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code>{ opacity: <span class="literal">0</span>, transform: <span class="string">'scale(0.001)'</span> }</code></span>
+  </p>
+</div>
+
+<p>The style applied to hide items.</p>
+
+</div><div class="primary-content">
+
+<h2 id="isinitlayout">isInitLayout</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Boolean</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code><span class="literal">true</span></code></span>
+  </p>
+</div>
+
+<p>Enables layout on initialization. Set this to <code><span class="literal">false</span></code> to disable layout on initialization, so you can use <a href="methods.html">methods</a> or add <a href="events.html">events</a> before the initial layout.</p>
+
+<pre><code class="js"><span class="keyword">var</span> msnry = <span class="keyword">new</span> Masonry( container, {
+  <span class="comment">// disables initial layout</span>
+  isInitLayout: <span class="literal">false</span>
+});
+msnry.on( <span class="string">'layoutComplete'</span>, <span class="keyword">function</span>() {
+  console.log(<span class="string">'layout is complete'</span>);
+});
+<span class="comment">// manually trigger initial layout</span>
+msnry.layout();</code></pre>
+
+
+</div><div class="primary-content">
+
+<h2 id="isoriginleft">isOriginLeft</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Boolean</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code><span class="literal">true</span></code></span>
+  </p>
+</div>
+
+<p>Controls the horizontal flow of the layout. By default, item elements start positioning at the left. Set to <code><span class="literal">false</span></code> for right-to-left layouts.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+<pre><code class="js"><span class="string">"isOriginLeft"</span>: <span class="literal">false</span></code></pre>
+
+  </div>
+  <div class="cell demo">
+    <div class="masonry js-masonry counting" data-masonry-options='{ "isOriginLeft": false }'>
+      <div class="item"></div>
+<div class="item w2 h2"></div>
+<div class="item h3"></div>
+<div class="item h2"></div>
+<div class="item w3"></div>
+<div class="item"></div>
+<div class="item"></div>
+<div class="item h2"></div>
+<div class="item w2 h3"></div>
+<div class="item"></div>
+<div class="item h2"></div>
+<div class="item"></div>
+<div class="item w2"></div>
+<div class="item"></div>
+<div class="item h2"></div>
+<div class="item"></div>
+<div class="item"></div>
+
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/adwgL">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+</div><div class="primary-content">
+
+<h2 id="isorigintop">isOriginTop</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Boolean</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code><span class="literal">true</span></code></span>
+  </p>
+</div>
+
+<p>Controls the vertical flow of the layout. By default, item elements start positioning at the top. Set to <code><span class="literal">false</span></code> for bottom-up layouts. It&rsquo;s like Tetris!</p>
+
+<div class="row example">
+  <div class="cell example-code">
+<pre><code class="js"><span class="string">"isOriginTop"</span>: <span class="literal">false</span></code></pre>
+
+  </div>
+  <div class="cell demo">
+    <div class="masonry js-masonry counting" data-masonry-options='{ "isOriginTop": false }'>
+      <div class="item"></div>
+<div class="item w2 h2"></div>
+<div class="item h3"></div>
+<div class="item h2"></div>
+<div class="item w3"></div>
+<div class="item"></div>
+<div class="item"></div>
+<div class="item h2"></div>
+<div class="item w2 h3"></div>
+<div class="item"></div>
+<div class="item h2"></div>
+<div class="item"></div>
+<div class="item w2"></div>
+<div class="item"></div>
+<div class="item h2"></div>
+<div class="item"></div>
+<div class="item"></div>
+
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/uwtLs">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+</div><div class="primary-content">
+
+<h2 id="isresizebound">isResizeBound</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Boolean</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code><span class="literal">true</span></code></span>
+  </p>
+</div>
+
+<p>Binds layout to window resizing.</p>
+
+<p><code>isResizeBound</code> binds layout only when the Masonry instance is first initialized. You can bind and unbind resize layout afterwards with the <a href="methods.html#bindresize"><code>bindResize</code></a> and <a href="methods.html#unbindresize"><code>unbindResize</code></a> methods.</p>
+
+</div><div class="primary-content">
+
+<h2 id="itemselector">itemSelector</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value">Selector <i>String</i></span>
+  </p>
+</div>
+
+<p>Specifies which child elements to be used as item elements. Setting <code>itemSelector</code> is always recommended. <code>itemSelector</code> is useful to exclude <a href="#element-sizing">sizing elements</a>.</p>
+
+<pre><code class="js"><span class="string">"itemSelector"</span>: <span class="string">".item"</span></code></pre>
+
+
+</div><div class="primary-content">
+
+<h2 id="stamp">stamp</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Element</i>, <i>NodeList</i>, <i>Array</i> of Elements, or Selector <i>String</i></span>
+  </p>
+</div>
+
+<p>Specifies which elements are <a href="methods.html#stamp">stamped</a> within the layout. These are special layout elements which will not be laid out by Masonry. Rather, Masonry will layout item elements <em>below</em> stamped elements.</p>
+
+<p>The <code>stamp</code> option stamps elements only when the Masonry instance is first initialized. You can stamp additional elements afterwards with the <a href="methods.html#stamp"><code>stamp</code> method</a>.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+<pre><code class="html"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"stamp-opt-demo"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"stamp stamp1"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"stamp stamp2"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"item"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"item"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  ....
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+
+<pre><code class="js"><span class="string">"itemSelector"</span>: <span class="string">".item"</span>,
+<span class="string">"stamp"</span>: <span class="string">".stamp"</span></code></pre>
+
+<pre><code class="css"><span class="comment">/* position stamp elements with CSS */</span>
+<span class="id">#stamp-opt-demo</span> <span class="rules">{
+  <span class="rule"><span class="attribute">position</span>:<span class="value"> relative;</span></span>
+<span class="rule">}</span></span>
+<span class="id">#stamp-opt-demo</span> <span class="class">.stamp</span> <span class="rules">{
+  <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute;</span></span>
+  <span class="rule"><span class="attribute">background</span>:<span class="value"> orange;</span></span>
+  <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">4</span>px dotted black;</span></span>
+<span class="rule">}</span></span>
+<span class="id">#stamp-opt-demo</span> <span class="class">.stamp1</span> <span class="rules">{
+  <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">30</span>%;</span></span>
+  <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">10</span>px;</span></span>
+  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">20</span>%;</span></span>
+  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>px;</span></span>
+<span class="rule">}</span></span>
+<span class="id">#stamp-opt-demo</span> <span class="class">.stamp2</span> <span class="rules">{
+  <span class="rule"><span class="attribute">right</span>:<span class="value"> <span class="number">10</span>%;</span></span>
+  <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">20</span>px;</span></span>
+  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">70</span>%;</span></span>
+  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">30</span>px;</span></span>
+<span class="rule">}</span></span></code></pre>
+
+  </div>
+  <div class="cell demo">
+    <div id="stamp-opt-demo" class="masonry has-stamp js-masonry" data-masonry-options='{ "itemSelector": ".item", "stamp": ".stamp" }'>
+      <div class="stamp stamp1"></div>
+      <div class="stamp stamp2"></div>
+      <div class="item"></div>
+<div class="item w2 h2"></div>
+<div class="item h3"></div>
+<div class="item h2"></div>
+<div class="item w3"></div>
+<div class="item"></div>
+<div class="item"></div>
+<div class="item h2"></div>
+<div class="item w2 h3"></div>
+<div class="item"></div>
+<div class="item h2"></div>
+<div class="item"></div>
+<div class="item w2"></div>
+<div class="item"></div>
+<div class="item h2"></div>
+<div class="item"></div>
+<div class="item"></div>
+
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/hsine">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+</div><div class="primary-content">
+
+<h2 id="visiblestyle">visibleStyle</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Object</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code>{ opacity: <span class="literal">1</span>, transform: <span class="string">'scale(1)'</span> }</code></span>
+  </p>
+</div>
+
+<p>The style applied to reveal hidden items.</p>
+
+</div><div class="primary-content">
+
+<h2 id="element-sizing">Element sizing</h2>
+
+<p>For the sizing options <a href="#columnwidth"><code>columnWidth</code></a> and <a href="#gutter"><code>gutter</code></a>, you may set these options to an <i>Element</i> or <i>String</i>, in addition to a <i>Number</i>.</p>
+
+<p>With an <i>Element</i>, Masonry will use its outer width to set the value of the related property.</p>
+
+<pre><code class="html"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"container"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"grid-sizer"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"item"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"item"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  ...
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+
+
+<pre><code class="js"><span class="keyword">var</span> container = document.querySelector(<span class="string">'#container'</span>);
+<span class="keyword">var</span> msnry = <span class="keyword">new</span> Masonry( container, {
+  itemSelector: <span class="string">'.item'</span>,
+  columnWidth: container.querySelector(<span class="string">'.grid-sizer'</span>)
+});</code></pre>
+
+
+<p>With a <i>String</i>, Masonry will use the string as a selector to get the first matching element within the container element. The size of that element is then used.</p>
+
+<pre><code class="js"><span class="string">"columnWidth"</span>: <span class="string">".grid-sizer"</span></code></pre>
+
+
+<p>This allows you to control the size of the Masonry layout just with your CSS. This is useful for responsive layouts, keeping control within CSS so you can rely on media queries.</p>
+
+<pre><code class="css"><span class="comment">/* 5 columns by default */</span>
+<span class="class">.grid-sizer</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">20</span>%;</span></span> <span class="rule">}</span></span>
+
+<span class="at_rule">@<span class="keyword">media</span> screen and (min-width: <span class="number">720</span>px) </span>{
+  <span class="comment">/* 10 columns for larger screens */</span>
+  <span class="class">.grid-sizer</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">10</span>%;</span></span> <span class="rule">}</span></span>
+}</code></pre>
+
+
+<p>If you are using element sizing, be sure to set <a href="#itemselector"><code>itemSelector</code></a> as well, so the sizing element does not get used in the layout.</p>
+
+</div>
+
+
+  </div>
+
+  <div id="footer">
+    <div class="primary-content">
+      Masonry by <a href="http://desandro.com">David DeSandro</a>. Make something rad with it.
+    </div>
+  </div>
+
+<!-- Masonry does NOT require jQuery.
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+     jQuery is only used to demonstrate Masonry as a jQuery plugin -->
+<script>window.jQuery || document.write('<script src="components/jquery/jquery.min.js"><\/script>')</script>
+
+
+  
+  <script src="js/masonry-docs.min.js"></script>
+
+
+
+  <!-- Google Analytics - Remove this if you copy/pasted this page -->
+  <script>
+    var _gaq=[['_setAccount','UA-592624-5'],['_trackPageview'],['_setDomainName', 'desandro.com']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+
+
+</body>
+</html>
