@@ -31,7 +31,7 @@ module.exports = function( grunt ) {
         }
       },
       css: {
-        src: [ 'components/normalize-css/normalize.css', 'css/*.css' ],
+        src: [ 'components/normalize-css/normalize.css', 'css/*.css', '!css/masonry-docs.css' ],
         dest: 'css/masonry-docs.css'
       }
     },
