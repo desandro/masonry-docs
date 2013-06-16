@@ -14,7 +14,7 @@ module.exports = function( grunt ) {
   grunt.initConfig({
 
     jshint: {
-      docs: [ 'js/**/*.js' ],
+      docs: [ 'js/controller.js', 'js/*/*.js',  ],
       options: grunt.file.readJSON('js/.jshintrc')
     },
 
@@ -56,10 +56,10 @@ module.exports = function( grunt ) {
     hbarz: {
       docs: {
         files: {
-          'build/': 'content/*'
+          './': '_content/*'
         },
         options: {
-          templates: 'templates/*.mustache',
+          templates: '_templates/*.mustache',
           defaultTemplate: 'page'
         }
       }
