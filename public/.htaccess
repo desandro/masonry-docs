@@ -1,0 +1,18 @@
+RewriteEngine On
+
+# redirect hotlinks to old masonry resources
+RewriteCond %{HTTP_REFERER} !^http://(.+\.)?desandro\.co/ [NC,OR]
+RewriteCond %{HTTP_REFERER} !^http://(.+\.)?metafizzy\.co/ [NC,OR]
+RewriteCond %{HTTP_REFERER} !^http://(.+\.)?github\.io/ [NC,OR]
+RewriteCond %{HTTP_REFERER} !^http://(.+\.)?codepen\.io/ [NC,OR]
+RewriteCond %{HTTP_REFERER} !^http://(.+\.)?jsfiddle\.net/ [NC,OR]
+RewriteCond %{HTTP_REFERER} !^http://(.+\.)?localhost/ [NC,OR]
+RewriteCond %{HTTP_REFERER} !^$
+# RewriteRule jquery.masonry.js http://cdnjs.cloudflare.com/ajax/libs/masonry/2.1.08/jquery.masonry.min.js [L]
+# RewriteRule jquery.masonry.min.js http://cdnjs.cloudflare.com/ajax/libs/masonry/2.1.08/jquery.masonry.min.js [L]
+# RewriteRule js/jquery-[\d\.]*.min.js http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.1/jquery.min.js [L]
+# RewriteRule js/jquery.infinitescroll.min.js http://cdnjs.cloudflare.com/ajax/libs/jquery-infinitescroll/2.0b2.110713/jquery.infinitescroll.min.js [L]
+RewriteRule jquery.masonry.js http://desandro.github.io/cdnish/masonry-hotlink.js [L]
+RewriteRule jquery.masonry.min.js http://desandro.github.io/cdnish/masonry-hotlink.js [L]
+RewriteRule js/jquery-[\d\.]*.min.js http://desandro.github.io/cdnish/masonry-hotlink.js [L]
+RewriteRule js/jquery.infinitescroll.min.js http://desandro.github.io/cdnish/masonry-hotlink.js [L]
