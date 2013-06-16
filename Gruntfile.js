@@ -132,7 +132,7 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   // load all tasks in tasks/
-  grunt.loadTasks('tasks/');
+  grunt.loadTasks('_tasks/');
 
   grunt.registerTask( 'default', [
     'jshint',
