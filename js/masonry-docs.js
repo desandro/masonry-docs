@@ -223,7 +223,7 @@ if ( typeof define === 'function' && define.amd ) {
 })( this );
 
 /*!
- * EventEmitter v4.1.0 - git.io/ee
+ * EventEmitter v4.1.1 - git.io/ee
  * Oliver Caldwell
  * MIT license
  * @preserve
@@ -2731,7 +2731,7 @@ window.Outlayer = Outlayer;
 })( window );
 
 /*!
- * Masonry v3.0.0
+ * Masonry v3.0.1
  * Cascading grid layout library
  * http://masonry.desandro.com
  * MIT License
@@ -2786,8 +2786,14 @@ function masonryDefinition( Outlayer, getSize ) {
 
   Masonry.prototype.measureColumns = function() {
     // if columnWidth is 0, default to outerWidth of first item
-    var firstItemElem = this.items[0].element;
-    this.columnWidth = this.columnWidth || getSize( firstItemElem ).outerWidth;
+    var firstItem = this.items[0];
+    var firstItemElem = firstItem && firstItem.element;
+    if ( !this.columnWidth ) {
+      // columnWidth fall back to item of first element
+      this.columnWidth = firstItemElem ? getSize( firstItemElem ).outerWidth :
+        // or size of container
+        this.size.innerWidth;
+    }
     this.columnWidth += this.gutter;
 
     this.cols = Math.floor( ( this.size.innerWidth + this.gutter ) / this.columnWidth );
