@@ -377,6 +377,10 @@ $(<span class="string">'#container'</span>).masonry({
 
 <p>Sets the width of the container to fit the available number of columns, based the size of container's parent element. When enabled, you can center the container with CSS.</p>
 
+<div class="warning">
+  <p>This option does not work with <a href="#element-sizing">element sizing</a> with percentage width. Either columnWidth needs to be set to a fixed size, like <code>columnWidth: 120</code>, or items need to have a fixed size in pixels, like <code>width: 120px</code>. Otherwise, the container and item widths will collapse on one another.</p>
+</div>
+
 <div class="row example">
   <div class="cell example-code">
 <pre><code class="js"><span class="string">"isFitWidth"</span>: <span class="literal">true</span></code></pre>
@@ -399,7 +403,7 @@ $(<span class="string">'#container'</span>).masonry({
       <div class="item w2 h2"></div>
       <div class="item w2 h3"></div>
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/adwgL">Edit this example on CodePen</a></p>
+    <!-- <p class="edit"><a href="http://codepen.io/desandro/pen/adwgL">Edit this example on CodePen</a></p> -->
   </div>
 </div>
 

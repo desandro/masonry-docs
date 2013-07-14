@@ -1248,6 +1248,39 @@ div.param {
   color: #888;
 }
 
+/* ---- warning ---- */
+
+.warning {
+  position: relative;
+  min-height: 40px;
+  background: #FF8;
+  border-radius: 5px;
+  margin-bottom: 0.8em;
+  padding: 10px;
+  padding-left: 60px;
+}
+
+.warning p:last-child {
+  margin-bottom: 0;
+}
+
+.warning:before {
+  content: '!';
+  display: block;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background: red;
+  line-height: 40px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  color: white;
+}
+
 /* ---- notification ---- */
 
 #notification {
