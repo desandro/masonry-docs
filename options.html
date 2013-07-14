@@ -66,6 +66,8 @@
           
             <li><a href="#hiddenstyle">hiddenStyle</a></li>
           
+            <li><a href="#isfitwidth">isFitWidth</a></li>
+          
             <li><a href="#isinitlayout">isInitLayout</a></li>
           
             <li><a href="#isoriginleft">isOriginLeft</a></li>
@@ -357,6 +359,49 @@ $(<span class="string">'#container'</span>).masonry({
 </div>
 
 <p>The style applied to hide items.</p>
+
+</div><div class="primary-content">
+
+<h2 id="isfitwidth">isFitWidth</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Boolean</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code><span class="literal">false</span></code></span>
+  </p>
+</div>
+
+<p>Sets the width of the container to fit the available number of columns, based the size of container's parent element. When enabled, you can center the container with CSS.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+<pre><code class="js"><span class="string">"isFitWidth"</span>: <span class="literal">true</span></code></pre>
+
+<pre><code class="css"><span class="comment">/* center container with CSS */</span>
+<span class="id">#fit-width</span> <span class="class">.masonry</span> <span class="rules">{
+  <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span> auto;</span></span>
+<span class="rule">}</span></span></code></pre>
+
+  </div>
+  <div id="fit-width" class="cell demo">
+    <div class="masonry js-masonry" data-masonry-options='{ "isFitWidth": true }'>
+      <div class="item w2"></div>
+      <div class="item w2 h2"></div>
+      <div class="item w2 h3"></div>
+      <div class="item w2 h2"></div>
+      <div class="item w2"></div>
+      <div class="item w2"></div>
+      <div class="item w2"></div>
+      <div class="item w2 h2"></div>
+      <div class="item w2 h3"></div>
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/adwgL">Edit this example on CodePen</a></p>
+  </div>
+</div>
 
 </div><div class="primary-content">
 

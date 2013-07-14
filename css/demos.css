@@ -10,6 +10,17 @@
   margin-bottom: 0.8em;
 }
 
+/* ---- fit width ---- */
+
+#fit-width {
+  border: 2px solid white;
+  border-radius: 6px;
+}
+
+#fit-width .masonry {
+  margin: 10px auto;
+}
+
 /* ---- counting ---- */
 
 .masonry.counting {

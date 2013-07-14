@@ -6,6 +6,7 @@
     "columnWidth",
     "gutter",
     "hiddenStyle",
+    "isFitWidth",
     "isInitLayout",
     "isOriginLeft",
     "isOriginTop",
@@ -214,6 +215,51 @@ $('#container').masonry({
 </div>
 
 <p>The style applied to hide items.</p>
+
+</div><div class="primary-content">
+
+<h2 id="isfitwidth">isFitWidth</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Boolean</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code><span class="literal">false</span></code></span>
+  </p>
+</div>
+
+<p>Sets the width of the container to fit the available number of columns, based the size of container's parent element. When enabled, you can center the container with CSS.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+"isFitWidth": true
+```
+``` css
+/* center container with CSS */
+#fit-width .masonry {
+  margin: 0 auto;
+}
+```
+  </div>
+  <div id="fit-width" class="cell demo">
+    <div class="masonry js-masonry" data-masonry-options='{ "isFitWidth": true }'>
+      <div class="item w2"></div>
+      <div class="item w2 h2"></div>
+      <div class="item w2 h3"></div>
+      <div class="item w2 h2"></div>
+      <div class="item w2"></div>
+      <div class="item w2"></div>
+      <div class="item w2"></div>
+      <div class="item w2 h2"></div>
+      <div class="item w2 h3"></div>
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/adwgL">Edit this example on CodePen</a></p>
+  </div>
+</div>
 
 </div><div class="primary-content">
 
