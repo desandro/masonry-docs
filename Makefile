@@ -6,7 +6,7 @@ zip:
 	rm -rf masonry-docs
 
 deploy:
-	rsync -avz build/ ${BERNA}:~/subdomains/masonry.desandro.com/
+	s3cmd sync build/. s3://masonry.desandro.com
 
 grunt:
 	grunt
