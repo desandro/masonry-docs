@@ -17,14 +17,14 @@
       </div>
 
       {{! show download docs only in production }}
-      {{!unless isDev}}
-        <!-- <div class="hero-item">
+      {{#unless isDev}}
+        <div class="hero-item">
           <a class="button download-docs" href="masonry-docs.zip">
             <i class="icon icon-folder-download"></i>
             Download these docs
           </a>
-        </div> -->
-      {{!unless}}
+        </div>
+      {{/unless}}
 
       <div class="hero-item">
         <a class="button github" href="https://github.com/desandro/masonry">

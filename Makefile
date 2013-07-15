@@ -1,6 +1,7 @@
 # @desandro only
 
 zip:
+	rm -rf build/masonry-docs.zip
 	cp -r build masonry-docs
 	zip -rq build/masonry-docs.zip masonry-docs/
 	rm -rf masonry-docs
