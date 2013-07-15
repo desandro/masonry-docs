@@ -37,7 +37,7 @@ module.exports = function( grunt ) {
     });
 
     // read masonry's contributing file, convert to HTML
-    var submittingIssuesContent = marked( grunt.file.read('components/masonry/CONTRIBUTING.mdown') );
+    var submittingIssuesContent = marked( grunt.file.read('bower_components/masonry/CONTRIBUTING.mdown') );
     handlebars.registerPartial( 'submitting-issues', submittingIssuesContent );
 
     // properties made available for templating

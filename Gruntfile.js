@@ -5,7 +5,7 @@ module.exports = function( grunt ) {
 
   // get banner comment from draggabilly.js
   var banner = ( function() {
-    var src = grunt.file.read('components/masonry/masonry.js');
+    var src = grunt.file.read('bower_components/masonry/masonry.js');
     var re = new RegExp('^\\s*(?:\\/\\*[\\s\\S]*?\\*\\/)\\s*');
     var matches = src.match( re );
     return matches[0].replace( 'Masonry', 'Masonry PACKAGED' );
@@ -31,7 +31,7 @@ module.exports = function( grunt ) {
         }
       },
       css: {
-        src: [ 'components/normalize-css/normalize.css', 'css/*.css', '!css/masonry-docs.css' ],
+        src: [ 'bower_components/normalize-css/normalize.css', 'css/*.css', '!css/masonry-docs.css' ],
         dest: 'css/masonry-docs.css'
       }
     },
