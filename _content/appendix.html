@@ -7,6 +7,7 @@
     "Component libraries",
     "Submitting issues",
     "Upgrading from v2",
+    "RequireJS",
     "Additional resources"
   ]
 }
@@ -181,6 +182,48 @@ eventie.unbind( elem, 'click', onElemClick );
   <li><code>isResizable</code> option renamed to <a href="options.html#isresizebound"><code>isResizeBound</code></a></li>
   <li><code>layout</code> method renamed to <a href="methods.html#layoutitems"><code>layoutItems</code></a></li>
 </ul>
+
+</div><div class="primary-content">
+
+<h2 id="requirejs">RequireJS</h2>
+
+<p>Masonry is compatible with <a href="http://requirejs.org">RequireJS</a>. Some configuration is required for its dependencies. All dependencies can be installed with <a href="http://bower.io">Bower</a>.</p>
+
+<p>Set <a href="http://requirejs.org/docs/api.html#config-paths">config paths</a> for all Masonry's dependencies.</p>
+
+``` js
+requirejs.config({
+  paths: {
+    eventie: 'bower_components/eventie',
+    'doc-ready': 'bower_components/doc-ready',
+    eventEmitter: 'bower_components/eventEmitter',
+    'get-style-property': 'bower_components/get-style-property',
+    'get-size': 'bower_components/get-size',
+    'matches-selector': 'bower_components/matches-selector',
+    outlayer: 'bower_components/outlayer',
+    masonry: 'bower_components/masonry'
+  }
+});
+
+requirejs( [ 'masonry/masonry' ], function( Masonry ) {
+  new Masonry( /*...*/ )
+});
+```
+
+<p>Or, you can set <a href="http://requirejs.org/docs/api.html#config-baseUrl">baseUrl</a> to bower_components and set a path config for all your application code.</p>
+
+``` js
+requirejs.config({
+  baseUrl: 'bower_components/',
+  paths: {
+    app: '../'
+  }
+});
+
+requirejs( [ 'masonry/masonry', 'app/my-component.js' ], function( Masonry, myComp ) {
+  new Masonry( /*...*/ )
+});
+```
 
 </div><div class="primary-content">
 
