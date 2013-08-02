@@ -83,19 +83,37 @@ function organizeSources(srcs) {
   return sources;
 }
 
+function getDependencyMap( depName, map ) {
+  for ( var pkgName in map.dependencies ) {
+    var dependency = map.dependencies[ pkgName ];
+    if ( pkgName === depName ) {
+      return dependency;
+    }
+    getDependencyMap( dependency );
+  }
+}
+
 
 module.exports = {
 
-  map: function( callback ) {
+  map: function( pkgName, callback ) {
+    callback = callback || pkgName;
     getJson( function( json ) {
       var map = getMap( json );
+      if ( pkgName ) {
+        map = getDependencyMap( pkgName, map );
+      }
       callback( map );
     });
   },
 
-  sources: function( callback ) {
+  sources: function( pkgName, callback ) {
+    callback = callback || pkgName;
     getJson( function( json ) {
       var map = getMap( json );
+      if ( pkgName ) {
+        map = getDependencyMap( pkgName, map );
+      }
       var sources = getDepSources(map);
       sources = organizeSources(sources);
       callback( sources );

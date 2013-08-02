@@ -12,7 +12,7 @@ module.exports = function( grunt ) {
     var done = this.async();
 
     // get map JSON from bower list --map
-    var childProc = spawn('bower', 'list --map'.split(' ') );
+    var childProc = spawn('bower', 'list --paths'.split(' ') );
     var mapSrc = '';
     childProc.stdout.setEncoding('utf8');
     childProc.stdout.on('data',  function( data ) {
@@ -20,6 +20,7 @@ module.exports = function( grunt ) {
     });
 
     childProc.on('close', function() {
+      console.log( mapSrc );
       var bowerMap = JSON.parse( mapSrc );
       // set bowerMap
       grunt.config.set( 'bowerMap', bowerMap );
