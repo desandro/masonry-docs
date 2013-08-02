@@ -12,11 +12,8 @@ module.exports = function( grunt ) {
   grunt.registerTask( 'package-sources', function() {
     // copy over just the masonry obj
     var bowerMap = grunt.config.get('bowerMap');
-    var masonryMap = {
-      masonry: bowerMap.masonry
-    };
 
-    var masonrySources = organizeSources( masonryMap );
+    var masonrySources = organizeSources( bowerMap, 'masonry' );
     // console.log( masonrySources );
     var srcs = masonrySources['.js'];
     // filter out minified files, like EventEmitter.min.js
