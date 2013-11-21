@@ -15,10 +15,23 @@ module.exports = function( grunt ) {
     },
 
     concat: {
+      // masonry.pkgd.js
+      pkgd: {
+        src: [
+          'bower_components/jquery-bridget/jquery.bridget.js',
+          'masonry.require.js',
+        ],
+        dest: 'build/masonry.pkgd.js',
+        options: {
+          banner: banner
+        }
+      },
+      // masonry-docs.js
       js: {
         src: [ 'js/controller.js', 'js/pages/*.js' ],
         dest: 'build/js/masonry-docs.js'
       },
+      // masonry-docs.css
       css: {
         src: [ 'bower_components/normalize-css/normalize.css', 'css/*.css', '!css/masonry-docs.css' ],
         dest: 'build/css/masonry-docs.css'
