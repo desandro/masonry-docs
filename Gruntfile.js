@@ -1,15 +1,11 @@
 
+var getPkgdBanner = require('./_tasks/utils/get-pkgd-banner.js');
+
 // -------------------------- grunt -------------------------- //
 
 module.exports = function( grunt ) {
 
-  // get banner comment from draggabilly.js
-  var banner = ( function() {
-    var src = grunt.file.read('bower_components/masonry/masonry.js');
-    var re = new RegExp('^\\s*(?:\\/\\*[\\s\\S]*?\\*\\/)\\s*');
-    var matches = src.match( re );
-    return matches[0].replace( 'Masonry', 'Masonry PACKAGED' );
-  })();
+  var banner = getPkgdBanner( grunt );
 
   grunt.initConfig({
 
@@ -22,13 +18,6 @@ module.exports = function( grunt ) {
       js: {
         src: [ 'js/controller.js', 'js/pages/*.js' ],
         dest: 'build/js/masonry-docs.js'
-      },
-      pkgd: {
-        // src will be set in package-sources task
-        dest: 'build/masonry.pkgd.js',
-        options: {
-          banner: banner
-        }
       },
       css: {
         src: [ 'bower_components/normalize-css/normalize.css', 'css/*.css', '!css/masonry-docs.css' ],
@@ -99,7 +88,6 @@ module.exports = function( grunt ) {
       },
       bowerSources: {
         // additional sources will be set in bower-list-map
-        // friggin Nicolas, not using main the right way :P
         src: [ 'components/jquery/jquery.min.js' ],
         dest: 'build/'
       }

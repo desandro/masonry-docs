@@ -188,30 +188,24 @@ eventie.unbind( elem, 'click', onElemClick );
 
 <h2 id="requirejs">RequireJS</h2>
 
-<p>Masonry is compatible with <a href="http://requirejs.org">RequireJS</a>. Some configuration is required for its dependencies. All dependencies can be installed with <a href="http://bower.io">Bower</a>.</p>
+<p>Masonry is compatible with <a href="http://requirejs.org">RequireJS</a>.</p>
 
-<p>Set <a href="http://requirejs.org/docs/api.html#config-paths">config paths</a> for all Masonry's dependencies.</p>
+<p>You can require <a href="masonry.pkgd.js">masonry.pkgd.js</a>. It provides a named module <code>masonry/masonry</code>, which will need to be required as well.</p>
 
 ``` js
-requirejs.config({
-  paths: {
-    eventie: 'bower_components/eventie',
-    'doc-ready': 'bower_components/doc-ready',
-    eventEmitter: 'bower_components/eventEmitter',
-    'get-style-property': 'bower_components/get-style-property',
-    'get-size': 'bower_components/get-size',
-    'matches-selector': 'bower_components/matches-selector',
-    outlayer: 'bower_components/outlayer',
-    masonry: 'bower_components/masonry'
-  }
-});
-
-requirejs( [ 'masonry/masonry' ], function( Masonry ) {
-  new Masonry( /*...*/ )
+requirejs( [
+  // require the file
+  'path/to/masonry.pkgd.js',
+  // require the named module
+  'masonry/masonry'
+  // two parameters, masonryPkg is undefined
+  // Masonry is the working module
+], function( masonryPkg, Masonry ) {
+  new Masonry('#container');
 });
 ```
 
-<p>Or, you can set <a href="http://requirejs.org/docs/api.html#config-baseUrl">baseUrl</a> to bower_components and set a path config for all your application code.</p>
+<p>Or, you can manage dependencies with <a href="http://bower.io">Bower</a>. Set <a href="http://requirejs.org/docs/api.html#config-baseUrl">baseUrl</a> to <code>bower_components</code> and set a path config for all your application code.</p>
 
 ``` js
 requirejs.config({
@@ -221,8 +215,11 @@ requirejs.config({
   }
 });
 
-requirejs( [ 'masonry/masonry', 'app/my-component.js' ], function( Masonry, myComp ) {
-  new Masonry( /*...*/ )
+requirejs( [
+  'masonry/masonry',
+  'app/my-component.js'
+], function( Masonry, myComp ) {
+  new Masonry('#container')
 });
 ```
 

@@ -1,26 +1,35 @@
 /**
  * package sources
  * creates masonry.pkgd.js
- * concats and minifies all .js for Masonry
+ * built with RequireJS
  */
 
-var organizeSources = require('./utils/organize-sources');
+var requirejs = require('requirejs');
+var getPkgdBanner = require('./utils/get-pkgd-banner.js');
+
+var config = {
+  baseUrl: 'bower_components',
+  include: [
+    'masonry/masonry'
+  ],
+  out: 'build/masonry.pkgd.js',
+  optimize: 'none',
+  wrap: {}
+};
 
 module.exports = function( grunt ) {
+  // get banner comment at top of package file
+  config.wrap.start = getPkgdBanner( grunt );
 
-  // create masonry.pkgd.js
+  // create isotope.pkgd.js
   grunt.registerTask( 'package-sources', function() {
-    // copy over just the masonry obj
-    var bowerMap = grunt.config.get('bowerMap');
-
-    var masonrySources = organizeSources( bowerMap, 'masonry' );
-    // console.log( masonrySources );
-    var srcs = masonrySources['.js'];
-    // filter out minified files, like EventEmitter.min.js
-    srcs = srcs.filter( function( src ) {
-      return src.indexOf('.min.js') === -1;
+    var done = this.async();
+    requirejs.optimize( config, function() {
+      done();
+    }, function( err ) {
+      grunt.log.error( err );
+      done();
     });
-    grunt.config.set( 'concat.pkgd.src', srcs );
   });
 
 };
