@@ -5,21 +5,17 @@
  */
 
 var requirejs = require('requirejs');
-var getPkgdBanner = require('./utils/get-pkgd-banner.js');
 
 var config = {
   baseUrl: 'bower_components',
   include: [
     'masonry/masonry'
   ],
-  out: 'build/masonry.pkgd.js',
-  optimize: 'none',
-  wrap: {}
+  out: 'masonry.require.js',
+  optimize: 'none'
 };
 
 module.exports = function( grunt ) {
-  // get banner comment at top of package file
-  config.wrap.start = getPkgdBanner( grunt );
 
   // create isotope.pkgd.js
   grunt.registerTask( 'package-sources', function() {
