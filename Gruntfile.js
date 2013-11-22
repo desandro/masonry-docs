@@ -35,6 +35,17 @@ module.exports = function( grunt ) {
       css: {
         src: [ 'bower_components/normalize-css/normalize.css', 'css/*.css', '!css/masonry-docs.css' ],
         dest: 'build/css/masonry-docs.css'
+      },
+      // masonry.pkgd.js
+      pkgd: {
+        src: [
+          'bower_components/jquery-bridget/jquery.bridget.js',
+          'masonry.require.js',
+        ],
+        dest: 'build/masonry.pkgd.js',
+        options: {
+          banner: banner
+        }
       }
     },
 

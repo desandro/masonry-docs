@@ -11,7 +11,7 @@ var config = {
   include: [
     'masonry/masonry'
   ],
-  out: 'build/masonry.pkgd.js',
+  out: 'masonry.require.js',
   optimize: 'none'
 };
 
