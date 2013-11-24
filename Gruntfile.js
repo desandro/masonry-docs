@@ -12,6 +12,9 @@ module.exports = function( grunt ) {
   })();
 
   grunt.initConfig({
+    // global settings
+    namespace: 'masonry',
+    dataDir: '_tasks/data',
 
     jshint: {
       docs: [ 'js/controller.js', 'js/*/*.js'  ],
@@ -45,12 +48,12 @@ module.exports = function( grunt ) {
         }
       },
       // masonry-docs.js
-      js: {
+      'docs-js': {
         src: [ 'js/controller.js', 'js/pages/*.js' ],
         dest: 'build/js/masonry-docs.js'
       },
       // masonry-docs.css
-      css: {
+      'docs-css': {
         src: [ 'bower_components/normalize-css/normalize.css', 'css/*.css', '!css/masonry-docs.css' ],
         dest: 'build/css/masonry-docs.css'
       }
@@ -67,20 +70,23 @@ module.exports = function( grunt ) {
       },
       js: {
         files: {
-          // 'build/js/masonry-site.min.js' will be set in bower-list-map
+          'build/js/masonry-docs.min.js': [ 'build/js/masonry-docs.js' ]
         }
       }
     },
 
     // ----- handlebars templating ----- //
-    hbarz: {
+    template: {
       docs: {
         files: {
           'build/': '_content/*'
         },
         options: {
           templates: '_templates/*.mustache',
-          defaultTemplate: 'page'
+          defaultTemplate: 'page',
+          partialFiles: {
+            'submitting-issues': 'bower_components/masonry/CONTRIBUTING.mdown'
+          }
         }
       }
     },
@@ -119,7 +125,7 @@ module.exports = function( grunt ) {
       },
       bowerSources: {
         // additional sources will be set in bower-list-map
-        src: [ 'components/jquery/jquery.min.js' ],
+        src: [ 'bower_components/jquery/jquery.min.js' ],
         dest: 'build/'
       }
     },
@@ -128,7 +134,7 @@ module.exports = function( grunt ) {
     watch: {
       content: {
         files: [ '_content/*', '_templates/*.mustache' ],
-        tasks: [ 'bower-list-map', 'hbarz' ]
+        tasks: [ 'template' ]
       },
       "public": {
         files: [ 'public/**' ],
@@ -152,16 +158,15 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-requirejs');
-  // load all tasks in tasks/
-  grunt.loadTasks('_tasks/');
+  grunt.loadNpmTasks('grunt-fizzy-docs');
 
   grunt.registerTask( 'default', [
     'jshint',
-    'bower-list-map',
+    'int-bower',
     'requirejs',
     'concat',
     'uglify',
-    'hbarz',
+    'template',
     'copy'
   ]);
 
