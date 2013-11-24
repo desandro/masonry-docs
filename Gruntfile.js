@@ -1,11 +1,15 @@
 
-var getPkgdBanner = require('./_tasks/utils/get-pkgd-banner.js');
-
 // -------------------------- grunt -------------------------- //
 
 module.exports = function( grunt ) {
 
-  var banner = getPkgdBanner( grunt );
+  // get banner comment
+  var banner = ( function() {
+    var src = grunt.file.read('bower_components/masonry/masonry.js');
+    var re = new RegExp('^\\s*(?:\\/\\*[\\s\\S]*?\\*\\/)\\s*');
+    var matches = src.match( re );
+    return matches[0].replace( 'Masonry', 'Masonry PACKAGED' );
+  })();
 
   grunt.initConfig({
 
@@ -14,12 +18,26 @@ module.exports = function( grunt ) {
       options: grunt.file.readJSON('js/.jshintrc')
     },
 
+    // create masonry.require.js, later concated into masonry.pkgd.js
+    requirejs: {
+      pkgd: {
+        options: {
+          baseUrl: 'bower_components',
+          include: [
+            'masonry/masonry'
+          ],
+          out: 'masonry.require.js',
+          optimize: 'none'
+        }
+      }
+    },
+
     concat: {
       // masonry.pkgd.js
       pkgd: {
         src: [
           'bower_components/jquery-bridget/jquery.bridget.js',
-          'masonry.require.js',
+          'masonry.require.js'
         ],
         dest: 'build/masonry.pkgd.js',
         options: {
@@ -35,17 +53,6 @@ module.exports = function( grunt ) {
       css: {
         src: [ 'bower_components/normalize-css/normalize.css', 'css/*.css', '!css/masonry-docs.css' ],
         dest: 'build/css/masonry-docs.css'
-      },
-      // masonry.pkgd.js
-      pkgd: {
-        src: [
-          'bower_components/jquery-bridget/jquery.bridget.js',
-          'masonry.require.js',
-        ],
-        dest: 'build/masonry.pkgd.js',
-        options: {
-          banner: banner
-        }
       }
     },
 
@@ -144,13 +151,14 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-requirejs');
   // load all tasks in tasks/
   grunt.loadTasks('_tasks/');
 
   grunt.registerTask( 'default', [
     'jshint',
     'bower-list-map',
-    'package-sources',
+    'requirejs',
     'concat',
     'uglify',
     'hbarz',
