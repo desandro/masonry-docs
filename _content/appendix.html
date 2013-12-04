@@ -190,17 +190,12 @@ eventie.unbind( elem, 'click', onElemClick );
 
 <p>Masonry is compatible with <a href="http://requirejs.org">RequireJS</a>.</p>
 
-<p>You can require <a href="masonry.pkgd.js">masonry.pkgd.js</a>. It provides a named module <code>masonry/masonry</code>, which will need to be required as well.</p>
+<p>You can require <a href="masonry.pkgd.js">masonry.pkgd.js</a>.</p>
 
 ``` js
 requirejs( [
-  // require the file
   'path/to/masonry.pkgd.js',
-  // require the named module
-  'masonry/masonry'
-  // two parameters, masonryPkg is undefined
-  // Masonry is the working module
-], function( masonryPkg, Masonry ) {
+], function( Masonry ) {
   new Masonry('#container');
 });
 ```
@@ -219,7 +214,30 @@ requirejs( [
   'masonry/masonry',
   'app/my-component.js'
 ], function( Masonry, myComp ) {
-  new Masonry('#container')
+  new Masonry('#container');
+});
+```
+
+<h3>RequireJS and jQuery</h3>
+
+<p>To use Masonry as a jQuery plugin with RequireJS, you&rsquo;ll need to run jQuery bridget.</p>
+
+``` js
+// if you are using masonry.pkgd.js,
+// provide path to jquery.bridget as masonry.pkgd.js path
+requirejs.config({
+  paths: {
+    'jquery-bridget/jquery.bridget': 'path/to/masonry.pkgd.js'
+  }
+});
+
+requirejs( [
+  'path/to/masonry.pkgd.js',
+  'jquery-bridget/jquery.bridget'
+], function( Masonry, bridget ) {
+  // make Masonry a jQuery plugin
+  bridget( 'masonry', Masonry );
+  $('#container').masonry();
 });
 ```
 

@@ -21,32 +21,28 @@ module.exports = function( grunt ) {
       options: grunt.file.readJSON('js/.jshintrc')
     },
 
-    // create masonry.require.js, later concated into masonry.pkgd.js
+    // create masonry.pkgd.js
     requirejs: {
       pkgd: {
         options: {
           baseUrl: 'bower_components',
           include: [
+            'jquery-bridget/jquery.bridget',
             'masonry/masonry'
           ],
-          out: 'masonry.require.js',
-          optimize: 'none'
+          paths: {
+            jquery: 'empty:'
+          },
+          out: 'build/masonry.pkgd.js',
+          optimize: 'none',
+          wrap: {
+            start: banner
+          }
         }
       }
     },
 
     concat: {
-      // masonry.pkgd.js
-      pkgd: {
-        src: [
-          'bower_components/jquery-bridget/jquery.bridget.js',
-          'masonry.require.js'
-        ],
-        dest: 'build/masonry.pkgd.js',
-        options: {
-          banner: banner
-        }
-      },
       // masonry-docs.js
       'docs-js': {
         src: [ 'js/controller.js', 'js/pages/*.js' ],
@@ -160,10 +156,20 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks('grunt-requirejs');
   grunt.loadNpmTasks('grunt-fizzy-docs');
 
+  // remove AMD module name
+  grunt.registerTask( 'requirejs-extra', function() {
+    var outFile = grunt.config.get('requirejs.pkgd.options.out');
+    var contents = grunt.file.read( outFile );
+    contents = contents.replace( "'masonry/masonry',", '' );
+    grunt.file.write( outFile, contents );
+    grunt.log.writeln( 'Edited ' + outFile );
+  });
+
   grunt.registerTask( 'default', [
     'jshint',
     'int-bower',
     'requirejs',
+    'requirejs-extra',
     'concat',
     'uglify',
     'template',
