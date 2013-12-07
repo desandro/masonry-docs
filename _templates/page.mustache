@@ -11,7 +11,7 @@
 
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700|Noto+Sans:400,700,400italic" />
 
-  {{#if isDev}}
+  {{#if is_dev}}
     <!-- DEV MODE - including each .css file -->
     {{#each site.css}}
       <link rel="stylesheet" href="{{this}}" />
@@ -28,7 +28,7 @@
   <meta name="twitter:title" content="Masonry{{#unless page.is_homepage}} {{page.title}}{{/unless}}" />
   <meta name="twitter:description" content="Cascading grid layout library" />
 
-  {{#unless isDev}}
+  {{#unless is_dev}}
     <!-- Mint Analytics - Remove this if you copy/pasted this page -->
     <!-- <script src="http://desandro.com/mint/?js"></script> -->
   {{/unless}}
@@ -87,7 +87,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="bower_components/jquery/jquery.min.js"><\/script>')</script>
 
-{{#if isDev}}
+{{#if is_dev}}
   <!-- DEV MODE - including each .js file -->
   {{#each site.js}}
     <script src="{{this}}"></script>
@@ -97,7 +97,7 @@
   <script src="js/masonry-docs.min.js"></script>
 {{/if}}
 
-{{#unless isDev}}
+{{#unless is_dev}}
   <!-- Google Analytics - Remove this if you copy/pasted this page -->
   <script>
     var _gaq=[['_setAccount','UA-592624-5'],['_trackPageview'],['_setDomainName', 'desandro.com']];
