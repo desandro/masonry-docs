@@ -6,7 +6,7 @@ This project does _not_ include the source for Masonry. That's over in [github.c
 
 ## Build
 
-Building these docs requires [Bower](http://twitter.github.com/bower), [Grunt](http://gruntjs.com) and [NPM](http://npmjs.org).
+Building these docs requires [Bower](http://bower.io), [Grunt](http://gruntjs.com) and [NPM](http://npmjs.org).
 
 ``` bash
 npm install
