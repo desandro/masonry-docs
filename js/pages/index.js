@@ -7,7 +7,7 @@
 'use strict';
 
 var MD = window.MD;
-var $ = window.jQuery;
+// var $ = window.jQuery;
 
 var heroContainer;
 var heroMasonry;
@@ -33,53 +33,15 @@ MD.index = function() {
   })();
 
   loadMoreButton = document.querySelector('#load-more-examples');
-  eventie.bind( loadMoreButton, 'click', getExamples );
 
 };
 
 
-var exampleOffset = 0;
-var isLoading = false;
-
 function getExamples() {
-  // don't load more stuff if already loading
-  if ( isLoading ) {
-    return;
-  }
 
-  MD.notify('Loading examples...');
-
-  isLoading = true;
-  $.getJSON('http://zootool.com/api/users/items/?' +
-      'username=desandro' +
-      '&apikey=8b604e5d4841c2cd976241dd90d319d7' +
-      '&tag=bestofmasonry' +
-      '&offset=' + exampleOffset +
-      '&callback=?'
-    )
-    .always( function() {
-      isLoading = false;
-    })
-    .fail( getExamplesFail )
-    .done( getExamplesSuccess );
-}
-
-function getExamplesFail() {
-  MD.notify( 'could not load examples :(', true );
-}
-
-function getExamplesSuccess( data ) {
-  // nothing more to load
-  if ( !data || !data.length ) {
-    loadMoreButton.style.display = 'none';
-    MD.notify( 'No more examples', true );
-    return;
-  }
-
-  MD.hideNotify();
-  exampleOffset += data.length;
   var items = [];
   var fragment = document.createDocumentFragment();
+  var data = examplesData;
   for ( var i=0, len = data.length; i < len; i++ ) {
     var item = makeExampleItem( data[i] );
     items.push( item );
@@ -94,8 +56,45 @@ function getExamplesSuccess( data ) {
       heroContainer.appendChild( item );
       heroMasonry.appended( item );
     });
-
 }
+
+var examplesData = [
+  {
+    title: "Erik Johansson",
+    url: "http://erikjohanssonphoto.com/work/imagecats/personal/",
+    image: "http://i.imgur.com/6Lo8oun.jpg"
+  },
+  {
+    title: "Tumblr Staff: Archive",
+    url: "http://staff.tumblr.com/archive",
+    image: "http://i.imgur.com/igjvRa3.jpg"
+  },
+  {
+    title: "Halcyon theme",
+    url: "http://halcyon-theme.tumblr.com/",
+    image: "http://i.imgur.com/A1RSOhg.jpg"
+  },
+  {
+    title: "RESIZE.THATSH.IT",
+    url: "http://resize.thatsh.it/",
+    image: "http://i.imgur.com/00xWxLG.png"
+  },
+  {
+    title: "Vox Media",
+    url: "http://www.voxmedia.com",
+    image: "http://i.imgur.com/xSiTFij.jpg"
+  },
+  {
+    title: "Kristian Hammerstad",
+    url: "http://www.kristianhammerstad.com/",
+    image: "http://i.imgur.com/Zwd7Sch.jpg"
+  },
+  {
+    title: "Loading Effects for Grid Items | Demo 2",
+    url: "http://tympanus.net/Development/GridLoadingEffects/index2.html",
+    image: "http://i.imgur.com/iFBSB1t.jpg"
+  }
+];
 
 function makeExampleItem( dataObj ) {
   var item = document.createElement('div');
@@ -103,7 +102,7 @@ function makeExampleItem( dataObj ) {
   var link = document.createElement('a');
   link.href = dataObj.url;
   var img = document.createElement('img');
-  img.src = dataObj.image.replace('/l.', '/m.');
+  img.src = dataObj.image;
   var title = document.createElement('p');
   title.className = 'example-title';
   title.textContent = dataObj.title;
