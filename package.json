@@ -1,6 +1,6 @@
 {
   "name": "masonry-docs",
-  "version": "3.2.2",
+  "version": "3.2.3",
   "dependencies": {
     "grunt": "~0.4.0",
     "grunt-contrib-concat": "~0.1.3",

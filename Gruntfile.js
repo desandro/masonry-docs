@@ -1,15 +1,8 @@
+/*jshint node: true, undef: true, unused: true */
 
 // -------------------------- grunt -------------------------- //
 
 module.exports = function( grunt ) {
-
-  // get banner comment
-  var banner = ( function() {
-    var src = grunt.file.read('bower_components/masonry/masonry.js');
-    var re = new RegExp('^\\s*(?:\\/\\*[\\s\\S]*?\\*\\/)\\s*');
-    var matches = src.match( re );
-    return matches[0].replace( 'Masonry', 'Masonry PACKAGED' );
-  })();
 
   grunt.initConfig({
     // global settings
@@ -19,27 +12,6 @@ module.exports = function( grunt ) {
     jshint: {
       docs: [ 'js/controller.js', 'js/*/*.js'  ],
       options: grunt.file.readJSON('js/.jshintrc')
-    },
-
-    // create masonry.pkgd.js
-    requirejs: {
-      pkgd: {
-        options: {
-          baseUrl: 'bower_components',
-          include: [
-            'jquery-bridget/jquery.bridget',
-            'masonry/masonry'
-          ],
-          paths: {
-            jquery: 'empty:'
-          },
-          out: 'build/masonry.pkgd.js',
-          optimize: 'none',
-          wrap: {
-            start: banner
-          }
-        }
-      }
     },
 
     concat: {
@@ -56,15 +28,7 @@ module.exports = function( grunt ) {
     },
 
     uglify: {
-      pkgd: {
-        files: {
-          'build/masonry.pkgd.min.js': [ 'build/masonry.pkgd.js' ]
-        },
-        options: {
-          banner: banner
-        }
-      },
-      js: {
+      docs: {
         files: {
           'build/js/masonry-docs.min.js': [ 'build/js/masonry-docs.js' ]
         }
@@ -81,7 +45,7 @@ module.exports = function( grunt ) {
           templates: '_templates/*.mustache',
           defaultTemplate: 'page',
           partialFiles: {
-            'submitting-issues': 'bower_components/masonry/CONTRIBUTING.mdown'
+            'submitting-issues': '../masonry/CONTRIBUTING.mdown'
           }
         }
       }
@@ -119,13 +83,22 @@ module.exports = function( grunt ) {
           }
         ]
       },
+      pkgd: {
+        files: [
+          {
+            expand: true, // enable dynamic options
+            cwd: 'bower_components/masonry/dist/', // set cwd, excludes it in build path
+            src: [ '*' ],
+            dest: 'build/'
+          }
+        ]
+      },
       bowerSources: {
         // additional sources will be set in bower-list-map
         src: [ 'bower_components/jquery/jquery.min.js' ],
         dest: 'build/'
       }
     },
-
 
     watch: {
       content: {
@@ -153,23 +126,11 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-requirejs');
   grunt.loadNpmTasks('grunt-fizzy-docs');
-
-  // remove AMD module name
-  grunt.registerTask( 'requirejs-extra', function() {
-    var outFile = grunt.config.get('requirejs.pkgd.options.out');
-    var contents = grunt.file.read( outFile );
-    contents = contents.replace( "'masonry/masonry',", '' );
-    grunt.file.write( outFile, contents );
-    grunt.log.writeln( 'Edited ' + outFile );
-  });
 
   grunt.registerTask( 'default', [
     'jshint',
     'int-bower',
-    'requirejs',
-    'requirejs-extra',
     'concat',
     'uglify',
     'template',

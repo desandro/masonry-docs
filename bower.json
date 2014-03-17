@@ -1,6 +1,6 @@
 {
   "name": "masonry-docs",
-  "version": "3.2.1",
+  "version": "3.2.3",
   "author": "David DeSandro",
   "dependencies": {
     "classie": "desandro/classie#>=0.0.4",
