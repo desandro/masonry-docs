@@ -65,9 +65,14 @@ var examplesData = [
     image: "http://i.imgur.com/6Lo8oun.jpg"
   },
   {
-    title: "Tumblr Staff: Archive",
-    url: "http://staff.tumblr.com/archive",
-    image: "http://i.imgur.com/igjvRa3.jpg"
+    title: "Beyoncé | I Am",
+    url: 'http://iam.beyonce.com/',
+    image: 'http://i.imgur.com/HDSAMFl.jpg'
+  },
+  {
+    title: "Vox Media",
+    url: "http://www.voxmedia.com",
+    image: "http://i.imgur.com/xSiTFij.jpg"
   },
   {
     title: "Halcyon theme",
@@ -80,9 +85,9 @@ var examplesData = [
     image: "http://i.imgur.com/00xWxLG.png"
   },
   {
-    title: "Vox Media",
-    url: "http://www.voxmedia.com",
-    image: "http://i.imgur.com/xSiTFij.jpg"
+    title: "Tumblr Staff: Archive",
+    url: "http://staff.tumblr.com/archive",
+    image: "http://i.imgur.com/igjvRa3.jpg"
   },
   {
     title: "Kristian Hammerstad",
