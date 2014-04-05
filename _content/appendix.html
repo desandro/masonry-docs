@@ -189,7 +189,7 @@ eventie.unbind( elem, 'click', onElemClick );
 
 <h2 id="requirejs">RequireJS</h2>
 
-<p>Masonry is compatible with <a href="http://requirejs.org">RequireJS</a>.</p>
+<p>Masonry supports <a href="http://requirejs.org">RequireJS</a>.</p>
 
 <p>You can require <a href="masonry.pkgd.js">masonry.pkgd.js</a>.</p>
 
@@ -197,11 +197,30 @@ eventie.unbind( elem, 'click', onElemClick );
 requirejs( [
   'path/to/masonry.pkgd.js',
 ], function( Masonry ) {
-  new Masonry('#container');
+  new Masonry( '#container', {...});
 });
 ```
 
-<p>Or, you can manage dependencies with <a href="http://bower.io">Bower</a>. Set <a href="http://requirejs.org/docs/api.html#config-baseUrl">baseUrl</a> to <code>bower_components</code> and set a path config for all your application code.</p>
+<p id="requirejs-pkgd-jquery">To use Masonry as a jQuery plugin with RequireJS and masonry.pkgd.js, you need to run jQuery bridget.</p>
+
+
+``` js
+// require the require function
+requirejs( [ 'require', 'jquery', 'path/to/masonry.pkgd.js' ],
+  function( require, $, Masonry ) {
+    // require jquery-bridget, it's included in masonry.pkgd.js
+    require( [ 'jquery-bridget/jquery.bridget' ],
+    function() {
+      // make Masonry a jQuery plugin
+      $.bridget( 'masonry', Masonry );
+      // now you can use $().masonry()
+      $('#container').masonry({...});
+    }
+  );
+});
+```
+
+<p id="requirejs-bower">Or, you can manage dependencies with <a href="http://bower.io">Bower</a>. Set <a href="http://requirejs.org/docs/api.html#config-baseUrl">baseUrl</a> to <code>bower_components</code> and set a path config for all your application code.</p>
 
 ``` js
 requirejs.config({
@@ -212,33 +231,33 @@ requirejs.config({
 });
 
 requirejs( [
-  'masonry/masonry',
+  'masonry/js/masonry',
   'app/my-component.js'
 ], function( Masonry, myComp ) {
-  new Masonry('#container');
+  new Masonry( '#container', {...});
 });
 ```
 
-<h3>RequireJS and jQuery</h3>
-
-<p>To use Masonry as a jQuery plugin with RequireJS, you&rsquo;ll need to run jQuery bridget.</p>
+<p id="requirejs-bower-jquery">You can require Bower dependencies and use Masonry as a jQuery plugin with jQuery Bridget.</p>
 
 ``` js
-// if you are using masonry.pkgd.js,
-// provide path to jquery.bridget as masonry.pkgd.js path
 requirejs.config({
+  baseUrl: '../bower_components',
   paths: {
-    'jquery-bridget/jquery.bridget': 'path/to/masonry.pkgd.js'
+    jquery: 'jquery/jquery'
   }
 });
 
 requirejs( [
-  'path/to/masonry.pkgd.js',
-  'jquery-bridget/jquery.bridget'
-], function( Masonry, bridget ) {
-  // make Masonry a jQuery plugin
-  bridget( 'masonry', Masonry );
-  $('#container').masonry();
+    'jquery',
+    'masonry/js/masonry',
+    'jquery-bridget/jquery.bridget'
+  ],
+  function( $, Masonry ) {
+    // make Masonry a jQuery plugin
+    $.bridget( 'masonry', Masonry );
+    // now you can use $().masonry()
+    $('#container').masonry({...});
 });
 ```
 
