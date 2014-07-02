@@ -47,7 +47,7 @@ $('#container').masonry()
   .masonry();
 ```
 
-<p>jQuery chaining is broken by methods that return values (i.e. 
+<p>jQuery chaining is broken by methods that return values (i.e.
   <a href="#getitemelements"><code>getItemElements</code></a>,
   <a href="#getitem"><code>getItem</code></a>,
   <a href="#on"><code>on</code></a>, and
@@ -656,7 +656,7 @@ $container.masonry( 'stamp', elements )
   </li>
 </ul>
 
-<p>Stamp the elements in the layout. Masonry will lay out item elements <em>around</em> stamped elements.</p>
+<p>Stamp the elements in the layout. Masonry will lay out item elements <em>below</em> stamped elements.</p>
 
 <div class="row example">
   <div class="cell example-code">
@@ -729,6 +729,6 @@ $container.masonry( 'unstamp', elements )
   </li>
 </ul>
 
-<p>Un-<a href="#stamp">stamp</a> the elements, so that Masonry will no longer layout item elements around them.</p>
+<p>Un-<a href="#stamp">stamp</a> the elements, so that Masonry will no longer layout item elements below them.</p>
 
 </div>
