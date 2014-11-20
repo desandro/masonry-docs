@@ -6,6 +6,7 @@
     "Browser support",
     "Difference between Isotope and Masonry",
     "First item breaks grid",
+    "Call methods error",
     "Animate item width or height"
   ]
 }
@@ -54,6 +55,70 @@ $('#container').masonry({
 });
 ```
 
+</div><div class="primary-content">
+
+<h2 id="call-methods-error">Error: &ldquo;cannot call methods on masonry prior to initialization; attempted to call '___'&rdquo;</h2>
+
+<p>This error occurs when your code attempts to use a <a href="methods.html">method</a> before the Masonry instance has been initialized.</p>
+
+``` js
+// This code will trigger the "cannot call methods" error
+
+$container.append( $items )
+  // masonry method
+  .masonry( 'appended', $items );
+
+// init Masonry
+$container.masonry({
+  // options...
+});
+```
+
+
+<p>This can happen if you have a race condition — when one piece of logic may occur before another. This could happen with <a href="appendix.html#imagesloaded">imagesLoaded</a>, Infinite Scroll, or Ajaxing content.</p>
+
+``` js
+// race condition with imagesLoaded
+
+$container.imagesLoaded( function() {
+  // init Masonry
+  $container.masonry({
+    // options...
+  });
+});
+
+// imagesLoaded will trigger after this
+$container.append( $items )
+  .masonry( 'appended', $items );
+```
+
+<p>To resolve this, make sure that the Masonry instance has been initialized before the method is called.</p>
+
+``` js
+$container.imagesLoaded( function() {
+  // init Masonry
+  $container.masonry({
+    // options...
+  });
+  // Masonry has been initialized, okay to call methods
+  $container.append( $items )
+    .masonry( 'appended', $items );
+});
+```
+
+``` js
+// another fix, init Masonry first, before imagesLoaded
+$container.masonry({
+  // options...
+});
+// okay to call methods
+$container.append( $items )
+  .masonry( 'appended', $items );
+// just do layout on imagesLoaded
+$container.imagesLoaded( function() {
+  $container.masonry('layout');
+});
+```
 
 </div><div class="primary-content">
 
