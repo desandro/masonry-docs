@@ -28,11 +28,6 @@
   <meta name="twitter:title" content="Masonry{{#unless page.is_homepage}} {{page.title}}{{/unless}}" />
   <meta name="twitter:description" content="Cascading grid layout library" />
 
-  {{#unless is_dev}}
-    <!-- Mint Analytics - Remove this if you copy/pasted this page -->
-    <!-- <script src="http://desandro.com/mint/?js"></script> -->
-  {{/unless}}
-
 </head>
 <body class="{{basename}}-page" data-page="{{basename}}">
 
@@ -78,7 +73,36 @@
 
   <div id="footer">
     <div class="primary-content">
-      Masonry by <a href="http://desandro.com">David DeSandro</a>. Make something rad with it.
+      <p class="made-by">
+        Masonry is made by <a href="http://desandro.com">David DeSandro</a>.
+        Make something rad with it.
+        {{#unless is_dev}}
+          &nbsp;&nbsp;Dave also makes:
+        {{/unless}}
+      </p>
+
+      {{#unless is_dev}}
+      <div class="row other-products">
+
+        <div class="cell other-product isotope-product">
+          <a href="http://isotope.metafizzy.co/">
+            <img src="http://i.imgur.com/xfGupRf.png" alt="Isotope" />
+            <h3>Isotope</h3>
+            <p class="description">Filter &amp; sort magical layouts</p>
+          </a>
+        </div>
+
+        <div class="cell other-product packery-product">
+          <a href="http://packery.metafizzy.co/">
+            <img src="http://i.imgur.com/uRXPQfm.png" alt="Packery" />
+            <h3>Packery</h3>
+            <p class="description">Bin-packing layout library. Like Masonry, but without gaps. Draggable too!</p>
+          </a>
+        </div>
+
+      </div>
+      {{/unless}}
+
     </div>
   </div>
 

@@ -1,3 +1,11 @@
+/* colors
+
+light gray #D8D5D2
+dark gray #333
+purple #A2C
+red #D26
+*/
+
 * {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -35,7 +43,8 @@ h1, h2, h3, h4, h5,
 .button,
 .instruction,
 #notification,
-#footer .copyright {
+#footer .made-by,
+#footer .other-product {
   font-family: 'Montserrat', Gotham, 'Proxima Nova', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
 }
 
