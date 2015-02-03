@@ -24,6 +24,12 @@ docReady( function() {
   if ( pageAttr && typeof MD[ pageAttr ] === 'function' ) {
     MD[ pageAttr ]();
   }
+
+
+  var refactorTitle = document.querySelector('.refactor-shirt h3');
+  var feb17 = new Date( 2015, 1, 17 );
+  var days = Math.round( ( feb17 - new Date() ) / ( 1000 * 60 * 60 * 24 ) );
+  setText( refactorTitle, 'Refactor shirts. Only on sale for ' + days + ' more days.' );
 });
 
 // -------------------------- helpers -------------------------- //
