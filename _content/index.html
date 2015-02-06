@@ -19,20 +19,22 @@
 
 <ul>
   <li>
-    <a href="masonry.pkgd.min.js">masonry.pkgd.min.js</a> for production
+    <a href="{{#unless is_dev}}//cdnjs.cloudflare.com/ajax/libs/masonry/{{cdn.version}}/{{/unless}}masonry.pkgd.min.js">masonry.pkgd.min.js</a> for production
   </li>
   <li>
-    <a href="masonry.pkgd.js">masonry.pkgd.js</a> for development
+    <a href="{{#unless is_dev}}//cdnjs.cloudflare.com/ajax/libs/masonry/{{cdn.version}}/{{/unless}}masonry.pkgd.js">masonry.pkgd.js</a> for development
   </li>
 </ul>
 
-<h3 id="bower">Bower</h3>
+{{#unless is_dev}}
+  <p>These files are hosted by <a href="https://cdnjs.com/">cdnjs</a>. You can link directly to them.</p>
+{{/unless}}
 
-<p>If you are familiar with the command line and build processes, Masonry can be installed with <a href="http://bower.io">Bower</a>. Masonry is built on dependencies. Bower takes care of these.</p>
+<h3 id="package-managers">Package managers</h3>
 
-```
-bower install masonry
-```
+<p>Instal with Bower: <code>bower install masonry --save</code></p>
+
+<p>Install with npm: <code>npm install masonry</code></p>
 
 </div><div class="primary-content">
 

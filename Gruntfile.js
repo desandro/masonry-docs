@@ -44,6 +44,7 @@ module.exports = function( grunt ) {
         options: {
           templates: '_templates/*.mustache',
           defaultTemplate: 'page',
+          dataFiles: 'data/*json',
           partialFiles: {
             'submitting-issues': '../masonry/CONTRIBUTING.mdown'
           }
