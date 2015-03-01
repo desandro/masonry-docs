@@ -70,9 +70,9 @@ var examplesData = [
     image: 'http://i.imgur.com/HDSAMFl.jpg'
   },
   {
-    title: "Vox Media",
-    url: "http://www.voxmedia.com",
-    image: "http://i.imgur.com/xSiTFij.jpg"
+    title: "Webster Hall Timeline",
+    url: "http://www.websterhall.com/timeline/",
+    image: "http://i.imgur.com/VWfCPYx.jpg"
   },
   {
     title: "Halcyon theme",
