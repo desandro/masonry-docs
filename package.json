@@ -9,7 +9,18 @@
     "grunt-contrib-uglify": "~0.1.1",
     "grunt-contrib-watch": "~0.3.1",
     "grunt-requirejs": "~0.4.0",
-    "grunt-fizzy-docs": "git://github.com/metafizzy/grunt-fizzy-docs.git"
+    "grunt-fizzy-docs": "git://github.com/metafizzy/grunt-fizzy-docs.git",
+    "gulp-rename": "^1.2.2",
+    "through2": "^0.6.3",
+    "gulp-concat": "^2.5.2",
+    "highlight.js": "^8.5.0",
+    "gulp": "^3.8.11",
+    "gulp-jshint": "^1.10.0",
+    "gulp-uglify": "^1.1.0",
+    "cheerio": "^0.19.0",
+    "glob": "^5.0.3",
+    "gulp-front-matter": "^1.2.2",
+    "gulp-filter": "^2.0.2"
   },
   "repository": {
     "type": "git",

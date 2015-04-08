@@ -9,7 +9,7 @@
     "imagesloaded": "latest",
     "get-style-property": "desandro/get-style-property",
     "jquery": "~1",
-    "normalize-css": "~2",
+    "normalize-css": "~3",
     "masonry": "latest"
   }
 }
