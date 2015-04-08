@@ -1,23 +1,8 @@
 ---
-{
-  "title": "Appendix",
-  "nav": [
-    "imagesLoaded",
-    "Web fonts",
-    "Component libraries",
-    "Submitting issues",
-    "Upgrading from v2",
-    "RequireJS",
-    "Browserify",
-    "Extra examples",
-    "Additional resources"
-  ]
-}
+title: Appendix
 ---
 
-<div class="primary-content">
-
-<h2 id="imagesloaded">imagesLoaded</h2>
+<h2>imagesLoaded</h2>
 
 <p>Unloaded images can throw off Masonry layouts and cause item elements to overlap. <a href="http://imagesloaded.desandro.com">imagesLoaded</a> resolves this issue. imagesLoaded works by triggering a callback after all child images have been loaded.</p>
 
@@ -58,9 +43,8 @@ $container.imagesLoaded( function() {
 });
 ```
 
-</div><div class="primary-content">
 
-<h2 id="web-fonts">Web fonts</h2>
+<h2>Web fonts</h2>
 
 <p>Like images, unloaded web fonts can throw off Masonry. To resolve this, trigger <a href="methods.html#layout"><code>layout</code></a> after fonts have been loaded. Both Typekit and Google WebFont Loader provide font events to control scripts based on how fonts are loaded.</p>
 
@@ -69,7 +53,7 @@ $container.imagesLoaded( function() {
   <li><a href="https://developers.google.com/webfonts/docs/webfont_loader#Events">Google WebFont Loader: Events</a></li>
 </ul>
 
-<h3 id="typekit">Typekit</h3>
+<h3>Typekit</h3>
 
 <p>Try the script below when using Masonry on a page with Typekit. This will trigger Masonry when the document is ready and again when fonts have loaded. Be sure to remove Typekit’s default script, <code>try{Typekit.load();}catch(e){}</code>.</p>
 
@@ -123,13 +107,12 @@ Typekit.load({
 });
 ```
 
-</div><div class="primary-content">
 
-<h2 id="component-libraries">Component libraries</h2>
+<h2>Component libraries</h2>
 
 <p>Masonry includes several component libraries. You might have seen these used in the example code. You can use some of these libraries in your own code.</p>
 
-<h3 id="docready">docReady</h3>
+<h3>docReady</h3>
 
 <p><a href="https://github.com/desandro/doc-ready">docReady triggers initialization logic when the document is ready,</a> just like jQuery's <code>$(document).ready()</code>. <code>docReady</code> is used to initialize all the demos in these docs.</p>
 
@@ -141,7 +124,7 @@ docReady( function() {
 });
 ```
 
-<h3 id="classie">classie</h3>
+<h3>classie</h3>
 
 <p><a href="https://github.com/desandro/classie">classie has class helper functions.</a> classie is not included with Masonry.</p>
 
@@ -152,7 +135,7 @@ classie.remove( element, 'my-unwanted-class' ) // remove class
 classie.toggle( element, 'my-class' ) // toggle class
 ```
 
-<h3 id="eventie">eventie</h3>
+<h3>eventie</h3>
 
 <p><a href="https://github.com/desandro/eventie">Eventie makes event binding in IE8 legit.</a></p>
 
@@ -167,13 +150,23 @@ eventie.bind( elem, 'click', onElemClick );
 // unbind it
 eventie.unbind( elem, 'click', onElemClick );
 ```
-</div><div id="submitting-issues" class="primary-content">
 
-{{>submitting-issues}}
+<h2>Submitting issues</h2>
 
-</div><div class="primary-content">
+<h3>Reduced test case required</h3>
 
-<h2 id="upgrading-from-v2">Upgrading from v2</h2>
+<p>All bug reports and problem issues require a <a href="http://css-tricks.com/reduced-test-cases/"><strong>reduced test case</strong></a>. Create one by forking any one of the <a href="http://codepen.io/desandro/tag/masonry-docs">CodePen examples</a> from these docs</a>.</p>
+
+<ul>
+  <li>A reduced test case clearly demonstrates the bug or issue.</li>
+  <li>It contains the bare minimum HTML, CSS, and JavaScript required to demonstrate the bug.</li>
+  <li>A link to your production site is <strong>not</strong> a reduced test case.</li>
+</ul>
+
+<p>Providing a reduced test case is the best way to get your issue addressed. Without a reduced test case, your issue may be closed.</p>
+
+
+<h2>Upgrading from v2</h2>
 
 <ul>
   <li>smartresize jQuery plugin has been removed</li>
@@ -186,9 +179,8 @@ eventie.unbind( elem, 'click', onElemClick );
   <li><code>gutterWidth</code> option renamed to <a href="options.html#gutter"><code>gutter</code></a></li>
 </ul>
 
-</div><div class="primary-content">
 
-<h2 id="requirejs">RequireJS</h2>
+<h2>RequireJS</h2>
 
 <p>Masonry supports <a href="http://requirejs.org">RequireJS</a>.</p>
 
@@ -262,9 +254,8 @@ requirejs( [
 });
 ```
 
-</div><div class="primary-content">
 
-<h2 id="browserify">Browserify</h2>
+<h2>Browserify</h2>
 
 <p>Masonry works with <a href="http://browserify.org">Browserify</a>. <a href="https://www.npmjs.org/package/masonry-layout">Install Masonry with npm</a>.</p>
 
@@ -299,18 +290,16 @@ $('#basic').masonry({
 });
 ```
 
-</div><div class="primary-content">
 
-<h2 id="extra-examples">Extra examples</h2>
+<h2>Extra examples</h2>
 
 <ul>
   <li><a href="http://codepen.io/desandro/pen/kwsJb">Iteratively reveal items after each image is loaded</a>. See <a href="https://github.com/desandro/masonry/issues/501#issuecomment-34583942">explanation on issue #501</a></li>
   <li><a href="http://codepen.io/desandro/pen/btHyq">Drag and drop in and out of Masonry</a> (sort of)</li>
 </ul>
 
-</div><div class="primary-content">
 
-<h2 id="additional-resources">Additional resources</h2>
+<h2>Additional resources</h2>
 
 <ul>
   <li><a href="http://codepen.io/desandro/tag/masonry/">Masonry CodePens</a></li>
@@ -321,5 +310,3 @@ $('#basic').masonry({
   <li><a href="http://www.delicious.com/desandro/re:masonry">Related Masonry links</a></li>
   <li>Other resources that are <a href="http://www.delicious.com/desandro/likemasonrybutnot">like Masonry but not</a></li>
 </ul>
-
-</div>

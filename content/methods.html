@@ -1,31 +1,6 @@
 ---
-{
-  "title": "Methods",
-  "nav": [
-    "addItems",
-    "appended",
-    "bindResize",
-    "destroy",
-    "getItemElements",
-    "getItem",
-    "hide",
-    "layout",
-    "layoutItems",
-    "Masonry.data",
-    "off",
-    "on",
-    "prepended",
-    "reloadItems",
-    "remove",
-    "reveal",
-    "stamp",
-    "unbindResize",
-    "unstamp"
-  ]
-}
+title: Methods
 ---
-
-<div class="primary-content">
 
 <p>Methods are actions taken on Masonry instances.</p>
 
@@ -61,7 +36,6 @@ $container.masonry( 'on', 'layoutComplete', function() {...} );
 $container.fadeIn();
 ```
 
-</div><div class="primary-content">
 
 <h2 id="additems">addItems</h2>
 
@@ -87,7 +61,6 @@ $container.masonry( 'addItems', elements )
 
 <p>Add item elements to the Masonry instance.</p>
 
-</div><div class="primary-content">
 
 <h2 id="appended">appended</h2>
 
@@ -155,7 +128,6 @@ eventie.bind( button, 'click', function() {
   </div>
 </div>
 
-</div><div class="primary-content">
 
 <h2 id="bindresize">bindResize</h2>
 
@@ -167,7 +139,6 @@ $container.masonry('bindResize')
 
 <p>Binds event listener to window <code>resize</code>, so layout is triggered when the browser window is resized.</p>
 
-</div><div class="primary-content">
 
 <h2 id="destroy">destroy</h2>
 
@@ -209,7 +180,6 @@ eventie.bind( button, 'click', function() {
   </div>
 </div>
 
-</div><div class="primary-content">
 
 <h2 id="getitemelements">getItemElements</h2>
 
@@ -231,7 +201,6 @@ var elems = $container.masonry('getItemElements')
 
 <p>Get an array of elements used as the Masonry instance's items.</p>
 
-</div><div class="primary-content">
 
 <h2 id="getitem">getItem</h2>
 
@@ -259,7 +228,6 @@ var item = $container.masonry( 'getItem', element )
 
 <p>Get a <i>Masonry.Item</i> from an element.</p>
 
-</div><div class="primary-content">
 
 <h2 id="hide">hide</h2>
 
@@ -283,7 +251,6 @@ $container.masonry( 'hide', items )
 
 <p>Hides items.</p>
 
-</div><div class="primary-content">
 
 <h2 id="layout">layout</h2>
 
@@ -324,7 +291,6 @@ eventie.bind( container, 'click', function( event ) {
   </div>
 </div>
 
-</div><div class="primary-content">
 
 <h2 id="layoutitems">layoutItems</h2>
 
@@ -352,7 +318,6 @@ $container.masonry( 'layoutItems', items, isStill )
 
 <p>Lay out specified items.</p>
 
-</div><div class="primary-content">
 
 <h2 id="masonry-data">Masonry.data</h2>
 
@@ -394,7 +359,6 @@ var msnry = Masonry.data( container );
 msnry.layout();
 ```
 
-</div><div class="primary-content">
 
 <h2 id="off">off</h2>
 
@@ -429,7 +393,6 @@ var msnry = $container.masonry( 'off', eventName, listener )
 
 <p>Remove an event listener. See <a href="events.html">Events</a>.</p>
 
-</div><div class="primary-content">
 
 <h2 id="on">on</h2>
 
@@ -475,7 +438,6 @@ msnry.on( 'layoutComplete', function() {
 });
 ```
 
-</div><div class="primary-content">
 
 <h2 id="prepended">prepended</h2>
 
@@ -541,7 +503,6 @@ eventie.bind( button, 'click', function() {
   </div>
 </div>
 
-</div><div class="primary-content">
 
 <h2 id="reloaditems">reloadItems</h2>
 
@@ -553,7 +514,6 @@ $container.masonry('reloadItems')
 
 <p>Recollect all item elements.</p>
 
-</div><div class="primary-content">
 
 <h2 id="remove">remove</h2>
 
@@ -608,7 +568,6 @@ eventie.bind( container, 'click', function( event ) {
   </div>
 </div>
 
-</div><div class="primary-content">
 
 <h2 id="reveal">reveal</h2>
 
@@ -632,7 +591,6 @@ $container.masonry( 'reveal', items )
 
 <p>Reveals hidden items.</p>
 
-</div><div class="primary-content">
 
 <h2 id="stamp">stamp</h2>
 
@@ -693,7 +651,6 @@ eventie.bind( button, 'click', function() {
   </div>
 </div>
 
-</div><div class="primary-content">
 
 <h2 id="unbindresize">unbindResize</h2>
 
@@ -705,7 +662,6 @@ $container.masonry('unbindResize')
 
 <p>Un-bind layout to window <code>resize</code> event.</p>
 
-</div><div class="primary-content">
 
 <h2 id="unstamp">unstamp</h2>
 
@@ -730,5 +686,3 @@ $container.masonry( 'unstamp', elements )
 </ul>
 
 <p>Un-<a href="#stamp">stamp</a> the elements, so that Masonry will no longer layout item elements around them.</p>
-
-</div>

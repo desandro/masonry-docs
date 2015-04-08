@@ -7,18 +7,18 @@
   <meta name="viewport" content="width=device-width" />
   <meta name="description" content="Cascading grid layout library" />
 
-  <title>Masonry{{#unless page.is_homepage}} {{page.title}}{{/unless}}</title>
+  <title>Masonry{{#unless page.is_homepage}} &middot; {{page.title}}{{/unless}}</title>
 
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700" />
 
   {{#if is_dev}}
-    <!-- DEV MODE - including each .css file -->
-    {{#each site.css}}
-      <link rel="stylesheet" href="{{this}}" />
+    {{! DEV MODE - including each .css file }}
+    {{#each css_paths}}
+      <link rel="stylesheet" href="../{{this}}" />
     {{/each}}
   {{else}}
     {{! in production, just include concat CSS }}
-    <link rel="stylesheet" href="css/masonry-docs.css" />
+    <link rel="stylesheet" href="{{#if page.is_404}}/{{/if}}css/masonry-docs.css" media="screen" />
   {{/if}}
 
 </head>
@@ -49,18 +49,12 @@
         <h1>{{page.title}}</h1>
         {{/unless}}
 
-      {{! page nav }}
-      {{#if page.nav}}
-        <ul id="page-nav">
-          {{#each page.nav}}
-            <li><a href="#{{slug this}}">{{this}}</a></li>
-          {{/each}}
-        </ul>
-      {{/if}}
-    </div>
+        <ul id="page-nav"></ul>
 
-    {{! all page content goes here }}
-    {{{ content }}}
+{{! all page content goes here }}
+{{> body}}
+
+    </div>
 
   </div>
 
@@ -110,16 +104,16 @@
 <!-- Masonry does NOT require jQuery.
      jQuery is only used to demonstrate Masonry as a jQuery plugin -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="bower_components/jquery/jquery.min.js"><\/script>')</script>
+<script>window.jQuery || document.write('<script src="bower_components/jquery/dist/jquery.min.js"><\/script>')</script>
 
 {{#if is_dev}}
-  <!-- DEV MODE - including each .js file -->
-  {{#each site.js}}
-    <script src="{{this}}"></script>
+  {{#each js_paths}}
+    {{! DEV MODE - including each .js file }}
+    <script src="../{{this}}"></script>
   {{/each}}
 {{else}}
   {{! in production, just include concat/minified js }}
-  <script src="js/masonry-docs.min.js"></script>
+  <script src="{{#if page.is_404}}/{{/if}}js/masonry-docs.min.js"></script>
 {{/if}}
 
 {{#unless is_dev}}

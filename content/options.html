@@ -1,26 +1,6 @@
 ---
-{
-  "title": "Options",
-  "nav": [
-    "containerStyle",
-    "columnWidth",
-    "gutter",
-    "hiddenStyle",
-    "isFitWidth",
-    "isInitLayout",
-    "isOriginLeft",
-    "isOriginTop",
-    "isResizeBound",
-    "itemSelector",
-    "stamp",
-    "transitionDuration",
-    "visibleStyle",
-    "Element sizing"
-  ]
-}
+title: Options
 ---
-
-<div class="primary-content">
 
 <p>All options are optional, but <a href="#columnwidth"><code>columnWidth</code></a> and <a href="#itemselector"><code>itemSelector</code></a> are recommended.</p>
 
@@ -44,7 +24,6 @@ $('#container').masonry({
   data-masonry-options='{ "columnWidth": 200, "itemSelector": ".item" }'>
 ```
 
-</div><div class="primary-content">
 
 <h2 id="containerstyle">containerStyle</h2>
 
@@ -62,7 +41,6 @@ $('#container').masonry({
 
 <p>CSS styles that are applied to the container element. To disable Masonry from setting any CSS to the container element, set <code>containerStyle: <span class="literal">null</span></code>.</p>
 
-</div><div class="primary-content">
 
 <h2 id="columnwidth">columnWidth</h2>
 
@@ -122,7 +100,6 @@ $('#container').masonry({
   </div>
 </div>
 
-</div><div class="primary-content">
 
 <h2 id="gutter">gutter</h2>
 
@@ -199,7 +176,6 @@ $('#container').masonry({
   </div>
 </div>
 
-</div><div class="primary-content">
 
 <h2 id="hiddenstyle">hiddenStyle</h2>
 
@@ -216,7 +192,6 @@ $('#container').masonry({
 
 <p>The style applied to hide items.</p>
 
-</div><div class="primary-content">
 
 <h2 id="isfitwidth">isFitWidth</h2>
 
@@ -265,7 +240,6 @@ $('#container').masonry({
   </div>
 </div>
 
-</div><div class="primary-content">
 
 <h2 id="isinitlayout">isInitLayout</h2>
 
@@ -294,7 +268,6 @@ msnry.on( 'layoutComplete', function() {
 msnry.layout();
 ```
 
-</div><div class="primary-content">
 
 <h2 id="isoriginleft">isOriginLeft</h2>
 
@@ -325,7 +298,6 @@ msnry.layout();
   </div>
 </div>
 
-</div><div class="primary-content">
 
 <h2 id="isorigintop">isOriginTop</h2>
 
@@ -356,7 +328,6 @@ msnry.layout();
   </div>
 </div>
 
-</div><div class="primary-content">
 
 <h2 id="isresizebound">isResizeBound</h2>
 
@@ -375,7 +346,6 @@ msnry.layout();
 
 <p><code>isResizeBound</code> binds layout only when the Masonry instance is first initialized. You can bind and unbind resize layout afterwards with the <a href="methods.html#bindresize"><code>bindResize</code></a> and <a href="methods.html#unbindresize"><code>unbindResize</code></a> methods.</p>
 
-</div><div class="primary-content">
 
 <h2 id="itemselector">itemSelector</h2>
 
@@ -392,7 +362,6 @@ msnry.layout();
 "itemSelector": ".item"
 ```
 
-</div><div class="primary-content">
 
 <h2 id="stamp">stamp</h2>
 
@@ -456,7 +425,6 @@ msnry.layout();
   </div>
 </div>
 
-</div><div class="primary-content">
 
 <h2 id="transitionduration">transitionDuration</h2>
 
@@ -475,7 +443,6 @@ msnry.layout();
 
 <p>To disable all transitions, set <code>transitionDuration: <span class="literal">0</span></code>.</p>
 
-</div><div class="primary-content">
 
 <h2 id="visiblestyle">visibleStyle</h2>
 
@@ -492,7 +459,6 @@ msnry.layout();
 
 <p>The style applied to reveal hidden items.</p>
 
-</div><div class="primary-content">
 
 <h2 id="element-sizing">Element sizing</h2>
 
@@ -536,5 +502,3 @@ var msnry = new Masonry( container, {
 ```
 
 <p>If you are using element sizing, be sure to set <a href="#itemselector"><code>itemSelector</code></a> as well, so the sizing element does not get used in the layout.</p>
-
-</div>

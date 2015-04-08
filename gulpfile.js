@@ -36,6 +36,11 @@ gulp.task( 'assets', function() {
     .pipe( gulp.dest('build') );
 });
 
+gulp.task( 'fonts', function() {
+  return gulp.src('fonts/**/*.*')
+    .pipe( gulp.dest('build/fonts') );
+});
+
 // copy prod assets
 gulp.task( 'prod-assets', [ 'assets' ] );
 
