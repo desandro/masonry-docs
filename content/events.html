@@ -27,19 +27,12 @@ msnry.on( 'layoutComplete', function() {
 <h2 id="layoutcomplete">layoutComplete</h2>
 
 ``` js
-msnry.on( 'layoutComplete', function( msnryInstance, laidOutItems ) { //...
+msnry.on( 'layoutComplete', function( laidOutItems ) { //...
 // or with jQuery
-$container.masonry( 'on', 'layoutComplete', function( msnryInstance, laidOutItems ) {} )
+$container.masonry( 'on', 'layoutComplete', function( laidOutItems ) {} )
 ```
 
 <ul class="params">
-  <li class="param">
-    <h5 class="param-name param-bit"><code>msnryInstance</code></h5>
-    <p class="type param-bit">
-      <b>Type:</b> <span class="value"><i>Masonry</i></span>
-    </p>
-    <p class="description param-bit">the Masonry instance</p>
-  </li>
   <li class="param">
     <h5 class="param-name param-bit"><code>laidOutItems</code></h5>
     <p class="type param-bit">
@@ -54,7 +47,7 @@ $container.masonry( 'on', 'layoutComplete', function( msnryInstance, laidOutItem
 <div class="row example">
   <div class="cell example-code">
 ``` js
-msnry.on( 'layoutComplete', function( msnryInstance, laidOutItems ) {
+msnry.on( 'layoutComplete', function( laidOutItems ) {
   console.log('Masonry layout completed on ' + laidOutItems.length + ' items');
 });
 ```
@@ -72,21 +65,14 @@ msnry.on( 'layoutComplete', function( msnryInstance, laidOutItems ) {
 <h2 id="removecomplete">removeComplete</h2>
 
 ``` js
-msnry.on( 'removeComplete', function( msnryInstance, removedItems ) { //...
+msnry.on( 'removeComplete', function( removedItems ) { //...
 // or with jQuery
-$container.masonry( 'on', 'removeComplete', function( msnryInstance, removedItems ) {} )
+$container.masonry( 'on', 'removeComplete', function( removedItems ) {} )
 ```
 
 <p>Triggered after an item element has been removed.</p>
 
 <ul class="params">
-  <li class="param">
-    <h5 class="param-name param-bit"><code>msnryInstance</code></h5>
-    <p class="type param-bit">
-      <b>Type:</b> <span class="value"><i>Masonry</i></span>
-    </p>
-    <p class="description param-bit">the Masonry instance</p>
-  </li>
   <li class="param">
     <h5 class="param-name param-bit"><code>removedItems</code></h5>
     <p class="type param-bit">
@@ -99,7 +85,7 @@ $container.masonry( 'on', 'removeComplete', function( msnryInstance, removedItem
 <div class="row example">
   <div class="cell example-code">
 ``` js
-msnry.on( 'removeComplete', function( msnryInstance, removedItems ) {
+msnry.on( 'removeComplete', function( removedItems ) {
   console.log( 'Removed ' + removedItems.length + ' items' );
 });
 ```

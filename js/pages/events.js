@@ -33,7 +33,7 @@ MD.events = function() {
     var msnry = new Masonry( container, {
       columnWidth: 60
     });
-    msnry.on( 'layoutComplete', function( msnryInstance, laidOutItems ) {
+    msnry.on( 'layoutComplete', function( laidOutItems ) {
       notify( 'Masonry layout completed on ' + laidOutItems.length + ' items' );
     });
 
@@ -57,7 +57,7 @@ MD.events = function() {
       columnWidth: 60
     });
 
-    msnry.on( 'removeComplete', function( msnryInstance, items ) {
+    msnry.on( 'removeComplete', function( items ) {
       notify( 'Removed ' + items.length + ' items' );
     });
 
