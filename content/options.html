@@ -66,34 +66,31 @@ $('#container').masonry({
   </div>
 </div>
 
-<p>If set to an <i>Element</i> or Selector <i>String</i>, Masonry will use the width of that element. See <a href="#element-sizing">Element sizing</a>. Setting <code>columnWidth</code> with element sizing is recommended if you are using percentage widths.</p>
+<p>If set to an <i>Element</i> or Selector <i>String</i>, Masonry will use the width of that element. See <a href="#element-sizing">Element sizing</a>. Setting <code>columnWidth</code> with element sizing is recommended if you are using percentage widths. Enable <a href="#percentposition"><code>percentPosition</code></a> to set item position in percent values, to reduce layout transitions on resize.</p>
 
 <div class="row example">
   <div class="cell example-code">
-``` html
-<div id="column-width-demo2">
-  <div class="grid-sizer"></div>
-  <div class="item"></div>
-  <div class="item"></div>
-  ...
-</div>
-```
-``` css
-#column-width-demo2 .grid-sizer { width: 20%; }
-#column-width-demo2 .item { width: 20%; }
-#column-width-demo2 .item.w2 { width: 40%; }
-```
-``` js
-"columnWidth": ".grid-sizer",
-"itemSelector": ".item"
-```
+    ``` html
+    <div class="masonry">
+      <div class="grid-sizer"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      ...
+    </div>
+    ```
+    ``` css
+    .grid-sizer { width: 20%; }
+    .item { width: 20%; }
+    .item.w2 { width: 40%; }
+    ```
+    ``` js
+    "columnWidth": ".grid-sizer",
+    "itemSelector": ".item",
+    "percentPosition": true
+    ```
   </div>
   <div class="cell demo">
-    <div id="column-width-demo2" class="masonry js-masonry" data-masonry-options='{ "columnWidth": ".grid-sizer", "itemSelector": ".item" }'>
-      <div class="grid-sizer"></div>
-      {{>basic-demo-items}}
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/JFpeg">Edit this example on CodePen</a></p>
+    {{> percent-width-demo}}
   </div>
 </div>
 
@@ -217,6 +214,38 @@ var msnry = new Masonry( container, {
 
 <p>If you are using element sizing, be sure to set <a href="#itemselector"><code>itemSelector</code></a> as well, so the sizing element does not get used in the layout.</p>
 
+<h2>percentPosition</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Boolean</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code><span class="literal">false</span></code></span>
+  </p>
+</div>
+
+<p>Will set item position in percent values, rather than pixel values. <code>percentPosition</code> works well with percent-width items, as items will not transition their position on resize.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+    ``` css
+    .grid-sizer { width: 20%; }
+    .item { width: 20%; }
+    .item.w2 { width: 40%; }
+    ```
+    ``` js
+    "columnWidth": ".grid-sizer",
+    "itemSelector": ".item",
+    "percentPosition": true
+    ```
+  </div>
+  <div class="cell demo">
+    {{>percent-width-demo}}
+  </div>
+</div>
 
 <h2>stamp</h2>
 

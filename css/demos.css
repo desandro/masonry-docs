@@ -44,9 +44,10 @@
 }
 
 /* responive column width */
-#column-width-demo2 .grid-sizer { width: 20%; }
-#column-width-demo2 .item { width: 20%; }
-#column-width-demo2 .item.w2 { width: 40%; }
+.masonry.masonry--percent-width .grid-sizer { width: 20%; }
+.masonry.masonry--percent-width .item { width: 20%; }
+.masonry.masonry--percent-width .item.w2,
+.masonry.masonry--percent-width .item.w3 { width: 40%; }
 
 #row-height-demo2 .grid-sizer {
   height: 60px;
