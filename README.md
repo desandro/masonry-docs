@@ -6,12 +6,12 @@ This project does _not_ include the source for Masonry. That's over in [github.c
 
 ## Build
 
-Building these docs requires [Bower](http://bower.io), [Grunt](http://gruntjs.com) and [NPM](http://npmjs.org).
+Building these docs requires [Bower](http://bower.io), [Gulp](http://gulpjs.com) and [npm](http://npmjs.org).
 
 ``` bash
 npm install
 bower install
-grunt
+gulp
 ```
 
 This will build the docs in `build/`.
@@ -19,11 +19,11 @@ This will build the docs in `build/`.
 Watch for updates to rebuild docs on the fly.
 
 ``` bash
-grunt default watch
+gulp watch
 ```
 
-Pass `--dev` to build the site with JS and CSS files included separately, un-concatenated, and un-minified.
+Run `gulp watch-dev` to build the site with JS and CSS files included separately, un-concatenated, and un-minified.
 
 ``` bash
-grunt --dev
+gulp watch-dev
 ```
