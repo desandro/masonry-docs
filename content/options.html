@@ -24,25 +24,22 @@ $('#container').masonry({
   data-masonry-options='{ "columnWidth": 200, "itemSelector": ".item" }'>
 ```
 
-
-<h2 id="containerstyle">containerStyle</h2>
-
+<h2>itemSelector</h2>
 
 <div class="param">
   <p class="param-bit type">
     <b>Type:</b>
-    <span class="value"><i>Object</i></span>
-  </p>
-  <p class="param-bit default">
-    <b>Default:</b>
-    <span class="value"><code>{ position: <span class="string">'relative'</span> }</code></span>
+    <span class="value">Selector <i>String</i></span>
   </p>
 </div>
 
-<p>CSS styles that are applied to the container element. To disable Masonry from setting any CSS to the container element, set <code>containerStyle: <span class="literal">null</span></code>.</p>
+<p>Specifies which child elements to be used as item elements. Setting <code>itemSelector</code> is always recommended. <code>itemSelector</code> is useful to exclude <a href="#element-sizing">sizing elements</a>.</p>
 
+``` js
+"itemSelector": ".item"
+```
 
-<h2 id="columnwidth">columnWidth</h2>
+<h2>columnWidth</h2>
 
 <div class="param">
   <p class="param-bit type">
@@ -101,7 +98,7 @@ $('#container').masonry({
 </div>
 
 
-<h2 id="gutter">gutter</h2>
+<h2>gutter</h2>
 
 <div class="param">
   <p class="param-bit type">
@@ -177,193 +174,51 @@ $('#container').masonry({
 </div>
 
 
-<h2 id="hiddenstyle">hiddenStyle</h2>
+<h2 id="element-sizing">Element sizing</h2>
 
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Object</i></span>
-  </p>
-  <p class="param-bit default">
-    <b>Default:</b>
-    <span class="value"><code>{ opacity: <span class="literal">0</span>, transform: <span class="string">'scale(0.001)'</span> }</code></span>
-  </p>
+<p>For the sizing options <a href="#columnwidth"><code>columnWidth</code></a> and <a href="#gutter"><code>gutter</code></a>, you may set these options to an <i>Element</i> or <i>String</i>, in addition to a <i>Number</i>.</p>
+
+<p>With an <i>Element</i>, Masonry will use its outer width to set the value of the related property.</p>
+
+``` html
+<div id="container">
+  <div class="grid-sizer"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  ...
 </div>
-
-<p>The style applied to hide items.</p>
-
-
-<h2 id="isfitwidth">isFitWidth</h2>
-
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Boolean</i></span>
-  </p>
-  <p class="param-bit default">
-    <b>Default:</b>
-    <span class="value"><code><span class="literal">false</span></code></span>
-  </p>
-</div>
-
-<p>Sets the width of the container to fit the available number of columns, based the size of container's parent element. When enabled, you can center the container with CSS.</p>
-
-<div class="warning">
-  <p>This option does not work with <a href="#element-sizing">element sizing</a> with percentage width. Either columnWidth needs to be set to a fixed size, like <code>columnWidth: 120</code>, or items need to have a fixed size in pixels, like <code>width: 120px</code>. Otherwise, the container and item widths will collapse on one another.</p>
-</div>
-
-<div class="row example">
-  <div class="cell example-code">
-``` js
-"isFitWidth": true
 ```
+
+``` js
+var container = document.querySelector('#container');
+var msnry = new Masonry( container, {
+  itemSelector: '.item',
+  columnWidth: container.querySelector('.grid-sizer')
+});
+```
+
+<p>With a <i>String</i>, Masonry will use the string as a selector to get the first matching element within the container element. The size of that element is then used.</p>
+
+``` js
+"columnWidth": ".grid-sizer"
+```
+
+<p>This allows you to control the size of the Masonry layout just with your CSS. This is useful for responsive layouts, keeping control within CSS so you can rely on media queries.</p>
+
 ``` css
-/* center container with CSS */
-#fit-width .masonry {
-  margin: 0 auto;
+/* 5 columns by default */
+.grid-sizer { width: 20%; }
+
+@media screen and (min-width: 720px) {
+  /* 10 columns for larger screens */
+  .grid-sizer { width: 10%; }
 }
 ```
-  </div>
-  <div id="fit-width" class="cell demo">
-    <div class="masonry js-masonry" data-masonry-options='{ "isFitWidth": true }'>
-      <div class="item w2"></div>
-      <div class="item w2 h2"></div>
-      <div class="item w2 h3"></div>
-      <div class="item w2 h2"></div>
-      <div class="item w2"></div>
-      <div class="item w2"></div>
-      <div class="item w2"></div>
-      <div class="item w2 h2"></div>
-      <div class="item w2 h3"></div>
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/nGLvx">Edit this example on CodePen</a></p>
-  </div>
-</div>
+
+<p>If you are using element sizing, be sure to set <a href="#itemselector"><code>itemSelector</code></a> as well, so the sizing element does not get used in the layout.</p>
 
 
-<h2 id="isinitlayout">isInitLayout</h2>
-
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Boolean</i></span>
-  </p>
-  <p class="param-bit default">
-    <b>Default:</b>
-    <span class="value"><code><span class="literal">true</span></code></span>
-  </p>
-</div>
-
-<p>Enables layout on initialization. Set this to <code><span class="literal">false</span></code> to disable layout on initialization, so you can use <a href="methods.html">methods</a> or add <a href="events.html">events</a> before the initial layout.</p>
-
-``` js
-var msnry = new Masonry( container, {
-  // disables initial layout
-  isInitLayout: false
-});
-msnry.on( 'layoutComplete', function() {
-  console.log('layout is complete');
-});
-// manually trigger initial layout
-msnry.layout();
-```
-
-
-<h2 id="isoriginleft">isOriginLeft</h2>
-
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Boolean</i></span>
-  </p>
-  <p class="param-bit default">
-    <b>Default:</b>
-    <span class="value"><code><span class="literal">true</span></code></span>
-  </p>
-</div>
-
-<p>Controls the horizontal flow of the layout. By default, item elements start positioning at the left. Set to <code><span class="literal">false</span></code> for right-to-left layouts.</p>
-
-<div class="row example">
-  <div class="cell example-code">
-``` js
-"isOriginLeft": false
-```
-  </div>
-  <div class="cell demo">
-    <div class="masonry js-masonry counting" data-masonry-options='{ "isOriginLeft": false }'>
-      {{>basic-demo-items}}
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/adwgL">Edit this example on CodePen</a></p>
-  </div>
-</div>
-
-
-<h2 id="isorigintop">isOriginTop</h2>
-
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Boolean</i></span>
-  </p>
-  <p class="param-bit default">
-    <b>Default:</b>
-    <span class="value"><code><span class="literal">true</span></code></span>
-  </p>
-</div>
-
-<p>Controls the vertical flow of the layout. By default, item elements start positioning at the top. Set to <code><span class="literal">false</span></code> for bottom-up layouts. It&rsquo;s like Tetris!</p>
-
-<div class="row example">
-  <div class="cell example-code">
-``` js
-"isOriginTop": false
-```
-  </div>
-  <div class="cell demo">
-    <div class="masonry js-masonry counting" data-masonry-options='{ "isOriginTop": false }'>
-      {{>basic-demo-items}}
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/uwtLs">Edit this example on CodePen</a></p>
-  </div>
-</div>
-
-
-<h2 id="isresizebound">isResizeBound</h2>
-
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Boolean</i></span>
-  </p>
-  <p class="param-bit default">
-    <b>Default:</b>
-    <span class="value"><code><span class="literal">true</span></code></span>
-  </p>
-</div>
-
-<p>Binds layout to window resizing.</p>
-
-<p><code>isResizeBound</code> binds layout only when the Masonry instance is first initialized. You can bind and unbind resize layout afterwards with the <a href="methods.html#bindresize"><code>bindResize</code></a> and <a href="methods.html#unbindresize"><code>unbindResize</code></a> methods.</p>
-
-
-<h2 id="itemselector">itemSelector</h2>
-
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value">Selector <i>String</i></span>
-  </p>
-</div>
-
-<p>Specifies which child elements to be used as item elements. Setting <code>itemSelector</code> is always recommended. <code>itemSelector</code> is useful to exclude <a href="#element-sizing">sizing elements</a>.</p>
-
-``` js
-"itemSelector": ".item"
-```
-
-
-<h2 id="stamp">stamp</h2>
+<h2>stamp</h2>
 
 <div class="param">
   <p class="param-bit type">
@@ -426,7 +281,179 @@ msnry.layout();
 </div>
 
 
-<h2 id="transitionduration">transitionDuration</h2>
+<h2>isFitWidth</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Boolean</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code><span class="literal">false</span></code></span>
+  </p>
+</div>
+
+<p>Sets the width of the container to fit the available number of columns, based the size of container's parent element. When enabled, you can center the container with CSS.</p>
+
+<div class="warning">
+  <p>This option does not work with <a href="#element-sizing">element sizing</a> with percentage width. Either columnWidth needs to be set to a fixed size, like <code>columnWidth: 120</code>, or items need to have a fixed size in pixels, like <code>width: 120px</code>. Otherwise, the container and item widths will collapse on one another.</p>
+</div>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+"isFitWidth": true
+```
+``` css
+/* center container with CSS */
+#fit-width .masonry {
+  margin: 0 auto;
+}
+```
+  </div>
+  <div id="fit-width" class="cell demo">
+    <div class="masonry js-masonry" data-masonry-options='{ "isFitWidth": true }'>
+      <div class="item w2"></div>
+      <div class="item w2 h2"></div>
+      <div class="item w2 h3"></div>
+      <div class="item w2 h2"></div>
+      <div class="item w2"></div>
+      <div class="item w2"></div>
+      <div class="item w2"></div>
+      <div class="item w2 h2"></div>
+      <div class="item w2 h3"></div>
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/nGLvx">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+
+<h2>isOriginLeft</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Boolean</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code><span class="literal">true</span></code></span>
+  </p>
+</div>
+
+<p>Controls the horizontal flow of the layout. By default, item elements start positioning at the left. Set to <code><span class="literal">false</span></code> for right-to-left layouts.</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+"isOriginLeft": false
+```
+  </div>
+  <div class="cell demo">
+    <div class="masonry js-masonry counting" data-masonry-options='{ "isOriginLeft": false }'>
+      {{>basic-demo-items}}
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/adwgL">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+
+<h2>isOriginTop</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Boolean</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code><span class="literal">true</span></code></span>
+  </p>
+</div>
+
+<p>Controls the vertical flow of the layout. By default, item elements start positioning at the top. Set to <code><span class="literal">false</span></code> for bottom-up layouts. It&rsquo;s like Tetris!</p>
+
+<div class="row example">
+  <div class="cell example-code">
+``` js
+"isOriginTop": false
+```
+  </div>
+  <div class="cell demo">
+    <div class="masonry js-masonry counting" data-masonry-options='{ "isOriginTop": false }'>
+      {{>basic-demo-items}}
+    </div>
+    <p class="edit"><a href="http://codepen.io/desandro/pen/uwtLs">Edit this example on CodePen</a></p>
+  </div>
+</div>
+
+<h2>containerStyle</h2>
+
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Object</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code>{ position: <span class="string">'relative'</span> }</code></span>
+  </p>
+</div>
+
+<p>CSS styles that are applied to the container element. To disable Masonry from setting any CSS to the container element, set <code>containerStyle: <span class="literal">null</span></code>.</p>
+
+
+<h2>isInitLayout</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Boolean</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code><span class="literal">true</span></code></span>
+  </p>
+</div>
+
+<p>Enables layout on initialization. Set this to <code><span class="literal">false</span></code> to disable layout on initialization, so you can use <a href="methods.html">methods</a> or add <a href="events.html">events</a> before the initial layout.</p>
+
+``` js
+var msnry = new Masonry( container, {
+  // disables initial layout
+  isInitLayout: false
+});
+msnry.on( 'layoutComplete', function() {
+  console.log('layout is complete');
+});
+// manually trigger initial layout
+msnry.layout();
+```
+
+
+<h2>isResizeBound</h2>
+
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Boolean</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code><span class="literal">true</span></code></span>
+  </p>
+</div>
+
+<p>Binds layout to window resizing.</p>
+
+<p><code>isResizeBound</code> binds layout only when the Masonry instance is first initialized. You can bind and unbind resize layout afterwards with the <a href="methods.html#bindresize"><code>bindResize</code></a> and <a href="methods.html#unbindresize"><code>unbindResize</code></a> methods.</p>
+
+
+
+
+<h2>transitionDuration</h2>
 
 <div class="param">
   <p class="param-bit type">
@@ -443,8 +470,23 @@ msnry.layout();
 
 <p>To disable all transitions, set <code>transitionDuration: <span class="literal">0</span></code>.</p>
 
+<h2>hiddenStyle</h2>
 
-<h2 id="visiblestyle">visibleStyle</h2>
+<div class="param">
+  <p class="param-bit type">
+    <b>Type:</b>
+    <span class="value"><i>Object</i></span>
+  </p>
+  <p class="param-bit default">
+    <b>Default:</b>
+    <span class="value"><code>{ opacity: <span class="literal">0</span>, transform: <span class="string">'scale(0.001)'</span> }</code></span>
+  </p>
+</div>
+
+<p>The style applied to hide items.</p>
+
+
+<h2>visibleStyle</h2>
 
 <div class="param">
   <p class="param-bit type">
@@ -460,45 +502,3 @@ msnry.layout();
 <p>The style applied to reveal hidden items.</p>
 
 
-<h2 id="element-sizing">Element sizing</h2>
-
-<p>For the sizing options <a href="#columnwidth"><code>columnWidth</code></a> and <a href="#gutter"><code>gutter</code></a>, you may set these options to an <i>Element</i> or <i>String</i>, in addition to a <i>Number</i>.</p>
-
-<p>With an <i>Element</i>, Masonry will use its outer width to set the value of the related property.</p>
-
-``` html
-<div id="container">
-  <div class="grid-sizer"></div>
-  <div class="item"></div>
-  <div class="item"></div>
-  ...
-</div>
-```
-
-``` js
-var container = document.querySelector('#container');
-var msnry = new Masonry( container, {
-  itemSelector: '.item',
-  columnWidth: container.querySelector('.grid-sizer')
-});
-```
-
-<p>With a <i>String</i>, Masonry will use the string as a selector to get the first matching element within the container element. The size of that element is then used.</p>
-
-``` js
-"columnWidth": ".grid-sizer"
-```
-
-<p>This allows you to control the size of the Masonry layout just with your CSS. This is useful for responsive layouts, keeping control within CSS so you can rely on media queries.</p>
-
-``` css
-/* 5 columns by default */
-.grid-sizer { width: 20%; }
-
-@media screen and (min-width: 720px) {
-  /* 10 columns for larger screens */
-  .grid-sizer { width: 10%; }
-}
-```
-
-<p>If you are using element sizing, be sure to set <a href="#itemselector"><code>itemSelector</code></a> as well, so the sizing element does not get used in the layout.</p>
