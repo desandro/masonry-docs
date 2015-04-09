@@ -255,7 +255,7 @@ gulp.task( 'export', [
   'hint',
   'content-export',
   'js',
-  'css-export',
+  'css',
   'dist'
 ] );
 
