@@ -86,8 +86,8 @@ $container.masonry( 'appended', elements )
 
 <p>Add and lay out newly appended item elements. See also <a href="#prepended">prepended</a>.</p>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` js
 var demo = document.querySelector('#appended-demo');
 var container = demo.querySelector('.masonry');
@@ -112,7 +112,7 @@ eventie.bind( button, 'click', function() {
 });
 ```
   </div>
-  <div id="appended-demo" class="cell demo">
+  <div id="appended-demo" class="duo__cell example__demo">
     <button class="button">Append items</button>
     <div class="masonry">
       <div class="item w4"></div>
@@ -150,8 +150,8 @@ $container.masonry('destroy')
 
 <p>Removes the Masonry functionality completely. This will return the element back to its pre-initialized state.</p>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` js
 var demo = document.querySelector('#destroy-demo');
 var container = demo.querySelector('.masonry');
@@ -171,7 +171,7 @@ eventie.bind( button, 'click', function() {
 });
 ```
   </div>
-  <div id="destroy-demo" class="cell demo">
+  <div id="destroy-demo" class="duo__cell example__demo">
     <button class="button">Toggle Masonry</button>
     <div class="masonry">
       {{>basic-demo-items}}
@@ -262,8 +262,8 @@ $container.masonry()
 
 <p>Lay out all item elements.</p>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` js
 var container = document.querySelector('#layout-demo .masonry');
 var msnry = new Masonry( container, {
@@ -282,7 +282,7 @@ eventie.bind( container, 'click', function( event ) {
 });
 ```
   </div>
-  <div id="layout-demo" class="cell demo">
+  <div id="layout-demo" class="duo__cell example__demo">
     <p class="instruction">Click item to toggle size</p>
     <div class="masonry clickable">
       {{>basic-demo-items}}
@@ -463,8 +463,8 @@ $container.masonry( 'prepended', elements )
 
 <p>Add and lay out newly prepended item elements at the beginning of layout. Similar to <a href="#appended">appended</a>.</p>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` js
 var demo = document.querySelector('#prepended-demo');
 var container = demo.querySelector('.masonry');
@@ -490,7 +490,7 @@ eventie.bind( button, 'click', function() {
 });
 ```
   </div>
-  <div id="prepended-demo" class="cell demo">
+  <div id="prepended-demo" class="duo__cell example__demo">
     <button class="button">Prepend items</button>
     <div class="masonry">
       <div class="item w3"></div>
@@ -539,8 +539,8 @@ $container.masonry( 'remove', elements )
 
 <p>Remove elements from the Masonry instance, then from the DOM.</p>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` js
 var container = document.querySelector('#remove-demo .masonry');
 var msnry = new Masonry( container, {
@@ -559,7 +559,7 @@ eventie.bind( container, 'click', function( event ) {
 });
 ```
   </div>
-  <div id="remove-demo" class="cell demo">
+  <div id="remove-demo" class="duo__cell example__demo">
     <p class="instruction">Click items to remove them</p>
     <div class="masonry clickable">
       {{>basic-demo-items}}
@@ -616,8 +616,8 @@ $container.masonry( 'stamp', elements )
 
 <p>Stamp the elements in the layout. Masonry will lay out item elements <em>around</em> stamped elements.</p>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` js
 var demo = document.querySelector('#stamp-demo');
 var stampElem = demo.querySelector('.stamp');
@@ -641,7 +641,7 @@ eventie.bind( button, 'click', function() {
 });
 ```
   </div>
-  <div id="stamp-demo" class="cell demo">
+  <div id="stamp-demo" class="duo__cell example__demo">
     <button class="button">Toggle stamped</button>
     <div class="masonry has-stamp">
       <div class="stamp"></div>

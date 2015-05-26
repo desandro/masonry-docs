@@ -5,39 +5,68 @@ title: Options
 <p>All options are optional, but <a href="#columnwidth"><code>columnWidth</code></a> and <a href="#itemselector"><code>itemSelector</code></a> are recommended.</p>
 
 ``` js
-var container = document.querySelector('#container');
-var msnry = new Masonry( container, {
+// jQuery
+$('.grid').masonry({
   columnWidth: 200,
-  itemSelector: '.item'
+  itemSelector: '.grid-item'
 });
 ```
+
 ``` js
-// with jQuery
-$('#container').masonry({
+var msnry = new Masonry( '.grid', {
   columnWidth: 200,
-  itemSelector: '.item'
+  itemSelector: '.grid-item'
 });
 ```
+
+
 ``` html
 <!-- in HTML -->
-<div id="container" class="js-masonry"
-  data-masonry-options='{ "columnWidth": 200, "itemSelector": ".item" }'>
+<div class="grid js-masonry"
+  data-masonry-options='{ "columnWidth": 200, "itemSelector": ".grid-item" }'>
 ```
 
-<h2>itemSelector</h2>
+{{! ----------------------------------------------------------- }}
 
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value">Selector <i>String</i></span>
-  </p>
-</div>
+<h2>Recommended</h2>
+
+{{! ----------------------------------------------------------- }}
+
+<h2>itemSelector</h2>
 
 <p>Specifies which child elements to be used as item elements. Setting <code>itemSelector</code> is always recommended. <code>itemSelector</code> is useful to exclude <a href="#element-sizing">sizing elements</a>.</p>
 
 ``` js
-"itemSelector": ".item"
+itemSelector: '.grid-item'
 ```
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    itemSelector: '.grid-item'
+    ```
+
+    ``` html
+    <div class="grid">
+      <!-- do not use banner in Isotope layout -->
+      <div class="static-banner">Static banner</div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      ...
+    </div>
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--has-banner js-isotope"
+      data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": 60 }'>
+      <div class="static-banner">Static banner</div>
+      {{! grid-items}}
+    </div>
+    {{#codepens.itemSelector}}
+      {{! edit-demo}}
+    {{/codepens.itemSelector}}
+  </div>
+</div>
 
 <h2>columnWidth</h2>
 
@@ -52,13 +81,13 @@ $('#container').masonry({
 
 <p>If <code>columnWidth</code> is not set, Masonry will use the outer width of the first element.</p>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` js
 "columnWidth": 60
 ```
   </div>
-  <div class="cell demo">
+  <div class="duo__cell example__demo">
     <div class="masonry js-masonry"  data-masonry-options='{ "columnWidth": 60 }'>
       {{>basic-demo-items}}
     </div>
@@ -68,8 +97,8 @@ $('#container').masonry({
 
 <p>If set to an <i>Element</i> or Selector <i>String</i>, Masonry will use the width of that element. See <a href="#element-sizing">Element sizing</a>. Setting <code>columnWidth</code> with element sizing is recommended if you are using percentage widths. Enable <a href="#percentposition"><code>percentPosition</code></a> to set item position in percent values, to reduce layout transitions on resize.</p>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
     ``` html
     <div class="masonry">
       <div class="grid-sizer"></div>
@@ -89,7 +118,7 @@ $('#container').masonry({
     "percentPosition": true
     ```
   </div>
-  <div class="cell demo">
+  <div class="duo__cell example__demo">
     {{> percent-width-demo}}
   </div>
 </div>
@@ -106,13 +135,13 @@ $('#container').masonry({
 
 <p>The horizontal space between item elements.</p>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` js
 "gutter": 10
 ```
   </div>
-  <div class="cell demo">
+  <div class="duo__cell example__demo">
     <div class="masonry js-masonry" data-masonry-options='{ "gutter": 10 }'>
       {{>basic-demo-items}}
     </div>
@@ -122,8 +151,8 @@ $('#container').masonry({
 
 <p>To set vertical space between elements, use <code>margin</code> CSS.</p>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` js
 "gutter": 10
 ```
@@ -133,7 +162,7 @@ $('#container').masonry({
 }
 ```
   </div>
-  <div id="gutter-opt-demo2" class="cell demo">
+  <div id="gutter-opt-demo2" class="duo__cell example__demo">
     <div class="masonry js-masonry" data-masonry-options='{ "gutter": 10 }'>
       {{>basic-demo-items}}
     </div>
@@ -143,8 +172,8 @@ $('#container').masonry({
 
 <p>If set to an <i>Element</i> or Selector <i>String</i>, Masonry will use the width of that element. See <a href="#element-sizing">Element sizing</a>.</p>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` html
 <div id="gutter-opt-demo3">
   <div class="gutter-sizer"></div>
@@ -161,7 +190,7 @@ $('#container').masonry({
 "itemSelector": ".item"
 ```
   </div>
-  <div class="cell demo" >
+  <div class="duo__cell example__demo" >
     <div id="gutter-opt-demo3" class="masonry js-masonry" data-masonry-options='{ "gutter": ".gutter-sizer", "itemSelector": ".item" }'>
       <div class="gutter-sizer"></div>
       {{>basic-demo-items}}
@@ -229,8 +258,8 @@ var msnry = new Masonry( container, {
 
 <p>Will set item position in percent values, rather than pixel values. <code>percentPosition</code> works well with percent-width items, as items will not transition their position on resize.</p>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
     ``` css
     .grid-sizer { width: 20%; }
     .item { width: 20%; }
@@ -242,7 +271,7 @@ var msnry = new Masonry( container, {
     "percentPosition": true
     ```
   </div>
-  <div class="cell demo">
+  <div class="duo__cell example__demo">
     {{>percent-width-demo}}
   </div>
 </div>
@@ -260,8 +289,8 @@ var msnry = new Masonry( container, {
 
 <p>The <code>stamp</code> option stamps elements only when the Masonry instance is first initialized. You can stamp additional elements afterwards with the <a href="methods.html#stamp"><code>stamp</code> method</a>.</p>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` html
 <div id="stamp-opt-demo">
   <div class="stamp stamp1"></div>
@@ -299,7 +328,7 @@ var msnry = new Masonry( container, {
 }
 ```
   </div>
-  <div class="cell demo">
+  <div class="duo__cell example__demo">
     <div id="stamp-opt-demo" class="masonry has-stamp js-masonry" data-masonry-options='{ "itemSelector": ".item", "stamp": ".stamp" }'>
       <div class="stamp stamp1"></div>
       <div class="stamp stamp2"></div>
@@ -329,8 +358,8 @@ var msnry = new Masonry( container, {
   <p>This option does not work with <a href="#element-sizing">element sizing</a> with percentage width. Either columnWidth needs to be set to a fixed size, like <code>columnWidth: 120</code>, or items need to have a fixed size in pixels, like <code>width: 120px</code>. Otherwise, the container and item widths will collapse on one another.</p>
 </div>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` js
 "isFitWidth": true
 ```
@@ -341,7 +370,7 @@ var msnry = new Masonry( container, {
 }
 ```
   </div>
-  <div id="fit-width" class="cell demo">
+  <div id="fit-width" class="duo__cell example__demo">
     <div class="masonry js-masonry" data-masonry-options='{ "isFitWidth": true }'>
       <div class="item w2"></div>
       <div class="item w2 h2"></div>
@@ -373,13 +402,13 @@ var msnry = new Masonry( container, {
 
 <p>Controls the horizontal flow of the layout. By default, item elements start positioning at the left. Set to <code><span class="literal">false</span></code> for right-to-left layouts.</p>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` js
 "isOriginLeft": false
 ```
   </div>
-  <div class="cell demo">
+  <div class="duo__cell example__demo">
     <div class="masonry js-masonry counting" data-masonry-options='{ "isOriginLeft": false }'>
       {{>basic-demo-items}}
     </div>
@@ -403,13 +432,13 @@ var msnry = new Masonry( container, {
 
 <p>Controls the vertical flow of the layout. By default, item elements start positioning at the top. Set to <code><span class="literal">false</span></code> for bottom-up layouts. It&rsquo;s like Tetris!</p>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` js
 "isOriginTop": false
 ```
   </div>
-  <div class="cell demo">
+  <div class="duo__cell example__demo">
     <div class="masonry js-masonry counting" data-masonry-options='{ "isOriginTop": false }'>
       {{>basic-demo-items}}
     </div>

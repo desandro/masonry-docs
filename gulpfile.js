@@ -16,14 +16,15 @@ var uglify = require('gulp-uglify');
  * @returns {Array} paths
  */
 function getGlobPaths( src ) {
-  // copy src
-  var paths = src.slice(0);
+  var paths = [];
   // replace all glob paths with expanded paths
-  src.forEach( function( path, i ) {
-    if ( glob.hasMagic( path ) ) {
-      var files = glob.sync( path );
+  src.forEach( function( filepath ) {
+    if ( glob.hasMagic( filepath ) ) {
+      var files = glob.sync( filepath );
       // replace glob with paths
-      paths.splice.apply( paths, [ i, 1 ].concat( files ) );
+      paths = paths.concat( files );
+    } else {
+      paths.push( filepath );
     }
   });
   return paths;
@@ -73,7 +74,9 @@ var jsSrc = [
   'bower_components/classie/classie.js',
   // docs
   'js/controller.js',
-  'js/pages/*.js'
+  'js/pages/*.js',
+  // modules
+  'modules/**/*.js'
 ];
 
 
@@ -90,7 +93,7 @@ gulp.task( 'js', function() {
 var jshint = require('gulp-jshint');
 
 gulp.task( 'hint-js', function() {
-  return gulp.src('js/**/*.js')
+  return gulp.src([ 'js/**/*.js', 'modules/**/*.js' ])
     .pipe( jshint() )
     .pipe( jshint.reporter('default') );
 });
@@ -109,7 +112,9 @@ var cssSrc = [
   // dependencies
   'bower_components/normalize.css/normalize.css',
   // docs
-  'css/*.css'
+  'css/*.css',
+  // modules
+  'modules/**/*.css'
 ];
 
 gulp.task( 'css', function() {

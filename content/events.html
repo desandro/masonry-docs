@@ -44,15 +44,15 @@ $container.masonry( 'on', 'layoutComplete', function( laidOutItems ) {} )
 
 <p>Triggered after a layout and all positioning transitions have been completed.</p>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` js
 msnry.on( 'layoutComplete', function( laidOutItems ) {
   console.log('Masonry layout completed on ' + laidOutItems.length + ' items');
 });
 ```
   </div>
-  <div id="layout-complete-demo" class="cell demo">
+  <div id="layout-complete-demo" class="duo__cell example__demo">
     <p class="instruction">Resize browser or click item to toggle size</p>
     <div class="masonry clickable">
       {{>basic-demo-items}}
@@ -82,15 +82,15 @@ $container.masonry( 'on', 'removeComplete', function( removedItems ) {} )
   </li>
 </ul>
 
-<div class="row example">
-  <div class="cell example-code">
+<div class="duo example">
+  <div class="duo__cell example__code">
 ``` js
 msnry.on( 'removeComplete', function( removedItems ) {
   console.log( 'Removed ' + removedItems.length + ' items' );
 });
 ```
   </div>
-  <div id="remove-complete-demo" class="cell demo">
+  <div id="remove-complete-demo" class="duo__cell example__demo">
     <p class="instruction">Click items to remove them</p>
     <div class="masonry clickable">
       {{>basic-demo-items}}
