@@ -19,20 +19,9 @@
   {{/if}}
 
 </head>
-<body class="{{basename}}-page" data-page="{{basename}}">
+<body class="page--{{basename}}" data-page="{{basename}}">
 
-  <div id="site-nav">
-    <div class="container">
-      <h1><a href=".">Masonry</a></h1>
-      <ol>
-        <li class="nav-options"><a href="options.html">Options</a></li>
-        <li class="nav-methods"><a href="methods.html">Methods</a></li>
-        <li class="nav-events"><a href="events.html">Events</a></li>
-        <li class="nav-appendix"><a href="appendix.html">Appendix</a></li>
-        <li class="nav-faq"><a href="faq.html">FAQ</a></li>
-      </ol>
-    </div>
-  </div>
+  {{> site-nav}}
 
   {{! display hero only on index page }}
   {{#if page.is_homepage}}
@@ -45,7 +34,7 @@
       <h1>{{page.title}}</h1>
     {{/unless}}
 
-    <ul id="page-nav"></ul>
+    {{> page-nav}}
 
 {{! all page content goes here }}
 {{> body}}

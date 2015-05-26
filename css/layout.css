@@ -1,31 +1,5 @@
-#content #notification,
-#content #hero-demos {
-  max-width: none;
-}
-
 /* ---- #content ---- */
 
-/* ---- #page-nav ---- */
-
-#page-nav {
-  padding: 1.0em 0;
-  font-size: 13px;
-  z-index: 2; /* above packeries */
-}
-
-#page-nav li {
-  display: inline-block;
-}
-
-#page-nav li:after {
-  content: ' •';
-  margin: 0 0.3em;
-  opacity: 0.5;
-}
-
-#page-nav li:last-child:after {
-  content: none;
-}
 
 /* ---- row ---- */
 
@@ -87,34 +61,4 @@
 
 
 
-/* desktop */
-@media screen and ( min-width: 960px ) {
 
-  #page-nav {
-    position: absolute;
-    right: 0;
-    top: 60px;
-    list-style: none;
-    padding: 0;
-    width: 200px;
-    padding: 10px;
-  }
-
-  #page-nav li {
-    display: block;
-    margin-bottom: 4px;
-    margin-left: 0;
-  }
-
-  #page-nav li:after {
-    content: none;
-  }
-
-}
-
-/* fix #page-nav only if we have enough height */
-@media screen and ( min-width: 960px ) and ( min-height: 540px ) {
-  #page-nav {
-    position: fixed;
-  }
-}

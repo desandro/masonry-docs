@@ -162,7 +162,7 @@ var frontMatter = require('gulp-front-matter');
 var path = require('path');
 var through2 = require('through2');
 
-var partialsSrc = 'templates/partials/*.*';
+var partialsSrc = [ 'templates/partials/*.*', 'modules/**/*.mustache' ];
 var partials = [];
 
 gulp.task( 'partials', function() {

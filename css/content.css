@@ -1,6 +1,11 @@
 /* content
 ------------------------- */
 
+.content {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 /* ---- typography ---- */
 
 .content h2 {
@@ -22,7 +27,7 @@
 
 
 @media screen and ( min-width: 768px ) {
-  
+
   .content > * {
     max-width: 900px;
   }

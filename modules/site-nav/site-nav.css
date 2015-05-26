@@ -1,0 +1,83 @@
+/* site nav
+------------------------- */
+
+.site-nav .container {
+  border-bottom: 2px solid white;
+}
+
+/* bottom nav */
+.content ~ .site-nav {
+  position: relative;
+  margin-top: 80px;
+  z-index: 2; /* on top of page-nav */
+}
+
+.site-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav__list:after {
+  content: '';
+  clear: both;
+  display: block;
+}
+
+.site-nav__item {
+  width: 33.333%;
+  float: left;
+  line-height: 28px;
+}
+
+.site-nav__item a {
+  display: block;
+  padding: 5px
+}
+
+.site-nav__item--homepage {
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+
+.site-nav__item--homepage a {
+  color: #D26;
+}
+
+.site-nav__item a:hover {
+  background: #D26;
+  color: white;
+}
+
+.site-nav__item a:active {
+  background: white;
+  color: #D26;
+}
+
+/* selected */
+.page--options .site-nav__item--options a,
+.page--methods .site-nav__item--methods a,
+.page--events .site-nav__item--events a,
+.page--appendix .site-nav__item--appendix a,
+.page--faq .site-nav__item--faq a {
+  color: white;
+}
+
+/* size at which it can fit */
+@media screen and ( min-width: 768px ) {
+
+  .site-nav__item {
+    width: auto;
+    font-size: 1.15rem;
+    line-height: 70px;
+  }
+
+  .site-nav__item a {
+    padding: 0px 25px;
+  }
+
+  .site-nav__item--homepage {
+    font-size: 2.0rem;
+  }
+
+}
