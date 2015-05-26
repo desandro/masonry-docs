@@ -1,0 +1,62 @@
+/* grid
+------------------------- */
+
+.grid {
+  background: white;
+  border-radius: 5px;
+}
+
+/* clearfix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- banner ---- */
+
+.grid--has-banner {
+  position: relative;
+}
+
+.static-banner {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  padding: 5px 15px;
+  color: white;
+  background: #A2C;
+  z-index: 2; /* above items */
+}
+
+/* ---- centered ---- */
+
+.grid--centered {
+  margin: 10px auto;
+}
+
+/* ---- counting ---- */
+
+.grid--counting {
+  counter-reset: grid-item;
+}
+
+.grid--counting .grid-item:before {
+  counter-increment: grid-item;
+  content: counter(grid-item);
+  display: block;
+  color: white;
+  padding-top: 0.2em;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* ---- stamp ---- */
+
+.grid--has-stamp { position: relative; }
+
+/* ---- grid--fixed-width ---- */
+
+.grid--fixed-width {
+  width: 300px;
+}

@@ -13,12 +13,12 @@ $('.grid').masonry({
 ```
 
 ``` js
+// vanilla JS
 var msnry = new Masonry( '.grid', {
   columnWidth: 200,
   itemSelector: '.grid-item'
 });
 ```
-
 
 ``` html
 <!-- in HTML -->
@@ -32,13 +32,11 @@ var msnry = new Masonry( '.grid', {
 
 {{! ----------------------------------------------------------- }}
 
-<h2>itemSelector</h2>
+<h3>itemSelector</h3>
 
-<p>Specifies which child elements to be used as item elements. Setting <code>itemSelector</code> is always recommended. <code>itemSelector</code> is useful to exclude <a href="#element-sizing">sizing elements</a>.</p>
+<p>Specifies which child elements will be used as item elements in the layout.</p>
 
-``` js
-itemSelector: '.grid-item'
-```
+<p>We recommend always setting <code>itemSelector</code>. <code>itemSelector</code> is useful to exclude <a href="#element-sizing">sizing elements</a> or other elements that are not part of the layout.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
@@ -48,7 +46,7 @@ itemSelector: '.grid-item'
 
     ``` html
     <div class="grid">
-      <!-- do not use banner in Isotope layout -->
+      <!-- do not use banner in Masonry layout -->
       <div class="static-banner">Static banner</div>
       <div class="grid-item"></div>
       <div class="grid-item"></div>
@@ -57,95 +55,176 @@ itemSelector: '.grid-item'
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--has-banner js-isotope"
+    <div class="grid grid--has-banner js-masonry"
       data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": 60 }'>
       <div class="static-banner">Static banner</div>
-      {{! grid-items}}
+      {{> grid-items}}
     </div>
-    {{#codepens.itemSelector}}
-      {{! edit-demo}}
-    {{/codepens.itemSelector}}
+    {{#codepens.item_selector}}
+      {{> edit-demo}}
+    {{/codepens.item_selector}}
   </div>
 </div>
 
-<h2>columnWidth</h2>
+{{! ----------------------------------------------------------- }}
 
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
-  </p>
+<h3>columnWidth</h3>
+
+<p>Aligns items to a horizontal grid.</p>
+
+<div class="call-out">
+  <p>We recommend setting <code>columnWidth</code>. If <code>columnWidth</code> is not set, Isotope will use the outer width of the first item.</p>
 </div>
-
-<p>The width of a column of a horizontal grid.</p>
-
-<p>If <code>columnWidth</code> is not set, Masonry will use the outer width of the first element.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
-``` js
-"columnWidth": 60
-```
+    ``` js
+    columnWidth: 60
+    ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="masonry js-masonry"  data-masonry-options='{ "columnWidth": 60 }'>
-      {{>basic-demo-items}}
+    <div class="grid js-masonry"  data-masonry-options='{ "columnWidth": 60 }'>
+      {{> grid-items}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/osFxj">Edit this example on CodePen</a></p>
+    {{#codepens.column_width}}
+      {{> edit-demo}}
+    {{/codepens.column_width}}
   </div>
 </div>
 
-<p>If set to an <i>Element</i> or Selector <i>String</i>, Masonry will use the width of that element. See <a href="#element-sizing">Element sizing</a>. Setting <code>columnWidth</code> with element sizing is recommended if you are using percentage widths. Enable <a href="#percentposition"><code>percentPosition</code></a> to set item position in percent values, to reduce layout transitions on resize.</p>
+<p>Use <a href="../options.html#element-sizing">element sizing</a> for responsive layouts with percentage widths. Set <code>columnWidth</code> to an <i>Element</i> or Selector <i>String</i> to use the outer width of the element for the size of the gutter.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` html
-    <div class="masonry">
+    <div class="grid">
+      <!-- .grid-sizer empty element, only used for element sizing -->
       <div class="grid-sizer"></div>
-      <div class="item"></div>
-      <div class="item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
       ...
     </div>
     ```
+
     ``` css
-    .grid-sizer { width: 20%; }
-    .item { width: 20%; }
-    .item.w2 { width: 40%; }
+    /* fluid 5 columns */
+    .grid-sizer,
+    .grid-item { width: 20%; }
+    /* 2 columns wide */
+    .grid-item--width2 { width: 40%; }
     ```
+
     ``` js
-    "columnWidth": ".grid-sizer",
-    "itemSelector": ".item",
-    "percentPosition": true
+    // use outer width of grid-sizer for columnWidth
+    columnWidth: '.grid-sizer',
+    itemSelector: '.grid-item',
+    percentPosition: true
     ```
   </div>
   <div class="duo__cell example__demo">
-    {{> percent-width-demo}}
+    <div class="grid grid--fluid-5-col js-masonry"
+      data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": ".grid-sizer",  "percentPosition": true }'>
+      <div class="grid-sizer"></div>
+      {{> grid-items}}
+    </div>
+    {{#codepens.column_width_fluid}}
+      {{> edit-demo}}
+    {{/codepens.column_width_fluid}}
   </div>
 </div>
 
+{{! ----------------------------------------------------------- }}
 
-<h2>gutter</h2>
+<h2>Layout</h2>
 
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Number</i>, <i>Element</i>, or Selector <i>String</i></span>
-  </p>
-</div>
+{{! ----------------------------------------------------------- }}
 
-<p>The horizontal space between item elements.</p>
+<h3>Element sizing</h3>
+
+<p>Sizing options <a href="#columnwidth"><code>columnWidth</code></a> and <a href="#gutter"><code>gutter</code></a> can be set with an element. The size of the element is then used as the value of the option.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
-``` js
-"gutter": 10
-```
+    ``` html
+    <div class="grid">
+      <!-- .grid-sizer empty element, only used for element sizing -->
+      <div class="grid-sizer"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      ...
+    </div>
+    ```
+
+    ``` css
+    /* fluid 5 columns */
+    .grid-sizer,
+    .grid-item { width: 20%; }
+    /* 2 columns wide */
+    .grid-item--width2 { width: 40%; }
+    ```
+
+    ``` js
+    // use outer width of grid-sizer for columnWidth
+    columnWidth: '.grid-sizer',
+    // do not use .grid-sizer in layout
+    itemSelector: '.grid-item',
+    percentPosition: true
+    ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="masonry js-masonry" data-masonry-options='{ "gutter": 10 }'>
-      {{>basic-demo-items}}
+    <div class="grid grid--fluid-5-col js-masonry"
+      data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": ".grid-sizer",  "percentPosition": true }'>
+      <div class="grid-sizer"></div>
+      {{> grid-items}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/iIbgC">Edit this example on CodePen</a></p>
+    {{#codepens.column_width_fluid}}
+      {{> edit-demo}}
+    {{/codepens.column_width_fluid}}
+  </div>
+</div>
+
+<p>The option can be set to a Selector <i>String</i> or an <i>Element</i>.</p>
+
+``` js
+// set to a selector string
+// first matching element within container element will be used
+columnWidth: '.grid-sizer'
+
+// set to an element
+columnWidth: $grid.find('.grid-sizer')[0]
+```
+
+<p>Element sizing options allow you to control the sizing of the Isotope layout within your CSS. This is useful for responsive layouts and media queries.</p>
+
+``` css
+/* 3 columns by default */
+.grid-sizer { width: 33.333%; }
+
+@media screen and (min-width: 768px) {
+  /* 5 columns for larger screens */
+  .grid-sizer { width: 20%; }
+}
+```
+
+{{! ----------------------------------------------------------- }}
+
+<h3>gutter</h3>
+
+<p>Adds horizontal space between item elements.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    "gutter": 10
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--gutter js-masonry" data-masonry-options='{ "gutter": 10 }'>
+      {{> grid-items}}
+    </div>
+    {{#codepens.gutter}}
+      {{> edit-demo}}
+    {{/codepens.gutter}}
   </div>
 </div>
 
@@ -153,410 +232,343 @@ itemSelector: '.grid-item'
 
 <div class="duo example">
   <div class="duo__cell example__code">
-``` js
-"gutter": 10
-```
-``` css
-#gutter-opt-demo2 .item {
-  margin-bottom: 10px;
-}
-```
-  </div>
-  <div id="gutter-opt-demo2" class="duo__cell example__demo">
-    <div class="masonry js-masonry" data-masonry-options='{ "gutter": 10 }'>
-      {{>basic-demo-items}}
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/gbnko">Edit this example on CodePen</a></p>
-  </div>
-</div>
-
-<p>If set to an <i>Element</i> or Selector <i>String</i>, Masonry will use the width of that element. See <a href="#element-sizing">Element sizing</a>.</p>
-
-<div class="duo example">
-  <div class="duo__cell example__code">
-``` html
-<div id="gutter-opt-demo3">
-  <div class="gutter-sizer"></div>
-  <div class="item"></div>
-  <div class="item"></div>
-  ...
-</div>
-```
-``` css
-#gutter-opt-demo3 .gutter-sizer { width: 3%; }
-```
-``` js
-"gutter": ".gutter-sizer",
-"itemSelector": ".item"
-```
-  </div>
-  <div class="duo__cell example__demo" >
-    <div id="gutter-opt-demo3" class="masonry js-masonry" data-masonry-options='{ "gutter": ".gutter-sizer", "itemSelector": ".item" }'>
-      <div class="gutter-sizer"></div>
-      {{>basic-demo-items}}
-    </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/BAJKn">Edit this example on CodePen</a></p>
-  </div>
-</div>
-
-
-<h2 id="element-sizing">Element sizing</h2>
-
-<p>For the sizing options <a href="#columnwidth"><code>columnWidth</code></a> and <a href="#gutter"><code>gutter</code></a>, you may set these options to an <i>Element</i> or <i>String</i>, in addition to a <i>Number</i>.</p>
-
-<p>With an <i>Element</i>, Masonry will use its outer width to set the value of the related property.</p>
-
-``` html
-<div id="container">
-  <div class="grid-sizer"></div>
-  <div class="item"></div>
-  <div class="item"></div>
-  ...
-</div>
-```
-
-``` js
-var container = document.querySelector('#container');
-var msnry = new Masonry( container, {
-  itemSelector: '.item',
-  columnWidth: container.querySelector('.grid-sizer')
-});
-```
-
-<p>With a <i>String</i>, Masonry will use the string as a selector to get the first matching element within the container element. The size of that element is then used.</p>
-
-``` js
-"columnWidth": ".grid-sizer"
-```
-
-<p>This allows you to control the size of the Masonry layout just with your CSS. This is useful for responsive layouts, keeping control within CSS so you can rely on media queries.</p>
-
-``` css
-/* 5 columns by default */
-.grid-sizer { width: 20%; }
-
-@media screen and (min-width: 720px) {
-  /* 10 columns for larger screens */
-  .grid-sizer { width: 10%; }
-}
-```
-
-<p>If you are using element sizing, be sure to set <a href="#itemselector"><code>itemSelector</code></a> as well, so the sizing element does not get used in the layout.</p>
-
-<h2>percentPosition</h2>
-
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Boolean</i></span>
-  </p>
-  <p class="param-bit default">
-    <b>Default:</b>
-    <span class="value"><code><span class="literal">false</span></code></span>
-  </p>
-</div>
-
-<p>Will set item position in percent values, rather than pixel values. <code>percentPosition</code> works well with percent-width items, as items will not transition their position on resize.</p>
-
-<div class="duo example">
-  <div class="duo__cell example__code">
-    ``` css
-    .grid-sizer { width: 20%; }
-    .item { width: 20%; }
-    .item.w2 { width: 40%; }
-    ```
     ``` js
-    "columnWidth": ".grid-sizer",
-    "itemSelector": ".item",
-    "percentPosition": true
+    "gutter": 10
+    ```
+
+    ``` css
+    .grid-item {
+      margin-bottom: 10px;
+    }
     ```
   </div>
   <div class="duo__cell example__demo">
-    {{>percent-width-demo}}
+    <div class="grid grid--gutter grid--gutter-bottom js-masonry"
+      data-masonry-options='{ "gutter": 10 }'>
+      {{> grid-items}}
+    </div>
+    {{#codepens.gutter_bottom}}
+      {{> edit-demo}}
+    {{/codepens.gutter_bottom}}
   </div>
 </div>
 
-<h2>stamp</h2>
+<p>Use <a href="#element-sizing">element sizing</a> for responsive layouts with percentage widths. Set <code>gutter</code> to an <i>Element</i> or Selector <i>String</i> to use the outer width of the element.</p>
 
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Element</i>, <i>NodeList</i>, <i>Array</i> of Elements, or Selector <i>String</i></span>
-  </p>
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` html
+    <div class="grid">
+      <div class="grid-sizer"></div>
+      <div class="gutter-sizer"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      ...
+    </div>
+    ```
+
+    ``` css
+    .grid-sizer,
+    .grid-item { width: 22%; }
+
+    .gutter-sizer { width: 4%; }
+
+    .grid-item--width2 { width: 48%; }
+    ```
+
+    ``` js
+    columnWidth: '.grid-sizer',
+    gutter: '.gutter-sizer',
+    itemSelector: '.grid-item',
+    percentPosition: true
+    ```
+  </div>
+  <div class="duo__cell example__demo" >
+    <div class="grid grid--fluid-gutter js-masonry"
+      data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": ".grid-sizer", "gutter": ".gutter-sizer", "percentPosition": true }'>
+      <div class="gutter-sizer"></div>
+      <div class="grid-sizer"></div>
+      {{> grid-items}}
+    </div>
+    {{#codepens.gutter_fluid}}
+      {{> edit-demo}}
+    {{/codepens.gutter_fluid}}
+  </div>
 </div>
 
-<p>Specifies which elements are <a href="methods.html#stamp">stamped</a> within the layout. These are special layout elements which will not be laid out by Masonry. Rather, Masonry will layout item elements <em>below</em> stamped elements.</p>
+{{! ----------------------------------------------------------- }}
+
+<h3>percentPosition</h3>
+
+<p>Sets item positions in percent values, rather than pixel values. <code>percentPosition: <span class="literal">true</span></code> works well with percent-width items, as items will not transition their position on resize.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    // set positions with percent values
+    percentPosition: true,
+    columnWidth: '.grid-sizer',
+    itemSelector: '.grid-item'
+    ```
+
+    ``` css
+    /* fluid 5 columns */
+    .grid-sizer,
+    .grid-item { width: 20%; }
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--fluid-5-col js-masonry"
+      data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": ".grid-sizer",  "percentPosition": true }'>
+      <div class="grid-sizer"></div>
+      {{> grid-items}}
+    </div>
+    {{#codepens.column_width_fluid}}
+      {{> edit-demo}}
+    {{/codepens.column_width_fluid}}
+  </div>
+</div>
+
+{{! ----------------------------------------------------------- }}
+
+<h3>stamp</h3>
+
+<p>Specifies which elements are <em>stamped</em> within the layout. Isotope will layout items below stamped elements.</p>
 
 <p>The <code>stamp</code> option stamps elements only when the Masonry instance is first initialized. You can stamp additional elements afterwards with the <a href="methods.html#stamp"><code>stamp</code> method</a>.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
-``` html
-<div id="stamp-opt-demo">
-  <div class="stamp stamp1"></div>
-  <div class="stamp stamp2"></div>
-  <div class="item"></div>
-  <div class="item"></div>
-  ....
-</div>
-```
-``` js
-"itemSelector": ".item",
-"stamp": ".stamp"
-```
-``` css
-/* position stamp elements with CSS */
-#stamp-opt-demo {
-  position: relative;
-}
-#stamp-opt-demo .stamp {
-  position: absolute;
-  background: orange;
-  border: 4px dotted black;
-}
-#stamp-opt-demo .stamp1 {
-  left: 30%;
-  top: 10px;
-  width: 20%;
-  height: 100px;
-}
-#stamp-opt-demo .stamp2 {
-  right: 10%;
-  top: 20px;
-  width: 70%;
-  height: 30px;
-}
-```
-  </div>
-  <div class="duo__cell example__demo">
-    <div id="stamp-opt-demo" class="masonry has-stamp js-masonry" data-masonry-options='{ "itemSelector": ".item", "stamp": ".stamp" }'>
+    ``` html
+    <div class="grid">
       <div class="stamp stamp1"></div>
       <div class="stamp stamp2"></div>
-      {{>basic-demo-items}}
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      ....
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/hsine">Edit this example on CodePen</a></p>
+    ```
+
+    ``` js
+    // specify itemSelector so stamps do get laid out
+    itemSelector: '.grid-item',
+    // stamp elements
+    stamp: '.stamp'
+    ```
+
+    ``` css
+    /* position stamp elements with CSS */
+    .stamp {
+      position: absolute;
+      background: orange;
+      border: 4px dotted black;
+    }
+    .stamp1 {
+      left: 30%;
+      top: 10px;
+      width: 20%;
+      height: 100px;
+    }
+    .stamp2 {
+      right: 10%;
+      top: 20px;
+      width: 70%;
+      height: 30px;
+    }
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--has-stamp js-masonry" data-masonry-options='{ "itemSelector": ".grid-item", "stamp": ".stamp" }'>
+      <div class="stamp stamp--static-stamp1"></div>
+      <div class="stamp stamp--static-stamp2"></div>
+      {{> grid-items}}
+    </div>
+    {{#codepens.stamp_option}}
+      {{> edit-demo}}
+    {{/codepens.stamp_option}}
   </div>
 </div>
 
+{{! ----------------------------------------------------------- }}
 
-<h2>isFitWidth</h2>
-
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Boolean</i></span>
-  </p>
-  <p class="param-bit default">
-    <b>Default:</b>
-    <span class="value"><code><span class="literal">false</span></code></span>
-  </p>
-</div>
+<h3>isFitWidth</h3>
 
 <p>Sets the width of the container to fit the available number of columns, based the size of container's parent element. When enabled, you can center the container with CSS.</p>
 
-<div class="warning">
-  <p>This option does not work with <a href="#element-sizing">element sizing</a> with percentage width. Either columnWidth needs to be set to a fixed size, like <code>columnWidth: 120</code>, or items need to have a fixed size in pixels, like <code>width: 120px</code>. Otherwise, the container and item widths will collapse on one another.</p>
+<div class="call-out">
+  <p><code>isFitWidth: <span class="literal">true</span></code> does not work with <a href="#element-sizing">element sizing</a> with percentage width. Either <code>columnWidth</code> needs to be set to a fixed size, like <code>columnWidth: 120</code>, or items need to have a fixed size in pixels, like <code>width: 120px</code>. Otherwise, the container and item widths will collapse on one another.</p>
 </div>
 
 <div class="duo example">
   <div class="duo__cell example__code">
-``` js
-"isFitWidth": true
-```
-``` css
-/* center container with CSS */
-#fit-width .masonry {
-  margin: 0 auto;
-}
-```
+    ``` js
+    isFitWidth: true
+    ```
+
+    ``` css
+    /* center container with CSS */
+    .grid {
+      margin: 0 auto;
+    }
+    ```
   </div>
-  <div id="fit-width" class="duo__cell example__demo">
-    <div class="masonry js-masonry" data-masonry-options='{ "isFitWidth": true }'>
-      <div class="item w2"></div>
-      <div class="item w2 h2"></div>
-      <div class="item w2 h3"></div>
-      <div class="item w2 h2"></div>
-      <div class="item w2"></div>
-      <div class="item w2"></div>
-      <div class="item w2"></div>
-      <div class="item w2 h2"></div>
-      <div class="item w2 h3"></div>
+  <div class="duo__cell example__demo example__demo--fit-width">
+    <div class="grid grid--centered js-masonry"
+      data-masonry-options='{ "isFitWidth": true }'>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/nGLvx">Edit this example on CodePen</a></p>
+    {{#codepens.centered}}
+      {{> edit-demo}}
+    {{/codepens.centered}}
   </div>
 </div>
 
+{{! ----------------------------------------------------------- }}
 
-<h2>isOriginLeft</h2>
+<h3>isOriginLeft</h3>
 
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Boolean</i></span>
-  </p>
-  <p class="param-bit default">
-    <b>Default:</b>
-    <span class="value"><code><span class="literal">true</span></code></span>
-  </p>
-</div>
-
-<p>Controls the horizontal flow of the layout. By default, item elements start positioning at the left. Set to <code><span class="literal">false</span></code> for right-to-left layouts.</p>
+<p>Controls the horizontal flow of the layout. By default, item elements start positioning at the left, with <code><span class="comment">isOriginLeft: true</span></code>. Set <code>isOriginLeft: <span class="literal">false</span></code> for right-to-left layouts.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
-``` js
-"isOriginLeft": false
-```
+    ``` js
+    isOriginLeft: false
+    ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="masonry js-masonry counting" data-masonry-options='{ "isOriginLeft": false }'>
-      {{>basic-demo-items}}
+    <div class="grid grid--counting js-masonry"
+      data-masonry-options='{ "isOriginLeft": false, "columnWidth": 60 }'>
+      {{> grid-items}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/adwgL">Edit this example on CodePen</a></p>
+    {{#codepens.is_origin_left}}
+      {{> edit-demo}}
+    {{/codepens.is_origin_left}}
   </div>
 </div>
 
+{{! ----------------------------------------------------------- }}
 
-<h2>isOriginTop</h2>
+<h3>isOriginTop</h3>
 
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Boolean</i></span>
-  </p>
-  <p class="param-bit default">
-    <b>Default:</b>
-    <span class="value"><code><span class="literal">true</span></code></span>
-  </p>
-</div>
-
-<p>Controls the vertical flow of the layout. By default, item elements start positioning at the top. Set to <code><span class="literal">false</span></code> for bottom-up layouts. It&rsquo;s like Tetris!</p>
+<p>Controls the vertical flow of the layout. By default, item elements start positioning at the top, with <code><span class="comment">isOriginTop: true</span></code>. Set <code>isOriginTop: <span class="literal">false</span></code> for bottom-up layouts. It&rsquo;s like Tetris!</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
-``` js
-"isOriginTop": false
-```
+    ``` js
+    isOriginTop: false
+    ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="masonry js-masonry counting" data-masonry-options='{ "isOriginTop": false }'>
-      {{>basic-demo-items}}
+    <div class="grid grid--counting js-masonry"
+      data-masonry-options='{ "isOriginTop": false, "columnWidth": 60 }'>
+      {{> grid-items}}
     </div>
-    <p class="edit"><a href="http://codepen.io/desandro/pen/uwtLs">Edit this example on CodePen</a></p>
+    {{#codepens.is_origin_top}}
+      {{> edit-demo}}
+    {{/codepens.is_origin_top}}
   </div>
 </div>
 
-<h2>containerStyle</h2>
+{{! ----------------------------------------------------------- }}
 
+<h2>Setup</h2>
 
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Object</i></span>
-  </p>
-  <p class="param-bit default">
-    <b>Default:</b>
-    <span class="value"><code>{ position: <span class="string">'relative'</span> }</code></span>
-  </p>
-</div>
+{{! ----------------------------------------------------------- }}
 
-<p>CSS styles that are applied to the container element. To disable Masonry from setting any CSS to the container element, set <code>containerStyle: <span class="literal">null</span></code>.</p>
+<h3>containerStyle</h3>
 
-
-<h2>isInitLayout</h2>
-
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Boolean</i></span>
-  </p>
-  <p class="param-bit default">
-    <b>Default:</b>
-    <span class="value"><code><span class="literal">true</span></code></span>
-  </p>
-</div>
-
-<p>Enables layout on initialization. Set this to <code><span class="literal">false</span></code> to disable layout on initialization, so you can use <a href="methods.html">methods</a> or add <a href="events.html">events</a> before the initial layout.</p>
+<p>CSS styles that are applied to the container element.</p>
 
 ``` js
-var msnry = new Masonry( container, {
-  // disables initial layout
-  isInitLayout: false
+// default
+// containerStyle: { position: 'relative' }
+
+// disable any styles being set on container
+// useful if using absolute position on container
+containerStyle: null
+```
+
+{{! ----------------------------------------------------------- }}
+
+<h3>transitionDuration</h3>
+
+<p>Duration of the transition when items change position or appearance, set in a CSS time format. Default: <code><span class="comment">transitionDuration: '0.4s'</span></code></p>
+
+``` js
+// fast transitions
+transitionDuration: '0.2s'
+
+// slow transitions
+transitionDuration: '0.8s'
+
+// no transitions
+transitionDuration: 0
+```
+
+{{! ----------------------------------------------------------- }}
+
+<h3>isResizeBound</h3>
+
+<p>Adjusts sizes and positions when window is resized. Enabled by default <code><span class="comment">isResizeBound: true</span></code>.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    // disable resize logic
+    isResizeBound: false
+    ```
+    
+    ``` css
+    /* grid has fixed width */
+    .grid {
+      width: 300px;
+    }
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--fixed-width js-masonry"
+      data-masonry-options='{ "masonry": { "columnWidth": 50 }}'>
+      {{> grid-items}}
+    </div>
+    {{#codepens.is_resize_bound}}
+      {{> edit-demo}}
+    {{/codepens.is_resize_bound}}
+  </div>
+</div>
+
+{{! ----------------------------------------------------------- }}
+
+<h3>isInitLayout</h3>
+
+<p>Enables layout on initialization.
+  Enabled by default <code><span class="comment">isInitLayout: true</span></code>.</p>
+
+<p>Set <code>isInitLayout: <span class="literal">false</span></code> to disable layout on initialization, so you can use <a href="methods.html">methods</a> or add <a href="events.html">events</a> before the initial layout.</p>
+
+``` js
+var $grid = $('.grid').masonry({
+  // disable initial layout
+  isInitLayout: false,
+  //...
 });
-msnry.on( 'layoutComplete', function() {
+// bind event
+$grid.masonry( 'on', 'layoutComplete', function() {
   console.log('layout is complete');
 });
 // manually trigger initial layout
-msnry.layout();
+$grid.masonry();
 ```
 
+{{#codepens.is_init_layout}}
+  {{> edit-demo}}
+{{/codepens.is_init_layout}}
 
-<h2>isResizeBound</h2>
-
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Boolean</i></span>
-  </p>
-  <p class="param-bit default">
-    <b>Default:</b>
-    <span class="value"><code><span class="literal">true</span></code></span>
-  </p>
-</div>
-
-<p>Binds layout to window resizing.</p>
-
-<p><code>isResizeBound</code> binds layout only when the Masonry instance is first initialized. You can bind and unbind resize layout afterwards with the <a href="methods.html#bindresize"><code>bindResize</code></a> and <a href="methods.html#unbindresize"><code>unbindResize</code></a> methods.</p>
-
-
-
-
-<h2>transitionDuration</h2>
-
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>String</i></span>
-  </p>
-  <p class="param-bit default">
-    <b>Default:</b>
-    <span class="value"><code><span class="string">'0.4s'</span></code></span>
-  </p>
-</div>
-
-<p>Duration of the transition when items change position or appearance, set in a CSS time format.</p>
-
-<p>To disable all transitions, set <code>transitionDuration: <span class="literal">0</span></code>.</p>
-
-<h2>hiddenStyle</h2>
-
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Object</i></span>
-  </p>
-  <p class="param-bit default">
-    <b>Default:</b>
-    <span class="value"><code>{ opacity: <span class="literal">0</span>, transform: <span class="string">'scale(0.001)'</span> }</code></span>
-  </p>
-</div>
-
-<p>The style applied to hide items.</p>
-
-
-<h2>visibleStyle</h2>
-
-<div class="param">
-  <p class="param-bit type">
-    <b>Type:</b>
-    <span class="value"><i>Object</i></span>
-  </p>
-  <p class="param-bit default">
-    <b>Default:</b>
-    <span class="value"><code>{ opacity: <span class="literal">1</span>, transform: <span class="string">'scale(1)'</span> }</code></span>
-  </p>
-</div>
-
-<p>The style applied to reveal hidden items.</p>
-
-
+{{! ----------------------------------------------------------- }}

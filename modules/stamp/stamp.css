@@ -1,0 +1,24 @@
+/* stamp
+------------------------- */
+
+.stamp {
+  position: absolute;
+  width: 30%;
+  height: 60px;
+  background: orange;
+  border: 4px dotted black;
+}
+
+.stamp--static-stamp1 {
+  left: 30%;
+  top: 10px;
+  width: 20%;
+  height: 100px;
+}
+
+.stamp--static-stamp2 {
+  right: 10%;
+  top: 20px;
+  width: 70%;
+  height: 30px;
+}

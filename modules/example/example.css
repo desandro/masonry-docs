@@ -1,0 +1,11 @@
+/* example
+------------------------- */
+
+.example pre {
+  margin-top: 0;
+}
+
+.example__demo--fit-width {
+  border: 2px solid white;
+  border-radius: 5px;
+}

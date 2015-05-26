@@ -1,0 +1,59 @@
+/* grid-item
+------------------------- */
+
+.grid-item {
+  width:  60px;
+  height: 40px;
+  float: left;
+  background: #D26;
+  border: 2px solid #333;
+  border-color: hsla(0, 0%, 0%, 0.5);
+  border-radius: 5px;
+}
+
+.grid-item--width2 { width:  120px; }
+.grid-item--width3 { width:  180px; }
+.grid-item--width4 { width:  240px; }
+
+.grid-item--height2 { height:  70px; }
+.grid-item--height3 { height: 100px; }
+.grid-item--height4 { height: 150px; }
+
+.grid-item--gigante {
+  width: 180px;
+  height: 180px;
+  z-index: 2; /* keep it above other items */
+}
+
+/* ---- fluid-5-col ---- */
+
+.grid--fluid-5-col .grid-sizer,
+.grid--fluid-5-col .grid-item { width: 20%; }
+
+.grid--fluid-5-col .grid-item--width2,
+.grid--fluid-5-col .grid-item--width3 {
+  width: 40%;
+}
+
+/* ---- gutter ---- */
+
+.grid--gutter .grid-item--width2 { width: 130px; }
+.grid--gutter .grid-item--width3 { width: 200px; }
+
+.grid--gutter-bottom .grid-item { margin-bottom: 20px; }
+
+/* ---- grid--fluid-gutter ---- */
+
+.grid--fluid-gutter .grid-item,
+.grid--fluid-gutter .grid-sizer {
+  width: 22%;
+}
+
+.grid--fluid-gutter .gutter-sizer {
+  width: 4%;
+}
+
+.grid--fluid-gutter .grid-item--width2,
+.grid--fluid-gutter .grid-item--width3 {
+  width: 48%;
+}
