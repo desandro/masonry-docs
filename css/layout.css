@@ -1,36 +1,9 @@
-/* ---- primary-content ---- */
-
-/* stuff that isn't in the gutter */
-.primary-content {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-#content .primary-content > * {
-  max-width: 700px;
-}
-
 #content #notification,
 #content #hero-demos {
   max-width: none;
 }
 
 /* ---- #content ---- */
-
-#content h2,
-#content .horiz-rule {
-  font-size: 1.7em;
-  font-weight: 400;
-  padding: 30px 0;
-  border-top: 2px solid white;
-  margin-top: 50px;
-}
-
-#content h2:target {
-  padding-left: 0.5em;
-  background: #D26;
-  color: white;
-}
 
 /* ---- #page-nav ---- */
 
@@ -76,22 +49,6 @@
 /* tablet-ish */
 @media screen and ( min-width: 800px ) {
 
-  #content .primary-content {
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-
-  #content .primary-content > * {
-    max-width: 700px;
-  }
-
-  /* stuff that can go extra wide */
-  #content .primary-content .row,
-  #content #notification,
-  #content #hero-demos {
-    max-width: 1200px;
-  }
-
   .row {
     margin-bottom: 0.8em;
   }
@@ -132,11 +89,6 @@
 
 /* desktop */
 @media screen and ( min-width: 960px ) {
-
-  .primary-content {
-    margin-left: 6%;
-    margin-right: 200px;
-  }
 
   #page-nav {
     position: absolute;

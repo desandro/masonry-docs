@@ -1,0 +1,19 @@
+/* container
+------------------------- */
+
+.container {
+  margin-left: 10px;
+  margin-right: 10px;
+  max-width: 1200px;
+}
+
+@media screen and ( min-width: 768px ) {
+  
+  .container {
+    margin-left: 6%;
+    margin-right: 200px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+}

@@ -1,0 +1,35 @@
+/* content
+------------------------- */
+
+/* ---- typography ---- */
+
+.content h2 {
+  font-size: 2.0rem;
+  font-weight: 400;
+  padding: 30px 0;
+  border-top: 2px solid white;
+  margin-top: 50px;
+}
+
+.content h2:target {
+  padding-left: 0.5em;
+  background: #D26;
+  color: white;
+}
+
+.content h3 {
+}
+
+
+@media screen and ( min-width: 768px ) {
+  
+  .content > * {
+    max-width: 900px;
+  }
+
+  /* stuff that can go wide */
+  .content > .example {
+    max-width: none;
+  }
+
+}

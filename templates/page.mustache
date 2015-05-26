@@ -1,6 +1,5 @@
 <!doctype html>
-<!--[if lte IE 8]>     <html class="lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class=""> <!--<![endif]-->
+<html>
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -8,8 +7,6 @@
   <meta name="description" content="Cascading grid layout library" />
 
   <title>Masonry{{#unless page.is_homepage}} &middot; {{page.title}}{{/unless}}</title>
-
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700" />
 
   {{#if is_dev}}
     {{! DEV MODE - including each .css file }}
@@ -25,7 +22,7 @@
 <body class="{{basename}}-page" data-page="{{basename}}">
 
   <div id="site-nav">
-    <div class="primary-content">
+    <div class="container">
       <h1><a href=".">Masonry</a></h1>
       <ol>
         <li class="nav-options"><a href="options.html">Options</a></li>
@@ -42,24 +39,21 @@
     {{>hero}}
   {{/if}}
 
-  <div id="content">
+  <div id="content" class="content container">
 
-    <div class="primary-content">
-      {{#unless page.is_homepage}}
-        <h1>{{page.title}}</h1>
-        {{/unless}}
+    {{#unless page.is_homepage}}
+      <h1>{{page.title}}</h1>
+    {{/unless}}
 
-        <ul id="page-nav"></ul>
+    <ul id="page-nav"></ul>
 
 {{! all page content goes here }}
 {{> body}}
 
-    </div>
-
   </div>
 
   <div id="footer">
-    <div class="primary-content">
+    <div class="container">
       <p class="made-by">
         Masonry is made by <a href="http://desandro.com">David DeSandro</a>.
         Make something rad with it.
@@ -103,7 +97,7 @@
 
 <!-- Masonry does NOT require jQuery.
      jQuery is only used to demonstrate Masonry as a jQuery plugin -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="bower_components/jquery/dist/jquery.min.js"><\/script>')</script>
 
 {{#if is_dev}}
@@ -116,7 +110,7 @@
   <script src="{{#if page.is_404}}/{{/if}}js/masonry-docs.min.js"></script>
 {{/if}}
 
-{{#unless is_dev}}
+{{#unless is_export}}
   <!-- Google Analytics - Remove this if you copy/pasted this page -->
   <script>
     var _gaq=[['_setAccount','UA-592624-5'],['_trackPageview'],['_setDomainName', 'desandro.com']];
