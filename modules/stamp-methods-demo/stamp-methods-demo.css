@@ -1,0 +1,11 @@
+/* stamp-methods-demo
+------------------------- */
+
+.grid--stamp-methods-demo .grid-item {
+  opacity: 0.8;
+}
+
+.stamp--stamp-methods-demo {
+  left: 10px;
+  top: 10px;
+}

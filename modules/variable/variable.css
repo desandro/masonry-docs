@@ -1,0 +1,26 @@
+@charset "UTF-8";
+/* variable
+------------------------- */
+
+.variable {
+  margin: 0.5em 0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: hsla(0, 0%, 0%, 0.075);
+}
+
+.variable__type {
+  color: #27C;
+}
+
+.variable__type,
+.variable__description {
+  margin-left: 10px;
+}
+
+.variable__type:before,
+.variable__description:before {
+  content: '·';
+  padding-right: 0.4em;
+  display: inline-block;
+}

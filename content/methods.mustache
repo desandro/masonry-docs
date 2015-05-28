@@ -1,0 +1,548 @@
+---
+title: Methods
+---
+
+<p>Methods are actions done by Masonry instances.</p>
+
+<p>With jQuery, methods follow the jQuery UI pattern <code>.masonry( <span class="string">'methodName'</span> <span class="comment">/* arguments */</span> )</code>.</p>
+
+``` js
+$grid.masonry()
+  .append( elem )
+  .masonry( 'appended', elem )
+  // layout
+  .masonry();
+```
+
+<div class="call-out">
+  <p>jQuery chaining is broken by methods that return values: (i.e. 
+    <a href="#getitemelements"><code>getItemElements</code></a>,
+    <a href="#getitem"><code>getItem</code></a>,
+    <a href="#on"><code>on</code></a>, and
+    <a href="#off"><code>off</code></a>).</p>
+</div>
+
+
+``` js
+var container = document.querySelector('#container');
+var msnry = new Masonry( container );
+container.appendChild( elem );
+msnry.appended( elem );
+msnry.layout();
+```
+
+<p>Vanilla JavaScript methods look like <code>masonry.methodName( <span class="comment">/* arguments */</span> )</code>. Unlike jQuery methods, they cannot be chained together.</p>
+
+``` js
+// vanilla JS
+var msnry = new Masonry( '.grid', {...});
+gridElement.appendChild( elem );
+msnry.appended( elem );
+msnry.layout();
+```
+
+{{! ----------------------------------------------------------- }}
+
+<h2>Layout</h2>
+
+{{! ----------------------------------------------------------- }}
+
+<h3>layout / .masonry()</h3>
+
+<p>Lays out all item elements. <code>layout</code> is useful when an item has changed size, and all items need to be laid out again.</p>
+
+``` js
+// jQuery
+$grid.masonry()
+// vanilla JS
+msnry.layout()
+```
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    var $grid = $('.grid').masonry({
+      masonry: {
+        columnWidth: 50
+      }
+    });
+    // change size of item by toggling gigante class
+    $grid.on( 'click', '.grid-item', function() {
+      $(this).toggleClass('gigante');
+      // trigger layout after item size changes
+      $grid.masonry('layout');
+    });
+    ```
+  </div>
+  {{> layout-demo}}
+</div>
+
+{{! ----------------------------------------------------------- }}
+
+<h3>layoutItems</h3>
+
+<p>Lays out specified items.</p>
+
+``` js
+// jQuery
+$grid.masonry( 'layoutItems', items, isStill )
+// vanilla JS
+msnry.layoutItems( items, isStill )
+```
+
+<p class="variable">
+  <code class="variable__code">items</code>
+  <span class="variable__type"><i>Array</i> of <i>Masonry.Item</i>s</span>
+</p>
+
+<p class="variable">
+  <code class="variable__code">isStill</code>
+  <span class="variable__type"><i>Boolean</i></span>
+  <span class="variable__description">Disables transitions</span>
+</p>
+
+{{! ----------------------------------------------------------- }}
+
+<h3>stamp</h3>
+
+<p>Stamps elements in the layout. Masonry will lay out item elements <em>around</em> stamped elements.</p>
+
+``` js
+// jQuery
+$grid.masonry( 'stamp', elements )
+// vanilla JS
+msnry.stamp( elements )
+```
+
+<p class="variable">
+  <code class="variable__code">elements</code>
+  <span class="variable__type">
+    <i>Element</i>,
+    <i>jQuery</i> Object,
+    <i>NodeList</i>, or
+    <i>Array</i> of Elements
+  </span>
+</p>
+
+<p>Set <a href="options.html#itemselector"><code>itemSelector</code></a> so that stamps do not get used as layout items.</p>
+
+<ul class="params">
+  <li class="param">
+    <h5 class="param-name param-bit"><code>elements</code></h5>
+    <p class="type param-bit">
+      <b>Type:</b>
+      <span class="value">
+        <i>Element</i>,
+        <i>NodeList</i>, or
+        <i>Array</i> of Elements
+      </span>
+    </p>
+  </li>
+</ul>
+
+<p>Stamp the elements in the layout. Masonry will lay out item elements <em>around</em> stamped elements.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    var $grid = $('.grid').masonry({
+      // specify itemSelector so stamps do get laid out
+      itemSelector: '.grid-item',
+      masonry: {
+        columnWidth: 50
+      }
+    });
+    var $stampElem = $demo.find('.stamp');
+    var isStamped = false;
+
+    $('.stamp-button').on( 'click', function() {
+      // stamp or unstamp element
+      if ( isStamped ) {
+        $grid.masonry( 'unstamp', $stampElem );
+      } else {
+        $grid.masonry( 'stamp', $stampElem );
+      }
+      // trigger layout
+      $grid.masonry('layout');
+      // set flag
+      isStamped = !isStamped;
+    });
+    ```
+  </div>
+  {{> stamp-methods-demo}}
+</div>
+
+{{! ----------------------------------------------------------- }}
+
+<h3>unstamp</h3>
+
+``` js
+// jQuery
+$grid.masonry( 'unstamp', elements )
+// vanilla JS
+msnry.unstamp( elements )
+```
+
+<p>Un-stamps elements in the layout, so that Masonry will no longer layout item elements around them. <a href="#stamp">See demo above</a>.</p>
+
+<p class="variable">
+  <code class="variable__code">elements</code>
+  <span class="variable__type">
+    <i>Element</i>,
+    <i>jQuery</i> Object,
+    <i>NodeList</i>, or
+    <i>Array</i> of Elements
+  </span>
+</p>
+
+{{! ----------------------------------------------------------- }}
+
+<h2>Adding &amp; removing items</h2>
+
+{{! ----------------------------------------------------------- }}
+
+<h3>appended</h3>
+
+``` js
+// jQuery
+$grid.masonry( 'appended', elements )
+// vanilla JS
+msnry.appended( elements )
+```
+
+<p>Adds and lays out newly appended item elements to the end of the layout.</p>
+
+<p class="variable">
+  <code class="variable__code">elements</code>
+  <span class="variable__type">
+    <i>Element</i>,
+    <i>jQuery</i> Object,
+    <i>NodeList</i>, or
+    <i>Array</i> of Elements
+  </span>
+</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    $('.append-button').on( 'click', function() {
+      // create new item elements
+      var $items = $('<div class="grid-item">...</div>');
+      // append items to grid
+      $grid.append( $items )
+        // add and lay out newly appended items
+        .masonry( 'appended', $items );
+    });
+    ```
+  </div>
+  {{> appended-demo}}
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h3>prepended</h3>
+
+<p>Adds and lays out newly prepended item elements at the beginning of layout.</p>
+
+``` js
+// jQuery
+msnry.prepended( elements )
+// vanilla JS
+$grid.masonry( 'prepended', elements )
+```
+
+<p class="variable">
+  <code class="variable__code">elements</code>
+  <span class="variable__type">
+    <i>Element</i>,
+    <i>jQuery</i> Object,
+    <i>NodeList</i>, or
+    <i>Array</i> of Elements
+  </span>
+</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    $('.prepend-button').on( 'click', function() {
+      // create new item elements
+      var $items = $('<div class="grid-item">...</div>');
+      // prepend items to grid
+      $grid.prepend( $items )
+        // add and lay out newly prepended items
+        .masonry( 'prepended', $items );
+    });
+    ```
+  </div>
+  {{> prepended-demo}}
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h3>addItems</h3>
+
+``` js
+// jQuery
+$grid.masonry( 'addItems', elements )
+// vanilla JS
+msnry.addItems( elements )
+```
+
+<p>Adds item elements to the Masonry instance. <code>addItems</code> does not lay out items like <a href="#appended"><code>appended</code></a>, <a href="#prepended"><code>prepended</code></a>, or <a href="#insert"><code>insert</code></a>.</p>
+
+<p class="variable">
+  <code class="variable__code">elements</code>
+  <span class="variable__type">
+    <i>Element</i>,
+    <i>jQuery</i> Object,
+    <i>NodeList</i>, or
+    <i>Array</i> of Elements
+  </span>
+</p>
+
+{{! --------------------------------------------------- }}
+
+<h3>remove</h3>
+
+``` js
+// jQuery
+$grid.masonry( 'remove', elements )
+// vanilla JS
+msnry.remove( elements )
+```
+
+<p>Removes elements from the Masonry instance and DOM.</p>
+
+<p class="variable">
+  <code class="variable__code">elements</code>
+  <span class="variable__type">
+    <i>Element</i>,
+    <i>jQuery</i> Object,
+    <i>NodeList</i>, or
+    <i>Array</i> of Elements
+  </span>
+</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    $grid.on( 'click', '.grid-item', function() {
+      // remove clicked element
+      $grid.masonry( 'remove', this )
+        // layout remaining item elements
+        .masonry('layout');
+    });
+    ```
+  </div>
+  {{> remove-demo}}
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h2>Events</h2>
+
+{{! --------------------------------------------------- }}
+
+<h3>on</h3>
+
+<p>Adds a <a href="events.html">Masonry event</a> listener.</p>
+
+``` js
+// jQuery
+var msnry = $grid.masonry( 'on', eventName, listener )
+// vanilla JS
+msnry.on( eventName, listener )
+```
+
+<p class="variable">
+  <code class="variable__code">eventName</code>
+  <span class="variable__type"><i>String</i></span>
+  <span class="variable__description">Name of a <a href="events.html">Masonry event</a></span>
+</p>
+
+<p class="variable">
+  <code class="variable__code">listener</code>
+  <span class="variable__type"><i>Function</i></span>
+</p>
+
+{{! --------------------------------------------------- }}
+
+<h3>off</h3>
+
+<p>Removes a <a href="events.html">Masonry event</a> listener.</p>
+
+``` js
+// jQuery
+var msnry = $grid.masonry( 'off', eventName, listener )
+// vanilla JS
+msnry.off( eventName, listener )
+```
+
+<p class="variable">
+  <code class="variable__code">eventName</code>
+  <span class="variable__type"><i>String</i></span>
+  <span class="variable__description">Name of a <a href="events.html">Masonry event</a></span>
+</p>
+
+<p class="variable">
+  <code class="variable__code">listener</code>
+  <span class="variable__type"><i>Function</i></span>
+</p>
+
+{{! --------------------------------------------------- }}
+
+<h3>once</h3>
+
+<p>Adds a <a href="events.html">Masonry event</a> listener to be triggered just once.</p>
+
+``` js
+// jQuery
+var msnry = $grid.masonry( 'once', eventName, listener )
+// vanilla JS
+msnry.once( eventName, listener )
+```
+
+<p class="variable">
+  <code class="variable__code">eventName</code>
+  <span class="variable__type"><i>String</i></span>
+  <span class="variable__description">Name of a <a href="events.html">Masonry event</a></span>
+</p>
+
+<p class="variable">
+  <code class="variable__code">listener</code>
+  <span class="variable__type"><i>Function</i></span>
+</p>
+
+``` js
+$grid.masonry( 'once', 'arrangeComplete', function() {
+  console.log('arrange is complete, just once')
+})
+```
+
+{{! --------------------------------------------------- }}
+
+<h2>Utilities</h2>
+
+{{! --------------------------------------------------- }}
+
+<h3>reloadItems</h3>
+
+<p>Recollects all item elements.</p>
+
+<p>For frameworks like Angular and React, <code>reloadItems</code> may be useful to apply changes to the DOM to Masonry.</p>
+
+``` js
+// jQuery
+$grid.masonry('reloadItems')
+// vanilla JS
+msnry.reloadItems()
+```
+
+{{! --------------------------------------------------- }}
+
+<h3>destroy</h3>
+
+<p>Removes the Masonry functionality completely. <code>destroy</code> will return the element back to its pre-initialized state.</p>
+
+``` js
+// jQuery
+$grid.masonry('destroy')
+// vanilla JS
+msnry.destroy()
+```
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    var masonryOptions = {
+      masonry: {
+        columnWidth: 50
+      }
+    };
+    // initialize Masonry
+    var $grid = $('.grid').masonry( masonryOptions );
+    var isActive = true;
+
+    $('.toggle-button').on( 'click', function() {
+      if ( isActive ) {
+        $grid.masonry('destroy'); // destroy
+      } else {
+        $grid.masonry( masonryOptions ); // re-initialize
+      }
+      // set flag
+      isActive = !isActive;
+    });
+    ```
+  </div>
+  {{> destroy-demo}}
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h3>getItemElements</h3>
+
+<p>Returns an array of item elements.</p>
+
+``` js
+// jQuery
+var elems = $grid.masonry('getItemElements')
+// vanilla JS
+var elems = msnry.getItemElements()
+```
+
+<p class="variable">
+  <code class="variable__code">elems</code>
+  <span class="variable__type"><i>Array</i> of <i>Element</i>s</span>
+</p>
+
+{{! --------------------------------------------------- }}
+
+<h3>jQuery.fn.data('masonry')</h3>
+
+<p>Get the Masonry instance from a jQuery object. Masonry instances are useful to access Masonry properties.</p>
+
+``` js
+var msnry = $('.grid').data('masonry')
+// access Masonry properties
+console.log( msnry.filteredItems.length + ' filtered items'  )
+```
+
+{{! --------------------------------------------------- }}
+
+<h3>Masonry.data</h3>
+
+<p>Get the Masonry instance via its element. <code>Masonry.data()</code> is useful for getting the Masonry instance in JavaScript, after it has been initalized in HTML.</p>
+
+``` js
+var msnry = Masonry.data( element )
+```
+
+<p class="variable">
+  <code class="variable__code">element</code>
+  <span class="variable__type"><i>Element</i> or Selector <i>String</i></span>
+</p>
+
+<p class="variable">
+  <code class="variable__code">msnry</code>
+  <span class="variable__type"><i>Masonry</i></span>
+</p>
+
+``` html
+<!-- init Masonry in HTML -->
+<div class="grid js-masonry" data-masonry-options='{...}'>...</div>
+```
+
+``` js
+// jQuery
+// pass in the element, $element[0], not the jQuery object
+var msnry = Masonry.data( $('.grid')[0] )
+
+// vanilla JS
+// using an element
+var grid = document.querySelector('.grid')
+var msnry = Masonry.data( grid )
+// using a selector string
+var msnry = Masonry.data('.grid')
+```
+
+{{! --------------------------------------------------- }}

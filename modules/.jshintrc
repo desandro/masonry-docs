@@ -1,17 +1,20 @@
 {
   "browser": true,
-  "devel": true,
+  "devel": false,
   "strict": true,
+  "jquery": true,
   "undef": true,
   "unused": true,
-  "globals": {
+  "predef": {
     "classie": false,
     "docReady": false,
     "eventie": false,
     "getSize": false,
     "getStyleProperty": false,
+    "hljs": false,
     "imagesLoaded": false,
     "Masonry": false,
-    "matchesSelector": true
+    "MD": true,
+    "matchesSelector": false
   }
 }

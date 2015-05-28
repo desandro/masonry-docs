@@ -72,14 +72,6 @@
 
 #stamp-demo .item { opacity: 0.8; }
 
-/* ---- clickable ---- */
-
-.clickable .item:hover {
-  border-color: white;
-  background: #A2C;
-  cursor: pointer;
-}
-
 /* ---- animate-item-size ---- */
 
 /* item is invisible, but used for layout */

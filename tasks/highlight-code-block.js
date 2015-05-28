@@ -13,12 +13,12 @@ hljsJavascript.keywords.flickity_var = 'flkty';
 
 hljsJavascript.contains.push({
   className: 'jquery_var',
-  begin: /\$gallery/
+  begin: /\$grid/
 });
 
 hljsJavascript.contains.push({
-  className: 'flickity',
-  begin: /flickity/
+  className: 'msnry',
+  begin: /masonry_var/
 });
 
 var reFirstLine = /.*\n/;

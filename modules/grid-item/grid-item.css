@@ -22,7 +22,16 @@
 .grid-item--gigante {
   width: 180px;
   height: 180px;
+  background: #F90;
   z-index: 2; /* keep it above other items */
+}
+
+/* ---- clickable ---- */
+
+.grid--clickable .grid-item:hover {
+  border-color: white;
+  background: #A2C;
+  cursor: pointer;
 }
 
 /* ---- fluid-5-col ---- */

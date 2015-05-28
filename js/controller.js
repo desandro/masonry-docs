@@ -10,7 +10,21 @@
 var MD = window.MD = {};
 // hash of page controllers
 MD.pages = {};
+// hash of modules
+MD.modules = {};
 var notifElem;
+
+// -------------------------- eventie.matchesAdd -------------------------- //
+
+// extend eventie
+// adds event listener and filters for selector
+eventie.filterBind = function( elem, eventName, selector, listener ) {
+  return eventie.bind( elem, eventName, function( event ) {
+    if ( matchesSelector( event.target, selector ) ) {
+      listener.call( event.target, event );
+    }
+  });
+};
 
 // -------------------------- page controller -------------------------- //
 
@@ -24,9 +38,37 @@ docReady( function() {
   if ( pageAttr && typeof MD[ pageAttr ] === 'function' ) {
     MD[ pageAttr ]();
   }
+
+  initModules();
+
 });
 
+function initModules() {
+  // init module instance for all elements with data-module attributes
+  var moduleElems = document.querySelectorAll('[data-js-module]');
+  for ( var i=0, len = moduleElems.length; i < len; i++ ) {
+    var elem = moduleElems[i];
+    var moduleName = elem.getAttribute('data-js-module');
+    var module = MD.modules[ moduleName ];
+    if ( module ) {
+      module( elem );
+    }
+  }
+}
+
 // -------------------------- helpers -------------------------- //
+
+MD.getItemElement = function() {
+  var elem = document.createElement('div');
+  var wRand = Math.random();
+  var hRand = Math.random();
+  var widthClass = wRand > 0.8 ? 'grid-item--width3' :
+    wRand > 0.6 ? 'grid-item--width2' : '';
+  var heightClass = hRand > 0.8 ? 'grid-item--height3' :
+    hRand > 0.5 ? 'grid-item--height2' : '';
+  elem.className = 'grid-item ' + widthClass + ' ' + heightClass;
+  return elem;
+};
 
 MD.getSomeItemElements = function() {
   var fragment = document.createDocumentFragment();
