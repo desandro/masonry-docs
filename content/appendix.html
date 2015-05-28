@@ -2,48 +2,6 @@
 title: Appendix
 ---
 
-<h2>imagesLoaded</h2>
-
-<p>Unloaded images can throw off Masonry layouts and cause item elements to overlap. <a href="http://imagesloaded.desandro.com">imagesLoaded</a> resolves this issue. imagesLoaded works by triggering a callback after all child images have been loaded.</p>
-
-``` js
-var container = document.querySelector('#container');
-var msnry;
-// initialize Masonry after all images have loaded
-imagesLoaded( container, function() {
-  msnry = new Masonry( container );
-});
-```
-``` js
-// or with jQuery
-var $container = $('#container');
-// initialize Masonry after all images have loaded  
-$container.imagesLoaded( function() {
-  $container.masonry();
-});
-```
-
-<p>Or initialize Masonry first, then trigger <a href="methods.html#layout"><code>layout</code></a> after images have loaded.</p>
-
-``` js
-// initialize Masonry
-var msnry = new Masonry( container );
-// layout Masonry again after all images have loaded
-imagesLoaded( container, function() {
-  msnry.layout();
-});
-```
-``` js
-// or with jQuery
-// initialize Masonry
-var $container = $('#container').masonry();
-// layout Masonry again after all images have loaded
-$container.imagesLoaded( function() {
-  $container.masonry();
-});
-```
-
-
 <h2>Web fonts</h2>
 
 <p>Like images, unloaded web fonts can throw off Masonry. To resolve this, trigger <a href="methods.html#layout"><code>layout</code></a> after fonts have been loaded. Both Typekit and Google WebFont Loader provide font events to control scripts based on how fonts are loaded.</p>

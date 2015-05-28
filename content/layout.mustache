@@ -1,0 +1,138 @@
+---
+title: Layout
+---
+
+{{! --------------------------------------------------- }}
+
+<h2>Item sizing</h2>
+
+<p>All sizing and styling of items is handled by your own CSS.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` html
+    <div class="grid">
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      ...
+    </div>
+    ```
+
+    ``` css
+    .grid-item {
+      float: left;
+      width: 60px;
+      height: 40px;
+      border: 2px solid hsla(0, 0%, 0%, 0.5);
+    }
+
+    .grid-item--width2 { width: 100px; }
+    .grid-item--height2 { height: 100px; }
+    ```
+  </div>
+  <div class="duo__cell examle__demo">
+    <div class="grid js-masonry" data-masonry-options='{ "masonry": { "columnWidth": 50 } }'>
+      {{>grid-items}}
+    </div>
+
+
+    {{#codepens.column_width}}
+      {{> edit-demo}}
+    {{/codepens.column_width}}
+  </div>
+</div>
+
+<h3>Responsive layouts</h3>
+
+<p>Item sizes can be set with percentages for responsive layouts. With the <code>masonry</code> layout mode, set percentage-width <code>columnWidth</code> with <a href="options.html#element-sizing">element sizing</a>. Set <code>percentPosition: <span class="literal">true</span></code> so item positions are likewise set with percentages to reduce adjustment transitions on window resize.</p>
+
+<p></p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` html
+    <div class="grid">
+      <!-- width of .grid-sizer used for columnWidth -->
+      <div class="grid-sizer"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      ...
+    </div>
+    ```
+
+    ``` css
+    /* fluid 5 columns */
+    .grid-sizer,
+    .grid-item { width: 20%; }
+    /* 2 columns */
+    .grid-item--width2 { width: 40%; }
+    ```
+
+    ``` js
+    $('.grid').masonry({
+      // set itemSelector so .grid-sizer is not used in layout
+      itemSelector: '.grid-item',
+      // use element for option
+      columnWidth: '.grid-sizer',
+      percentPosition: true
+    })
+    ```
+  </div>
+  <div class="duo__cell examle__demo">
+    <div class="grid grid--fluid-5-col js-masonry"
+      data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": ".grid-sizer", "percentPosition": true }'>
+      <div class="grid-sizer"></div>
+      {{> grid-items}}
+    </div>
+
+    {{#codepens.column_width_fluid}}
+      {{> edit-demo}}
+    {{/codepens.column_width_fluid}}
+  </div>
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h2>imagesLoaded</h2>
+
+<p>Unloaded images can throw off Masonry layouts and cause item elements to overlap. <a href="http://imagesloaded.desandro.com">imagesLoaded</a> resolves this issue.</p>
+
+<p>Initialize Masonry, then trigger <a href="methods.html#layout"><code>layout</code></a> after each image loads.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    // init Masonry
+    var $grid = $('.grid').masonry({
+      // options...
+    });
+    // layout Masonry after each image loads
+    $grid.imagesLoaded().progress( function() {
+      $grid.masonry('layout');
+    });
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    {{> imagesloaded-progress}}
+  </div>
+</div>
+
+<p>Or, initialize Masonry after all images have been loaded.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    var $grid = $('.grid').imagesLoaded( function() {
+      // init Masonry after all images have loaded
+      $grid.masonry({
+        // options...
+      });
+    });
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    {{> imagesloaded-callback}}
+  </div>
+</div>
