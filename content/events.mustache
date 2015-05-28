@@ -1,0 +1,88 @@
+---
+title: Events
+---
+
+<div id="notification"></div>
+
+<p>Bind listeners to events with the <a href="methods.html#on">on</a> and <a href="methods.html#off">off</a> methods.</p>
+
+```js
+var $grid = $('.grid').masonry({...});
+
+function onLayout() {
+  console.log('layout done');
+}
+// bind event listener
+$grid.masonry( 'on', 'layoutComplete', onLayout );
+// un-bind event listener
+$grid.masonry( 'off', 'layoutComplete', onLayout );
+// bind event listener to be triggered just once
+$grid.masonry( 'once', 'layoutComplete', function() {
+  console.log('layout done, just this one time');
+});
+```
+
+{{! --------------------------------------------------- }}
+
+<h3>layoutComplete</h3>
+
+<p>Triggered after a layout and all positioning transitions have completed.</p>
+
+``` js
+// jQuery
+$grid.masonry( 'on', 'layoutComplete', function( laidOutItems ) {} )
+// vanilla JS
+msnry.on( 'layoutComplete', function( laidOutItems ) {} )
+```
+
+<p class="variable">
+  <code class="variable__code">laidOutItems</code>
+  <span class="variable__type"><i>Array</i> of <i>Masonry.Item</i>s</span>
+  <span class="variable__description">Items that were laid out</span>
+</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    $grid.masonry( 'on', 'layoutComplete',
+      function( laidOutItems ) {
+        console.log( 'Masonry layout completed on ' +
+          laidOutItems.length + ' items' );
+      }
+    );
+    ```
+  </div>
+  {{> layout-complete-demo}}
+</div>
+
+{{! --------------------------------------------------- }}
+
+<h3>removeComplete</h3>
+
+``` js
+// jQuery
+$grid.masonry( 'on', 'removeComplete', function( removedItems ) {} )
+// vanilla JS
+msnry.on( 'removeComplete', function( removedItems ) { //...
+```
+
+<p>Triggered after an item element has been removed.</p>
+
+<p class="variable">
+  <code class="variable__code">removedItems</code>
+  <span class="variable__type"><i>Array</i> of <i>Masonry.Item</i>s</span>
+  <span class="variable__description">Items that were removed</span>
+</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    $grid.masonry( 'on', 'removeComplete',
+      function( removedItems ) {
+        notify( 'Removed ' + removedItems.length + ' items' );
+      }
+    );
+    ```
+  </div>
+  {{> remove-complete-demo}}
+</div>

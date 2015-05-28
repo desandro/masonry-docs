@@ -105,8 +105,8 @@ var transitionProp = getStyleProperty('transition');
 var notifyTimeout;
 var hideTime = transitionProp ? 1000 : 1500;
 
-MD.notify = function( message, isGonnaHide ) {
-  setText( notifElem, message );
+MD.notify = function( message ) {
+  setText( notifElem, message + ' at ' + getTimestamp() );
 
   if ( transitionProp ) {
     notifElem.style[ transitionProp ] = 'none';
@@ -115,14 +115,21 @@ MD.notify = function( message, isGonnaHide ) {
   notifElem.style.opacity = '1';
 
   // hide the notification after a second
-  if ( isGonnaHide ) {
-    if ( notifyTimeout ) {
-      clearTimeout( notifyTimeout );
-    }
-
-    notifyTimeout = setTimeout( MD.hideNotify, hideTime );
+  if ( notifyTimeout ) {
+    clearTimeout( notifyTimeout );
   }
+
+  notifyTimeout = setTimeout( MD.hideNotify, hideTime );
 };
+
+function getTimestamp() {
+  var now = new Date();
+  var min = now.getMinutes();
+  min = min < 10 ? '0' + min : min;
+  var seconds = now.getSeconds();
+  seconds = seconds < 10 ? '0' + seconds : seconds;
+  return [ now.getHours(), min, seconds ].join(':');
+}
 
 MD.hideNotify = function() {
   if ( transitionProp ) {
