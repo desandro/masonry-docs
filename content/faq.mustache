@@ -1,0 +1,113 @@
+---
+title: FAQ
+---
+
+{{! ----------------------------------------------------------------- }}
+
+<h2>How do I fix overlapping item elements?</h2>
+
+<p>If your layout has images, you probably need to use <a href="appendix.html#imagesloaded">imagesLoaded</a>.</p>
+
+<p>Overlaping items are caused by items that change size after a layout. This is caused by unloaded media: images, <a href="appendix.html#web-fonts">web fonts</a>, embedded buttons. To fix it, you need to initialize or <a href="methods.html#layout"><code>layout</code></a> after all the items have their proper size.</p>
+
+{{! ----------------------------------------------------------------- }}
+
+<h2>What is Masonry&rsquo;s browser support?</h2>
+
+<p>Masonry works in IE8+ and modern browsers, including mobile browsers on iOS and Android.</p>
+
+{{! ----------------------------------------------------------------- }}
+
+<h2>What is the difference between Masonry, Isotope, and Packery?</h2>
+
+<p>Masonry, <a href="http://isotope.metafizzy.co">Isotope</a>, and <a href="http://packery.metafizzy.co">Packery</a> are all similar in that they are layout libraries. Many of their options and methods are the same.</p>
+
+<p>Masonry does cascading grid "masonry" layouts. Packery does bin-packing layouts, which allow it to be used for <a href="">draggable interactions</a>.</p>
+
+<p>Isotope does sorting and filtering. Isotope uses masonry layouts, as well as other layouts. </p>
+
+<p>Masonry is licensed MIT and is freely available for use and distribution. Isotope and Packery have a proprietary license, where you can purchase a license for commercial projects, or use it freely for open-source projects.</p>
+
+{{! ----------------------------------------------------------------- }}
+
+<h2>The first item breaks the grid!</h2>
+
+<p>You most likely need to set the <a href="options.html#columnwidth"><code>columnWidth</code> option</a>. Without <code>columnWidth</code> set, Masonry will use the width of the first item for the size of its columns.</p>
+
+``` js
+// jQuery
+$('.grid').masonry({
+  columnWidth: 200
+});
+// vanilla JS
+var msnry = new Masonry( '.grid', {
+  columnWidth: 200
+});
+```
+
+{{! ----------------------------------------------------------------- }}
+
+<h2>Error: &ldquo;cannot call methods on masonry prior to initialization; attempted to call '___'&rdquo;</h2>
+
+<p>This error occurs when your code attempts to use a <a href="methods.html">method</a> before the Masonry instance has been initialized.</p>
+
+``` js
+// This code will trigger the "cannot call methods" error
+
+$grid.append( $items )
+  // masonry method
+  .masonry( 'appended', $items );
+
+// init Masonry
+$grid.masonry({
+  // options...
+});
+```
+
+
+<p>This can happen if you have a race condition — when one piece of logic may occur before another. This could happen with <a href="appendix.html#imagesloaded">imagesLoaded</a>, Infinite Scroll, or Ajaxing content.</p>
+
+``` js
+// race condition with imagesLoaded
+
+$grid.imagesLoaded( function() {
+  // init Masonry
+  $grid.masonry({
+    // options...
+  });
+});
+
+// imagesLoaded will trigger after this
+$grid.append( $items )
+  .masonry( 'appended', $items );
+```
+
+<p>To resolve this, make sure that the Masonry instance has been initialized before the method is called.</p>
+
+``` js
+$grid.imagesLoaded( function() {
+  // init Masonry
+  $grid.masonry({
+    // options...
+  });
+  // Masonry has been initialized, okay to call methods
+  $grid.append( $items )
+    .masonry( 'appended', $items );
+});
+```
+
+``` js
+// another fix, init Masonry first, before imagesLoaded
+$grid.masonry({
+  // options...
+});
+// okay to call methods
+$grid.append( $items )
+  .masonry( 'appended', $items );
+// just do layout on imagesLoaded
+$grid.imagesLoaded( function() {
+  $grid.masonry('layout');
+});
+```
+
+{{! ----------------------------------------------------------------- }}
