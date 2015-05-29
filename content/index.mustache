@@ -1,0 +1,155 @@
+---
+is_homepage: true
+---
+
+{{! ----------------------------------------------------------- }}
+
+<h2>Install</h2>
+
+{{! ----------------------------------------------------------- }}
+
+<h3>Download</h3>
+
+<ul>
+  <li>
+    <a href="{{source_url_path}}masonry.pkgd.min.js">masonry.pkgd.min.js</a> minified, or
+  </li>
+  <li>
+    <a href="{{source_url_path}}masonry.pkgd.js">masonry.pkgd.js</a> un-minified
+  </li>
+</ul>
+
+{{! ----------------------------------------------------------- }}
+
+<h3>CDN</h3>
+
+<p>Link directly to <a href="https://cdnjs.com/libraries/masonry">Masonry files on cdnjs</a>.</p>
+
+``` html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/{{masonry_version}}/masonry.pkgd.js"></script>
+<!-- or -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/{{masonry_version}}/masonry.pkgd.min.js"></script>
+```
+
+{{! ----------------------------------------------------------- }}
+
+<h3>Package managers</h3>
+
+<p>Instal with <a href="http://bower.io">Bower</a>: &nbsp;<code>bower install masonry --save</code></p>
+
+<p><a href="https://www.npmjs.com/package/masonry-layout">Install with npm</a>: &nbsp;<code>npm install masonry-layout</code></p>
+
+{{! ----------------------------------------------------------- }}
+
+<h2>Getting started</h2>
+
+{{! ----------------------------------------------------------- }}
+
+<h3>HTML</h3>
+
+<p>Include the Masonry <code>.js</code> file in your site.</p>
+
+``` html
+<script src="/path/to/masonry.pkgd.min.js"></script>
+```
+
+<p>Masonry works on a container grid element with a group of child items.</p>
+
+``` html
+<div class="grid">
+  <div class="grid-item">...</div>
+  <div class="grid-item grid-item--width2">...</div>
+  <div class="grid-item">...</div>
+  ...
+</div>
+```
+
+{{! ----------------------------------------------------------- }}
+
+<h3>CSS</h3>
+
+<p>All sizing of items is handled by your CSS.</p>
+
+``` css
+.grid-item { width: 200px; }
+.grid-item--width2 { width: 400px; }
+```
+
+{{! ----------------------------------------------------------- }}
+
+<h3>Initialize with jQuery</h3>
+
+<p>You can use Masonry as a jQuery plugin:
+  <code>$(<span class="string">'selector'</span>).masonry()</code>.</p>
+
+``` js
+$('.grid').masonry({
+  // options
+  itemSelector: '.grid-item',
+  columnWidth: 200
+});
+```
+
+{{! ----------------------------------------------------------- }}
+
+<h3>Initialize with Vanilla JavaScript</h3>
+
+<p>You can use Masonry with vanilla JS:
+  <code><span class="keyword">new</span> <span class="masonry_keyword">Masonry</span>( elem, options )</code>.
+  The <code><span class="masonry_keyword">Masonry</span>()</code> constructor accepts two arguments: the container element and an options object.</p>
+
+``` js
+var elem = document.querySelector('.grid');
+var msnry = new Masonry( elem, {
+  // options
+  itemSelector: '.grid-item',
+  columnWidth: 200
+});
+
+// element argument can be a selector string
+//   for an individual element
+var msnry = new Masonry( '.grid', {
+  // options
+});
+```
+
+{{! --------------------------------------------------- }}
+
+<h3>Initialize in HTML</h3>
+
+<p>You can initialize Masonry in HTML, without writing any JavaScript. Add <code>js-masonry</code> to the class of the container element. <a href="options.html">Options</a> can be set with a <code>data-masonry-options</code> attribute.</p>
+
+``` html
+<div class="grid js-masonry"
+  data-masonry-options='{ "itemSelector": ".grid-item", "columWidth": 200 }'>
+```
+
+<div class="call-out">
+  <p>Options set in HTML must be valid JSON. Keys need to be quoted, for example <code><span class="string">"itemSelector"</span>:</code>. Note the HTML attribute <code>data-masonry-options</code> is set with single quotes <code>'</code>, but JSON entities use double-quotes <code>"</code>.</p>
+</div>
+
+<h2>Next</h2>
+
+<p>Learn more about how to use Masonry:</p>
+
+<ul>
+  <li><a href="layout.html">Layout</a></li>
+  <li><a href="options.html">Options</a></li>
+  <li><a href="methods.html">Methods</a></li>
+</ul>
+
+{{! --------------------------------------------------- }}
+
+<h2>MIT License</h2>
+
+<p>Masonry is released under the <a href="http://desandro.mit-license.org/">MIT License</a>. Have at it.</p>
+
+
+{{! --------------------------------------------------- }}
+
+<h2>Twitter updates</h2>
+
+<p><a class="twitter-timeline" href="https://twitter.com/search?q=masonry+from%3Ametafizzyco%2C+OR+from%3Adesandro" data-widget-id="502211983844704256">Masonry Tweets</a></p>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+<div id="notification"></div>
