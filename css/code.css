@@ -59,3 +59,8 @@ code .m  { color: #DE8E50; } /* CSS value */
 code .nd { color: #9FAD7E; } /* CSS pseudo selector */
 code .hexcolor { color: #F63; }
 code .at_rule { color: #088; }
+
+/* masonry keywords */
+code .masonry_var { color: #F3F; }
+code .jquery_var { color: #DF8; }
+code .masonry_keyword { color: #0FF; text-decoration: underline; }

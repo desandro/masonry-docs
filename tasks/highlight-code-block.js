@@ -6,19 +6,14 @@ highlightjs.configure({
 });
 
 var hljsJavascript = highlightjs.getLanguage('javascript');
-// highlight Flickity for flickity
-hljsJavascript.keywords.flickity = 'Flickity';
-// highlight flickity variables
-hljsJavascript.keywords.flickity_var = 'flkty';
+// highlight Masonry
+hljsJavascript.keywords.masonry_keyword = 'Masonry';
+// highlight packery variables
+hljsJavascript.keywords.masonry_var = 'msnry';
 
 hljsJavascript.contains.push({
   className: 'jquery_var',
   begin: /\$grid/
-});
-
-hljsJavascript.contains.push({
-  className: 'msnry',
-  begin: /masonry_var/
 });
 
 var reFirstLine = /.*\n/;
