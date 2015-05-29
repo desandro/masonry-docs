@@ -1,8 +1,6 @@
 MD.modules['layout-demo'] = function( elem ) {
   'use strict';
 
-  var $demo = $( elem );
-
   var grid = elem.querySelector('.grid');
 
   var msnry = new Masonry( grid, {

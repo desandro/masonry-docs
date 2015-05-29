@@ -1,0 +1,62 @@
+/* animate-item-size-item
+------------------------- */
+
+.animate-item-size-item {
+  float: left;
+}
+
+/* animate-item-size-item is invisible, but used for layout */
+.animate-item-size-item,
+.animate-item-size-item__content {
+  width: 60px;
+  height: 60px;
+}
+
+/* animate-item-size-item__content is visible, and transitions size */
+.animate-item-size-item__content {
+  background: #D26;
+  border: 2px solid #333;
+  border-color: hsla(0, 0%, 0%, 0.7);
+  border-radius: 5px;
+  -webkit-transition: width 0.4s, height 0.4s;
+          transition: width 0.4s, height 0.4s;
+}
+
+.animate-item-size-item:hover .animate-item-size-item__content {
+  border-color: white;
+  background: #A2C;
+  cursor: pointer;
+}
+
+/* both animate-item-size-item and animate-item-size-item content change size */
+.animate-item-size-item.is-expanded,
+.animate-item-size-item.is-expanded .animate-item-size-item__content {
+  width: 180px;
+  height: 120px;
+}
+
+.animate-item-size-item.is-expanded {
+  z-index: 2;
+}
+
+.animate-item-size-item.is-expanded .animate-item-size-item__content {
+  background: #F90;
+}
+
+/* ---- responsive ---- */
+
+.grid--animate-item-size-responsive .animate-item-size-item,
+.grid--animate-item-size-responsive .grid-sizer {
+  width: 20%;
+}
+
+.grid--animate-item-size-responsive .animate-item-size-item__content,
+.grid--animate-item-size-responsive .animate-item-size-item.is-expanded .animate-item-size-item__content {
+  width: 100%;
+  height: 100%;
+}
+
+/* item has expanded size */
+.grid--animate-item-size-responsive .animate-item-size-item.is-expanded {
+  width: 60%;
+}
