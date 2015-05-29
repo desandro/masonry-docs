@@ -1,0 +1,45 @@
+<div class="hero" data-js-module="hero">
+  <div class="container">
+
+    <div class="hero-grid clearfix">
+      <div class="hero-grid__grid-sizer"></div>
+
+      <div class="hero-grid__item hero-grid__item--texty hero-grid__item--width3">
+        <h1 class="hero__title">Masonry</h1>
+        <p class="hero__tagline">Cascading grid layout library</p>
+      </div>
+
+      <div class="hero-grid__item">
+        <a class="hero-grid__big-button" href="{{source_url_path}}masonry.pkgd.min.js">
+          <i class="icon icon-file-download"></i>
+          Download masonry.&#8203;pkgd.&#8203;min.js
+        </a>
+      </div>
+
+      {{! show download docs only in production }}
+      {{#unless is_export}}
+        <div class="hero-grid__item">
+          <a class="hero-grid__big-button" href="masonry-docs.zip">
+            <i class="icon icon-folder-download"></i>
+            Download these docs
+          </a>
+        </div>
+      {{/unless}}
+
+      <div class="hero-grid__item">
+        <a class="hero-grid__big-button" href="https://github.com/desandro/masonry">
+          <i class="icon icon-github"></i>
+          Masonry on GitHub
+        </a>
+      </div>
+
+      <div class="hero-grid__item hero-grid__item--texty hero-grid__item--width2">
+        <h2 class="hero__what-is-title">What is Masonry?</h2>
+        <p class="hero__what-is-description">Masonry is a JavaScript grid layout library. It works by placing elements in optimal position based on available vertical space, sort of like a mason fitting stones in a wall. You&rsquo;ve probably seen it in use all over the Internet.</p>
+      </div>
+
+    </div> {{! .hero-grid}}
+
+  </div> {{! .container }}
+
+</div> {{! .hero }}

@@ -1,0 +1,152 @@
+/* hero
+------------------------- */
+
+.hero-grid {
+  padding: 10px 1%;
+  margin: 20px 0;
+  background: white;
+  border-radius: 10px;
+}
+
+/* necessary for proper sizing with margins */
+.hero-grid__grid-sizer {
+  position: absolute;
+}
+
+.hero-grid__item,
+.hero-grid__grid-sizer {
+  width: 47%;
+  margin: 0 1% 20px 1%;
+}
+
+.hero-grid__gutter-sizer {
+  width: 2%;
+}
+
+.hero-grid__item {
+  float: left;
+  border-radius: 8px;
+  background: #D8D6D2;
+  margin-bottom: 20px;
+}
+
+/* ----  ---- */
+
+.hero__title {
+  margin: 0;
+  line-height: 1.2;
+  font-size: 3rem;
+  color: #D26;
+}
+
+.hero__tagline {
+  font-size: 1.4rem;
+  margin: 0 0 10px;
+}
+
+/* ---- texty ---- */
+
+.hero-grid__item--texty {
+  padding: 10px;
+}
+
+/* ---- ---- */
+
+.hero-grid__big-button {
+  display: block;
+  padding: 10px;
+  background: #D26;
+  color: white;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+.hero-grid__big-button:hover {
+  background: #A2C;
+  color: white;
+}
+
+/* ----  ---- */
+
+.hero__what-is-title {
+  margin: 0 0 10px;
+}
+
+.hero__what-is-description {
+  margin: 0;
+}
+
+/* ---- .hero-grid__example-link ---- */
+
+.hero__example-link {
+  display: block;
+  background: #D26;
+  border-radius: 8px;
+  color: white;
+}
+
+.hero__example-link:hover {
+  background: #A2C;
+  color: white;
+}
+
+.hero__example-link__img {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+.hero__example-link__title {
+  margin: 0;
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+/* enough width for 4 columns */
+@media screen and ( min-width: 768px ) {
+
+  .hero-grid__grid-sizer,
+  .hero-grid__item {
+    width: 22.5%;
+  }
+
+  .hero-grid__item--width2 {
+    width: 47%;
+  }
+
+
+  .hero-grid__item--width3 {
+    width: 71.5%;
+  }
+
+  .hero__title {
+    font-size: 6rem;
+  }
+
+  .hero__tagline {
+    font-size: 2rem;
+  }
+
+  .hero__what-is-title {
+    font-size: 2rem;
+  }
+
+  .hero__what-is-description {
+    font-size: 1.1rem;
+  }
+
+  .hero-grid__big-button {
+    padding-left: 60px;
+    min-height: 60px;
+  }
+
+  .hero-grid__big-button .icon {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 2.0rem;
+  }
+
+}
