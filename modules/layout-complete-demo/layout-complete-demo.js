@@ -4,7 +4,7 @@ MD.modules['layout-complete-demo'] = function( elem ) {
   var grid = elem.querySelector('.grid');
 
   var msnry = new Masonry( grid, {
-    columnWidth: 60
+    columnWidth: 80
   });
 
   // bind listener

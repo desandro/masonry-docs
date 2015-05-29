@@ -5,7 +5,7 @@ MD.modules['stamp-methods-demo'] = function( elem ) {
 
   var msnry = new Masonry( grid, {
     itemSelector: '.grid-item',
-    columnWidth: 60
+    columnWidth: 80
   });
 
   var stampElem = grid.querySelector('.stamp');

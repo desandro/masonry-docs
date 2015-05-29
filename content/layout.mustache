@@ -14,7 +14,6 @@ title: Layout
     <div class="grid">
       <div class="grid-item"></div>
       <div class="grid-item grid-item--width2"></div>
-      <div class="grid-item"></div>
       <div class="grid-item grid-item--height2"></div>
       ...
     </div>
@@ -23,17 +22,17 @@ title: Layout
     ``` css
     .grid-item {
       float: left;
-      width: 60px;
-      height: 40px;
+      width: 80px;
+      height: 60px;
       border: 2px solid hsla(0, 0%, 0%, 0.5);
     }
 
-    .grid-item--width2 { width: 100px; }
-    .grid-item--height2 { height: 100px; }
+    .grid-item--width2 { width: 160px; }
+    .grid-item--height2 { height: 140px; }
     ```
   </div>
   <div class="duo__cell examle__demo">
-    <div class="grid js-masonry" data-masonry-options='{ "masonry": { "columnWidth": 50 } }'>
+    <div class="grid js-masonry" data-masonry-options='{ "columnWidth": 80 }'>
       {{>grid-items}}
     </div>
 

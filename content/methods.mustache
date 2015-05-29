@@ -62,9 +62,7 @@ msnry.layout()
   <div class="duo__cell example__code">
     ``` js
     var $grid = $('.grid').masonry({
-      masonry: {
-        columnWidth: 50
-      }
+      columnWidth: 80
     });
     // change size of item by toggling gigante class
     $grid.on( 'click', '.grid-item', function() {
@@ -126,20 +124,6 @@ msnry.stamp( elements )
 
 <p>Set <a href="options.html#itemselector"><code>itemSelector</code></a> so that stamps do not get used as layout items.</p>
 
-<ul class="params">
-  <li class="param">
-    <h5 class="param-name param-bit"><code>elements</code></h5>
-    <p class="type param-bit">
-      <b>Type:</b>
-      <span class="value">
-        <i>Element</i>,
-        <i>NodeList</i>, or
-        <i>Array</i> of Elements
-      </span>
-    </p>
-  </li>
-</ul>
-
 <p>Stamp the elements in the layout. Masonry will lay out item elements <em>around</em> stamped elements.</p>
 
 <div class="duo example">
@@ -148,9 +132,7 @@ msnry.stamp( elements )
     var $grid = $('.grid').masonry({
       // specify itemSelector so stamps do get laid out
       itemSelector: '.grid-item',
-      masonry: {
-        columnWidth: 50
-      }
+      columnWidth: 80
     });
     var $stampElem = $demo.find('.stamp');
     var isStamped = false;
@@ -455,9 +437,8 @@ msnry.destroy()
   <div class="duo__cell example__code">
     ``` js
     var masonryOptions = {
-      masonry: {
-        columnWidth: 50
-      }
+      itemSelector: '.grid-item',
+      columnWidth: 80
     };
     // initialize Masonry
     var $grid = $('.grid').masonry( masonryOptions );

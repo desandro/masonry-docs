@@ -56,7 +56,7 @@ var msnry = new Masonry( '.grid', {
   </div>
   <div class="duo__cell example__demo">
     <div class="grid grid--has-banner js-masonry"
-      data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": 60 }'>
+      data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": 80 }'>
       <div class="static-banner">Static banner</div>
       {{> grid-items}}
     </div>
@@ -79,11 +79,11 @@ var msnry = new Masonry( '.grid', {
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    columnWidth: 60
+    columnWidth: 80
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid js-masonry"  data-masonry-options='{ "columnWidth": 60 }'>
+    <div class="grid js-masonry"  data-masonry-options='{ "columnWidth": 80 }'>
       {{> grid-items}}
     </div>
     {{#codepens.column_width}}
@@ -445,7 +445,7 @@ columnWidth: $grid.find('.grid-sizer')[0]
   </div>
   <div class="duo__cell example__demo">
     <div class="grid grid--counting js-masonry"
-      data-masonry-options='{ "isOriginLeft": false, "columnWidth": 60 }'>
+      data-masonry-options='{ "isOriginLeft": false, "columnWidth": 80 }'>
       {{> grid-items}}
     </div>
     {{#codepens.is_origin_left}}
@@ -468,7 +468,7 @@ columnWidth: $grid.find('.grid-sizer')[0]
   </div>
   <div class="duo__cell example__demo">
     <div class="grid grid--counting js-masonry"
-      data-masonry-options='{ "isOriginTop": false, "columnWidth": 60 }'>
+      data-masonry-options='{ "isOriginTop": false, "columnWidth": 80 }'>
       {{> grid-items}}
     </div>
     {{#codepens.is_origin_top}}
@@ -529,14 +529,21 @@ transitionDuration: 0
     ``` css
     /* grid has fixed width */
     .grid {
-      width: 300px;
+      width: 320px;
     }
     ```
   </div>
   <div class="duo__cell example__demo">
     <div class="grid grid--fixed-width js-masonry"
-      data-masonry-options='{ "masonry": { "columnWidth": 50 }}'>
-      {{> grid-items}}
+      data-masonry-options='{ "columnWidth": 80 }'>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
     </div>
     {{#codepens.is_resize_bound}}
       {{> edit-demo}}

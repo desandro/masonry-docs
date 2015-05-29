@@ -4,7 +4,7 @@ MD.modules['destroy-demo'] = function( elem ) {
   var grid = elem.querySelector('.grid');
 
   var masonryOptions = {
-    columnWidth: 60
+    columnWidth: 80
   };
 
   // init Masonry

@@ -2,8 +2,8 @@
 ------------------------- */
 
 .grid-item {
-  width: 60px;
-  height: 40px;
+  width: 80px;
+  height: 60px;
   float: left;
   background: #D26;
   border: 2px solid #333;
@@ -11,16 +11,15 @@
   border-radius: 5px;
 }
 
-.grid-item--width2 { width:  120px; }
-.grid-item--width3 { width:  180px; }
-.grid-item--width4 { width:  240px; }
+.grid-item--width2 { width:  160px; }
+.grid-item--width3 { width:  240px; }
 
-.grid-item--height2 { height:  70px; }
-.grid-item--height3 { height: 100px; }
-.grid-item--height4 { height: 150px; }
+.grid-item--height2 { height: 100px; }
+.grid-item--height3 { height: 140px; }
+.grid-item--height4 { height: 180px; }
 
 .grid-item--gigante {
-  width: 180px;
+  width: 240px;
   height: 180px;
   background: #F90;
   z-index: 2; /* keep it above other items */
@@ -46,10 +45,10 @@
 
 /* ---- gutter ---- */
 
-.grid--gutter .grid-item--width2 { width: 130px; }
-.grid--gutter .grid-item--width3 { width: 200px; }
+.grid--gutter .grid-item--width2 { width: 170px; }
+.grid--gutter .grid-item--width3 { width: 260px; }
 
-.grid--gutter-bottom .grid-item { margin-bottom: 20px; }
+.grid--gutter-bottom .grid-item { margin-bottom: 10px; }
 
 /* ---- grid--fluid-gutter ---- */
 

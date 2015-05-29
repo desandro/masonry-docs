@@ -4,7 +4,7 @@ MD.modules['appended-demo'] = function( elem ) {
   var grid = elem.querySelector('.grid');
   
   var msnry = new Masonry( grid, {
-    columnWidth: 60
+    columnWidth: 80
   });
 
   var appendButton = elem.querySelector('.append-button');
