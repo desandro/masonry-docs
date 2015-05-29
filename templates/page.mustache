@@ -41,48 +41,7 @@
 
   </div>
 
-  <div id="footer">
-    <div class="container">
-      <p class="made-by">
-        Masonry is made by <a href="http://desandro.com">David DeSandro</a>.
-        Make something rad with it.
-        {{#unless is_dev}}
-          &nbsp;&nbsp;Dave also makes:
-        {{/unless}}
-      </p>
-
-      {{#unless is_export}}
-      <div class="row other-products">
-        <div class="cell other-product isotope-product">
-          <a href="http://isotope.metafizzy.co/">
-            <img src="http://i.imgur.com/xfGupRf.png" alt="Isotope" />
-            <h3>Isotope</h3>
-            <p class="description">Filter &amp; sort magical&nbsp;layouts</p>
-          </a>
-        </div>
-
-        <div class="cell other-product flickity-product">
-          <a href="http://flickity.metafizzy.co/">
-            <img src="http://i.imgur.com/8BFo4Aj.png" alt="Flickity" />
-            <h3>Flickity</h3>
-            <p class="description">Touch, responsive, flickable&nbsp;galleries</p>
-          </a>
-        </div>
-      </div>
-
-      <div class="row other-products">
-        <div class="cell other-product packery-product">
-          <a href="http://packery.metafizzy.co/">
-            <img src="http://i.imgur.com/uRXPQfm.png" alt="Packery" />
-            <h3>Packery</h3>
-            <p class="description">Gap-less, draggable, bin-packing layout&nbsp;library</p>
-          </a>
-        </div>
-      </div>
-      {{/unless}}
-
-    </div>
-  </div>
+  {{> site-footer}}
 
 <!-- Masonry does NOT require jQuery.
      jQuery is only used to demonstrate Masonry as a jQuery plugin -->

@@ -1,0 +1,18 @@
+<div class="site-footer">
+
+  <div class="container">
+      <p class="footer-copy">
+        Masonry is made by <a href="http://desandro.com">David DeSandro</a>.
+        Make something rad with it.
+        {{#unless is_export}}
+          &nbsp;&nbsp;Dave also makes:
+        {{/unless}}
+      </p>
+
+    {{#unless is_export}}
+      {{> other-products}}
+    {{/unless}}
+
+  </div>
+
+</div>

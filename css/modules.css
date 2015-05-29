@@ -134,48 +134,6 @@ div.param {
   color: white;
 }
 
-/* ---- other-products ---- */
-
-.other-product > a {
-  position: relative; /* gonna abs */
-  display: block;
-  padding: 10px;
-  background: #E8E5E2;
-  color: #D26;
-  border-radius: 5px;
-}
-
-.other-product > a:hover {
-  background: white;
-  color: #A2C;
-}
-
-.other-product > a:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
-.other-product img {
-  float: left;
-  display: block;
-  width: 100%;
-  max-width: 140px;
-  margin-right: 1.0em;
-  border-radius: 5px;
-}
-
-.other-product h3 {
-  font-weight: bold;
-  font-size: 32px;
-  margin-bottom: 0.25em;
-}
-
-.other-product .description {
-  font-size: 15px;
-}
-
-
 /* ---- notification ---- */
 
 #notification {
