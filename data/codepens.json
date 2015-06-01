@@ -1,4 +1,8 @@
 {
+  "appended": {
+    "default": "kwALv",
+    "vanillaJS": "nhekz"
+  },
   "centered": {
     "default": "nGLvx"
   },
@@ -8,6 +12,10 @@
   "column_width_fluid": {
     "default": "JFpeg"
   },
+  "destroy": {
+    "default": "jPyoRE",
+    "vanillaJS": "EogCw"
+  },
   "gutter": {
     "default": "iIbgC"
   },
@@ -16,6 +24,14 @@
   },
   "gutter_fluid": {
     "default": "BAJKn"
+  },
+  "imagesloaded_progress": {
+    "default": "RPKgEN",
+    "vanillaJS": "MwJoZQ"
+  },
+  "imagesloaded_callback": {
+    "default": "bdgRzg",
+    "vanillaJS": "MwJoLQ"
   },
   "is_origin_left": {
     "default": "adwgL"
@@ -28,6 +44,22 @@
   },
   "item_selector": {
     "default": "Jdbzvx"
+  },
+  "layout_method": {
+    "default": "JdEyYQ",
+    "vanillaJS": "vdkJn"
+  },
+  "prepended": {
+    "default": "rVjgrL",
+    "vanillaJS": "vilFn"
+  },
+  "remove": {
+    "default": "aOprQW",
+    "vanillaJS": "IBJeq"
+  },
+  "stamp_methods": {
+    "default": "MwJvbq",
+    "vanillaJS": "wKpjs"
   },
   "stamp_option": {
     "default": "hsine"

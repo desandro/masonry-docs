@@ -134,15 +134,15 @@ msnry.stamp( elements )
       itemSelector: '.grid-item',
       columnWidth: 80
     });
-    var $stampElem = $demo.find('.stamp');
+    var $stamp = $grid.find('.stamp');
     var isStamped = false;
 
     $('.stamp-button').on( 'click', function() {
       // stamp or unstamp element
       if ( isStamped ) {
-        $grid.masonry( 'unstamp', $stampElem );
+        $grid.masonry( 'unstamp', $stamp );
       } else {
-        $grid.masonry( 'stamp', $stampElem );
+        $grid.masonry( 'stamp', $stamp );
       }
       // trigger layout
       $grid.masonry('layout');
