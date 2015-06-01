@@ -1,4 +1,12 @@
 {
+  "animate_item_size": {
+    "default": "daKBo",
+    "vanillaJS": "ILbJy"
+  },
+  "animate_item_size_responsive": {
+    "default": "JFpIB",
+    "vanillaJS": "BnCqy"
+  },
   "appended": {
     "default": "kwALv",
     "vanillaJS": "nhekz"
@@ -45,6 +53,10 @@
   "item_selector": {
     "default": "Jdbzvx"
   },
+  "layout_complete": {
+    "default": "yNgmNv",
+    "vanillaJS": "htsui"
+  },
   "layout_method": {
     "default": "JdEyYQ",
     "vanillaJS": "vdkJn"
@@ -56,6 +68,10 @@
   "remove": {
     "default": "aOprQW",
     "vanillaJS": "IBJeq"
+  },
+  "remove_complete": {
+    "default": "mJRNVV",
+    "vanillaJS": "JknEe"
   },
   "stamp_methods": {
     "default": "MwJvbq",
