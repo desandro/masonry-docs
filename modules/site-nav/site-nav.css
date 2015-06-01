@@ -6,10 +6,11 @@
 }
 
 /* bottom nav */
-.content ~ .site-nav {
+.content ~ .site-nav .container {
   position: relative;
   margin-top: 80px;
-  z-index: 2; /* on top of page-nav */
+  border-top: 2px solid white;
+  border-bottom: none;
 }
 
 .site-nav__list {
