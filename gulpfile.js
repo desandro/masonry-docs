@@ -43,7 +43,7 @@ gulp.task( 'fonts', function() {
 });
 
 // copy prod assets
-gulp.task( 'prod-assets', [ 'assets' ] );
+gulp.task( 'prod-assets', [ 'assets', 'fonts' ] );
 
 // ----- dist ----- //
 
