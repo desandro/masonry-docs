@@ -4,23 +4,69 @@ title: Events
 
 <div id="notification"></div>
 
-<p>Bind listeners to events with the <a href="methods.html#on">on</a> and <a href="methods.html#off">off</a> methods.</p>
+<h2>Event binding</h2>
 
-```js
+<h3>jQuery event binding</h3>
+
+<p>Bind events with jQuery with standard jQuery event methods <code>.on()</code>, <code>.off()</code>, and <code>.one()</code>.</p>
+
+``` js
+// jQuery
 var $grid = $('.grid').masonry({...});
 
 function onLayout() {
   console.log('layout done');
 }
 // bind event listener
-$grid.masonry( 'on', 'layoutComplete', onLayout );
+$grid.on( 'layoutComplete', onLayout );
 // un-bind event listener
-$grid.masonry( 'off', 'layoutComplete', onLayout );
-// bind event listener to be triggered just once
-$grid.masonry( 'once', 'layoutComplete', function() {
+$grid.off( 'layoutComplete', onLayout );
+// bind event listener to be triggered just once. note ONE not ON
+$grid.one( 'layoutComplete', function() {
   console.log('layout done, just this one time');
 });
 ```
+
+<p>jQuery event listeners have an <code>event</code> argument, whereas vanilla JS listeners do not.</p>
+
+``` js
+// jQuery, has event argument
+$grid.on( 'layoutComplete', function( event, items ) {
+  console.log( items.length );
+});
+
+// vanilla JS, no event argument
+msnry.on( 'layoutComplete', function( items ) {
+  console.log( items.length );
+});
+```
+
+{{! --------------------------------------------------- }}
+
+<h3>Vanilla JS event binding</h3>
+
+<p>Bind events with vanilla JS with <a href="methods.html#on">.on()</a>, <a href="methods.html#off">.off()</a>, and <a href="methods.html#once">.once()</a> methods.</p>
+
+```js
+// vanilla JS
+var msnry = new Masonry( '.grid', {...});
+
+function onLayout() {
+  console.log('layout done');
+}
+// bind event listener
+msnry.on( 'layoutComplete', onLayout );
+// un-bind event listener
+msnry.off( 'layoutComplete', onLayout );
+// bind event listener to be triggered just once
+msnry.once( 'layoutComplete', function() {
+  console.log('layout done, just this one time');
+});
+```
+
+{{! --------------------------------------------------- }}
+
+<h2>Masonry events</h2>
 
 {{! --------------------------------------------------- }}
 
@@ -30,9 +76,9 @@ $grid.masonry( 'once', 'layoutComplete', function() {
 
 ``` js
 // jQuery
-$grid.masonry( 'on', 'layoutComplete', function( laidOutItems ) {} )
+$grid.on( 'layoutComplete', function( event, laidOutItems ) {...} )
 // vanilla JS
-msnry.on( 'layoutComplete', function( laidOutItems ) {} )
+msnry.on( 'layoutComplete', function( laidOutItems ) {...} )
 ```
 
 <p class="variable">
@@ -44,8 +90,8 @@ msnry.on( 'layoutComplete', function( laidOutItems ) {} )
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    $grid.masonry( 'on', 'layoutComplete',
-      function( laidOutItems ) {
+    $grid.on( 'layoutComplete',
+      function( event, laidOutItems ) {
         console.log( 'Masonry layout completed on ' +
           laidOutItems.length + ' items' );
       }
@@ -61,9 +107,9 @@ msnry.on( 'layoutComplete', function( laidOutItems ) {} )
 
 ``` js
 // jQuery
-$grid.masonry( 'on', 'removeComplete', function( removedItems ) {} )
+$grid.on( 'removeComplete', function( event, removedItems ) {...} )
 // vanilla JS
-msnry.on( 'removeComplete', function( removedItems ) { //...
+msnry.on( 'removeComplete', function( removedItems ) {...} )
 ```
 
 <p>Triggered after an item element has been removed.</p>
@@ -77,8 +123,8 @@ msnry.on( 'removeComplete', function( removedItems ) { //...
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    $grid.masonry( 'on', 'removeComplete',
-      function( removedItems ) {
+    $grid.on( 'removeComplete',
+      function( event, removedItems ) {
         notify( 'Removed ' + removedItems.length + ' items' );
       }
     );
