@@ -41,11 +41,6 @@ docReady( function() {
 
   initModules();
 
-  var refactorTitle = document.querySelector('.refactor-shirt h3');
-  var endDate = new Date( 2015, 9, 28 );
-  var days = Math.round( ( endDate - new Date() ) / ( 1000 * 60 * 60 * 24 ) );
-  setText( refactorTitle, 'Refactor shirts. Only on sale for ' + days + ' more days.' );
-
 });
 
 function initModules() {

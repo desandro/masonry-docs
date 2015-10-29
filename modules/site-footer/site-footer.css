@@ -8,18 +8,3 @@
   position: relative;
   z-index: 10; /* above page-nav */
 }
-
-.refactor-shirt {
-  margin: 40px 0;
-}
-
-.refactor-shirt h3 {
-  font-size: 1.6rem;
-}
-
-.refactor-shirt img {
-  display: block;
-  width: 100%;
-  max-width: 1000px;
-  margin-bottom: 10px;
-}
