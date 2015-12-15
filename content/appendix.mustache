@@ -182,6 +182,69 @@ $('.grid').masonry({
 
 {{! --------------------------------------------------- }}
 
+<h2>Bootstrap</h2>
+
+<p>You can use Masonry layouts with <a href="http://getbootstrap.com/css/#grid">Bootstrap grid system</a>. This example will display a fluid grid of 3 columns, using <code>col-xs-4</code> as <code>columnWidth</code>.</p>
+
+<div class="example">
+  <div class="example__code">
+    ``` html
+    <div class="container-fluid">
+      <!-- add extra container element for Masonry -->
+      <div class="grid">
+        <!-- add sizing element for columnWidth -->
+        <div class="grid-sizer col-xs-4"></div>
+        <!-- items use Bootstrap .col- classes -->
+        <div class="grid-item col-xs-8">
+          <!-- wrap item content in its own element -->
+          <div class="grid-item-content">...</div>
+        </div>
+        <div class="grid-item col-xs-4">
+          <div class="grid-item-content">...</div>
+        </div>
+        ...
+      </div>
+    </div>
+    ```
+
+    ``` js
+    $('.grid').masonry({
+      itemSelector: '.grid-item', // use a separate class for itemSelector, other than .col-
+      columnWidth: '.grid-sizer',
+      percentPosition: true
+    });
+    ```
+  </div>
+  {{> bootstrap-3-demo}}
+</div>
+
+<p>Use multiple <code>.col-</code> classes on item elements to use Bootstrap&rsquo;s grid media queries to responsively change column sizes. This example will use 2, then 3, then 4 columns at different screen sizes.</p>
+
+<div class="example">
+  <div class="example__code">
+    ``` html
+    <div class="container-fluid">
+      <div class="grid">
+        <!-- 2 col grid @ xs, 3 col grid @ sm, 4 col grid @ md -->
+        <div class="grid-sizer col-xs-6 col-sm-4 col-md-3"></div>
+        <!-- 1 col @ xs, 2 col @ sm, 2 col @ md -->
+        <div class="grid-item col-xs-6 col-sm-8 col-md-6">
+          <div class="grid-item-content">...</div>
+        </div>
+        <!-- 1 col @ xs, 1 col @ sm, 1 col @ md -->
+        <div class="grid-item col-xs-6 col-sm-4 col-md-3">
+          <div class="grid-item-content">...</div>
+        </div>
+        ...
+      </div>
+    </div>
+    ```
+  </div>
+  {{> bootstrap-3-mq-demo}}
+</div>
+
+{{! --------------------------------------------------- }}
+
 <h2>Component libraries</h2>
 
 <p>Masonry includes several component libraries. You might have seen these used in the example code. You can use some of these libraries in your own code.</p>

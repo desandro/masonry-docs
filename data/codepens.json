@@ -11,6 +11,12 @@
     "default": "kwALv",
     "vanillaJS": "nhekz"
   },
+  "bootstrap3": {
+    "default": "eJJEXd"
+  },
+  "bootstrap3_mq": {
+    "default": "vLLeJM"
+  },
   "centered": {
     "default": "nGLvx"
   },
