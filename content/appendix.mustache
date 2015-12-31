@@ -4,68 +4,12 @@ title: Appendix
 
 {{! --------------------------------------------------- }}
 
-<h2>Web fonts</h2>
-
-<p>Like images, unloaded web fonts can throw off Masonry. To resolve this, trigger <a href="methods.html#layout"><code>layout</code></a> after fonts have been loaded. Both Typekit and Google WebFont Loader provide font events to control scripts based on how fonts are loaded.</p>
+<h2>Extra examples</h2>
 
 <ul>
-  <li><a href="http://blog.typekit.com/2010/10/18/more-control-with-typekits-font-events/">Typekit font events</a></li>
-  <li><a href="https://developers.google.com/webfonts/docs/webfont_loader#Events">Google WebFont Loader: Events</a></li>
+  <li><a href="http://codepen.io/desandro/pen/kwsJb">Iteratively reveal items after each image is loaded</a>. See <a href="https://github.com/desandro/masonry/issues/501#issuecomment-34583942">explanation on issue #501</a></li>
+  <li><a href="http://codepen.io/desandro/pen/btHyq">Drag and drop in and out of Masonry</a> (sort of)</li>
 </ul>
-
-<h3>Typekit</h3>
-
-<p>Try the script below when using Masonry on a page with Typekit. This will trigger Masonry when the document is ready and again when fonts have loaded. Be sure to remove Typekit’s default script, <code>try{Typekit.load();}catch(e){}</code>.</p>
-
-``` js
-var msnry;
-
-function triggerMasonry() {
-  // don't proceed if masonry has not been initialized
-  if ( !msnry ) {
-    return;
-  }
-  msnry.layout();
-}
-// initialize masonry on document ready
-docReady( function() {
-  var container = document.querySelector('.grid');
-  msnry = new Masonry( container, {
-    // options...
-  });
-});
-// trigger masonry when fonts have loaded
-Typekit.load({
-  active: triggerMasonry,
-  inactive: triggerMasonry
-});
-```
-
-``` js
-// or with jQuery
-var $grid;
-
-function triggerMasonry() {
-  // don't proceed if $grid has not been selected
-  if ( !$grid ) {
-    return;
-  }
-  // init Masonry
-  $grid.masonry({
-    // options...
-  });
-}
-// trigger masonry on document ready
-$(function(){
-  $grid = $('.grid');
-  triggerMasonry();
-});
-// trigger masonry when fonts have loaded
-Typekit.load({
-  active: triggerMasonry,
-  inactive: triggerMasonry
-});
-```
 
 {{! --------------------------------------------------- }}
 
@@ -180,6 +124,68 @@ $('.grid').masonry({
 });
 ```
 
+{{! ----------------------------------------------------------------- }}
+
+<h2>Webpack</h2>
+
+<p>Install Masonry and <a href="https://github.com/webpack/imports-loader">imports-loader</a> with npm.</p>
+
+``` bash
+npm install masonry-layout imports-loader
+```
+
+<p>In your config file, <code>webpack.config.js</code>, use the imports loader to disable <code>define</code> and set <code>window</code> for <code>masonry-layout</code> modules.</p>
+
+``` js
+// npm v2
+module.exports = {
+  module: {
+    loaders: [
+      {
+        test: /masonry-layout/,
+        loader: 'imports?define=>false&this=>window'
+      }
+    ]
+  }
+};
+```
+
+``` js
+// npm v3
+module.exports = {
+  module: {
+    loaders: [
+      {
+        test: /masonry|fizzy\-ui\-utils|desandro\-|outlayer|get\-size|doc\-ready|eventie|eventemitter/,
+        loader: 'imports?define=>false&this=>window'
+      }
+    ]
+  }
+};
+```
+
+<p>(This hack is required because of an issue with how Webpack loads dependencies. <a href="https://github.com/webpack/webpack/issues/883">+1 this issue on GitHub</a> to help get this issue addressed.)</p>
+
+<p>You can then <code>require(<span class="string">'masonry-layout'</span>)</code>.</p>
+
+``` js
+// main.js
+var Masonry = require('masonry-layout');
+
+var msnry = new Masonry( '.grid', {
+  // options...
+});
+```
+
+<p>Run webpack.</p>
+
+
+``` bash
+webpack main.js bundle.js
+```
+
+<p>Layout modes and jQuery plugin functionality need to be installed separately, similar to <a href="#browserify">using Browserify</a>.</p>
+
 {{! --------------------------------------------------- }}
 
 <h2>Bootstrap</h2>
@@ -242,51 +248,6 @@ $('.grid').masonry({
   </div>
   {{> bootstrap-3-mq-demo}}
 </div>
-
-{{! --------------------------------------------------- }}
-
-<h2>Component libraries</h2>
-
-<p>Masonry includes several component libraries. You might have seen these used in the example code. You can use some of these libraries in your own code.</p>
-
-<h3>docReady</h3>
-
-<p><a href="https://github.com/desandro/doc-ready">docReady triggers initialization logic when the document is ready,</a> just like jQuery's <code>$(document).ready()</code>. <code>docReady</code> is used to initialize all the demos in these docs.</p>
-
-``` js
-docReady( function() {
-  // document is ready, let's do some fun stuff!
-  var container = document.querySelector('.grid');
-  var msnry = new Masonry( container );
-});
-```
-
-<h3>classie</h3>
-
-<p><a href="https://github.com/desandro/classie">classie has class helper functions.</a> classie is not included with Masonry.</p>
-
-``` js
-classie.has( element, 'my-class' ) // returns true/false
-classie.add( element, 'my-new-class' ) // add new class
-classie.remove( element, 'my-unwanted-class' ) // remove class
-classie.toggle( element, 'my-class' ) // toggle class
-```
-
-<h3>eventie</h3>
-
-<p><a href="https://github.com/desandro/eventie">Eventie makes event binding in IE8 legit.</a></p>
-
-``` js
-var elem = document.querySelector('#my-elem');
-function onElemClick( event ) {
-  console.log( event.type + ' just happened on #' + event.target.id );
-  // -> click just happened on #my-elem
-}
-// bind it
-eventie.bind( elem, 'click', onElemClick );
-// unbind it
-eventie.unbind( elem, 'click', onElemClick );
-```
 
 {{! ----------------------------------------------------------------- }}
 
@@ -356,6 +317,71 @@ eventie.unbind( elem, 'click', onElemClick );
 
 </div>
 
+{{! --------------------------------------------------- }}
+
+<h2>Web fonts</h2>
+
+<p>Like images, unloaded web fonts can throw off Masonry. To resolve this, trigger <a href="methods.html#layout"><code>layout</code></a> after fonts have been loaded. Both Typekit and Google WebFont Loader provide font events to control scripts based on how fonts are loaded.</p>
+
+<ul>
+  <li><a href="http://blog.typekit.com/2010/10/18/more-control-with-typekits-font-events/">Typekit font events</a></li>
+  <li><a href="https://developers.google.com/webfonts/docs/webfont_loader#Events">Google WebFont Loader: Events</a></li>
+</ul>
+
+<h3>Typekit</h3>
+
+<p>Try the script below when using Masonry on a page with Typekit. This will trigger Masonry when the document is ready and again when fonts have loaded. Be sure to remove Typekit’s default script, <code>try{Typekit.load();}catch(e){}</code>.</p>
+
+``` js
+var msnry;
+
+function triggerMasonry() {
+  // don't proceed if masonry has not been initialized
+  if ( !msnry ) {
+    return;
+  }
+  msnry.layout();
+}
+// initialize masonry on document ready
+docReady( function() {
+  var container = document.querySelector('.grid');
+  msnry = new Masonry( container, {
+    // options...
+  });
+});
+// trigger masonry when fonts have loaded
+Typekit.load({
+  active: triggerMasonry,
+  inactive: triggerMasonry
+});
+```
+
+``` js
+// or with jQuery
+var $grid;
+
+function triggerMasonry() {
+  // don't proceed if $grid has not been selected
+  if ( !$grid ) {
+    return;
+  }
+  // init Masonry
+  $grid.masonry({
+    // options...
+  });
+}
+// trigger masonry on document ready
+$(function(){
+  $grid = $('.grid');
+  triggerMasonry();
+});
+// trigger masonry when fonts have loaded
+Typekit.load({
+  active: triggerMasonry,
+  inactive: triggerMasonry
+});
+```
+
 {{! ----------------------------------------------------------------- }}
 
 <h2>Issues</h2>
@@ -379,16 +405,6 @@ eventie.unbind( elem, 'click', onElemClick );
 <h3>Submitting issues</h3>
 
 <p>Report <a href="https://github.com/desandro/masonry/issues/">issues on GitHub</a>. Make sure to include a <strong>reduced test case</strong>. Without a reduced test case, your issue may be closed.</p>
-
-{{! --------------------------------------------------- }}
-
-<h2>Extra examples</h2>
-
-<ul>
-  <li><a href="http://codepen.io/desandro/pen/kwsJb">Iteratively reveal items after each image is loaded</a>. See <a href="https://github.com/desandro/masonry/issues/501#issuecomment-34583942">explanation on issue #501</a></li>
-  <li><a href="http://codepen.io/desandro/pen/btHyq">Drag and drop in and out of Masonry</a> (sort of)</li>
-</ul>
-
 
 {{! --------------------------------------------------- }}
 
