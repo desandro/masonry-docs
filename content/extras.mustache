@@ -35,7 +35,7 @@ requirejs( [
 requirejs( [ 'require', 'jquery', 'path/to/masonry.pkgd.js' ],
   function( require, $, Masonry ) {
     // require jquery-bridget, it's included in masonry.pkgd.js
-    require( [ 'jquery-bridget/jquery.bridget' ],
+    require( [ 'jquery-bridget/jquery-bridget' ],
     function() {
       // make Masonry a jQuery plugin
       $.bridget( 'masonry', Masonry );
@@ -77,7 +77,7 @@ requirejs.config({
 requirejs( [
     'jquery',
     'masonry/masonry',
-    'jquery-bridget/jquery.bridget'
+    'jquery-bridget/jquery-bridget'
   ],
   function( $, Masonry ) {
     // make Masonry a jQuery plugin
@@ -156,7 +156,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /masonry|fizzy\-ui\-utils|desandro\-|outlayer|get\-size|doc\-ready|eventie|eventemitter/,
+        test: /masonry|fizzy\-ui\-utils|outlayer|get\-size|ev\-emitter|matches\-selector/,
         loader: 'imports?define=>false&this=>window'
       }
     ]
@@ -408,17 +408,30 @@ Typekit.load({
 
 {{! --------------------------------------------------- }}
 
-<h2>Upgrading from v2</h2>
+<h2>Browser support</h2>
+
+<p>Masonry v4 supports IE10+, Android 4+, Safari for iOS 5+, Firefox 16+, and Chrome 12+.</p>
+
+<p>For IE8+ and Android 2.3 support, try <a href="http://masonry.desandro.com/v2">Masonry v3</a>.</p>
+
+{{! --------------------------------------------------- }}
+
+<h2>Upgrading from v3</h2>
+
+<p>Masonry v4 dropped browser support for IE8, IE9, and Android 2.3. All options, methods, and code for Masonry v3 is backwards compatibile with Masonry v4.</p>
 
 <ul>
-  <li>smartresize jQuery plugin has been removed</li>
-  <li><a href="http://desandro.github.io/imagesloaded/">imagesLoaded</a> no longer included, but is still recommended.</li>
-  <li>jQuery animation has been removed. <code>animationOptions</code> has been removed. This means no animation for in IE8 and IE9.</li>
-  <li>Corner stamp is now integrated as <a href="options.html#stamp"><code>stamp</code> option</a> and <a href="methods.html#stamp"><code>stamp</code> method</a></li>
-  <li><code>isRTL</code> option removed, use <a href="options.html#isoriginleft"><code>isOriginLeft: false</code></a> instead</li>
-  <li><code>isResizable</code> option renamed to <a href="options.html#isresizebound"><code>isResizeBound</code></a></li>
-  <li><code>layout</code> method renamed to <a href="methods.html#layoutitems"><code>layoutItems</code></a></li>
-  <li><code>gutterWidth</code> option renamed to <a href="options.html#gutter"><code>gutter</code></a></li>
+  <li><code>isOptionName</code> options renamed to <code>optionName</code>. Old <code>isOptionName</code> options are backwards compatible and will still work in Masonry v4.
+    <ul>
+      <li><a href="options.html#fitwidth"><code>isFitWidth</code> &rarr; <code>fitWidth</code></a></li>
+      <li><a href="options.html#originleft"><code>isOriginLeft</code> &rarr; <code>originLeft</code></a></li>
+      <li><a href="options.html#origintop"><code>isOriginTop</code> &rarr; <code>originTop</code></a></li>
+      <li><a href="options.html#resize"><code>isResizeBound</code> &rarr; <code>resize</code></a></li>
+      <li><a href="options.html#initlayout"><code>isInitLayout</code> &rarr; <code>initLayout</code></a></li>
+    </ul>
+  </li>
+  <li>IE8 helper dependencies removed: eventie, get-style-property, doc-ready</li>
+  <li><code>jquery-bridget/jquery.bridget</code> path renamed to <code>jquery-bridget/jquery-bridget</code></li>
 </ul>
 
 {{! --------------------------------------------------- }}
