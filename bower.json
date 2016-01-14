@@ -1,15 +1,9 @@
 {
   "name": "masonry-docs",
-  "version": "3.3.0",
   "author": "David DeSandro",
   "dependencies": {
-    "classie": "desandro/classie#>=0.0.4",
-    "doc-ready": "desandro/doc-ready#>=0.0.3",
-    "eventie": "desandro/eventie",
-    "imagesloaded": "~3.1.8",
-    "get-style-property": "desandro/get-style-property",
-    "jquery": "~1",
+    "imagesloaded": "~4.0.0",
     "normalize.css": "~3.0.3",
-    "masonry": "latest"
+    "masonry": "~4"
   }
 }

@@ -57,12 +57,8 @@ gulp.task( 'dist', function() {
 
 var jsSrc = [
   // masonry dependencies
-  'bower_components/eventie/eventie.js',
-  'bower_components/doc-ready/doc-ready.js',
-  'bower_components/eventEmitter/EventEmitter.js',
-  'bower_components/get-style-property/get-style-property.js',
+  'bower_components/ev-emitter/ev-emitter.js',
   'bower_components/get-size/get-size.js',
-  'bower_components/jquery-bridget/jquery.bridget.js',
   'bower_components/matches-selector/matches-selector.js',
   'bower_components/fizzy-ui-utils/utils.js',
   'bower_components/outlayer/item.js',
@@ -70,11 +66,10 @@ var jsSrc = [
   // masonry
   'bower_components/masonry/masonry.js',
   // doc dependencies
+  'bower_components/eventEmitter/EventEmitter.js',
   'bower_components/imagesloaded/imagesloaded.js',
-  'bower_components/classie/classie.js',
-  // docs
+  // controller
   'js/controller.js',
-  'js/pages/*.js',
   // modules
   'modules/**/*.js'
 ];
