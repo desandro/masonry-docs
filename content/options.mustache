@@ -60,9 +60,7 @@ var msnry = new Masonry( '.grid', {
       <div class="static-banner">Static banner</div>
       {{> grid-items}}
     </div>
-    {{#codepens.item_selector}}
-      {{> edit-demo}}
-    {{/codepens.item_selector}}
+    {{> edit-demo default="Jdbzvx" }}
   </div>
 </div>
 
@@ -86,9 +84,7 @@ var msnry = new Masonry( '.grid', {
     <div class="grid js-masonry"  data-masonry-options='{ "columnWidth": 80 }'>
       {{> grid-items}}
     </div>
-    {{#codepens.column_width}}
-      {{> edit-demo}}
-    {{/codepens.column_width}}
+    {{> edit-demo default="osFxj" }}
   </div>
 </div>
 
@@ -127,9 +123,7 @@ var msnry = new Masonry( '.grid', {
       <div class="grid-sizer"></div>
       {{> grid-items}}
     </div>
-    {{#codepens.column_width_fluid}}
-      {{> edit-demo}}
-    {{/codepens.column_width_fluid}}
+    {{> edit-demo default="JFpeg" }}
   </div>
 </div>
 
@@ -177,9 +171,7 @@ var msnry = new Masonry( '.grid', {
       <div class="grid-sizer"></div>
       {{> grid-items}}
     </div>
-    {{#codepens.column_width_fluid}}
-      {{> edit-demo}}
-    {{/codepens.column_width_fluid}}
+    {{> edit-demo default="JFpeg" }}
   </div>
 </div>
 
@@ -222,9 +214,7 @@ columnWidth: $grid.find('.grid-sizer')[0]
     <div class="grid grid--gutter js-masonry" data-masonry-options='{ "gutter": 10 }'>
       {{> grid-items}}
     </div>
-    {{#codepens.gutter}}
-      {{> edit-demo}}
-    {{/codepens.gutter}}
+    {{> edit-demo default="iIbgC" }}
   </div>
 </div>
 
@@ -247,9 +237,7 @@ columnWidth: $grid.find('.grid-sizer')[0]
       data-masonry-options='{ "gutter": 10 }'>
       {{> grid-items}}
     </div>
-    {{#codepens.gutter_bottom}}
-      {{> edit-demo}}
-    {{/codepens.gutter_bottom}}
+    {{> edit-demo default="gbnko" }}
   </div>
 </div>
 
@@ -290,9 +278,7 @@ columnWidth: $grid.find('.grid-sizer')[0]
       <div class="grid-sizer"></div>
       {{> grid-items}}
     </div>
-    {{#codepens.gutter_fluid}}
-      {{> edit-demo}}
-    {{/codepens.gutter_fluid}}
+    {{> edit-demo default="BAJKn" }}
   </div>
 </div>
 
@@ -323,9 +309,7 @@ columnWidth: $grid.find('.grid-sizer')[0]
       <div class="grid-sizer"></div>
       {{> grid-items}}
     </div>
-    {{#codepens.column_width_fluid}}
-      {{> edit-demo}}
-    {{/codepens.column_width_fluid}}
+    {{> edit-demo default="JFpeg" }}
   </div>
 </div>
 
@@ -383,9 +367,7 @@ columnWidth: $grid.find('.grid-sizer')[0]
       <div class="stamp stamp--static-stamp2"></div>
       {{> grid-items}}
     </div>
-    {{#codepens.stamp_option}}
-      {{> edit-demo}}
-    {{/codepens.stamp_option}}
+    {{> edit-demo default="hsine" }}
   </div>
 </div>
 
@@ -427,9 +409,7 @@ columnWidth: $grid.find('.grid-sizer')[0]
       <div class="grid-item grid-item--width2 grid-item--height2"></div>
       <div class="grid-item grid-item--width2 grid-item--height3"></div>
     </div>
-    {{#codepens.centered}}
-      {{> edit-demo}}
-    {{/codepens.centered}}
+    {{> edit-demo "default="nGLvx" }}
   </div>
 </div>
 
@@ -452,9 +432,7 @@ columnWidth: $grid.find('.grid-sizer')[0]
       data-masonry-options='{ "originLeft": false, "columnWidth": 80 }'>
       {{> grid-items}}
     </div>
-    {{#codepens.is_origin_left}}
-      {{> edit-demo}}
-    {{/codepens.is_origin_left}}
+    {{> edit-demo default="adwgL" }}
   </div>
 </div>
 
@@ -477,9 +455,7 @@ columnWidth: $grid.find('.grid-sizer')[0]
       data-masonry-options='{ "originTop": false, "columnWidth": 80 }'>
       {{> grid-items}}
     </div>
-    {{#codepens.is_origin_top}}
-      {{> edit-demo}}
-    {{/codepens.is_origin_top}}
+    {{> edit-demo default="uwtLs" }}
   </div>
 </div>
 
@@ -553,9 +529,7 @@ transitionDuration: 0
       <div class="grid-item grid-item--width2 grid-item--height3"></div>
       <div class="grid-item grid-item--height2"></div>
     </div>
-    {{#codepens.is_resize_bound}}
-      {{> edit-demo}}
-    {{/codepens.is_resize_bound}}
+    {{> edit-demo default="doOLoo" }}
   </div>
 </div>
 
@@ -580,12 +554,10 @@ var $grid = $('.grid').masonry({
 $grid.masonry( 'on', 'layoutComplete', function() {
   console.log('layout is complete');
 });
-// manually trigger initial layout
+// trigger initial layout
 $grid.masonry();
 ```
 
-{{#codepens.is_init_layout}}
-  {{> edit-demo}}
-{{/codepens.is_init_layout}}
+{{> edit-demo default="zrdVbg" vanillaJS="QyMXPB"}}
 
 {{! ----------------------------------------------------------- }}
