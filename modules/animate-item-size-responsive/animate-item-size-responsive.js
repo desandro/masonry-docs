@@ -1,11 +1,11 @@
 MD.modules['animate-item-size-responsive'] = function( elem ) {
   'use strict';
 
-  var transitionProp = getStyleProperty('transition');
+  var docElem = document.documentElement;
+  var transitionProp = typeof docElem.style.transition == 'string' ?
+    'transition' : 'WebkitTransition';
   var transitionEndEvent = {
     WebkitTransition: 'webkitTransitionEnd',
-    MozTransition: 'transitionend',
-    OTransition: 'otransitionend',
     transition: 'transitionend'
   }[ transitionProp ];
 
@@ -25,7 +25,7 @@ MD.modules['animate-item-size-responsive'] = function( elem ) {
     setItemContentPixelSize( itemContent );
 
     var itemElem = itemContent.parentNode;
-    classie.toggleClass( itemElem, 'is-expanded' );
+    itemElem.classList.toggle('is-expanded');
 
     // force redraw
     var redraw = itemContent.offsetWidth;
@@ -48,9 +48,6 @@ MD.modules['animate-item-size-responsive'] = function( elem ) {
   }
 
   function addTransitionListener( itemContent ) {
-    if ( !transitionProp ) {
-      return;
-    }
     // reset 100%/100% sizing after transition end
     var onTransitionEnd = function() {
       itemContent.style.width = '';

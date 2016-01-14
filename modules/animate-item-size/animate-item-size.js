@@ -8,7 +8,7 @@ MD.modules['animate-item-size'] = function( elem ) {
   });
 
   filterBindEvent( grid, 'click', '.animate-item-size-item__content', function( event ) {
-    classie.toggleClass( event.target.parentNode, 'is-expanded' );
+    event.target.parentNode.classList.toggle('is-expanded');
     msnry.layout();
   });
 

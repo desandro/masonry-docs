@@ -2,14 +2,14 @@ MD.modules['appended-demo'] = function( elem ) {
   'use strict';
 
   var grid = elem.querySelector('.grid');
-  
+
   var msnry = new Masonry( grid, {
     columnWidth: 80
   });
 
   var appendButton = elem.querySelector('.append-button');
-  
-  eventie.bind( appendButton, 'click', function() {
+
+  appendButton.addEventListener( 'click', function() {
     // create new item elements
     var items = [
       MD.getItemElement(),

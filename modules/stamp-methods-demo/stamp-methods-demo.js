@@ -13,7 +13,7 @@ MD.modules['stamp-methods-demo'] = function( elem ) {
 
   var stampButton = elem.querySelector('.stamp-button');
 
-  eventie.bind( stampButton, 'click', function() {
+  stampButton.addEventListener( 'click', function() {
     // stamp or unstamp element
     if ( isStamped ) {
       msnry.unstamp( stampElem );

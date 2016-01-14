@@ -13,7 +13,7 @@ MD.modules['destroy-demo'] = function( elem ) {
 
   var toggleButton = elem.querySelector('.toggle-button');
 
-  eventie.bind( toggleButton, 'click', function() {
+  toggleButton.addEventListener( 'click', function() {
     if ( isActive ) {
       msnry.destroy();
     } else {

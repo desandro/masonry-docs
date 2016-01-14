@@ -14,7 +14,7 @@ MD.modules['layout-complete-demo'] = function( elem ) {
 
   filterBindEvent( grid, 'click', '.grid-item', function( event ) {
     // change size of item via class
-    classie.toggle( event.target, 'grid-item--gigante' );
+    event.target.classList.toggle('grid-item--gigante');
     msnry.layout();
   });
 

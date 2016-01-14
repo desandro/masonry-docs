@@ -9,7 +9,7 @@ MD.modules['prepended-demo'] = function( elem ) {
 
   var prependButton = elem.querySelector('.prepend-button');
   
-  eventie.bind( prependButton, 'click', function() {
+  prependButton.addEventListener( 'click', function() {
     // create new item elements
     var items = [
       MD.getItemElement(),
