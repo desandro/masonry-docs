@@ -391,18 +391,20 @@ columnWidth: $grid.find('.grid-sizer')[0]
 
 {{! ----------------------------------------------------------- }}
 
-<h3>isFitWidth</h3>
+<h3>fitWidth</h3>
 
 <p>Sets the width of the container to fit the available number of columns, based the size of container's parent element. When enabled, you can center the container with CSS.</p>
 
+<p><code>fitWidth</code> was previously <code>isFitWidth</code> in Masonry v3. <code>isFitWidth</code> will still work in Masonry v4.</p>
+
 <div class="call-out">
-  <p><code>isFitWidth: <span class="literal">true</span></code> does not work with <a href="#element-sizing">element sizing</a> with percentage width. Either <code>columnWidth</code> needs to be set to a fixed size, like <code>columnWidth: 120</code>, or items need to have a fixed size in pixels, like <code>width: 120px</code>. Otherwise, the container and item widths will collapse on one another.</p>
+  <p><code>fitWidth: <span class="literal">true</span></code> does not work with <a href="#element-sizing">element sizing</a> with percentage width. Either <code>columnWidth</code> needs to be set to a fixed size, like <code>columnWidth: 120</code>, or items need to have a fixed size in pixels, like <code>width: 120px</code>. Otherwise, the container and item widths will collapse on one another.</p>
 </div>
 
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    isFitWidth: true
+    fitWidth: true
     ```
 
     ``` css
@@ -414,7 +416,7 @@ columnWidth: $grid.find('.grid-sizer')[0]
   </div>
   <div class="duo__cell example__demo example__demo--fit-width">
     <div class="grid grid--centered js-masonry"
-      data-masonry-options='{ "isFitWidth": true }'>
+      data-masonry-options='{ "fitWidth": true }'>
       <div class="grid-item grid-item--width2"></div>
       <div class="grid-item grid-item--width2 grid-item--height2"></div>
       <div class="grid-item grid-item--width2 grid-item--height3"></div>
@@ -433,19 +435,21 @@ columnWidth: $grid.find('.grid-sizer')[0]
 
 {{! ----------------------------------------------------------- }}
 
-<h3>isOriginLeft</h3>
+<h3>originLeft</h3>
 
-<p>Controls the horizontal flow of the layout. By default, item elements start positioning at the left, with <code><span class="comment">isOriginLeft: true</span></code>. Set <code>isOriginLeft: <span class="literal">false</span></code> for right-to-left layouts.</p>
+<p>Controls the horizontal flow of the layout. By default, item elements start positioning at the left, with <code><span class="comment">originLeft: true</span></code>. Set <code>originLeft: <span class="literal">false</span></code> for right-to-left layouts.</p>
+
+<p><code>originLeft</code> was previously <code>isOriginLeft</code> in Masonry v3. <code>isOriginLeft</code> will still work in Masonry v4.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    isOriginLeft: false
+    originLeft: false
     ```
   </div>
   <div class="duo__cell example__demo">
     <div class="grid grid--counting js-masonry"
-      data-masonry-options='{ "isOriginLeft": false, "columnWidth": 80 }'>
+      data-masonry-options='{ "originLeft": false, "columnWidth": 80 }'>
       {{> grid-items}}
     </div>
     {{#codepens.is_origin_left}}
@@ -456,19 +460,21 @@ columnWidth: $grid.find('.grid-sizer')[0]
 
 {{! ----------------------------------------------------------- }}
 
-<h3>isOriginTop</h3>
+<h3>originTop</h3>
 
-<p>Controls the vertical flow of the layout. By default, item elements start positioning at the top, with <code><span class="comment">isOriginTop: true</span></code>. Set <code>isOriginTop: <span class="literal">false</span></code> for bottom-up layouts. It&rsquo;s like Tetris!</p>
+<p>Controls the vertical flow of the layout. By default, item elements start positioning at the top, with <code><span class="comment">originTop: true</span></code>. Set <code>originTop: <span class="literal">false</span></code> for bottom-up layouts. It&rsquo;s like Tetris!</p>
+
+<p><code>originTop</code> was previously <code>isOriginTop</code> in Masonry v3. <code>isOriginTop</code> will still work in Masonry v4.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    isOriginTop: false
+    originTop: false
     ```
   </div>
   <div class="duo__cell example__demo">
     <div class="grid grid--counting js-masonry"
-      data-masonry-options='{ "isOriginTop": false, "columnWidth": 80 }'>
+      data-masonry-options='{ "originTop": false, "columnWidth": 80 }'>
       {{> grid-items}}
     </div>
     {{#codepens.is_origin_top}}
@@ -515,17 +521,19 @@ transitionDuration: 0
 
 {{! ----------------------------------------------------------- }}
 
-<h3>isResizeBound</h3>
+<h3>resize</h3>
 
-<p>Adjusts sizes and positions when window is resized. Enabled by default <code><span class="comment">isResizeBound: true</span></code>.</p>
+<p>Adjusts sizes and positions when window is resized. Enabled by default <code><span class="comment">resize: true</span></code>.</p>
+
+<p><code>resize</code> was previously <code>isResizeBound</code> in Masonry v3. <code>isResizeBound</code> will still work in Masonry v4.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    // disable resize logic
-    isResizeBound: false
+    // disable window resize behavior
+    resize: false
     ```
-    
+
     ``` css
     /* grid has fixed width */
     .grid {
@@ -535,7 +543,7 @@ transitionDuration: 0
   </div>
   <div class="duo__cell example__demo">
     <div class="grid grid--fixed-width js-masonry"
-      data-masonry-options='{ "columnWidth": 80 }'>
+      data-masonry-options='{ "columnWidth": 80, "resize": false }'>
       <div class="grid-item"></div>
       <div class="grid-item grid-item--width2"></div>
       <div class="grid-item grid-item--height3"></div>
@@ -553,17 +561,19 @@ transitionDuration: 0
 
 {{! ----------------------------------------------------------- }}
 
-<h3>isInitLayout</h3>
+<h3>initLayout</h3>
 
 <p>Enables layout on initialization.
-  Enabled by default <code><span class="comment">isInitLayout: true</span></code>.</p>
+  Enabled by default <code><span class="comment">initLayout: true</span></code>.</p>
 
-<p>Set <code>isInitLayout: <span class="literal">false</span></code> to disable layout on initialization, so you can use <a href="methods.html">methods</a> or add <a href="events.html">events</a> before the initial layout.</p>
+<p>Set <code>initLayout: <span class="literal">false</span></code> to disable layout on initialization, so you can use <a href="methods.html">methods</a> or add <a href="events.html">events</a> before the initial layout.</p>
+
+<p><code>initLayout</code> was previously <code>isInitLayout</code> in Masonry v3. <code>isInitLayout</code> will still work in Masonry v4.</p>
 
 ``` js
 var $grid = $('.grid').masonry({
   // disable initial layout
-  isInitLayout: false,
+  initLayout: false,
   //...
 });
 // bind event
