@@ -59,7 +59,7 @@
 .page--options .site-nav__item--options a,
 .page--methods .site-nav__item--methods a,
 .page--events .site-nav__item--events a,
-.page--appendix .site-nav__item--appendix a,
+.page--extras .site-nav__item--extras a,
 .page--faq .site-nav__item--faq a {
   color: white;
 }
