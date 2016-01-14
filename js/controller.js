@@ -31,7 +31,7 @@ window.filterBindEvent = function( elem, eventName, selector, listener ) {
 
 // init
 
-var notifElem
+var notifElem;
 
 // get some elements
 document.addEventListener( 'DOMContentLoaded', function() {
