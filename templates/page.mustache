@@ -45,11 +45,6 @@
 
   {{> site-footer}}
 
-<!-- Masonry does NOT require jQuery.
-     jQuery is only used to demonstrate Masonry as a jQuery plugin -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="bower_components/jquery/dist/jquery.min.js"><\/script>')</script>
-
 {{#if is_dev}}
   {{#each js_paths}}
     {{! DEV MODE - including each .js file }}
