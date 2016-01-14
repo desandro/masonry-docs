@@ -126,10 +126,12 @@ var dataSrc = 'data/*.json';
 
 var siteData = {
   // get masonry version from its bower.json
-  masonry_version: JSON.parse( fs.readFileSync('bower_components/masonry/bower.json') ).version,
+  masonry_version: JSON.parse( fs.readFileSync('bower_components/masonry/.bower.json') ).version,
   css_paths: getGlobPaths( cssSrc ),
   js_paths: getGlobPaths( jsSrc )
 };
+
+siteData.masonry_minor_version = siteData.masonry_version.match(/^\d+\.\d+/)[0];
 
 gulp.task( 'data', function() {
   var addJsonData = through2.obj( function( file, enc, callback ) {
@@ -199,7 +201,7 @@ function buildContent( dataOptions ) {
   return function() {
     var data = extend( siteData, dataOptions );
     data.source_url_path = data.is_export ? '' :
-      'http://cdnjs.cloudflare.com/ajax/libs/masonry/' + data.masonry_version + '/';
+      'https://npmcdn.com/masonry-layout@' + data.masonry_version + '/dist/';
     // data.source_url_path = '';
     var filter = gulpFilter( filterQuery );
 
