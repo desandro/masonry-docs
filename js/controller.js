@@ -31,26 +31,26 @@ window.filterBindEvent = function( elem, eventName, selector, listener ) {
 
 // init
 
+var notifElem
+
 // get some elements
-var notifElem = document.querySelector('#notification');
+document.addEventListener( 'DOMContentLoaded', function() {
 
-// get name of page
-var pageAttr = document.body.getAttribute('data-page');
-// trigger controller if there
-if ( pageAttr && typeof MD[ pageAttr ] === 'function' ) {
-  MD[ pageAttr ]();
-}
+  notifElem = document.querySelector('#notification');
 
-// init module instance for all elements with data-module attributes
-var moduleElems = document.querySelectorAll('[data-js-module]');
-for ( var i=0; i < moduleElems.length; i++ ) {
-  var elem = moduleElems[i];
-  var moduleName = elem.getAttribute('data-js-module');
-  var module = MD.modules[ moduleName ];
-  if ( module ) {
-    module( elem );
+  // init module instance for all elements with data-module attributes
+  var moduleElems = document.querySelectorAll('[data-js-module]');
+  for ( var i=0; i < moduleElems.length; i++ ) {
+    var elem = moduleElems[i];
+    var moduleName = elem.getAttribute('data-js-module');
+    var module = MD.modules[ moduleName ];
+    if ( module ) {
+      module( elem );
+    }
   }
-}
+
+});
+
 // -------------------------- helpers -------------------------- //
 
 MD.getItemElement = function() {
