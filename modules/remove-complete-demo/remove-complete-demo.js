@@ -12,7 +12,7 @@ MD.modules['remove-complete-demo'] = function( elem ) {
     MD.notify( 'Removed ' + removedItems.length + ' items' );
   });
 
-  eventie.filterBind( grid, 'click', '.grid-item', function( event ) {
+  filterBindEvent( grid, 'click', '.grid-item', function( event ) {
     // remove clicked element
     msnry.remove( event.target );
     // layout remaining item elements

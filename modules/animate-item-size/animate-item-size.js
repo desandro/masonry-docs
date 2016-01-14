@@ -7,7 +7,7 @@ MD.modules['animate-item-size'] = function( elem ) {
     columnWidth: 60
   });
 
-  eventie.filterBind( grid, 'click', '.animate-item-size-item__content', function( event ) {
+  filterBindEvent( grid, 'click', '.animate-item-size-item__content', function( event ) {
     classie.toggleClass( event.target.parentNode, 'is-expanded' );
     msnry.layout();
   });

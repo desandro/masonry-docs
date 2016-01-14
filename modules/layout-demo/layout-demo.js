@@ -7,7 +7,7 @@ MD.modules['layout-demo'] = function( elem ) {
     columnWidth: 80
   });
 
-  eventie.filterBind( grid, 'click', '.grid-item', function( event ) {
+  filterBindEvent( grid, 'click', '.grid-item', function( event ) {
     classie.toggle( event.target, 'grid-item--gigante' );
     msnry.layout();
   });

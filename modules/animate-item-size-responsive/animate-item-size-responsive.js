@@ -19,7 +19,7 @@ MD.modules['animate-item-size-responsive'] = function( elem ) {
     percentPosition: true
   });
 
-  eventie.filterBind( grid, 'click', '.animate-item-size-item__content', function() {
+  filterBindEvent( grid, 'click', '.animate-item-size-item__content', function() {
     /*jshint unused: false */
     var itemContent = this;
     setItemContentPixelSize( itemContent );

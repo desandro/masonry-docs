@@ -7,7 +7,7 @@ MD.modules['remove-demo'] = function( elem ) {
     columnWidth: 80
   });
 
-  eventie.filterBind( grid, 'click', '.grid-item', function( event ) {
+  filterBindEvent( grid, 'click', '.grid-item', function( event ) {
     // remove clicked element
     msnry.remove( event.target );
     // layout remaining item elements
