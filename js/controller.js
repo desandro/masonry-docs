@@ -2,6 +2,9 @@
  * Masonry Docs site scripts
  */
 
+/* jshint browser: true, strict: true, unused: true, undef: true */
+/* globals matchesSelector */
+
 ( function( window ) {
 
 'use strict';
@@ -12,14 +15,12 @@ var MD = window.MD = {};
 MD.pages = {};
 // hash of modules
 MD.modules = {};
-var notifElem;
 
-// -------------------------- eventie.matchesAdd -------------------------- //
+// -------------------------- filterBindEvent -------------------------- //
 
-// extend eventie
 // adds event listener and filters for selector
-eventie.filterBind = function( elem, eventName, selector, listener ) {
-  return eventie.bind( elem, eventName, function( event ) {
+window.filterBindEvent = function( elem, eventName, selector, listener ) {
+  elem.addEventListener( eventName, function( event ) {
     if ( matchesSelector( event.target, selector ) ) {
       listener.call( event.target, event );
     }
@@ -28,34 +29,28 @@ eventie.filterBind = function( elem, eventName, selector, listener ) {
 
 // -------------------------- page controller -------------------------- //
 
-docReady( function() {
-  // get some elements
-  notifElem = document.querySelector('#notification');
+// init
 
-  // get name of page
-  var pageAttr = document.body.getAttribute('data-page');
-  // trigger controller if there
-  if ( pageAttr && typeof MD[ pageAttr ] === 'function' ) {
-    MD[ pageAttr ]();
-  }
+// get some elements
+var notifElem = document.querySelector('#notification');
 
-  initModules();
-
-});
-
-function initModules() {
-  // init module instance for all elements with data-module attributes
-  var moduleElems = document.querySelectorAll('[data-js-module]');
-  for ( var i=0, len = moduleElems.length; i < len; i++ ) {
-    var elem = moduleElems[i];
-    var moduleName = elem.getAttribute('data-js-module');
-    var module = MD.modules[ moduleName ];
-    if ( module ) {
-      module( elem );
-    }
-  }
+// get name of page
+var pageAttr = document.body.getAttribute('data-page');
+// trigger controller if there
+if ( pageAttr && typeof MD[ pageAttr ] === 'function' ) {
+  MD[ pageAttr ]();
 }
 
+// init module instance for all elements with data-module attributes
+var moduleElems = document.querySelectorAll('[data-js-module]');
+for ( var i=0; i < moduleElems.length; i++ ) {
+  var elem = moduleElems[i];
+  var moduleName = elem.getAttribute('data-js-module');
+  var module = MD.modules[ moduleName ];
+  if ( module ) {
+    module( elem );
+  }
+}
 // -------------------------- helpers -------------------------- //
 
 MD.getItemElement = function() {
@@ -85,40 +80,26 @@ MD.getSomeItemElements = function() {
     fragment.appendChild( item );
     items.push( item );
   }
-  // ex7.appendChild( fragment );
-  // return
 };
-
-// ----- text helper ----- //
-
-var docElem = document.documentElement;
-var textSetter = docElem.textContent !== undefined ? 'textContent' : 'innerText';
-
-function setText( elem, value ) {
-  elem[ textSetter ] = value;
-}
 
 // -------------------------- notify -------------------------- //
 
-var transitionProp = getStyleProperty('transition');
+var docElem = document.documentElement;
+var transitionProp = typeof docElem.style.transition == 'string' ?
+  'transition' : 'WebkitTransition';
 
 var notifyTimeout;
 var hideTime = transitionProp ? 1000 : 1500;
 
 MD.notify = function( message ) {
-  setText( notifElem, message + ' at ' + getTimestamp() );
+  notifElem.textContent = message + ' at ' + getTimestamp();
 
-  if ( transitionProp ) {
-    notifElem.style[ transitionProp ] = 'none';
-  }
+  notifElem.style[ transitionProp ] = 'none';
   notifElem.style.display = 'block';
   notifElem.style.opacity = '1';
 
   // hide the notification after a second
-  if ( notifyTimeout ) {
-    clearTimeout( notifyTimeout );
-  }
-
+  clearTimeout( notifyTimeout );
   notifyTimeout = setTimeout( MD.hideNotify, hideTime );
 };
 
