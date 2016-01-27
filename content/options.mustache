@@ -22,8 +22,7 @@ var msnry = new Masonry( '.grid', {
 
 ``` html
 <!-- in HTML -->
-<div class="grid js-masonry"
-  data-masonry-options='{ "columnWidth": 200, "itemSelector": ".grid-item" }'>
+<div class="grid" data-masonry='{ "columnWidth": 200, "itemSelector": ".grid-item" }'>
 ```
 
 {{! ----------------------------------------------------------- }}
@@ -55,8 +54,8 @@ var msnry = new Masonry( '.grid', {
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--has-banner js-masonry"
-      data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": 80 }'>
+    <div class="grid grid--has-banner"
+      data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 80 }'>
       <div class="static-banner">Static banner</div>
       {{> grid-items}}
     </div>
@@ -81,7 +80,7 @@ var msnry = new Masonry( '.grid', {
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid js-masonry"  data-masonry-options='{ "columnWidth": 80 }'>
+    <div class="grid"  data-masonry='{ "columnWidth": 80 }'>
       {{> grid-items}}
     </div>
     {{> edit-demo default="osFxj" }}
@@ -118,8 +117,8 @@ var msnry = new Masonry( '.grid', {
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--fluid-5-col js-masonry"
-      data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": ".grid-sizer",  "percentPosition": true }'>
+    <div class="grid grid--fluid-5-col"
+      data-masonry='{ "itemSelector": ".grid-item", "columnWidth": ".grid-sizer",  "percentPosition": true }'>
       <div class="grid-sizer"></div>
       {{> grid-items}}
     </div>
@@ -166,8 +165,8 @@ var msnry = new Masonry( '.grid', {
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--fluid-5-col js-masonry"
-      data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": ".grid-sizer",  "percentPosition": true }'>
+    <div class="grid grid--fluid-5-col"
+      data-masonry='{ "itemSelector": ".grid-item", "columnWidth": ".grid-sizer",  "percentPosition": true }'>
       <div class="grid-sizer"></div>
       {{> grid-items}}
     </div>
@@ -211,7 +210,7 @@ columnWidth: $grid.find('.grid-sizer')[0]
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--gutter js-masonry" data-masonry-options='{ "gutter": 10 }'>
+    <div class="grid grid--gutter" data-masonry='{ "gutter": 10 }'>
       {{> grid-items}}
     </div>
     {{> edit-demo default="iIbgC" }}
@@ -233,8 +232,8 @@ columnWidth: $grid.find('.grid-sizer')[0]
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--gutter grid--gutter-bottom js-masonry"
-      data-masonry-options='{ "gutter": 10 }'>
+    <div class="grid grid--gutter grid--gutter-bottom"
+      data-masonry='{ "gutter": 10 }'>
       {{> grid-items}}
     </div>
     {{> edit-demo default="gbnko" }}
@@ -272,8 +271,8 @@ columnWidth: $grid.find('.grid-sizer')[0]
     ```
   </div>
   <div class="duo__cell example__demo" >
-    <div class="grid grid--fluid-gutter js-masonry"
-      data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": ".grid-sizer", "gutter": ".gutter-sizer", "percentPosition": true }'>
+    <div class="grid grid--fluid-gutter"
+      data-masonry='{ "itemSelector": ".grid-item", "columnWidth": ".grid-sizer", "gutter": ".gutter-sizer", "percentPosition": true }'>
       <div class="gutter-sizer"></div>
       <div class="grid-sizer"></div>
       {{> grid-items}}
@@ -304,8 +303,8 @@ columnWidth: $grid.find('.grid-sizer')[0]
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--fluid-5-col js-masonry"
-      data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": ".grid-sizer",  "percentPosition": true }'>
+    <div class="grid grid--fluid-5-col"
+      data-masonry='{ "itemSelector": ".grid-item", "columnWidth": ".grid-sizer",  "percentPosition": true }'>
       <div class="grid-sizer"></div>
       {{> grid-items}}
     </div>
@@ -362,7 +361,7 @@ columnWidth: $grid.find('.grid-sizer')[0]
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--has-stamp js-masonry" data-masonry-options='{ "itemSelector": ".grid-item", "stamp": ".stamp" }'>
+    <div class="grid grid--has-stamp" data-masonry='{ "itemSelector": ".grid-item", "stamp": ".stamp" }'>
       <div class="stamp stamp--static-stamp1"></div>
       <div class="stamp stamp--static-stamp2"></div>
       {{> grid-items}}
@@ -397,8 +396,8 @@ columnWidth: $grid.find('.grid-sizer')[0]
     ```
   </div>
   <div class="duo__cell example__demo example__demo--fit-width">
-    <div class="grid grid--centered js-masonry"
-      data-masonry-options='{ "fitWidth": true }'>
+    <div class="grid grid--centered"
+      data-masonry='{ "fitWidth": true }'>
       <div class="grid-item grid-item--width2"></div>
       <div class="grid-item grid-item--width2 grid-item--height2"></div>
       <div class="grid-item grid-item--width2 grid-item--height3"></div>
@@ -428,8 +427,8 @@ columnWidth: $grid.find('.grid-sizer')[0]
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--counting js-masonry"
-      data-masonry-options='{ "originLeft": false, "columnWidth": 80 }'>
+    <div class="grid grid--counting"
+      data-masonry='{ "originLeft": false, "columnWidth": 80 }'>
       {{> grid-items}}
     </div>
     {{> edit-demo default="adwgL" }}
@@ -451,8 +450,8 @@ columnWidth: $grid.find('.grid-sizer')[0]
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--counting js-masonry"
-      data-masonry-options='{ "originTop": false, "columnWidth": 80 }'>
+    <div class="grid grid--counting"
+      data-masonry='{ "originTop": false, "columnWidth": 80 }'>
       {{> grid-items}}
     </div>
     {{> edit-demo default="uwtLs" }}
@@ -518,8 +517,8 @@ transitionDuration: 0
     ```
   </div>
   <div class="duo__cell example__demo">
-    <div class="grid grid--fixed-width js-masonry"
-      data-masonry-options='{ "columnWidth": 80, "resize": false }'>
+    <div class="grid grid--fixed-width"
+      data-masonry='{ "columnWidth": 80, "resize": false }'>
       <div class="grid-item"></div>
       <div class="grid-item grid-item--width2"></div>
       <div class="grid-item grid-item--height3"></div>
