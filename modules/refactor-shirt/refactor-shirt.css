@@ -1,0 +1,17 @@
+/* refactor-shirt
+------------------------- */
+
+.refactor-shirt {
+  margin: 40px 0;
+}
+
+.refactor-shirt__title {
+  font-size: 1.6rem;
+}
+
+.refactor-shirt__image {
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 10px;
+}
