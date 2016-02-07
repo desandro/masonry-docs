@@ -17,7 +17,7 @@ title: Extras
 
 <p>Masonry supports <a href="http://requirejs.org">RequireJS</a>.</p>
 
-<p>You can require <a href="masonry.pkgd.js">masonry.pkgd.js</a>.</p>
+<p>You can require <a href="{{source_url_path}}masonry.pkgd.js">masonry.pkgd.js</a>.</p>
 
 ``` js
 requirejs( [
@@ -36,9 +36,9 @@ requirejs( [ 'require', 'jquery', 'path/to/masonry.pkgd.js' ],
   function( require, $, Masonry ) {
     // require jquery-bridget, it's included in masonry.pkgd.js
     require( [ 'jquery-bridget/jquery-bridget' ],
-    function() {
+    function( jQueryBridget ) {
       // make Masonry a jQuery plugin
-      $.bridget( 'masonry', Masonry );
+      jQueryBridget( 'masonry', Masonry, $ );
       // now you can use $().masonry()
       $('.grid').masonry({...});
     }
@@ -79,9 +79,9 @@ requirejs( [
     'masonry/masonry',
     'jquery-bridget/jquery-bridget'
   ],
-  function( $, Masonry ) {
+  function( $, Masonry, jQueryBridget ) {
     // make Masonry a jQuery plugin
-    $.bridget( 'masonry', Masonry );
+    jQueryBridget( 'masonry', Masonry, $ );
     // now you can use $().masonry()
     $('.grid').masonry({...});
 });
@@ -114,10 +114,10 @@ npm install jquery-bridget
 
 ``` js
 var $ = require('jquery');
-var jQBridget = require('jquery-bridget');
+var jQueryBridget = require('jquery-bridget');
 var Masonry = require('masonry-layout');
 // make Masonry a jQuery plugin
-$.bridget( 'masonry', Masonry, $ );
+jQueryBridget( 'masonry', Masonry, $ );
 // now you can use $().masonry()
 $('.grid').masonry({
   columnWidth: 80
@@ -160,10 +160,10 @@ npm install jquery-bridget
 
 ``` js
 var $ = require('jquery');
-var jQBridget = require('jquery-bridget');
+var jQueryBridget = require('jquery-bridget');
 var Masonry = require('masonry-layout');
 // make Masonry a jQuery plugin
-$.bridget( 'masonry', Masonry, $ );
+jQueryBridget( 'masonry', Masonry, $ );
 // now you can use $().masonry()
 $('.grid').masonry({
   columnWidth: 80

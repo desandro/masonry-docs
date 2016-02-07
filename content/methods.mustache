@@ -116,8 +116,6 @@ msnry.stamp( elements )
 
 <p>Set <a href="options.html#itemselector"><code>itemSelector</code></a> so that stamps do not get used as layout items.</p>
 
-<p>Stamp the elements in the layout. Masonry will lay out item elements <em>around</em> stamped elements.</p>
-
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
@@ -150,14 +148,14 @@ msnry.stamp( elements )
 
 <h3>unstamp</h3>
 
+<p>Un-stamps elements in the layout, so that Masonry will no longer layout item elements around them. <a href="#stamp">See demo above</a>.</p>
+
 ``` js
 // jQuery
 $grid.masonry( 'unstamp', elements )
 // vanilla JS
 msnry.unstamp( elements )
 ```
-
-<p>Un-stamps elements in the layout, so that Masonry will no longer layout item elements around them. <a href="#stamp">See demo above</a>.</p>
 
 <p class="variable">
   <code class="variable__code">elements</code>
@@ -177,14 +175,14 @@ msnry.unstamp( elements )
 
 <h3>appended</h3>
 
+<p>Adds and lays out newly appended item elements to the end of the layout.</p>
+
 ``` js
 // jQuery
 $grid.masonry( 'appended', elements )
 // vanilla JS
 msnry.appended( elements )
 ```
-
-<p>Adds and lays out newly appended item elements to the end of the layout.</p>
 
 <p class="variable">
   <code class="variable__code">elements</code>
@@ -255,14 +253,14 @@ $grid.masonry( 'prepended', elements )
 
 <h3>addItems</h3>
 
+<p>Adds item elements to the Masonry instance. <code>addItems</code> does not lay out items like <a href="#appended"><code>appended</code></a> or <a href="#prepended"><code>prepended</code></a>.</p>
+
 ``` js
 // jQuery
 $grid.masonry( 'addItems', elements )
 // vanilla JS
 msnry.addItems( elements )
 ```
-
-<p>Adds item elements to the Masonry instance. <code>addItems</code> does not lay out items like <a href="#appended"><code>appended</code></a>, <a href="#prepended"><code>prepended</code></a>, or <a href="#insert"><code>insert</code></a>.</p>
 
 <p class="variable">
   <code class="variable__code">elements</code>
@@ -388,8 +386,8 @@ msnry.once( eventName, listener )
 </p>
 
 ``` js
-$grid.masonry( 'once', 'arrangeComplete', function() {
-  console.log('arrange is complete, just once')
+$grid.masonry( 'once', 'layoutComplete', function() {
+  console.log('layout is complete, just once');
 })
 ```
 
@@ -477,7 +475,7 @@ var elems = msnry.getItemElements()
 ``` js
 var msnry = $('.grid').data('masonry')
 // access Masonry properties
-console.log( msnry.filteredItems.length + ' filtered items'  )
+console.log( msnry.items.length + ' filtered items'  )
 ```
 
 {{! --------------------------------------------------- }}
