@@ -50,6 +50,11 @@
   padding: 10px;
 }
 
+.hero-grid__item--width2,
+.hero-grid__item--width3 {
+  width: 96%;
+}
+
 /* ---- ---- */
 
 .hero-grid__big-button {
