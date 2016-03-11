@@ -210,6 +210,24 @@ msnry.appended( elements )
   {{> appended-demo}}
 </div>
 
+<p>While jQuery can add an HTML string with <code>.append()</code>, Masonry's <code>appended</code> cannot. When adding content with jQuery ajax methods like <a href="http://api.jquery.com/jquery.get/"><code>$.get()</code></a> or <a href="http://api.jquery.com/jquery.ajax/"><code>$.ajax()</code></a>, wrap HTML content string in a jQuery object to use it with <code>appended</code>.</p>
+
+``` js
+// does not work
+$.get( 'page2', function( content ) {
+  // HTML string added, but items not added to Masonry
+  $grid.append( content ).masonry( 'appended', content );
+});
+
+// does work
+$.get( 'page2', function( content ) {
+  // wrap content in jQuery object
+  var $content = $( content );
+  // add jQuery object
+  $grid.append( $content ).masonry( 'appended', $content );
+});
+```
+
 {{! --------------------------------------------------- }}
 
 <h3>prepended</h3>
