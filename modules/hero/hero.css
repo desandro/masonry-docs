@@ -73,6 +73,15 @@
   color: white;
 }
 
+.big-button__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.big-button__icon path {
+  fill: white;
+}
+
 /* ----  ---- */
 
 .hero__what-is-title {
@@ -147,12 +156,13 @@
     min-height: 60px;
   }
 
-  .hero-grid__big-button .icon {
+  .big-button__icon {
     display: block;
     position: absolute;
     left: 10px;
     top: 10px;
-    font-size: 2.0rem;
+    width: 40px;
+    height: 40px;
   }
 
 }
