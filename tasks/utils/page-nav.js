@@ -1,8 +1,8 @@
 var cheerio = require('cheerio');
-var through2 = require('through2');
+var getTransform = require('./get-transform');
 
 module.exports = function pageNav() {
-  return through2.obj( function( file, enc, callback ) {
+  return getTransform( function( file, enc, next ) {
     var $ = cheerio.load( file.contents.toString() );
     var pageNavHtml = '\n';
     // query each h2, h3, h4
@@ -16,14 +16,14 @@ module.exports = function pageNav() {
       // set id slug
       $header.attr( 'id', slug );
       // add item to pageNav
-      pageNavHtml += '<li class="page-nav__item page-nav__item--' + header.name + '">' +
-        '<a href="#' + slug + '">' + title + '</a></li>\n';
+      pageNavHtml += '<li class="page-nav__item page-nav__item--' +
+        header.name + '">' + '<a href="#' + slug + '">' + title +
+        '</a></li>\n';
     });
     // add pageNavHtml to page
     $('.page-nav').html( pageNavHtml );
 
     file.contents = new Buffer( $.html() );
-    this.push( file );
-    callback();
+    next( null, file );
   });
 };

@@ -1,12 +1,12 @@
 var highlightjs = require('highlight.js');
-var through2 = require('through2');
+var getTransform = require('./get-transform');
 
 highlightjs.configure({
   classPrefix: ''
 });
 
 var hljsJavascript = highlightjs.getLanguage('javascript');
-// highlight Masonry
+// highlight Packery
 hljsJavascript.keywords.masonry_keyword = 'Masonry';
 // highlight packery variables
 hljsJavascript.keywords.masonry_var = 'msnry';
@@ -41,7 +41,7 @@ function replaceCodeBlock( match, leadingWhiteSpace, block ) {
 }
 
 module.exports = function() {
-  return through2.obj( function( file, enc, callback ) {
+  return getTransform( function( file, enc, callback ) {
     var contents = file.contents.toString();
     contents = contents.replace( /\n( *)```([^```]+)```/gi, replaceCodeBlock );
     file.contents = new Buffer( contents );
