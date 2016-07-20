@@ -496,6 +496,21 @@ transitionDuration: 0
 
 {{! ----------------------------------------------------------- }}
 
+<h3>stagger</h3>
+
+<p>Staggers item transitions, so items transition incrementally after one another. Set as a CSS time format, <code><span class="string">'0.03s'</span></code>, or as a number in milliseconds, <code><span class="number">30</span></code>.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    stagger: 30
+    ```
+  </div>
+  {{> stagger }}
+</div>
+
+{{! ----------------------------------------------------------- }}
+
 <h3>resize</h3>
 
 <p>Adjusts sizes and positions when window is resized. Enabled by default <code><span class="comment">resize: true</span></code>.</p>
