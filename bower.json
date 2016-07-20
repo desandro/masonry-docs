@@ -2,8 +2,8 @@
   "name": "masonry-docs",
   "author": "David DeSandro",
   "dependencies": {
-    "imagesloaded": "~4.0.0",
-    "normalize.css": "~3.0.3",
-    "masonry": "~4"
+    "imagesloaded": "^4.0.0",
+    "normalize.css": "^4.0.0",
+    "masonry": "^4.0.0"
   }
 }

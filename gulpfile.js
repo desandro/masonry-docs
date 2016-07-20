@@ -59,14 +59,13 @@ var jsSrc = [
   // masonry dependencies
   'bower_components/ev-emitter/ev-emitter.js',
   'bower_components/get-size/get-size.js',
-  'bower_components/matches-selector/matches-selector.js',
+  'bower_components/desandro-matches-selector/matches-selector.js',
   'bower_components/fizzy-ui-utils/utils.js',
   'bower_components/outlayer/item.js',
   'bower_components/outlayer/outlayer.js',
   // masonry
   'bower_components/masonry/masonry.js',
   // doc dependencies
-  'bower_components/eventEmitter/EventEmitter.js',
   'bower_components/imagesloaded/imagesloaded.js',
   // controller
   'js/controller.js',
