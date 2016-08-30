@@ -44,7 +44,7 @@ module.exports = function( site ) {
     var filterQuery = site.data.isExport ? [ '**', '!**/404.*'] : '**';
 
     site.data.sourceUrlPath = site.data.isExport ? '' :
-      'https://npmcdn.com/masonry-layout@' + site.data.masonryMinorVersion + '/dist/';
+      'https://unpkg.com/masonry-layout@' + site.data.masonryMinorVersion + '/dist/';
 
     var buildOptions = {
       layout: pageTemplate,
