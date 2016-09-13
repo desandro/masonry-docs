@@ -1,0 +1,40 @@
+/* ---- logo-pizza-banner ---- */
+
+.logo-pizza-banner {
+  display: block;
+  margin: 40px 0;
+  max-width: 1000px;
+  background: #E8E5E2;
+  color: #D26;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.logo-pizza-banner:hover {
+  background: #FFF;
+  color: #A2C;
+}
+
+.logo-pizza-banner__img {
+  display: block;
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.logo-pizza-banner__title {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-align: center;
+  margin: 10px 0;
+  font-size: 3.0rem;
+}
+
+.logo-pizza-banner__tagline {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-align: center;
+  margin: 0;
+  font-size: 1.2rem;
+}
