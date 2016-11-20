@@ -1,4 +1,4 @@
-MD.modules['animate-item-size-responsive'] = function( elem ) {
+MasonryDocs['animate-item-size-responsive'] = function( elem ) {
   'use strict';
 
   var docElem = document.documentElement;

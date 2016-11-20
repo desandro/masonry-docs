@@ -1,0 +1,12 @@
+/* showcase
+------------------------- */
+
+.showcase-item__link {
+  background: #E8E5E2;
+  color: #D26;
+}
+
+.showcase-item__link:hover {
+  background: white;
+  color: #A2C;
+}

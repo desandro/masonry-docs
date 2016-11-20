@@ -1,4 +1,4 @@
-MD.modules['remove-demo'] = function( elem ) {
+MasonryDocs['remove-demo'] = function( elem ) {
   'use strict';
 
   var grid = elem.querySelector('.grid');

@@ -9,7 +9,7 @@
     "hljs": false,
     "imagesLoaded": false,
     "Masonry": false,
-    "MD": false,
+    "MasonryDocs": false,
     "matchesSelector": false,
     "filterBindEvent": false
   }

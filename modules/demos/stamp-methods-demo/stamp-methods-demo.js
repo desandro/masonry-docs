@@ -1,4 +1,4 @@
-MD.modules['stamp-methods-demo'] = function( elem ) {
+MasonryDocs['stamp-methods-demo'] = function( elem ) {
   'use strict';
 
   var grid = elem.querySelector('.grid');

@@ -1,4 +1,4 @@
-MD.modules['animate-item-size'] = function( elem ) {
+MasonryDocs['animate-item-size'] = function( elem ) {
   'use strict';
 
   var grid = elem.querySelector('.grid');

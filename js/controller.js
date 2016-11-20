@@ -3,18 +3,14 @@
  */
 
 /* jshint browser: true, strict: true, unused: true, undef: true */
-/* globals matchesSelector */
+/* globals matchesSelector, FizzyDocs */
 
 ( function( window ) {
 
 'use strict';
 
 // global namespace, MD = Masonry Docs
-var MD = window.MD = {};
-// hash of page controllers
-MD.pages = {};
-// hash of modules
-MD.modules = {};
+var MasonryDocs = window.MasonryDocs = {};
 
 // -------------------------- filterBindEvent -------------------------- //
 
@@ -39,11 +35,11 @@ document.addEventListener( 'DOMContentLoaded', function() {
   notifElem = document.querySelector('#notification');
 
   // init module instance for all elements with data-module attributes
-  var moduleElems = document.querySelectorAll('[data-js-module]');
+  var moduleElems = document.querySelectorAll('[data-js]');
   for ( var i=0; i < moduleElems.length; i++ ) {
     var elem = moduleElems[i];
-    var moduleName = elem.getAttribute('data-js-module');
-    var module = MD.modules[ moduleName ];
+    var moduleName = elem.getAttribute('data-js');
+    var module = MasonryDocs[ moduleName ] || FizzyDocs[ moduleName ];
     if ( module ) {
       module( elem );
     }
@@ -53,7 +49,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
 
 // -------------------------- helpers -------------------------- //
 
-MD.getItemElement = function() {
+MasonryDocs.getItemElement = function() {
   var elem = document.createElement('div');
   var wRand = Math.random();
   var hRand = Math.random();
@@ -65,23 +61,6 @@ MD.getItemElement = function() {
   return elem;
 };
 
-MD.getSomeItemElements = function() {
-  var fragment = document.createDocumentFragment();
-  var items = [];
-  for ( var i=0; i < 3; i++ ) {
-    var item = document.createElement('div');
-    var wRand = Math.random();
-    var widthClass = wRand > 0.85 ? 'w4' :
-      wRand > 0.7 ? 'w2' : '';
-    var hRand = Math.random();
-    var heightClass = hRand > 0.85 ? 'h4' :
-      hRand > 0.7 ? 'h2' : '';
-    item.className = 'item ' + widthClass + ' ' + heightClass;
-    fragment.appendChild( item );
-    items.push( item );
-  }
-};
-
 // -------------------------- notify -------------------------- //
 
 var docElem = document.documentElement;
@@ -91,7 +70,7 @@ var transitionProp = typeof docElem.style.transition == 'string' ?
 var notifyTimeout;
 var hideTime = transitionProp ? 1000 : 1500;
 
-MD.notify = function( message ) {
+MasonryDocs.notify = function( message ) {
   notifElem.textContent = message + ' at ' + getTimestamp();
 
   notifElem.style[ transitionProp ] = 'none';
@@ -100,7 +79,7 @@ MD.notify = function( message ) {
 
   // hide the notification after a second
   clearTimeout( notifyTimeout );
-  notifyTimeout = setTimeout( MD.hideNotify, hideTime );
+  notifyTimeout = setTimeout( hideNotify, hideTime );
 };
 
 function getTimestamp() {
@@ -112,13 +91,13 @@ function getTimestamp() {
   return [ now.getHours(), min, seconds ].join(':');
 }
 
-MD.hideNotify = function() {
+function hideNotify() {
   if ( transitionProp ) {
     notifElem.style[ transitionProp ] = 'opacity 1.0s';
     notifElem.style.opacity = '0';
   } else {
     notifElem.style.display = 'none';
   }
-};
+}
 
 })( window );

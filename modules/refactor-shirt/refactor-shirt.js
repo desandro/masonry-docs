@@ -1,4 +1,4 @@
-MD.modules['refactor-shirt'] = function( elem ) {
+MasonryDocs['refactor-shirt'] = function( elem ) {
   'use strict';
 
   var endDate = new Date( 2016, 1, 10 );

@@ -15,6 +15,8 @@ var jsSrc = [
   'bower_components/masonry/masonry.js',
   // doc dependencies
   'bower_components/imagesloaded/imagesloaded.js',
+  // fizzy docs modules
+  'bower_components/fizzy-docs-modules/*/*.js',
   // controller
   'js/controller.js',
   // modules

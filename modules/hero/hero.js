@@ -1,4 +1,4 @@
-MD.modules.hero = function( elem ) {
+MasonryDocs.hero = function( elem ) {
   'use strict';
 
   var heroGrid = elem.querySelector('.hero-grid');

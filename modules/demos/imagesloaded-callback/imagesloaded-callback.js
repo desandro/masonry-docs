@@ -1,4 +1,4 @@
-MD.modules['imagesloaded-callback'] = function( elem ) {
+MasonryDocs['imagesloaded-callback'] = function( elem ) {
   'use strict';
 
   imagesLoaded( elem, function() {

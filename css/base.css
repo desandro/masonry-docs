@@ -14,7 +14,6 @@ red #D26
 
 /* font-size on html for rem*/
 html {
-  font-family: Texta, sans-serif;
   font-size: 17px;
   line-height: 1.5;
 }
@@ -28,6 +27,10 @@ html.export {
 body {
   color: #333;
   background: #D8D5D2;
+}
+
+body, input, button {
+  font-family: Texta, Avenir Next, sans-serif;
 }
 
 /* ---- links ---- */

@@ -1,4 +1,4 @@
-MD.modules['prepended-demo'] = function( elem ) {
+MasonryDocs['prepended-demo'] = function( elem ) {
   'use strict';
 
   var grid = elem.querySelector('.grid');
@@ -12,9 +12,9 @@ MD.modules['prepended-demo'] = function( elem ) {
   prependButton.addEventListener( 'click', function() {
     // create new item elements
     var items = [
-      MD.getItemElement(),
-      MD.getItemElement(),
-      MD.getItemElement()
+      MasonryDocs.getItemElement(),
+      MasonryDocs.getItemElement(),
+      MasonryDocs.getItemElement()
     ];
     // prepend elements to container
     var fragment = document.createDocumentFragment();

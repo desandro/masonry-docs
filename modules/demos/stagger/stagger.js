@@ -1,4 +1,4 @@
-MD.modules.stagger = function( elem ) {
+MasonryDocs.stagger = function( elem ) {
   'use strict';
 
   var grid = elem.querySelector('.grid');

@@ -1,4 +1,4 @@
-MD.modules['remove-complete-demo'] = function( elem ) {
+MasonryDocs['remove-complete-demo'] = function( elem ) {
   'use strict';
 
   var grid = elem.querySelector('.grid');
@@ -9,7 +9,7 @@ MD.modules['remove-complete-demo'] = function( elem ) {
 
   // bind listener
   msnry.on( 'removeComplete', function( removedItems ) {
-    MD.notify( 'Removed ' + removedItems.length + ' items' );
+    MasonryDocs.notify( 'Removed ' + removedItems.length + ' items' );
   });
 
   filterBindEvent( grid, 'click', '.grid-item', function( event ) {

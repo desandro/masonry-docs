@@ -1,5 +1,5 @@
 var cheerio = require('cheerio');
-var getTransform = require('./get-transform');
+var getTransform = require('transfob');
 
 module.exports = function pageNav() {
   return getTransform( function( file, enc, next ) {

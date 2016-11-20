@@ -1,5 +1,5 @@
 var highlightjs = require('highlight.js');
-var getTransform = require('./get-transform');
+var getTransform = require('transfob');
 
 highlightjs.configure({
   classPrefix: ''

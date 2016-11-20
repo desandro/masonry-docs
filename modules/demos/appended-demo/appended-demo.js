@@ -1,4 +1,4 @@
-MD.modules['appended-demo'] = function( elem ) {
+MasonryDocs['appended-demo'] = function( elem ) {
   'use strict';
 
   var grid = elem.querySelector('.grid');
@@ -12,9 +12,9 @@ MD.modules['appended-demo'] = function( elem ) {
   appendButton.addEventListener( 'click', function() {
     // create new item elements
     var items = [
-      MD.getItemElement(),
-      MD.getItemElement(),
-      MD.getItemElement()
+      MasonryDocs.getItemElement(),
+      MasonryDocs.getItemElement(),
+      MasonryDocs.getItemElement()
     ];
     // append elements to container
     var fragment = document.createDocumentFragment();

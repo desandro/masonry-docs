@@ -1,4 +1,4 @@
-MD.modules['imagesloaded-progress'] = function( elem ) {
+MasonryDocs['imagesloaded-progress'] = function( elem ) {
   'use strict';
 
   var msnry = new Masonry( elem, {
