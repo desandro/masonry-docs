@@ -7,7 +7,7 @@ zip:
 	rm -rf masonry-docs
 
 deploy:
-	s3cmd -c ~/.s3cfg-desandro sync build/. s3://masonry.desandro.com
+	s3cmd -c ~/.s3cfg-fizzy sync build/. s3://masonry.desandro.com
 
 gulp:
 	gulp
