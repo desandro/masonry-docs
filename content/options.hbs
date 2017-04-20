@@ -283,6 +283,45 @@ columnWidth: $grid.find('.grid-sizer')[0]
 
 {{! ----------------------------------------------------------- }}
 
+<h3>horizontalOrder</h3>
+
+<p>Lays out items to (mostly) maintain horizontal left-to-right order.</p>
+
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    horizontalOrder: true
+    ```
+  </div>
+  <div class="duo__cell example__demo" >
+    <div class="grid grid--counting"
+      data-masonry='{ "itemSelector": ".grid-item", "horizontalOrder": true }'>
+      {{> grid-items-horizontal-order}}
+    </div>
+    {{> edit-demo default="EmKWdr" }}
+  </div>
+</div>
+
+<p>Look how items in the second row are ordered.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    // default, items have no horizontal order
+    // horizontalOrder: false
+    ```
+  </div>
+  <div class="duo__cell example__demo" >
+    <div class="grid grid--counting"
+      data-masonry='{ "itemSelector": ".grid-item" }'>
+      {{> grid-items-horizontal-order}}
+    </div>
+  </div>
+</div>
+
+{{! ----------------------------------------------------------- }}
+
 <h3>percentPosition</h3>
 
 <p>Sets item positions in percent values, rather than pixel values. <code>percentPosition: <span class="literal">true</span></code> works well with percent-width items, as items will not transition their position on resize.</p>
