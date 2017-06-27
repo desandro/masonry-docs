@@ -3,7 +3,7 @@
   "version": "4.1.0",
   "dependencies": {
     "cheerio": "^0.20.0",
-    "glob": "^7.0.5",
+    "glob": "^7.1.2",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-filter": "^4.0.0",
@@ -13,10 +13,10 @@
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
     "gulp-uglify": "^1.5.4",
-    "gulp-util": "^3.0.7",
+    "gulp-util": "^3.0.8",
     "handlebars-layouts": "^3.1.4",
-    "highlight.js": "^9.5.0",
-    "jshint": "^2.9.2",
+    "highlight.js": "^9.12.0",
+    "jshint": "^2.9.5",
     "transfob": "^1.0.0"
   },
   "repository": {
