@@ -73,12 +73,13 @@
   color: white;
 }
 
-.big-button__icon {
+.hero-grid__big-button svg {
   width: 24px;
   height: 24px;
+  fill: white;
 }
 
-.big-button__icon path {
+.hero-grid__big-button svg path {
   fill: white;
 }
 
@@ -156,7 +157,7 @@
     min-height: 60px;
   }
 
-  .big-button__icon {
+  .hero-grid__big-button svg {
     display: block;
     position: absolute;
     left: 10px;

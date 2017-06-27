@@ -15,11 +15,13 @@
     {{/each}}
   {{else}}
     {{! in production, just include concat CSS }}
-    <link rel="stylesheet" href="{{#if page.is404}}/{{/if}}css/masonry-docs.css" media="screen" />
+    <link rel="stylesheet" href="{{#if page.is404}}/{{/if}}css/masonry-docs.css?1" media="screen" />
   {{/if}}
 
 </head>
 <body class="page--{{basename}}" data-page="{{basename}}">
+
+  {{> top-banner}}
 
   {{> site-nav}}
 
@@ -52,7 +54,7 @@
   {{/each}}
 {{else}}
   {{! in production, just include concat/minified js }}
-  <script src="{{#if page.is404}}/{{/if}}js/masonry-docs.min.js"></script>
+  <script src="{{#if page.is404}}/{{/if}}js/masonry-docs.min.js?1"></script>
 {{/if}}
 
 {{#unless isExport}}
