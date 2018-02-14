@@ -15,7 +15,7 @@
     {{/each}}
   {{else}}
     {{! in production, just include concat CSS }}
-    <link rel="stylesheet" href="{{#if page.is404}}/{{/if}}css/masonry-docs.css?1" media="screen" />
+    <link rel="stylesheet" href="{{#if page.is404}}/{{/if}}css/masonry-docs.css?3" media="screen" />
   {{/if}}
 
 </head>
@@ -54,7 +54,7 @@
   {{/each}}
 {{else}}
   {{! in production, just include concat/minified js }}
-  <script src="{{#if page.is404}}/{{/if}}js/masonry-docs.min.js?1"></script>
+  <script src="{{#if page.is404}}/{{/if}}js/masonry-docs.min.js?2"></script>
 {{/if}}
 
 {{#unless isExport}}
