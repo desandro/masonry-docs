@@ -14,7 +14,136 @@ title: Extras
 
 {{! --------------------------------------------------- }}
 
-<h2>RequireJS</h2>
+<h2>Module loaders</h2>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>Webpack</h3>
+
+<p>Install Masonry with npm.</p>
+
+``` bash
+npm install masonry-layout
+```
+
+<p>You can then <code>require(<span class="string">'masonry-layout'</span>)</code>.</p>
+
+``` js
+// main.js
+var Masonry = require('masonry-layout');
+
+var msnry = new Masonry( '.grid', {
+  // options...
+});
+```
+
+<p>Run webpack.</p>
+
+
+``` bash
+webpack main.js bundle.js
+```
+
+<p id="webpack-jquery">To use Masonry as a jQuery plugin with Webpack, you need to use <a href="https://www.npmjs.org/package/jquery-bridget">jQuery Bridget</a></p>
+
+``` bash
+npm install jquery-bridget
+```
+
+``` js
+var $ = require('jquery');
+var jQueryBridget = require('jquery-bridget');
+var Masonry = require('masonry-layout');
+// make Masonry a jQuery plugin
+jQueryBridget( 'masonry', Masonry, $ );
+// now you can use $().masonry()
+$('.grid').masonry({
+  columnWidth: 80
+});
+```
+
+{{! --------------------------------------------------- }}
+
+<h3>ES6</h3>
+
+<p>To load Masonry with ES6 imports, install Masonry as a package.</p>
+
+```
+npm install masonry-layout
+```
+
+<p>You can then import this package.</p>
+
+``` js
+import Masonry from 'masonry-layout';
+
+var msnry = new Masonry( '.grid', {...});
+```
+
+<p>To use Masonry as a jQuery plugin with ES6, you need to load and call jQuery Bridget.</p>
+
+```
+npm install jquery
+npm install jquery-bridget
+```
+
+``` js
+import $ from 'jquery';
+import jQueryBridget from 'jquery-bridget';
+import Masonry from 'masonry-layout';
+
+// make Masonry a jQuery plugin
+jQueryBridget( 'masonry', Masonry, $ );
+
+// now you can use $().masonry()
+$('.grid').masonry({
+  columnWidth: 200,
+});
+```
+
+{{! --------------------------------------------------- }}
+
+<h3>Browserify</h3>
+
+<p>Masonry works with <a href="http://browserify.org">Browserify</a>. <a href="https://www.npmjs.org/package/masonry-layout">Install Masonry with npm</a>.</p>
+
+```
+npm install masonry-layout
+```
+
+``` js
+var Masonry = require('masonry-layout');
+
+var msnry = new Masonry( '.grid', {
+  // options...
+});
+```
+
+<p id="browserify-jquery">To use Masonry as a jQuery plugin with Browserify, you need to use <a href="https://www.npmjs.org/package/jquery-bridget">jQuery Bridget</a></p>
+
+```
+npm install jquery
+npm install jquery-bridget
+```
+
+``` js
+var $ = require('jquery');
+var jQueryBridget = require('jquery-bridget');
+var Masonry = require('masonry-layout');
+
+// make Masonry a jQuery plugin
+jQueryBridget( 'masonry', Masonry, $ );
+
+// now you can use $().masonry()
+$('.grid').masonry({
+  columnWidth: 200,
+});
+```
+
+
+{{! --------------------------------------------------- }}
+
+<h3>RequireJS</h3>
 
 <p>Masonry supports <a href="http://requirejs.org">RequireJS</a>.</p>
 
@@ -47,11 +176,11 @@ requirejs( [ 'require', 'jquery', 'path/to/masonry.pkgd.js' ],
 });
 ```
 
-<p id="requirejs-bower">Or, you can manage dependencies with <a href="http://bower.io">Bower</a>. Set <a href="http://requirejs.org/docs/api.html#config-baseUrl">baseUrl</a> to <code>bower_components</code> and set a path config for all your application code.</p>
+<p id="requirejs-bower">Or, you can manage dependencies with npm or Bower. Set <a href="http://requirejs.org/docs/api.html#config-baseUrl">baseUrl</a> to the packages folder and set a config path for all your application code.</p>
 
 ``` js
 requirejs.config({
-  baseUrl: 'bower_components/',
+  baseUrl: 'node_modules/',
   paths: {
     app: '../'
   }
@@ -65,11 +194,11 @@ requirejs( [
 });
 ```
 
-<p id="requirejs-bower-jquery">You can require Bower dependencies and use Masonry as a jQuery plugin with jQuery Bridget.</p>
+<p>To use Masonry as a jQuery plugin with RequireJS and a package manager, you need to install and call <a href="https://github.com/desandro/jquery-bridget">jQuery Bridget</a>.</p>
 
 ``` js
 requirejs.config({
-  baseUrl: '../bower_components',
+  baseUrl: '../node_modules',
   paths: {
     jquery: 'jquery/jquery'
   }
@@ -88,88 +217,6 @@ requirejs( [
 });
 ```
 
-{{! --------------------------------------------------- }}
-
-<h2>Browserify</h2>
-
-<p>Masonry works with <a href="http://browserify.org">Browserify</a>. <a href="https://www.npmjs.org/package/masonry-layout">Install Masonry with npm</a>.</p>
-
-```
-npm install masonry-layout
-```
-
-``` js
-var Masonry = require('masonry-layout');
-
-var msnry = new Masonry( '.grid', {
-  // options...
-});
-```
-
-<p id="browserify-jquery">To use Masonry as a jQuery plugin with Browserify, you need to use <a href="https://www.npmjs.org/package/jquery-bridget">jQuery Bridget</a></p>
-
-```
-npm install jquery
-npm install jquery-bridget
-```
-
-``` js
-var $ = require('jquery');
-var jQueryBridget = require('jquery-bridget');
-var Masonry = require('masonry-layout');
-// make Masonry a jQuery plugin
-jQueryBridget( 'masonry', Masonry, $ );
-// now you can use $().masonry()
-$('.grid').masonry({
-  columnWidth: 80
-});
-```
-
-{{! ----------------------------------------------------------------- }}
-
-<h2>Webpack</h2>
-
-<p>Install Masonry with npm.</p>
-
-``` bash
-npm install masonry-layout
-```
-
-<p>You can then <code>require(<span class="string">'masonry-layout'</span>)</code>.</p>
-
-``` js
-// main.js
-var Masonry = require('masonry-layout');
-
-var msnry = new Masonry( '.grid', {
-  // options...
-});
-```
-
-<p>Run webpack.</p>
-
-
-``` bash
-webpack main.js bundle.js
-```
-
-<p>jQuery plugin functionality needs to be installed separately, similar to <a href="#browserify">using Browserify</a>.</p>
-
-``` bash
-npm install jquery-bridget
-```
-
-``` js
-var $ = require('jquery');
-var jQueryBridget = require('jquery-bridget');
-var Masonry = require('masonry-layout');
-// make Masonry a jQuery plugin
-jQueryBridget( 'masonry', Masonry, $ );
-// now you can use $().masonry()
-$('.grid').masonry({
-  columnWidth: 80
-});
-```
 
 {{! --------------------------------------------------- }}
 
