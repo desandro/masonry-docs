@@ -6,7 +6,7 @@ This project does _not_ include the source for Masonry. That's over in [github.c
 
 ## Build
 
-Building these docs requires [Bower](http://bower.io), [Gulp](http://gulpjs.com) and [npm](http://npmjs.org).
+Building these docs requires [Bower](https://bower.io), [Gulp](https://gulpjs.com) and [npm](https://www.npmjs.com/).
 
 ``` bash
 npm install

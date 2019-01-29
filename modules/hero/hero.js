@@ -16,42 +16,42 @@ MasonryDocs.hero = function( elem ) {
     {
       title: "Erik Johansson",
       url: "http://erikjohanssonphoto.com/work/imagecats/personal/",
-      image: "http://i.imgur.com/6Lo8oun.jpg"
+      image: "https://i.imgur.com/6Lo8oun.jpg"
     },
     {
       title: "Beyoncé | I Am",
       url: 'http://iam.beyonce.com/',
-      image: 'http://i.imgur.com/HDSAMFl.jpg'
+      image: 'https://i.imgur.com/HDSAMFl.jpg'
     },
     {
       title: "Webster Hall Timeline",
       url: "http://www.websterhall.com/timeline/",
-      image: "http://i.imgur.com/VWfCPYx.jpg"
+      image: "https://i.imgur.com/VWfCPYx.jpg"
     },
     {
       title: "Halcyon theme",
       url: "http://halcyon-theme.tumblr.com/",
-      image: "http://i.imgur.com/A1RSOhg.jpg"
+      image: "https://i.imgur.com/A1RSOhg.jpg"
     },
     {
       title: "RESIZE.THATSH.IT",
       url: "http://resize.thatsh.it/",
-      image: "http://i.imgur.com/00xWxLG.png"
+      image: "https://i.imgur.com/00xWxLG.png"
     },
     {
       title: "Tumblr Staff: Archive",
       url: "http://staff.tumblr.com/archive",
-      image: "http://i.imgur.com/igjvRa3.jpg"
+      image: "https://i.imgur.com/igjvRa3.jpg"
     },
     {
       title: "Kristian Hammerstad",
       url: "http://www.kristianhammerstad.com/",
-      image: "http://i.imgur.com/Zwd7Sch.jpg"
+      image: "https://i.imgur.com/Zwd7Sch.jpg"
     },
     {
       title: "Loading Effects for Grid Items | Demo 2",
       url: "http://tympanus.net/Development/GridLoadingEffects/index2.html",
-      image: "http://i.imgur.com/iFBSB1t.jpg"
+      image: "https://i.imgur.com/iFBSB1t.jpg"
     }
   ];
 
