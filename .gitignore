@@ -6,3 +6,4 @@ masonry.require.js
 _tasks/data/
 fonts/2D333F*.*
 package-lock.json
+.netlify
