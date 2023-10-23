@@ -2,7 +2,7 @@
   "name": "masonry-docs",
   "version": "4.1.0",
   "dependencies": {
-    "cheerio": "^0.20.0",
+    "cheerio": "^1.0.0-rc.12",
     "glob": "^7.1.2",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
