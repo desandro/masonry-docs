@@ -27,7 +27,7 @@
     "build": "npm run buildExport && npx gulp",
     "zip": "rm -rf build/masonry-docs.zip && cp -r build masonry-docs && zip -rq build/masonry-docs.zip masonry-docs/ && rm -rf masonry-docs",
     "buildExport": "rm -rf build/ && npx gulp export && npm run zip",
-    "deploy": "vercel deploy --cwd build/",
-    "deployProd": "vercel deploy --cwd build --prod"
+    "deploy": "netlify deploy --dir=build",
+    "deployProd": "netlify deploy --dir=build --prod"
   }
 }
